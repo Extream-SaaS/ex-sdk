@@ -14,16 +14,16 @@ export type headers = {
 export class ExtremeClient {
   options: options;
   io: any
+  private headers: headers
 
   constructor (options: options) {
     this.options = options
     this.io = io
+    this.headers = {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      Authorization: `Basic ${this.options.apiKey}`
+    }
   }
-
-  private headers: headers = {
-    'Content-Type': 'application/x-www-form-urlencoded',
-    Authorization: `Basic ${this.options.apiKey}`
-  };
 
   /**
    * Given a username and password, will authenticate the user against the ExtremeClient
