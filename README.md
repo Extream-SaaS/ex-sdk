@@ -5,7 +5,7 @@ ExtremeClient is a JavaScript SDK for interacting with the Extreme platform writ
 ## Usage
 
 ```js
-import { ExtremeClient } from '../../../sdk'
+import { ExtremeClient } from 'ex-sdk'
 const extremeClient = new ExtremeClient({
     auth: 'YOUR_AUTH_URL',
     gateway: 'YOUR_GATEWAY_URL',
