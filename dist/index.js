@@ -12,10 +12,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ExtremeClient = void 0;
+exports.ExtreamClient = void 0;
 // @ts-ignore
 const socket_io_client_1 = __importDefault(require("socket.io-client"));
-class ExtremeClient {
+class ExtreamClient {
     constructor(options) {
         this.options = options;
         this.io = socket_io_client_1.default;
@@ -25,7 +25,7 @@ class ExtremeClient {
         };
     }
     /**
-     * Given a username and password, will authenticate the user against the ExtremeClient
+     * Given a username and password, will authenticate the user against the ExtreamClient
      *
      * @param { string } username
      * @param { string } password
@@ -48,4 +48,4 @@ class ExtremeClient {
         });
     }
 }
-exports.ExtremeClient = ExtremeClient;
+exports.ExtreamClient = ExtreamClient;

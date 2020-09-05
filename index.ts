@@ -11,7 +11,7 @@ export type headers = {
   Authorization: string
 }
 
-export class ExtremeClient {
+export class ExtreamClient {
   options: options;
   io: any
   private headers: headers
@@ -26,7 +26,7 @@ export class ExtremeClient {
   }
 
   /**
-   * Given a username and password, will authenticate the user against the ExtremeClient
+   * Given a username and password, will authenticate the user against the ExtreamClient
    *
    * @param { string } username
    * @param { string } password

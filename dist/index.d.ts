@@ -7,13 +7,13 @@ export declare type headers = {
     'Content-Type': string;
     Authorization: string;
 };
-export declare class ExtremeClient {
+export declare class ExtreamClient {
     options: options;
     io: any;
     private headers;
     constructor(options: options);
     /**
-     * Given a username and password, will authenticate the user against the ExtremeClient
+     * Given a username and password, will authenticate the user against the ExtreamClient
      *
      * @param { string } username
      * @param { string } password

@@ -1,19 +1,19 @@
-# ExtremeClient
+# ExtreamClient
 
-ExtremeClient is a JavaScript SDK for interacting with the Extreme platform written in TypeScript
+ExtreamClient is a JavaScript SDK for interacting with the Extream platform written in TypeScript
 
 ## Usage
 
 ```js
-import { ExtremeClient } from 'ex-sdk'
-const extremeClient = new ExtremeClient({
+import { ExtreamClient } from 'ex-sdk'
+const extreamClient = new ExtreamClient({
     auth: 'YOUR_AUTH_URL',
     gateway: 'YOUR_GATEWAY_URL',
     apiKey: 'YOUR_API_KEY'
   })
 
 async myAuthenticationMethod () {
-    await this.extremeClient.auth('rich@extream.app', 'password')
+    await this.extreamClient.auth('rich@extream.app', 'password')
 }
 
 ```
