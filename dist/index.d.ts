@@ -7,6 +7,10 @@ export declare type headers = {
     'Content-Type': string;
     Authorization: string;
 };
+export declare type ExtreamUser = {
+    username: string;
+    'user_type': string;
+};
 export declare class ExtreamClient {
     options: options;
     io: any;
@@ -17,8 +21,8 @@ export declare class ExtreamClient {
      *
      * @param { string } username
      * @param { string } password
-     * @returns { Promise<any> }
+     * @returns { Promise<ExtreamUser> }
      *
      */
-    auth(username: string, password: string): Promise<any>;
+    auth(username: string, password: string): Promise<ExtreamUser>;
 }

@@ -11,10 +11,15 @@ export type headers = {
   Authorization: string
 }
 
+export type ExtreamUser = {
+  username: string;
+  'user_type': string;
+}
+
 export class ExtreamClient {
   options: options;
-  io: any
-  private headers: headers
+  io: any;
+  private headers: headers;
 
   constructor (options: options) {
     this.options = options
@@ -30,12 +35,13 @@ export class ExtreamClient {
    *
    * @param { string } username
    * @param { string } password
-   * @returns { Promise<any> }
+   * @returns { Promise<ExtreamUser> }
    *
    */
-  public async auth (username: string, password: string): Promise<any> {
+  public async auth (username: string, password: string): Promise<ExtreamUser> {
     try {
-      const auth = await fetch(`${this.options.auth}/auth/login?username=${username}`,
+      const auth = await fetch(
+        `${this.options.auth}/auth/login?username=${username}`,
         {
           method: 'GET',
           headers: this.headers

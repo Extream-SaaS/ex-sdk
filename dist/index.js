@@ -29,7 +29,7 @@ class ExtreamClient {
      *
      * @param { string } username
      * @param { string } password
-     * @returns { Promise<any> }
+     * @returns { Promise<ExtreamUser> }
      *
      */
     auth(username, password) {
