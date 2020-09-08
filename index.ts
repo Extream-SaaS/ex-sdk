@@ -1,4 +1,3 @@
-// @ts-ignore
 import io from 'socket.io-client'
 
 export type Options = {
@@ -32,16 +31,16 @@ export type AuthenticationResponse = {
 
 export class ExtreamClient {
   options: Options;
-  io: any;
+  io: SocketIOClientStatic;
   private headers: Headers;
 
   constructor (options: Options) {
     this.options = options
     this.io = io
-    this.headers = {
+    this.headers = new Headers({
       'Content-Type': 'application/x-www-form-urlencoded',
       Authorization: `Basic ${this.options.apiKey}`
-    }
+    })
   }
 
   /**
