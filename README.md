@@ -21,6 +21,17 @@ async myAuthenticationMethod () {
 ## Build from source
 
 ```shell
-yarn
-yarn build
+npm install
+npm run build
 ```
+
+## Serving from source
+
+In order to watch for changes you can run:
+```shell
+npm run serve
+```
+
+## Docs
+
+[Typedoc](https://typedoc.org/) is used in order to generate documentation from code comments. To generate docs run `npm run docs`.
