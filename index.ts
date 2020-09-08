@@ -1,21 +1,5 @@
 import io from 'socket.io-client'
-
-// User types
-export interface UserFields {
-  firstName: string;
-  lastName: string;
-  company: string;
-  region: string;
-  job: string;
-}
-
-export interface ExtreamUser {
-  id: string;
-  username: string;
-  email: string;
-  fields: UserFields;
-  user_type: string;
-}
+import { ExtreamAuthUser } from './types/user';
 
 // Authentication types
 export interface AuthenticationParams {
@@ -33,30 +17,6 @@ export interface AuthenticationResponse {
 }
 
 // Events by organization
-export interface EventsPayload {
-  id: number;
-  public_id: string;
-  name: string;
-  website: string;
-  start_date: Date;
-  end_date: Date;
-  createdBy: string;
-  createdAt: Date;
-  updatedAt: Date;
-  parent?: any;
-  landing_page?: any;
-  organisation: string;
-}
-
-export interface EventsByOrganizationResponse {
-  domain: string;
-  action: string;
-  command: string;
-  payload: EventsPayload[];
-  user: ExtreamUser;
-  socketId: string;
-}
-
 export interface ExtreamOptions {
   auth: string
   gateway: string
