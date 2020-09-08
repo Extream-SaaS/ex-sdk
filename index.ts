@@ -23,6 +23,11 @@ export interface ExtreamOptions {
   apiKey: string
 }
 
+/**
+ * The Extream websocket and http communication client.
+ *
+ * Only one of these should ever be created per application instance and shared across the app to avoid memory leaks.
+ */
 export class ExtreamClient {
   public socket: SocketIOClient.Socket | null = null
   private options: ExtreamOptions
@@ -36,10 +41,6 @@ export class ExtreamClient {
     })
   }
 
-  connect (accessToken: string): void {
-    this.socket = io(`${this.options.gateway}?x-auth=${accessToken}`)
-  }
-
   private async performFetch (url: string, options: RequestInit | undefined): Promise<any> {
     const auth = await fetch(
       url,
@@ -49,6 +50,17 @@ export class ExtreamClient {
       throw new Error(`Response had non ok status code ${auth.status}`)
     }
     return auth.json()
+  }
+
+  /**
+   * Create an instance of the websocket and connect to it using the access token provided
+   *
+   * @param { string } accessToken
+   * @returns { void }
+   *
+   */
+  connect (accessToken: string): void {
+    this.socket = io(`${this.options.gateway}?x-auth=${accessToken}`)
   }
 
   /**
