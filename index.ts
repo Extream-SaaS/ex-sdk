@@ -1,4 +1,3 @@
-/* eslint-disable */
 import io from 'socket.io-client'
 import { ExtreamAuthUser } from './types/user'
 
@@ -37,7 +36,7 @@ export class ExtreamClient {
     })
   }
 
-  connect (accessToken: string) {
+  connect (accessToken: string): void {
     this.socket = io(`${this.options.gateway}?x-auth=${accessToken}`)
   }
 
