@@ -5,12 +5,9 @@ export type Options = {
   gateway: string
   apiKey: string
 }
-export type Headers = {
-  'Content-Type': string
-  Authorization: string
-}
 
 export type ExtreamUser = {
+  id: string
   username: string;
   'user_type': string;
 }
