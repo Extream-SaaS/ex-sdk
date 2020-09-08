@@ -18,13 +18,13 @@ export interface ExtreamUser {
 }
 
 // Authentication types
-export type AuthenticationParams = {
+export interface AuthenticationParams {
   username: string
   password: string
   'grant_type': string
 }
 
-export type AuthenticationResponse = {
+export interface AuthenticationResponse {
   accessToken: string;
   accessTokenExpiresAt: string;
   id: string;
@@ -57,7 +57,7 @@ export interface EventsByOrganizationResponse {
   socketId: string;
 }
 
-export type ExtreamOptions = {
+export interface ExtreamOptions {
   auth: string
   gateway: string
   apiKey: string
