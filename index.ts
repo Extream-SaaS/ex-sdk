@@ -1,17 +1,23 @@
 import io from 'socket.io-client'
 
-export type Options = {
-  auth: string
-  gateway: string
-  apiKey: string
+// User types
+export interface UserFields {
+  firstName: string;
+  lastName: string;
+  company: string;
+  region: string;
+  job: string;
 }
 
-export type ExtreamUser = {
-  id: string
+export interface ExtreamUser {
+  id: string;
   username: string;
-  'user_type': string;
+  email: string;
+  fields: UserFields;
+  user_type: string;
 }
 
+// Authentication types
 export type AuthenticationParams = {
   username: string
   password: string
