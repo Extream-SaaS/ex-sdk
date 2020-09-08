@@ -32,12 +32,43 @@ export type AuthenticationResponse = {
   refreshTokenExpiresAt: string;
 }
 
+// Events by organization
+export interface EventsPayload {
+  id: number;
+  public_id: string;
+  name: string;
+  website: string;
+  start_date: Date;
+  end_date: Date;
+  createdBy: string;
+  createdAt: Date;
+  updatedAt: Date;
+  parent?: any;
+  landing_page?: any;
+  organisation: string;
+}
+
+export interface EventsByOrganizationResponse {
+  domain: string;
+  action: string;
+  command: string;
+  payload: EventsPayload[];
+  user: ExtreamUser;
+  socketId: string;
+}
+
+export type ExtreamOptions = {
+  auth: string
+  gateway: string
+  apiKey: string
+}
+
 export class ExtreamClient {
-  options: Options;
+  options: ExtreamOptions;
   io: SocketIOClientStatic;
   private headers: Headers;
 
-  constructor (options: Options) {
+  constructor (options: ExtreamOptions) {
     this.options = options
     this.io = io
     this.headers = new Headers({
