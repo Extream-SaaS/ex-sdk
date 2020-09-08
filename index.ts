@@ -77,6 +77,17 @@ export class ExtreamClient {
     })
   }
 
+  private async performFetch (url: string, options: RequestInit | undefined): Promise<any> {
+    const auth = await fetch(
+      url,
+      options
+    )
+    if (!auth.ok) {
+      throw new Error(`Response had non ok status code ${auth.status}`)
+    }
+    return auth.json()
+  }
+
   /**
    * Given a username and password, will authenticate the user against the ExtreamClient
    *
@@ -92,42 +103,32 @@ export class ExtreamClient {
       grant_type: 'password'
     }
 
-    try {
-      const auth = await fetch(
-        `${this.options.auth}/auth/login`,
+    const resp: AuthenticationResponse = await this.performFetch(
+      `${this.options.auth}/auth/login`,
         {
           method: 'POST',
           headers: this.headers,
           body: `username=${params.username}&password=${params.password}&grant_type=${params.grant_type}`
         }
-      )
-      const resp = await auth.json()
-      return resp
-    } catch (error) {
-      return error
-    }
+    )
+
+    return resp
   }
 
   /**
    * Given a username and password, will fetch the user
    *
    * @param { string } username
-   * @returns { Promise<ExtreamUser> }
+   * @returns { Promise<ExtreamAuthUser> }
    *
    */
-  public async fetchUser (username: string): Promise<ExtreamUser> {
-    try {
-      const auth = await fetch(
-        `${this.options.auth}/auth/login?username=${username}`,
-        {
-          method: 'GET',
-          headers: this.headers
-        }
-      )
-      const resp = await auth.json()
-      return resp
-    } catch (error) {
-      return error
-    }
+  public fetchUser (username: string): Promise<ExtreamAuthUser> {
+    return this.performFetch(
+      `${this.options.auth}/auth/login?username=${username}`,
+      {
+        method: 'GET',
+        headers: this.headers
+      }
+    )
   }
 }
