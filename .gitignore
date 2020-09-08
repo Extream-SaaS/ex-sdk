@@ -1,3 +1,4 @@
 node_modules
 /dist
+# TODO remove on first stable release
 docs/
