@@ -29,10 +29,38 @@ class ExtreamClient {
      *
      * @param { string } username
      * @param { string } password
+     * @returns { Promise<AuthenticationResponse> }
+     *
+     */
+    authenticate(username, password) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const params = {
+                username,
+                password,
+                grant_type: 'password'
+            };
+            try {
+                const auth = yield fetch(`${this.options.auth}/auth/login`, {
+                    method: 'POST',
+                    headers: this.headers,
+                    body: `username=${params.username}&password=${params.password}&grant_type=${params.grant_type}`
+                });
+                const resp = yield auth.json();
+                return resp;
+            }
+            catch (error) {
+                return error;
+            }
+        });
+    }
+    /**
+     * Given a username and password, will fetch the user
+     *
+     * @param { string } username
      * @returns { Promise<ExtreamUser> }
      *
      */
-    auth(username, password) {
+    fetchUser(username) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const auth = yield fetch(`${this.options.auth}/auth/login?username=${username}`, {

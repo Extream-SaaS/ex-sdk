@@ -1,12 +1,12 @@
 // @ts-ignore
 import io from 'socket.io-client'
 
-export type options = {
+export type Options = {
   auth: string
   gateway: string
   apiKey: string
 }
-export type headers = {
+export type Headers = {
   'Content-Type': string
   Authorization: string
 }
@@ -16,12 +16,26 @@ export type ExtreamUser = {
   'user_type': string;
 }
 
-export class ExtreamClient {
-  options: options;
-  io: any;
-  private headers: headers;
+export type AuthenticationParams = {
+  username: string
+  password: string
+  'grant_type': string
+}
 
-  constructor (options: options) {
+export type AuthenticationResponse = {
+  accessToken: string;
+  accessTokenExpiresAt: string;
+  id: string;
+  refreshToken: string;
+  refreshTokenExpiresAt: string;
+}
+
+export class ExtreamClient {
+  options: Options;
+  io: any;
+  private headers: Headers;
+
+  constructor (options: Options) {
     this.options = options
     this.io = io
     this.headers = {
@@ -35,10 +49,40 @@ export class ExtreamClient {
    *
    * @param { string } username
    * @param { string } password
+   * @returns { Promise<AuthenticationResponse> }
+   *
+   */
+  public async authenticate (username: string, password: string): Promise<AuthenticationResponse> {
+    const params = {
+      username,
+      password,
+      grant_type: 'password'
+    }
+
+    try {
+      const auth = await fetch(
+        `${this.options.auth}/auth/login`,
+        {
+          method: 'POST',
+          headers: this.headers,
+          body: `username=${params.username}&password=${params.password}&grant_type=${params.grant_type}`
+        }
+      )
+      const resp = await auth.json()
+      return resp
+    } catch (error) {
+      return error
+    }
+  }
+
+  /**
+   * Given a username and password, will fetch the user
+   *
+   * @param { string } username
    * @returns { Promise<ExtreamUser> }
    *
    */
-  public async auth (username: string, password: string): Promise<ExtreamUser> {
+  public async fetchUser (username: string): Promise<ExtreamUser> {
     try {
       const auth = await fetch(
         `${this.options.auth}/auth/login?username=${username}`,
