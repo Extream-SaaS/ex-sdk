@@ -25,17 +25,20 @@ export interface ExtreamOptions {
 }
 
 export class ExtreamClient {
-  options: ExtreamOptions;
-  io: SocketIOClientStatic;
-  private headers: Headers;
+  public socket: SocketIOClient.Socket | null = null
+  private options: ExtreamOptions
+  private headers: Headers
 
   constructor (options: ExtreamOptions) {
     this.options = options
-    this.io = io
     this.headers = new Headers({
       'Content-Type': 'application/x-www-form-urlencoded',
       Authorization: `Basic ${this.options.apiKey}`
     })
+  }
+
+  connect (accessToken: string) {
+    this.socket = io(`${this.options.gateway}?x-auth=${accessToken}`)
   }
 
   private async performFetch (url: string, options: RequestInit | undefined): Promise<any> {
