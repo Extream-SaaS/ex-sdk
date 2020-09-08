@@ -1,5 +1,6 @@
+/* eslint-disable */
 import io from 'socket.io-client'
-import { ExtreamAuthUser } from './types/user';
+import { ExtreamAuthUser } from './types/user'
 
 // Authentication types
 export interface AuthenticationParams {
@@ -65,11 +66,11 @@ export class ExtreamClient {
 
     const resp: AuthenticationResponse = await this.performFetch(
       `${this.options.auth}/auth/login`,
-        {
-          method: 'POST',
-          headers: this.headers,
-          body: `username=${params.username}&password=${params.password}&grant_type=${params.grant_type}`
-        }
+      {
+        method: 'POST',
+        headers: this.headers,
+        body: `username=${params.username}&password=${params.password}&grant_type=${params.grant_type}`
+      }
     )
 
     return resp
