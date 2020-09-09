@@ -103,7 +103,7 @@ export class ExtreamClient {
     if (!this.socket) {
       throw new Error('No socket connection found. Try connecting first. See method ExtreamClient.connect()')
     }
-    return this.socket?.emit(topic, payload)
+    return this.socket.emit(topic, payload)
   }
 
   /**
@@ -118,7 +118,7 @@ export class ExtreamClient {
     if (!this.socket) {
       throw new Error('No socket connection found. Try connecting first. See method ExtreamClient.connect()')
     }
-    return this.socket?.on(topic, cb)
+    return this.socket.on(topic, cb)
   }
 
   /**
