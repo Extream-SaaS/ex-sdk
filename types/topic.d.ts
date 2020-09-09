@@ -1,10 +1,6 @@
-export type EmitTopic =
-  | 'Request'
-  | 'Authorise'
-  | 'authorize'
-
-  /* admin events */
-  | 'admin_organisation_create'
+/* admin events */
+export type AdminTopics =
+'admin_organisation_create'
   | 'admin_organisation_update'
   | 'admin_organisation_read'
   | 'admin_event_create'
@@ -17,15 +13,17 @@ export type EmitTopic =
   | 'admin_item_update'
   | 'admin_item_read'
 
-  /* client events */
-  | 'client_rtmp_get'
+/* client events */
+export type ClientTopics =
+'client_rtmp_get'
   | 'client_rtmp_activate'
   | 'client_chat_ban'
   | 'client_chat_activate'
   | 'client_poll_listener'
 
-  /* consumer events */
-  | 'consumer_event_get'
+/* consumer events */
+export type CosumerTopics =
+'consumer_event_get'
   | 'consumer_itinerary_get'
   | 'consumer_chat_get'
   | 'consumer_chat_send'
@@ -35,4 +33,6 @@ export type EmitTopic =
   | 'consumer_poll_answer'
   | 'Send';
 
-export type SubscribeTopic = 'authorized' | 'unauthorized' | 'mfa' | 'connect';
+export type AuthorizationTopics = 'authorized' | 'unauthorized' | 'mfa' | 'connect';
+
+export type EmitTopic = AdminTopics & ClientTopics & AuthorizationTopics
