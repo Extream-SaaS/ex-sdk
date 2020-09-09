@@ -42,10 +42,10 @@ export class ExtreamClient {
     })
   }
 
-  private async performFetch (
+  private async performFetch<T> (
     url: string,
     options: RequestInit | undefined
-  ): Promise<any> {
+  ): Promise<T> {
     const resp = await fetch(url, options)
     if (!resp.ok) {
       throw new Error(`Response returned a non OK status code ${resp.status}`)
@@ -112,7 +112,7 @@ export class ExtreamClient {
       grant_type: 'password'
     }
 
-    const resp: AuthenticationResponse = await this.performFetch(
+    const resp = await this.performFetch<AuthenticationResponse>(
       `${this.options.auth}/auth/login`,
       {
         method: 'POST',
@@ -132,7 +132,7 @@ export class ExtreamClient {
    *
    */
   public fetchUser (username: string): Promise<ExtreamAuthUser> {
-    return this.performFetch(
+    return this.performFetch<ExtreamAuthUser>(
       `${this.options.auth}/auth/login?username=${username}`,
       {
         method: 'GET',
