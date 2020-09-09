@@ -67,7 +67,7 @@ export class Consumer {
 
   sendMessage (message: SendChatRequest): Promise<void> {
     return new Promise((resolve, reject) => {
-      this.socket.on(ConsumerTopic.chatSend, (resp: SendChatMessageResponse) => {
+      this.socket.on(ConsumerTopic.ChatSend, (resp: SendChatMessageResponse) => {
         if (resp.error) {
           reject(new Error(resp.error))
         } else if (!resp.status) {
@@ -76,10 +76,10 @@ export class Consumer {
           // second response is confirmation that message was sent properly
           // wait for second message before resolving
           resolve()
-          this.socket.removeListener(ConsumerTopic.chatSend)
+          this.socket.removeListener(ConsumerTopic.ChatSend)
         }
       })
-      this.socket.emit(ConsumerTopic.chatSend, message)
+      this.socket.emit(ConsumerTopic.ChatSend, message)
     })
   }
 }

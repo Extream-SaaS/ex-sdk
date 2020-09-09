@@ -22,14 +22,14 @@ export type ClientTopics =
   | 'client_poll_listener'
 
 export enum ConsumerTopic {
-  eventGet = 'consumer_event_get',
-  itineraryGet = 'consumer_itinerary_get',
-  chatGet = 'consumer_chat_get',
-  chatSend = 'consumer_chat_send',
-  chatStart = 'consumer_chat_start',
-  rtmpGet = 'consumer_rtmp_get',
-  pollGet = 'consumer_poll_get',
-  pollAnswer = 'consumer_poll_answer'
+  EventGet = 'consumer_event_get',
+  ItineraryGet = 'consumer_itinerary_get',
+  ChatGet = 'consumer_chat_get',
+  ChatSend = 'consumer_chat_send',
+  ChatStart = 'consumer_chat_start',
+  RtmpGet = 'consumer_rtmp_get',
+  PollGet = 'consumer_poll_get',
+  PollAnswer = 'consumer_poll_answer'
 }
 
 /* consumer events */
