@@ -29,7 +29,7 @@ this.extreamClient.on('some_topic', (val) => {
 })
 
 // emit topic
-this.extreamClient.emit('some_emit_event', {
+this.extreamClient.emit('some_topic', {
   someProperty: 'someValue'
 })
 
