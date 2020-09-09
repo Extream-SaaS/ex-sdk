@@ -21,6 +21,17 @@ export type ClientTopics =
   | 'client_chat_activate'
   | 'client_poll_listener'
 
+export enum ConsumerTopic {
+eventGet = 'consumer_event_get',
+itineraryGet = 'consumer_itinerary_get',
+chatGet = 'consumer_chat_get',
+chatSend = 'consumer_chat_send',
+chatStart = 'consumer_chat_start',
+rtmpGet = 'consumer_rtmp_get',
+pollGet = 'consumer_poll_get',
+pollAnswer = 'consumer_poll_answer',
+}
+
 /* consumer events */
 export type CosumerTopics =
 'consumer_event_get'
@@ -31,7 +42,6 @@ export type CosumerTopics =
   | 'consumer_rtmp_get'
   | 'consumer_poll_get'
   | 'consumer_poll_answer'
-  | 'Send';
 
 export type AuthorizationTopics = 'authorized' | 'unauthorized' | 'mfa' | 'connect';
 
