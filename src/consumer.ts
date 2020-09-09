@@ -1,4 +1,4 @@
-import { ExtreamUser } from '../types/user'
+// import { ExtreamUser } from '../types/user'
 
 // export interface Data {
 //   message: string;
