@@ -1,6 +1,9 @@
 import io from 'socket.io-client'
 import { ExtreamAuthUser } from './types/user'
-import type { EmitTopic, SubscribeTopic } from './types/topic'
+import type { EmitTopic, AuthorizationTopics } from './types/topic'
+import { Admin as AdminActions } from './src/admin';
+import { Consumer as ConsumerActions } from './src/consumer';
+import { Client as ClientActions } from './src/client';
 
 // Authentication types
 export interface AuthenticationParams {
@@ -31,6 +34,9 @@ export interface ExtreamOptions {
  */
 export class ExtreamClient {
   public socket: SocketIOClient.Socket | null = null;
+  private adminActions: AdminActions | null = null;
+  private consumerActions: ConsumerActions | null = null;
+  private clientActions: ClientActions | null = null;
   private options: ExtreamOptions;
   private headers: Headers;
 
@@ -40,6 +46,27 @@ export class ExtreamClient {
       'Content-Type': 'application/x-www-form-urlencoded',
       Authorization: `Basic ${this.options.apiKey}`
     })
+  }
+
+  get client (): ClientActions {
+    if (!this.clientActions) {
+      throw new Error('Please connect and authenticate before trying to perform any actions')
+    }
+    return this.clientActions
+  }
+
+  get consumer (): ConsumerActions {
+    if (!this.consumerActions) {
+      throw new Error('Please connect and authenticate before trying to perform any actions')
+    }
+    return this.consumerActions
+  }
+
+  get admin (): AdminActions {
+    if (!this.adminActions) {
+      throw new Error('Please connect and authenticate before trying to perform any actions')
+    }
+    return this.adminActions
   }
 
   private async performFetch<T> (
@@ -82,12 +109,12 @@ export class ExtreamClient {
   /**
    * Returns the on method from the websocket instance
    *
-   * @param { SubscribeTopic } event
+   * @param { AuthorizationTopics } event
    * @param { any } cb
    * @returns { any }
    *
    */
-  public on (topic: SubscribeTopic, cb: any): any {
+  public on (topic: AuthorizationTopics, cb: any): any {
     if (!this.socket) {
       throw new Error('No socket connection found. Try connecting first. See method ExtreamClient.connect()')
     }
