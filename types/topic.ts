@@ -32,17 +32,6 @@ export enum ConsumerTopic {
   PollAnswer = 'consumer_poll_answer'
 }
 
-/* consumer events */
-export type CosumerTopics =
-'consumer_event_get'
-  | 'consumer_itinerary_get'
-  | 'consumer_chat_get'
-  | 'consumer_chat_send'
-  | 'consumer_chat_start'
-  | 'consumer_rtmp_get'
-  | 'consumer_poll_get'
-  | 'consumer_poll_answer'
-
 export type AuthorizationTopics = 'authorized' | 'unauthorized' | 'mfa' | 'connect';
 
 export type EmitTopic = AdminTopics & ClientTopics & AuthorizationTopics
