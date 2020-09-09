@@ -25,6 +25,7 @@ export enum ConsumerTopic {
   EventGet = 'consumer_event_get',
   ItineraryGet = 'consumer_itinerary_get',
   ChatGet = 'consumer_chat_get',
+  ChatReceive = 'consumer_chat_receive',
   ChatSend = 'consumer_chat_send',
   ChatStart = 'consumer_chat_start',
   RtmpGet = 'consumer_rtmp_get',

@@ -81,8 +81,10 @@ export interface Configuration {
 export interface ChatMessage {
   from: ExtreamUser;
   uuid: string;
+  parent: string;
   message: string;
   sent: Date;
+  removed: boolean;
 }
 
 export interface ChatMessages {
@@ -113,8 +115,17 @@ export interface GetChatResponse {
   socketId: string;
 }
 
+export interface AugementedMessage extends ChatMessage {
+  children?: { [key: string]: ChatMessage }
+}
+
+export interface AugementedMessages {
+  [key: string]: AugementedMessage
+}
+
 export class Consumer {
   private socket: SocketIOClient.Socket;
+  public messages: AugementedMessage[] = [];
   /**
    * Create an instance of the admin sdk
    */
@@ -146,6 +157,34 @@ export class Consumer {
           if ('error' in resp) {
             reject(resp.error)
           } else if (!('error' in resp) && resp.payload.id) {
+            let messages: AugementedMessages = resp.payload.messages
+            // Process all messages with parents first and push them as children into their parents
+            Object.keys(messages).filter(id => messages[id].parent).forEach((id) => {
+              const message = messages[id]
+              if (!messages[message.parent]) {
+                throw new Error(`Could not find parent for message ${id}`)
+              }
+              messages[message.parent].children = {
+                ...(messages[message.parent].children || {}),
+                [id]: message
+              }
+              delete messages[id]
+            })
+
+            // Process all messages without parents first
+            const messageArray = Object
+              .keys(messages)
+              .filter(id => !messages[id].parent)
+              .reduce((acc: AugementedMessage[], id: string) => {
+                const message = messages[id]
+                if (message.removed) {
+                  message.message = 'Message removed'
+                }
+                acc.push(message)
+                return acc
+              }, [])
+
+            this.messages = messageArray
             resolve(resp.payload.messages)
           }
         })
@@ -153,31 +192,31 @@ export class Consumer {
           id: roomId,
         })
 
-        // TODO recieving messages
-      //   this.socket.on('consumer_chat_receive', (resp) => {
-      //     if (resp.id === roomId) {
-      //       if (resp.parent) {
-      //         if (!this.messages[resp.parent].children) {
-      //           this.messages[resp.parent].children = {}
-      //         }
-      //         const children = this.messages[resp.parent].children
-      //         children[resp.uuid] = resp
-      //         Vue.set(this.messages, resp.parent, {
-      //           ...this.messages[resp.parent],
-      //           children,
-      //           lastMessage: new Date(),
-      //         })
-      //       } else {
-      //         Vue.set(this.messages, resp.uuid, resp)
-      //         const container = this.$refs.chatWindow
-      //         this.$nextTick(() => {
-      //           if (container) {
-      //             container.scrollTop = container.scrollHeight
-      //           }
-      //         })
-      //       }
-      //     }
-      //   })
+        // TODO reciving messages
+        // this.socket.on(ConsumerTopic.ChatReceive, (resp: any) => {
+        //   if (resp.id === roomId) {
+        //     if (resp.parent) {
+        //       if (!this.messages[resp.parent].children) {
+        //         this.messages[resp.parent].children = {}
+        //       }
+        //       const children = this.messages[resp.parent].children
+        //       children[resp.uuid] = resp
+        //       Vue.set(this.messages, resp.parent, {
+        //         ...this.messages[resp.parent],
+        //         children,
+        //         lastMessage: new Date(),
+        //       })
+        //     } else {
+        //       Vue.set(this.messages, resp.uuid, resp)
+        //       const container = this.$refs.chatWindow
+        //       this.$nextTick(() => {
+        //         if (container) {
+        //           container.scrollTop = container.scrollHeight
+        //         }
+        //       })
+        //     }
+        //   }
+        // })
 
       // TODO removing messages
       //   this.socket.on('consumer_chat_remove', (resp) => {
