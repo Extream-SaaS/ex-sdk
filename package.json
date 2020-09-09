@@ -7,6 +7,7 @@
     "prepare": "npm run build",
     "build": "tsc",
     "serve": "tsc --watch",
+    "lint": "eslint src index.ts",
     "docs": "typedoc"
   },
   "keywords": [],
