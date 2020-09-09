@@ -48,7 +48,7 @@ export class ExtreamClient {
   ): Promise<any> {
     const resp = await fetch(url, options)
     if (!resp.ok) {
-      throw new Error(`Response had non ok status code ${resp.status}`)
+      throw new Error(`Response returned a non OK status code ${resp.status}`)
     }
     return resp.json()
   }
@@ -65,21 +65,6 @@ export class ExtreamClient {
   }
 
   /**
-   * Returns the on method from the websocket instance
-   *
-   * @param { SubscribeTopic } event
-   * @param { any } cb
-   * @returns { any }
-   *
-   */
-  public on (topic: SubscribeTopic, cb: any): any {
-    if (!this.socket) {
-      throw new Error('You must connect first')
-    }
-    return this.socket?.on(topic, cb)
-  }
-
-  /**
    * Returns the emit method from the websocket instance
    *
    * @param { EmitTopic } event
@@ -89,9 +74,24 @@ export class ExtreamClient {
    */
   public emit (topic: EmitTopic, payload: any): any {
     if (!this.socket) {
-      throw new Error('You must connect first')
+      throw new Error('No socket connection found. Try connecting first. See method ExtreamClient.connect()')
     }
     return this.socket?.emit(topic, payload)
+  }
+
+  /**
+   * Returns the on method from the websocket instance
+   *
+   * @param { SubscribeTopic } event
+   * @param { any } cb
+   * @returns { any }
+   *
+   */
+  public on (topic: SubscribeTopic, cb: any): any {
+    if (!this.socket) {
+      throw new Error('No socket connection found. Try connecting first. See method ExtreamClient.connect()')
+    }
+    return this.socket?.on(topic, cb)
   }
 
   /**
