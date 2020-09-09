@@ -1,5 +1,6 @@
 import io from 'socket.io-client'
 import { ExtreamAuthUser } from './types/user'
+import type { EmitTopic, SubscribeTopic } from './types/topic'
 
 // Authentication types
 export interface AuthenticationParams {
@@ -29,9 +30,9 @@ export interface ExtreamOptions {
  * Only one of these should ever be created per application instance and shared across the app to avoid memory leaks.
  */
 export class ExtreamClient {
-  public socket: SocketIOClient.Socket | null = null
-  private options: ExtreamOptions
-  private headers: Headers
+  public socket: SocketIOClient.Socket | null = null;
+  private options: ExtreamOptions;
+  private headers: Headers;
 
   constructor (options: ExtreamOptions) {
     this.options = options
@@ -41,15 +42,15 @@ export class ExtreamClient {
     })
   }
 
-  private async performFetch (url: string, options: RequestInit | undefined): Promise<any> {
-    const auth = await fetch(
-      url,
-      options
-    )
-    if (!auth.ok) {
-      throw new Error(`Response had non ok status code ${auth.status}`)
+  private async performFetch (
+    url: string,
+    options: RequestInit | undefined
+  ): Promise<any> {
+    const resp = await fetch(url, options)
+    if (!resp.ok) {
+      throw new Error(`Response had non ok status code ${resp.status}`)
     }
-    return auth.json()
+    return resp.json()
   }
 
   /**
@@ -64,6 +65,36 @@ export class ExtreamClient {
   }
 
   /**
+   * Returns the on method from the websocket instance
+   *
+   * @param { SubscribeTopic } event
+   * @param { any } cb
+   * @returns { any }
+   *
+   */
+  public on (topic: SubscribeTopic, cb: any): any {
+    if (!this.socket) {
+      throw new Error('You must connect first')
+    }
+    return this.socket?.on(topic, cb)
+  }
+
+  /**
+   * Returns the emit method from the websocket instance
+   *
+   * @param { EmitTopic } event
+   * @param { any } payload
+   * @returns { any }
+   *
+   */
+  public emit (topic: EmitTopic, payload: any): any {
+    if (!this.socket) {
+      throw new Error('You must connect first')
+    }
+    return this.socket?.emit(topic, payload)
+  }
+
+  /**
    * Given a username and password, will authenticate the user against the ExtreamClient
    *
    * @param { string } username
@@ -71,7 +102,10 @@ export class ExtreamClient {
    * @returns { Promise<AuthenticationResponse> }
    *
    */
-  public async authenticate (username: string, password: string): Promise<AuthenticationResponse> {
+  public async authenticate (
+    username: string,
+    password: string
+  ): Promise<AuthenticationResponse> {
     const params = {
       username,
       password,
