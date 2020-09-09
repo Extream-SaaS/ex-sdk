@@ -1,15 +1,15 @@
 import io from 'socket.io-client'
 import { ExtreamAuthUser } from './types/user'
 import type { EmitTopic, AuthorizationTopics } from './types/topic'
-import { Admin as AdminActions } from './src/admin';
-import { Consumer as ConsumerActions } from './src/consumer';
-import { Client as ClientActions } from './src/client';
+import { Admin as AdminActions, Admin } from './src/admin'
+import { Consumer as ConsumerActions, Consumer } from './src/consumer'
+import { Client as ClientActions, Client } from './src/client'
 
 // Authentication types
 export interface AuthenticationParams {
-  username: string
-  password: string
-  'grant_type': string
+  username: string;
+  password: string;
+  'grant_type': string;
 }
 
 export interface AuthenticationResponse {
@@ -22,9 +22,9 @@ export interface AuthenticationResponse {
 
 // Events by organization
 export interface ExtreamOptions {
-  auth: string
-  gateway: string
-  apiKey: string
+  auth: string;
+  gateway: string;
+  apiKey: string;
 }
 
 /**
@@ -52,6 +52,9 @@ export class ExtreamClient {
     if (!this.clientActions) {
       throw new Error('Please connect and authenticate before trying to perform any actions')
     }
+    // else if (!this.socket?.connected) {
+    //   throw new Error('Socket has not connected yet. Please wait for socket to connect successfully before connecting')
+    // }
     return this.clientActions
   }
 
@@ -59,6 +62,9 @@ export class ExtreamClient {
     if (!this.consumerActions) {
       throw new Error('Please connect and authenticate before trying to perform any actions')
     }
+    // else if (!this.socket?.connected) {
+    //   throw new Error('Socket has not connected yet. Please wait for socket to connect successfully before connecting')
+    // }
     return this.consumerActions
   }
 
@@ -66,6 +72,9 @@ export class ExtreamClient {
     if (!this.adminActions) {
       throw new Error('Please connect and authenticate before trying to perform any actions')
     }
+    // else if (!this.socket?.connected) {
+    //   throw new Error('Socket has not connected yet. Please wait for socket to connect successfully before connecting')
+    // }
     return this.adminActions
   }
 
@@ -89,6 +98,9 @@ export class ExtreamClient {
    */
   connect (accessToken: string): void {
     this.socket = io(`${this.options.gateway}?x-auth=${accessToken}`)
+    this.adminActions = new Admin(this.socket)
+    this.clientActions = new Client(this.socket)
+    this.consumerActions = new Consumer(this.socket)
   }
 
   /**
