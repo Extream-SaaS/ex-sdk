@@ -94,31 +94,35 @@ export class ExtreamClient {
   /**
    * Returns the emit method from the websocket instance
    *
+   * You probably don't want this unless you are doing some weird stuff. Try the specific action methods instead!
+   *
    * @param { EmitTopic } event
    * @param { any } payload
    * @returns { any }
    *
    */
-  public emit (topic: EmitTopic, payload: any): any {
+  public emit (topic: EmitTopic, payload: any): void {
     if (!this.socket) {
       throw new Error('No socket connection found. Try connecting first. See method ExtreamClient.connect()')
     }
-    return this.socket.emit(topic, payload)
+    this.socket.emit(topic, payload)
   }
 
   /**
    * Returns the on method from the websocket instance
+   *
+   * You probably don't want this unless you are doing some weird stuff. Try the specific action methods instead!
    *
    * @param { AuthorizationTopics } event
    * @param { any } cb
    * @returns { any }
    *
    */
-  public on (topic: AuthorizationTopics, cb: any): any {
+  public on (topic: AuthorizationTopics, cb: (response: any) => void): void {
     if (!this.socket) {
       throw new Error('No socket connection found. Try connecting first. See method ExtreamClient.connect()')
     }
-    return this.socket.on(topic, cb)
+    this.socket.on(topic, cb)
   }
 
   /**
