@@ -1,4 +1,7 @@
+/* eslint-disable */
 // import { ExtreamUser } from '../types/user'
+
+import { ConsumerTopic } from '../types/topic'
 
 // export interface Data {
 //   message: string;
@@ -64,15 +67,19 @@ export class Consumer {
 
   sendMessage (message: SendChatRequest): Promise<void> {
     return new Promise((resolve, reject) => {
-      this.socket.on('consumer_chat_send', (resp: SendChatMessageResponse) => {
+      this.socket.on(ConsumerTopic.chatSend, (resp: SendChatMessageResponse) => {
         if (resp.error) {
           reject(new Error(resp.error))
         } else if (!resp.status) {
+          // We get 2 messages
+          // First response is confirmation there were no errors sending message
+          // second response is confirmation that message was sent properly
+          // wait for second message before resolving
           resolve()
-          this.socket.removeListener('consumer_chat_send')
+          this.socket.removeListener(ConsumerTopic.chatSend)
         }
       })
-      this.socket.emit('consumer_chat_send', message)
+      this.socket.emit(ConsumerTopic.chatSend, message)
     })
   }
 }
