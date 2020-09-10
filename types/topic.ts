@@ -22,15 +22,16 @@ export type ClientTopics =
   | 'client_poll_listener'
 
 export enum ConsumerTopic {
-  EventGet = 'consumer_event_get',
-  ItineraryGet = 'consumer_itinerary_get',
   ChatGet = 'consumer_chat_get',
   ChatReceive = 'consumer_chat_receive',
+  ChatRemove = 'consumer_chat_remove',
   ChatSend = 'consumer_chat_send',
   ChatStart = 'consumer_chat_start',
-  RtmpGet = 'consumer_rtmp_get',
+  EventGet = 'consumer_event_get',
+  ItineraryGet = 'consumer_itinerary_get',
   PollGet = 'consumer_poll_get',
-  PollAnswer = 'consumer_poll_answer'
+  PollAnswer = 'consumer_poll_answer',
+  RtmpGet = 'consumer_rtmp_get',
 }
 
 export type AuthorizationTopics = 'authorized' | 'unauthorized' | 'mfa' | 'connect';

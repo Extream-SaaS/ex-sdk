@@ -4,16 +4,19 @@
 import { ConsumerTopic } from '../types/topic'
 import { ExtreamUser } from '../types/user';
 
-export interface Data {
-  message: string;
-  sent: Date;
+export interface ChatMessage {
+  id?: string
   from: ExtreamUser;
   uuid: string;
+  parent: string;
+  message: string;
+  sent: Date;
+  removed: boolean;
 }
 
 export interface SendChatMessagePayload {
   id: string;
-  data: Data;
+  data: ChatMessage;
 }
 
 export interface SendChatMessageResponse {
@@ -76,15 +79,6 @@ export interface Configuration {
   moderation: string;
   private: boolean;
   threads: boolean;
-}
-
-export interface ChatMessage {
-  from: ExtreamUser;
-  uuid: string;
-  parent: string;
-  message: string;
-  sent: Date;
-  removed: boolean;
 }
 
 export interface ChatMessages {
@@ -153,25 +147,28 @@ export class Consumer {
 
   joinChat (roomId: string): Promise<ChatMessages> {
     return new Promise((resolve, reject) => {
-        this.socket.on('consumer_chat_get', (resp: InitialResponse | GetChatResponse ) => {
+        this.socket.on(ConsumerTopic.ChatGet, (resp: InitialResponse | GetChatResponse ) => {
           if ('error' in resp) {
             reject(resp.error)
-          } else if (!('error' in resp) && resp.payload.id) {
+          } else if (!('status' in resp) && resp.payload.id) {
             let messages: AugementedMessages = resp.payload.messages
             // Process all messages with parents first and push them as children into their parents
             Object.keys(messages).filter(id => messages[id].parent).forEach((id) => {
               const message = messages[id]
               if (!messages[message.parent]) {
-                throw new Error(`Could not find parent for message ${id}`)
+                console.warn(`Could not find parent for message ${id}`)
+                // throw new Error(`Could not find parent for message ${id}`)
+                delete messages[id]
+              } else {
+                messages[message.parent].children = {
+                  ...(messages[message.parent].children || {}),
+                  [id]: message
+                }
+                delete messages[id]
               }
-              messages[message.parent].children = {
-                ...(messages[message.parent].children || {}),
-                [id]: message
-              }
-              delete messages[id]
             })
 
-            // Process all messages without parents first
+            // Process all messages without parents
             const messageArray = Object
               .keys(messages)
               .filter(id => !messages[id].parent)
@@ -183,6 +180,9 @@ export class Consumer {
                 acc.push(message)
                 return acc
               }, [])
+              .sort((a: AugementedMessage, b: AugementedMessage) => {
+                return -(new Date(a.sent).getTime() - new Date(b.sent).getTime())
+              })
 
             this.messages = messageArray
             resolve(resp.payload.messages)
@@ -192,52 +192,30 @@ export class Consumer {
           id: roomId,
         })
 
-        // TODO reciving messages
-        // this.socket.on(ConsumerTopic.ChatReceive, (resp: any) => {
-        //   if (resp.id === roomId) {
-        //     if (resp.parent) {
-        //       if (!this.messages[resp.parent].children) {
-        //         this.messages[resp.parent].children = {}
-        //       }
-        //       const children = this.messages[resp.parent].children
-        //       children[resp.uuid] = resp
-        //       Vue.set(this.messages, resp.parent, {
-        //         ...this.messages[resp.parent],
-        //         children,
-        //         lastMessage: new Date(),
-        //       })
-        //     } else {
-        //       Vue.set(this.messages, resp.uuid, resp)
-        //       const container = this.$refs.chatWindow
-        //       this.$nextTick(() => {
-        //         if (container) {
-        //           container.scrollTop = container.scrollHeight
-        //         }
-        //       })
-        //     }
-        //   }
-        // })
+        this.socket.on(ConsumerTopic.ChatReceive, (resp: ChatMessage) => {
+          if (resp.id === roomId) {
+            if (resp.parent) {
+              throw new Error('SDK does not support adding parents yet!')
+            } else {
+              console.log()
+              this.messages = [resp, ...this.messages]
+            }
+          }
+        })
 
-      // TODO removing messages
-      //   this.socket.on('consumer_chat_remove', (resp) => {
-      //     if (resp.id === roomId) {
-      //       if (resp.parent) {
-      //         Vue.set(
-      //           this.messages[resp.parent].children[resp.uuid],
-      //           'removed',
-      //           true
-      //         )
-      //         Vue.set(
-      //           this.messages[resp.parent].children[resp.uuid],
-      //           'message',
-      //           'Message removed'
-      //         )
-      //       } else {
-      //         Vue.set(this.messages[resp.uuid], 'removed', true)
-      //         Vue.set(this.messages[resp.uuid], 'message', 'Message removed')
-      //       }
-      //     }
-      //   })
+        this.socket.on(ConsumerTopic.ChatRemove, (resp: ChatMessage) => {
+          if (resp.id === roomId) {
+            if (resp.parent) {
+              throw new Error('SDK does not support removing messages with parents yet!')
+            } else {
+              const message = this.messages.find(({ uuid }) => resp.uuid === uuid)
+              if (!message) {
+                throw new Error(`Could not find message with id ${resp.id}`)
+              }
+              message.message = 'Message removed'
+            }
+          }
+        })
     })
   }
 }
