@@ -134,7 +134,8 @@ export class Consumer {
     this.socket = socket
   }
 
-  banMessage (message: BanMessageRequest): void {
+  removeMessage (message: BanMessageRequest): void {
+    // TODO remove magic string
     this.socket.emit('client_chat_ban', message)
   }
 
@@ -222,6 +223,7 @@ export class Consumer {
                 throw new Error(`Could not find message with id ${resp.id}`)
               }
               message.message = 'Message removed'
+              message.removed = true
             }
           }
         })
