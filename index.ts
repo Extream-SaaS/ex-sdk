@@ -1,3 +1,4 @@
+/* eslint-disable */
 import io from 'socket.io-client'
 import { ExtreamAuthUser } from './types/user'
 import type { EmitTopic, AuthorizationTopics } from './types/topic'
@@ -96,11 +97,25 @@ export class ExtreamClient {
    * @returns { void }
    *
    */
-  connect (accessToken: string): void {
-    this.socket = io(`${this.options.gateway}?x-auth=${accessToken}`)
-    this.adminActions = new Admin(this.socket)
-    this.clientActions = new Client(this.socket)
-    this.consumerActions = new Consumer(this.socket)
+  connect (accessToken: string): Promise<void> {
+    const unsubscribe = () => {
+      this.socket?.removeEventListener('connect')
+      this.socket?.removeEventListener('connect_error')
+    }
+    return new Promise((resolve, reject) => {
+      this.socket = io(`${this.options.gateway}?x-auth=${accessToken}`)
+      this.adminActions = new Admin(this.socket)
+      this.clientActions = new Client(this.socket)
+      this.consumerActions = new Consumer(this.socket)
+      this.socket.on('connect', () => {
+        resolve()
+        unsubscribe()
+      })
+      this.socket.on('connect_error', (error: Error) => {
+        reject(error)
+        unsubscribe()
+      })
+    })
   }
 
   /**
