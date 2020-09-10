@@ -41,7 +41,7 @@ export interface InitialResponse {
   topic: string;
 }
 
-export interface Message {
+export interface MessageData {
   /**
    * The message to send to the chat
    */
@@ -57,7 +57,7 @@ export interface SendChatRequest {
   /**
    * The message data
    */
-  data: Message;
+  data: MessageData;
 }
 
 export interface JoinChatRequest {
@@ -197,7 +197,6 @@ export class Consumer {
             if (resp.parent) {
               throw new Error('SDK does not support adding parents yet!')
             } else {
-              console.log()
               this.messages = [resp, ...this.messages]
             }
           }
