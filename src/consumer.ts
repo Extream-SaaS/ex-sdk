@@ -4,7 +4,7 @@
 import { ConsumerTopic } from '../types/topic'
 import { ExtreamUser } from '../types/user';
 
-export interface ChatMessage {
+export interface ChatMessageResponse {
   id?: string
   from: ExtreamUser;
   uuid: string;
@@ -16,7 +16,7 @@ export interface ChatMessage {
 
 export interface SendChatMessagePayload {
   id: string;
-  data: ChatMessage;
+  data: ChatMessageResponse;
 }
 
 export interface SendChatMessageResponse {
@@ -82,7 +82,7 @@ export interface Configuration {
 }
 
 export interface ChatMessages {
-  [key: string]: ChatMessage
+  [key: string]: ChatMessageResponse
 }
 
 export interface GetChatPayload {
@@ -109,17 +109,17 @@ export interface GetChatResponse {
   socketId: string;
 }
 
-export interface AugementedMessage extends ChatMessage {
-  children?: { [key: string]: ChatMessage }
+export interface Message extends ChatMessageResponse {
+  children?: { [key: string]: ChatMessageResponse }
 }
 
-export interface AugementedMessages {
-  [key: string]: AugementedMessage
+export interface Messages {
+  [key: string]: Message
 }
 
 export class Consumer {
   private socket: SocketIOClient.Socket;
-  public messages: AugementedMessage[] = [];
+  public messages: Message[] = [];
   /**
    * Create an instance of the admin sdk
    */
@@ -151,7 +151,7 @@ export class Consumer {
           if ('error' in resp) {
             reject(resp.error)
           } else if (!('status' in resp) && resp.payload.id) {
-            let messages: AugementedMessages = resp.payload.messages
+            let messages: Messages = resp.payload.messages
             // Process all messages with parents first and push them as children into their parents
             Object.keys(messages).filter(id => messages[id].parent).forEach((id) => {
               const message = messages[id]
@@ -172,7 +172,7 @@ export class Consumer {
             const messageArray = Object
               .keys(messages)
               .filter(id => !messages[id].parent)
-              .reduce((acc: AugementedMessage[], id: string) => {
+              .reduce((acc: Message[], id: string) => {
                 const message = messages[id]
                 if (message.removed) {
                   message.message = 'Message removed'
@@ -180,7 +180,7 @@ export class Consumer {
                 acc.push(message)
                 return acc
               }, [])
-              .sort((a: AugementedMessage, b: AugementedMessage) => {
+              .sort((a: Message, b: Message) => {
                 return -(new Date(a.sent).getTime() - new Date(b.sent).getTime())
               })
 
@@ -192,7 +192,7 @@ export class Consumer {
           id: roomId,
         })
 
-        this.socket.on(ConsumerTopic.ChatReceive, (resp: ChatMessage) => {
+        this.socket.on(ConsumerTopic.ChatReceive, (resp: ChatMessageResponse) => {
           if (resp.id === roomId) {
             if (resp.parent) {
               throw new Error('SDK does not support adding parents yet!')
@@ -203,7 +203,7 @@ export class Consumer {
           }
         })
 
-        this.socket.on(ConsumerTopic.ChatRemove, (resp: ChatMessage) => {
+        this.socket.on(ConsumerTopic.ChatRemove, (resp: ChatMessageResponse) => {
           if (resp.id === roomId) {
             if (resp.parent) {
               throw new Error('SDK does not support removing messages with parents yet!')
