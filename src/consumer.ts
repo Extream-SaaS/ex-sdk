@@ -1,5 +1,6 @@
 /* eslint-disable */
 // TODO timeout all promises
+// TODO cleanup
 
 import { ConsumerTopic } from '../types/topic'
 import { ExtreamUser } from '../types/user';
@@ -60,10 +61,6 @@ export interface SendChatRequest {
   data: MessageData;
 }
 
-export interface JoinChatRequest {
-  id: string;
-}
-
 export interface UpdatedAt {
   _seconds: number;
   _nanoseconds: number;
@@ -109,6 +106,16 @@ export interface GetChatResponse {
   socketId: string;
 }
 
+export interface BanMessageData {
+  uuid: string;
+  parent?: string;
+}
+
+export interface BanMessageRequest {
+  id: string;
+  data: BanMessageData;
+}
+
 export interface Message extends ChatMessageResponse {
   children?: { [key: string]: ChatMessageResponse }
 }
@@ -125,6 +132,10 @@ export class Consumer {
    */
   constructor (socket: SocketIOClient.Socket) {
     this.socket = socket
+  }
+
+  banMessage (message: BanMessageRequest): void {
+    this.socket.emit('client_chat_ban', message)
   }
 
   sendMessage (message: SendChatRequest): Promise<void> {
@@ -188,13 +199,11 @@ export class Consumer {
             resolve(resp.payload.messages)
           }
         })
-        this.socket.emit(ConsumerTopic.ChatGet, {
-          id: roomId,
-        })
 
         this.socket.on(ConsumerTopic.ChatReceive, (resp: ChatMessageResponse) => {
           if (resp.id === roomId) {
             if (resp.parent) {
+              // TODO
               throw new Error('SDK does not support adding parents yet!')
             } else {
               this.messages = [resp, ...this.messages]
@@ -205,6 +214,7 @@ export class Consumer {
         this.socket.on(ConsumerTopic.ChatRemove, (resp: ChatMessageResponse) => {
           if (resp.id === roomId) {
             if (resp.parent) {
+              // TODO
               throw new Error('SDK does not support removing messages with parents yet!')
             } else {
               const message = this.messages.find(({ uuid }) => resp.uuid === uuid)
@@ -214,6 +224,10 @@ export class Consumer {
               message.message = 'Message removed'
             }
           }
+        })
+
+        this.socket.emit(ConsumerTopic.ChatGet, {
+          id: roomId,
         })
     })
   }
