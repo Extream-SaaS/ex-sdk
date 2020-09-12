@@ -3,6 +3,7 @@
 
 import { ConsumerTopic, ClientTopic } from '../types/topic'
 import { ExtreamUser } from '../types/user';
+import SubscriptionManager from './subscription-manager';
 
 /**
  * Chat message response for a message being streamed in
@@ -136,7 +137,7 @@ export interface Messages {
 
 export class ChatRoom {
   private socket: SocketIOClient.Socket;
-  private listeners: { [key: string]: (...args: any[]) => void } = {}
+  private subscriptionManager: SubscriptionManager
   public roomId: string;
   /**
    * Dynamically updated list of messages for this room
@@ -148,6 +149,7 @@ export class ChatRoom {
   constructor (socket: SocketIOClient.Socket, roomId: string) {
     this.socket = socket
     this.roomId = roomId
+    this.subscriptionManager = new SubscriptionManager(this.socket)
   }
 
   /**
@@ -157,18 +159,6 @@ export class ChatRoom {
    */
   private static sortByDate (a: Message | ChatMessageResponse, b: Message | ChatMessageResponse) {
     return -(new Date(a.sent).getTime() - new Date(b.sent).getTime())
-  }
-
-  /**
-   * Push event listener into the socket. We need to store references to the functions being executed in order
-   * to clean up properly.
-   *
-   * Otherwise Chat creation would leak 4 events handlers and possibly all the messages for the chats on every creation
-   * @param event
-   * @param callback
-   */
-  private addListener (event: string, callback: (...args: any[]) => void) {
-    this.socket.on(event, callback)
   }
 
   /**
@@ -201,7 +191,8 @@ export class ChatRoom {
           this.socket.removeListener(ConsumerTopic.ChatSend, callback)
         }
       }
-      this.addListener(ConsumerTopic.ChatSend, callback)
+      // This one removes itself so does not need to go through subscription manager
+      this.socket.on(ConsumerTopic.ChatSend, callback)
       this.socket.emit(ConsumerTopic.ChatSend, message)
     })
   }
@@ -213,7 +204,7 @@ export class ChatRoom {
    */
   joinChat (): Promise<void> {
     return new Promise((resolve, reject) => {
-        this.addListener(ConsumerTopic.ChatGet, (resp: InitialResponse | GetChatResponse ) => {
+        this.subscriptionManager.addSubscription(ConsumerTopic.ChatGet, (resp: InitialResponse | GetChatResponse ) => {
           if ('error' in resp) {
             reject(resp.error)
           } else if (!('status' in resp) && resp.payload.id) {
@@ -255,7 +246,7 @@ export class ChatRoom {
           }
         })
 
-        this.addListener(ConsumerTopic.ChatReceive, (resp: ChatMessageResponse) => {
+        this.subscriptionManager.addSubscription(ConsumerTopic.ChatReceive, (resp: ChatMessageResponse) => {
           if (resp.id === this.roomId) {
             if (resp.parent) {
               const message = this.messages.find(({ uuid }) => resp.parent === uuid)
@@ -276,7 +267,7 @@ export class ChatRoom {
           }
         })
 
-        this.addListener(ConsumerTopic.ChatRemove, (resp: ChatMessageResponse) => {
+        this.subscriptionManager.addSubscription(ConsumerTopic.ChatRemove, (resp: ChatMessageResponse) => {
           if (resp.id === this.roomId) {
             if (resp.parent) {
               const message = this.messages.find(({ uuid }) => uuid === resp.parent)
@@ -309,9 +300,7 @@ export class ChatRoom {
    *
    * If this is not called each instance of this class with leak event listeners.
    */
-  destroy () {
-    Object.entries(this.listeners).forEach(([key, value]) => {
-      this.socket.removeEventListener(key, value)
-    })
+  destroy (): void {
+    this.subscriptionManager.removeAllSubscriptions()
   }
 }
