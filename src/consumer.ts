@@ -50,6 +50,8 @@ export interface MessageData {
    * The message to send to the chat
    */
   message: string;
+  private?: boolean;
+  parent?: string;
 }
 
 export interface SendChatRequest {
@@ -126,7 +128,7 @@ export interface BanMessageRequest {
 }
 
 export interface Message extends ChatMessageResponse {
-  children?: { [key: string]: ChatMessageResponse }
+  children: ChatMessageResponse[]
 }
 
 export interface Messages {
@@ -193,32 +195,34 @@ export class Consumer {
           if ('error' in resp) {
             reject(resp.error)
           } else if (!('status' in resp) && resp.payload.id) {
-            let messages: Messages = resp.payload.messages
+            const messages = resp.payload.messages
+            const childrenMap = {}
             // Process all messages with parents first and push them as children into their parents
-            Object.keys(messages).filter(id => messages[id].parent).forEach((id) => {
+            const children: { [key: string]: ChatMessageResponse[] } = Object.keys(messages)
+            .filter(id => messages[id].parent)
+            .reduce((acc: { [key: string]: ChatMessageResponse[] }, id) => {
               const message = messages[id]
               if (!messages[message.parent]) {
                 console.warn(`Could not find parent for message ${id}`)
                 // throw new Error(`Could not find parent for message ${id}`)
                 delete messages[id]
               } else {
-                messages[message.parent].children = {
-                  ...(messages[message.parent].children || {}),
-                  [id]: message
-                }
+                acc[message.parent] = acc[message.parent] ? [...acc[message.parent] , message] : [message]
                 delete messages[id]
               }
-            })
+              return acc
+            }, childrenMap)
 
             // Process all messages without parents
             const messageArray = Object
               .keys(messages)
               .filter(id => !messages[id].parent)
               .reduce((acc: Message[], id: string) => {
-                const message = messages[id]
+                const message = messages[id] as Message
                 if (message.removed) {
                   message.message = 'Message removed'
                 }
+                message.children = children[message.uuid] ? children[message.uuid] : []
                 acc.push(message)
                 return acc
               }, [])
@@ -234,10 +238,20 @@ export class Consumer {
         this.socket.on(ConsumerTopic.ChatReceive, (resp: ChatMessageResponse) => {
           if (resp.id === roomId) {
             if (resp.parent) {
-              // TODO
-              throw new Error('SDK does not support adding parents yet!')
+              const message = this.messages.find(({ uuid }) => resp.parent === uuid)
+              if (!message) {
+                throw new Error(`Could not find message with id ${resp.uuid} to add child`)
+              }
+              message.children = [
+                ...message.children,
+                resp
+              ]
             } else {
-              this.messages = [resp, ...this.messages]
+              const pushMessage = {
+                ...resp,
+                children: []
+               } as Message
+              this.messages = [pushMessage, ...this.messages]
             }
           }
         })
@@ -250,7 +264,7 @@ export class Consumer {
             } else {
               const message = this.messages.find(({ uuid }) => resp.uuid === uuid)
               if (!message) {
-                throw new Error(`Could not find message with id ${resp.id}`)
+                throw new Error(`Could not find message with id ${resp.uuid}`)
               }
               message.message = 'Message removed'
               message.removed = true
