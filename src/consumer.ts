@@ -233,4 +233,16 @@ export class Consumer {
         })
     })
   }
+
+  /**
+   * Call once the a user leaves the chat to remove all event listener.
+   *
+   * If this is not called each instance of this class with leak event listeners.
+   */
+  destroy () {
+    this.socket.removeEventListener(ConsumerTopic.ChatSend)
+    this.socket.removeEventListener(ConsumerTopic.ChatGet)
+    this.socket.removeEventListener(ConsumerTopic.ChatRemove)
+    this.socket.removeEventListener(ConsumerTopic.ChatReceive)
+  }
 }
