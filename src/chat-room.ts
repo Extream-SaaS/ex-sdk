@@ -189,7 +189,7 @@ export class ChatRoom {
    */
   sendMessage (message: SendChatRequest): Promise<void> {
     return new Promise((resolve, reject) => {
-      this.addListener(ConsumerTopic.ChatSend, (resp: SendChatMessageResponse| InitialResponse) => {
+      const callback = (resp: SendChatMessageResponse| InitialResponse) => {
         if ('error' in resp) {
           reject(new Error(resp.error))
         } else if (!('status' in resp)) {
@@ -198,9 +198,10 @@ export class ChatRoom {
           // second response is confirmation that message was sent properly
           // wait for second message before resolving
           resolve()
-          this.socket.removeListener(ConsumerTopic.ChatSend)
+          this.socket.removeListener(ConsumerTopic.ChatSend, callback)
         }
-      })
+      }
+      this.addListener(ConsumerTopic.ChatSend, callback)
       this.socket.emit(ConsumerTopic.ChatSend, message)
     })
   }
@@ -224,6 +225,7 @@ export class ChatRoom {
             .reduce((acc: { [key: string]: ChatMessageResponse[] }, id) => {
               const message = messages[id]
               if (!messages[message.parent]) {
+                // @ts-ignore
                 console.warn(`Could not find parent for message ${id}`)
                 // throw new Error(`Could not find parent for message ${id}`)
                 delete messages[id]
