@@ -102,7 +102,9 @@ export class ExtreamClient {
       this.socket?.removeEventListener('connect_error')
     }
     return new Promise((resolve, reject) => {
-      this.socket = io(`${this.options.gateway}?x-auth=${accessToken}`)
+      this.socket = io(`${this.options.gateway}?x-auth=${accessToken}`, {
+        transports: [ 'websocket' ]
+      })
       this.adminActions = new Admin(this.socket)
       this.clientActions = new Client(this.socket)
       this.consumerActions = new Consumer(this.socket)
