@@ -2,7 +2,7 @@
 // TODO timeout all promises
 // TODO cleanup
 
-import { ConsumerTopic } from '../types/topic'
+import { ConsumerTopic, ClientTopic } from '../types/topic'
 import { ExtreamUser } from '../types/user';
 
 /**
@@ -165,8 +165,7 @@ export class Consumer {
    * @param { BanMessageRequest } message The messah
    */
   removeMessage (message: BanMessageRequest): void {
-    // TODO remove magic string
-    this.socket.emit('client_chat_ban', message)
+    this.socket.emit(ClientTopic.ChatBan, message)
   }
 
   /**
@@ -296,6 +295,7 @@ export class Consumer {
    * If this is not called each instance of this class with leak event listeners.
    */
   destroy () {
+    // TODO need listeners here
     this.socket.removeEventListener(ConsumerTopic.ChatSend)
     this.socket.removeEventListener(ConsumerTopic.ChatGet)
     this.socket.removeEventListener(ConsumerTopic.ChatRemove)
