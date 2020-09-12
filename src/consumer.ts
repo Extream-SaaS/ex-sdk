@@ -149,6 +149,15 @@ export class Consumer {
   }
 
   /**
+   * Sort messages based on date descending
+   * @param a
+   * @param b
+   */
+  private static sortByDate (a: Message | ChatMessageResponse, b: Message | ChatMessageResponse) {
+    return -(new Date(a.sent).getTime() - new Date(b.sent).getTime())
+  }
+
+  /**
    * Remove a specific message for all user in the chat room.
    *
    * This function can only be executed by admins
@@ -202,15 +211,14 @@ export class Consumer {
             .filter(id => messages[id].parent)
             .reduce((acc: { [key: string]: ChatMessageResponse[] }, id) => {
               const message = messages[id]
-              if (message.removed) {
-                message.message = 'Message removed'
-              }
               if (!messages[message.parent]) {
                 console.warn(`Could not find parent for message ${id}`)
                 // throw new Error(`Could not find parent for message ${id}`)
                 delete messages[id]
               } else {
-                acc[message.parent] = acc[message.parent] ? [...acc[message.parent] , message] : [message]
+                acc[message.parent] = acc[message.parent]
+                  ? [...acc[message.parent] , message].sort(Consumer.sortByDate)
+                  : [message]
                 delete messages[id]
               }
               return acc
