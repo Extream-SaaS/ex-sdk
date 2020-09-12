@@ -18,7 +18,7 @@ export class Consumer {
    *
    * @param { ChatRoom } roomId
    */
-  createChatRoom (roomId: string): ChatRoom {
+  createChatRoomInstance (roomId: string): ChatRoom {
     return new ChatRoom(this.socket, roomId)
   }
 
