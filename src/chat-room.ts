@@ -45,16 +45,25 @@ export interface InitialResponse {
   topic: string;
 }
 
-export interface MessageData {
+export interface ReplyMessageData {
   /**
    * The message to send to the chat
    */
   message: string;
-  private?: boolean;
-  parent?: string;
+  private: boolean;
+  parent: string;
 }
 
-export interface SendChatRequest {
+export interface SendMessageData {
+  /**
+   * The message to send to the chat
+   */
+  message: string;
+}
+
+export type MessageData = ReplyMessageData | SendMessageData
+
+export interface SendChatRequest<T> {
   /**
    * The id of the room that to send the chat message to
    */
@@ -63,7 +72,7 @@ export interface SendChatRequest {
   /**
    * The message data
    */
-  data: MessageData;
+  data: T;
 }
 
 export interface UpdatedAt {
@@ -172,12 +181,7 @@ export class ChatRoom {
     this.socket.emit(ClientTopic.ChatBan, message)
   }
 
-  /**
-   * Send a message to the chat currently connected
-   *
-   * @param { SendChatRequest } message
-   */
-  sendMessage (message: SendChatRequest): Promise<void> {
+  private emitMessage (message: SendChatRequest<MessageData>): Promise<void> {
     return new Promise((resolve, reject) => {
       const callback = (resp: SendChatMessageResponse| InitialResponse) => {
         if ('error' in resp) {
@@ -195,6 +199,24 @@ export class ChatRoom {
       this.socket.on(ConsumerTopic.ChatSend, callback)
       this.socket.emit(ConsumerTopic.ChatSend, message)
     })
+  }
+
+  /**
+   * Send a message to the chat
+   *
+   * @param { SendChatRequest<SendMessageData> } message
+   */
+  sendMessage (message: SendChatRequest<SendMessageData>): Promise<void> {
+    return this.emitMessage(message)
+  }
+
+  /**
+   * Reply to a specific message in the chat
+   *
+   * @param { SendChatRequest<ReplyMessageData> } message
+   */
+  replyToMessage (message: SendChatRequest<ReplyMessageData>): Promise<void>  {
+    return this.emitMessage(message)
   }
 
   /**
