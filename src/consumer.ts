@@ -157,7 +157,7 @@ export class Consumer {
     })
   }
 
-  joinChat (roomId: string): Promise<ChatMessages> {
+  joinChat (roomId: string): Promise<void> {
     return new Promise((resolve, reject) => {
         this.socket.on(ConsumerTopic.ChatGet, (resp: InitialResponse | GetChatResponse ) => {
           if ('error' in resp) {
@@ -197,7 +197,7 @@ export class Consumer {
               })
 
             this.messages = messageArray
-            resolve(resp.payload.messages)
+            resolve()
           }
         })
 
