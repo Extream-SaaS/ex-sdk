@@ -5,6 +5,9 @@
 import { ConsumerTopic } from '../types/topic'
 import { ExtreamUser } from '../types/user';
 
+/**
+ * Chat message response for a message being streamed in
+ */
 export interface ChatMessageResponse {
   id?: string
   from: ExtreamUser;
@@ -107,11 +110,17 @@ export interface GetChatResponse {
 }
 
 export interface BanMessageData {
+  /**
+   * The uuid of the message to be banned
+   */
   uuid: string;
   parent?: string;
 }
 
 export interface BanMessageRequest {
+  /**
+   * The id of the room that the message is contained within
+   */
   id: string;
   data: BanMessageData;
 }
@@ -126,6 +135,9 @@ export interface Messages {
 
 export class Consumer {
   private socket: SocketIOClient.Socket;
+  /**
+   * Dynamically updated list of messages for this room
+   */
   public messages: Message[] = [];
   /**
    * Create an instance of the admin sdk
@@ -134,11 +146,23 @@ export class Consumer {
     this.socket = socket
   }
 
+  /**
+   * Remove a specific message for all user in the chat room.
+   *
+   * This function can only be executed by admins
+   *
+   * @param { BanMessageRequest } message The messah
+   */
   removeMessage (message: BanMessageRequest): void {
     // TODO remove magic string
     this.socket.emit('client_chat_ban', message)
   }
 
+  /**
+   * Send a message to the chat currently connected
+   *
+   * @param { SendChatRequest } message
+   */
   sendMessage (message: SendChatRequest): Promise<void> {
     return new Promise((resolve, reject) => {
       this.socket.on(ConsumerTopic.ChatSend, (resp: SendChatMessageResponse| InitialResponse) => {
@@ -157,6 +181,12 @@ export class Consumer {
     })
   }
 
+  /**
+   * Join a chat room. Once joined all the messages property will be dynamically updated as messages
+   * are sent/blocked.
+   *
+   * @param { string } roomId
+   */
   joinChat (roomId: string): Promise<void> {
     return new Promise((resolve, reject) => {
         this.socket.on(ConsumerTopic.ChatGet, (resp: InitialResponse | GetChatResponse ) => {
