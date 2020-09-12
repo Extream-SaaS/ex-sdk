@@ -4,6 +4,7 @@ import { ExtreamAuthUser } from './types/user'
 import { Admin as AdminActions, Admin } from './src/admin'
 import { Consumer as ConsumerActions, Consumer } from './src/consumer'
 import { Client as ClientActions, Client } from './src/client'
+import 'isomorphic-fetch'
 
 // Authentication types
 export interface AuthenticationParams {
