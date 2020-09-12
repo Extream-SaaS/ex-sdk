@@ -273,7 +273,6 @@ export class Consumer {
               if (!childMessage) {
                 throw new Error(`Could not find child message with id ${resp.uuid}`)
               }
-              childMessage.message = 'Message removed'
               childMessage.removed = true
             } else {
               const message = this.messages.find(({ uuid }) => resp.uuid === uuid)
