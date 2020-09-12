@@ -1,7 +1,6 @@
 /* eslint-disable */
 import io from 'socket.io-client'
 import { ExtreamAuthUser } from './types/user'
-import type { EmitTopic, AuthorizationTopics } from './types/topic'
 import { Admin as AdminActions, Admin } from './src/admin'
 import { Consumer as ConsumerActions, Consumer } from './src/consumer'
 import { Client as ClientActions, Client } from './src/client'
@@ -123,12 +122,12 @@ export class ExtreamClient {
    *
    * You probably don't want this unless you are doing some weird stuff. Try the specific action methods instead!
    *
-   * @param { EmitTopic } event
+   * @param { string } event
    * @param { any } payload
    * @returns { any }
    *
    */
-  public emit (topic: EmitTopic, payload: any): void {
+  public emit (topic: string, payload: any): void {
     if (!this.socket) {
       throw new Error('No socket connection found. Try connecting first. See method ExtreamClient.connect()')
     }
@@ -140,12 +139,12 @@ export class ExtreamClient {
    *
    * You probably don't want this unless you are doing some weird stuff. Try the specific action methods instead!
    *
-   * @param { AuthorizationTopics } event
+   * @param { string } event
    * @param { any } cb
    * @returns { any }
    *
    */
-  public on (topic: AuthorizationTopics, cb: (response: any) => void): void {
+  public on (topic: string, cb: (response: any) => void): void {
     if (!this.socket) {
       throw new Error('No socket connection found. Try connecting first. See method ExtreamClient.connect()')
     }
