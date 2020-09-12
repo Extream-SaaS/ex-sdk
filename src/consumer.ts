@@ -222,16 +222,11 @@ export class Consumer {
               .filter(id => !messages[id].parent)
               .reduce((acc: Message[], id: string) => {
                 const message = messages[id] as Message
-                if (message.removed) {
-                  message.message = 'Message removed'
-                }
                 message.children = children[message.uuid] ? children[message.uuid] : []
                 acc.push(message)
                 return acc
               }, [])
-              .sort((a: Message, b: Message) => {
-                return -(new Date(a.sent).getTime() - new Date(b.sent).getTime())
-              })
+              .sort(Consumer.sortByDate)
 
             this.messages = messageArray
             resolve()
@@ -277,7 +272,6 @@ export class Consumer {
               if (!message) {
                 throw new Error(`Could not find message with id ${resp.uuid}`)
               }
-              message.message = 'Message removed'
               message.removed = true
             }
           }
