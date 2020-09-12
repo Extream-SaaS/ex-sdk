@@ -202,6 +202,9 @@ export class Consumer {
             .filter(id => messages[id].parent)
             .reduce((acc: { [key: string]: ChatMessageResponse[] }, id) => {
               const message = messages[id]
+              if (message.removed) {
+                message.message = 'Message removed'
+              }
               if (!messages[message.parent]) {
                 console.warn(`Could not find parent for message ${id}`)
                 // throw new Error(`Could not find parent for message ${id}`)
@@ -259,8 +262,16 @@ export class Consumer {
         this.socket.on(ConsumerTopic.ChatRemove, (resp: ChatMessageResponse) => {
           if (resp.id === roomId) {
             if (resp.parent) {
-              // TODO
-              throw new Error('SDK does not support removing messages with parents yet!')
+              const message = this.messages.find(({ uuid }) => uuid === resp.parent)
+              if (!message) {
+                throw new Error(`Could not find message with id ${resp.parent} to remove child`)
+              }
+              const childMessage = message.children.find(c => c.uuid === resp.uuid)
+              if (!childMessage) {
+                throw new Error(`Could not find child message with id ${resp.uuid}`)
+              }
+              childMessage.message = 'Message removed'
+              childMessage.removed = true
             } else {
               const message = this.messages.find(({ uuid }) => resp.uuid === uuid)
               if (!message) {
