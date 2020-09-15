@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prepare": "npm run build",
     "build": "tsc",
-    "serve": "tsc --watch",
+    "docs": "typedoc",
     "lint": "eslint src index.ts",
-    "docs": "typedoc"
+    "prepare": "npm run build",
+    "serve": "tsc --watch",
+    "test": "echo \"Who needs tests when you're good?\""
   },
   "keywords": [],
   "author": "",
