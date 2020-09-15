@@ -97,7 +97,7 @@ export class ExtreamClient {
    * @returns { void }
    *
    */
-  connect (accessToken: string): Promise<void> {
+  connect (accessToken: string): Promise<ExtreamAuthUser> {
     const unsubscribe = () => {
       this.socket?.removeEventListener('connect')
       this.socket?.removeEventListener('connect_error')
@@ -109,8 +109,8 @@ export class ExtreamClient {
       this.adminActions = new Admin(this.socket)
       this.clientActions = new Client(this.socket)
       this.consumerActions = new Consumer(this.socket)
-      this.socket.on('connect', () => {
-        resolve()
+      this.socket.on('connect', (user: ExtreamAuthUser) => {
+        resolve(user)
         unsubscribe()
       })
       this.socket.on('connect_error', (error: Error) => {
