@@ -39,24 +39,25 @@ jobs:
         run: npm test
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN}}
-      # - uses: TriPSs/conventional-changelog-action@v1.2.0
-      #   with:
-      #     github-token: ${{ secrets.GITHUB_TOKEN }}
-      #     git-message: 'chore(release): {version}'
-      #     preset: 'angular'
-      #     tag-prefix: 'v'
-      #     output-file: 'CHANGELOG.md'
-      #   env:
-      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN}}
-      # - name: Publish
-      #   id: Publish
-      #   run: npm publish
-      #   env:
-      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN}}
-      # - uses: act10ns/slack@v1
-      #   env:
-      #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-      #   with:
-      #     status: ${{ job.status }}
-      #     steps: ${{ toJson(steps) }}
-      #   if: always()
+      - uses: TriPSs/conventional-changelog-action@v1.2.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          git-message: 'chore(release): {version}'
+          preset: 'angular'
+          tag-prefix: 'v'
+          output-file: 'CHANGELOG.md'
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN}}
+      - name: Publish
+        id: Publish
+        run: npm publish
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN}}
+      - uses: act10ns/slack@v1
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN}}
+        with:
+          status: ${{ job.status }}
+          steps: ${{ toJson(steps) }}
+        if: always()
