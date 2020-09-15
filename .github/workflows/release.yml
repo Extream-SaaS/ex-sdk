@@ -29,6 +29,8 @@ jobs:
       - name: Test
         id: Test
         run: npm test
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN}}
       - uses: TriPSs/conventional-changelog-action@v1.2.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -36,6 +38,8 @@ jobs:
           preset: 'angular'
           tag-prefix: 'v'
           output-file: 'CHANGELOG.md'
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN}}
       - name: Publish
         id: Publish
         run: npm publish
