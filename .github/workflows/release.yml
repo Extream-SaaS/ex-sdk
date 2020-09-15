@@ -25,23 +25,14 @@ jobs:
       - name: Test
         id: Test
         run: npm test
-  
-  bump-version:
-    name: Conventional Changelog Action
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-      with:
-        fetch-depth: '0'
-        token: ${{ secrets.GITHUB_TOKEN }}
-    - uses: TriPSs/conventional-changelog-action@v1.2.0
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        git-message: 'chore(release): {version}'
-        preset: 'angular'
-        tag-prefix: 'v'
-        output-file: 'CHANGELOG.md'
-        changelog-release-count: 5
+      - uses: TriPSs/conventional-changelog-action@v1.2.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          git-message: 'chore(release): {version}'
+          preset: 'angular'
+          tag-prefix: 'v'
+          output-file: 'CHANGELOG.md'
+
       # - uses: act10ns/slack@v1
       #   env:
       #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
