@@ -22,15 +22,15 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install npmrc
         run: |
-          echo "//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}" >> ~/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${NPM_TOKEN}" >> ~/.npmrc
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN}}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: npm ci
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN}}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: npm run build
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN}}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: npm audit --audit-level=moderate
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN}}
@@ -38,7 +38,7 @@ jobs:
         id: Test
         run: npm test
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN}}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - uses: TriPSs/conventional-changelog-action@v1.2.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -47,16 +47,16 @@ jobs:
           tag-prefix: 'v'
           output-file: 'CHANGELOG.md'
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN}}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Publish
         id: Publish
         run: npm publish
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN}}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - uses: act10ns/slack@v1
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN}}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         with:
           status: ${{ job.status }}
           steps: ${{ toJson(steps) }}
