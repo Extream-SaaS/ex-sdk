@@ -1,7 +1,7 @@
 {
-  "name": "extream-sdk",
+  "name": "@sublime-productions/extream-sdk",
   "version": "0.2.1",
-  "description": "",
+  "description": "ExtreamClient is a JavaScript SDK for interacting with the Extream platform written in TypeScript",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
@@ -34,7 +34,14 @@
     "socket.io-client": "^2.3.0"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/Extream-SaaS/ex-sdk.git"
+    "type": "git",
+    "url": "git+https://github.com/Extream-SaaS/ex-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Extream-SaaS/ex-sdk/issues"
+  },
+  "homepage": "https://github.com/Extream-SaaS/ex-sdk#readme",
+  "directories": {
+    "doc": "docs"
   }
 }
