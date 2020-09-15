@@ -2,7 +2,7 @@
   "name": "extream-sdk",
   "version": "0.2.1",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "docs": "typedoc",
@@ -32,5 +32,9 @@
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
     "socket.io-client": "^2.3.0"
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/Extream-SaaS/ex-sdk.git"
   }
 }
