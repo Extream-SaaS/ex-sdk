@@ -32,6 +32,9 @@ jobs:
           preset: 'angular'
           tag-prefix: 'v'
           output-file: 'CHANGELOG.md'
+      - name: Publish
+        id: Publish
+        run: npm publish
 
       # - uses: act10ns/slack@v1
       #   env:
