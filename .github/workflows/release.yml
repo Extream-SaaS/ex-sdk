@@ -16,22 +16,25 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
-        id: Build
+        id: Node
         uses: actions/setup-node@v1.4.3
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install npmrc
         run: |
-          echo "//npm.pkg.github.com/:_authToken=${NPM_TOKEN}" >> ~/.npmrc
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ~/.npmrc
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: npm ci
+        id: Install
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: npm run build
+        id: Build
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: npm audit --audit-level=moderate
+        id: Audit
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN}}
       - name: Test
@@ -40,6 +43,7 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - uses: TriPSs/conventional-changelog-action@v1.2.0
+        id: Changelog
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           git-message: 'chore(release): {version}'
