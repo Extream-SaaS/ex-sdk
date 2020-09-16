@@ -2,7 +2,7 @@
 
 import { ConsumerTopic, ClientTopic } from '../types/topic'
 import { ExtreamUser } from '../types/user';
-import { ChatRoom } from './chat-room';
+import { Chat } from './chat';
 
 export class Consumer {
   private socket: SocketIOClient.Socket;
@@ -18,8 +18,8 @@ export class Consumer {
    *
    * @param { ChatRoom } roomId
    */
-  createChatRoomInstance (roomId: string): ChatRoom {
-    return new ChatRoom(this.socket, roomId)
+  createChatRoomInstance (roomId: string): Chat {
+    return new Chat(this.socket, roomId)
   }
 
   /**
@@ -27,8 +27,8 @@ export class Consumer {
    *
    * @param { Promise<ChatRoom>  } roomId
    */
-  async joinChatRoom (roomId: string): Promise<ChatRoom> {
-    const chatRoom = new ChatRoom(this.socket, roomId)
+  async joinChatRoom (roomId: string): Promise<Chat> {
+    const chatRoom = new Chat(this.socket, roomId)
     await chatRoom.joinChat()
     return chatRoom
   }
