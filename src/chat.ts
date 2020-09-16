@@ -186,10 +186,17 @@ export class Chat {
    *
    * @param { BanMessageRequest } message The messah
    */
-  removeMessage (message: BanMessageRequest): void {
-    this.socket.emit(ClientTopic.ChatBan, message)
+  removeMessage (message: BanMessageData): void {
+    this.socket.emit(ClientTopic.ChatBan, {
+      id: this.roomId,
+      data: message
+    })
   }
 
+  /**
+   * The message data to be sent
+   * @param { MessageData } message Message data to be sent
+   */
   private emitMessage (message: MessageData): Promise<void> {
     return new Promise((resolve, reject) => {
       const callback = (resp: SendChatMessageResponse| InitialResponse) => {

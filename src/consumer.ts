@@ -26,6 +26,10 @@ export class Consumer {
     return this.room
   }
 
+  joinDm (instanceId: string) {
+
+  }
+
   /**
    * Create an instance of a chat room and join that chat room.
    *
@@ -33,7 +37,7 @@ export class Consumer {
    */
   async create (roomId: string): Promise<Chat> {
     const chatRoom = new Chat(this.socket, roomId)
-    await chatRoom.joinChat()
+    await chatRoom.join()
     return chatRoom
   }
 }
