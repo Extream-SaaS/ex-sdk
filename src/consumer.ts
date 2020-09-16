@@ -6,6 +6,9 @@ import { Chat } from './chat';
 
 export class Consumer {
   private socket: SocketIOClient.Socket;
+  public room: Chat | null = null
+  public dms: Chat[] = []
+
   /**
    * Create an instance of the admin sdk
    */
@@ -18,8 +21,9 @@ export class Consumer {
    *
    * @param { ChatRoom } roomId
    */
-  createChatRoomInstance (roomId: string): Chat {
-    return new Chat(this.socket, roomId)
+  join (roomId: string): Chat {
+    this.room = new Chat(this.socket, roomId)
+    return this.room
   }
 
   /**
@@ -27,7 +31,7 @@ export class Consumer {
    *
    * @param { Promise<ChatRoom>  } roomId
    */
-  async joinChatRoom (roomId: string): Promise<Chat> {
+  async create (roomId: string): Promise<Chat> {
     const chatRoom = new Chat(this.socket, roomId)
     await chatRoom.joinChat()
     return chatRoom

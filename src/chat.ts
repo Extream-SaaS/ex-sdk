@@ -147,17 +147,26 @@ export interface Messages {
 export class Chat {
   private socket: SocketIOClient.Socket;
   private subscriptionManager: SubscriptionManager
-  public roomId: string;
   /**
    * Dynamically updated list of messages for this room
    */
   public messages: Message[] = [];
   /**
-   * Create an instance of the admin sdk
+   * The id of the chat this instance is associated with
    */
-  constructor (socket: SocketIOClient.Socket, roomId: string) {
+  public roomId: string;
+  /**
+   * The instance id of the chat this instance is associated with
+   */
+  public instance: string | undefined;
+
+  /**
+   * Create an instance of a chat
+   */
+  constructor (socket: SocketIOClient.Socket, roomId: string, instance?: string) {
     this.socket = socket
     this.roomId = roomId
+    this.instance = instance
     this.subscriptionManager = new SubscriptionManager(this.socket)
   }
 
@@ -181,7 +190,7 @@ export class Chat {
     this.socket.emit(ClientTopic.ChatBan, message)
   }
 
-  private emitMessage (message: SendChatRequest<MessageData>): Promise<void> {
+  private emitMessage (message: MessageData): Promise<void> {
     return new Promise((resolve, reject) => {
       const callback = (resp: SendChatMessageResponse| InitialResponse) => {
         if ('error' in resp) {
@@ -197,25 +206,31 @@ export class Chat {
       }
       // This one removes itself so does not need to go through subscription manager
       this.socket.on(ConsumerTopic.ChatSend, callback)
-      this.socket.emit(ConsumerTopic.ChatSend, message)
+      this.socket.emit(ConsumerTopic.ChatSend, {
+        id: this.roomId,
+        data: {
+          ...message,
+          instance: this.instance
+        }
+      })
     })
   }
 
   /**
    * Send a message to the chat
    *
-   * @param { SendChatRequest<SendMessageData> } message
+   * @param { SendMessageData } message
    */
-  sendMessage (message: SendChatRequest<SendMessageData>): Promise<void> {
+  sendMessage (message: SendMessageData): Promise<void> {
     return this.emitMessage(message)
   }
 
   /**
    * Reply to a specific message in the chat
    *
-   * @param { SendChatRequest<ReplyMessageData> } message
+   * @param { ReplyMessageData } message
    */
-  replyToMessage (message: SendChatRequest<ReplyMessageData>): Promise<void>  {
+  replyToMessage (message: ReplyMessageData): Promise<void>  {
     return this.emitMessage(message)
   }
 
@@ -224,7 +239,7 @@ export class Chat {
    * are sent/blocked.
    *
    */
-  joinChat (): Promise<void> {
+  join (): Promise<void> {
     return new Promise((resolve, reject) => {
         this.subscriptionManager.addSubscription(ConsumerTopic.ChatGet, (resp: InitialResponse | GetChatResponse ) => {
           if ('error' in resp) {
