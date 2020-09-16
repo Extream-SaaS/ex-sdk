@@ -340,6 +340,9 @@ export class Chat {
 
         this.socket.emit(ConsumerTopic.ChatGet, {
           id: this.roomId,
+          data: {
+            instance: this.instance
+          }
         })
     })
   }
