@@ -144,6 +144,33 @@ export interface Messages {
   [key: string]: Message
 }
 
+export interface StartChatResponsePayloadData {
+  sent: Date;
+  from: ExtreamUser;
+  instance: string;
+  operators: string[];
+}
+
+export interface StartChatResponsePayload {
+  id: string;
+  data: StartChatResponsePayloadData;
+}
+
+export interface StartChatResponse {
+  domain: string;
+  action: string;
+  command: string;
+  payload: StartChatResponsePayload;
+  user: ExtreamUser;
+  socketId: string;
+}
+
+/**
+ * Represents a single chat and handles all subscription and updating logic for that chat
+ *
+ * After creating an instance either call `join` if you know which room you want to join (and instance if applicable)
+ * or call `start` in order to create a chat instance.
+ */
 export class Chat {
   private socket: SocketIOClient.Socket;
   private subscriptionManager: SubscriptionManager
@@ -241,6 +268,56 @@ export class Chat {
     return this.emitMessage(message)
   }
 
+  private setupChatListeners (): void {
+    this.subscriptionManager.addSubscription(ConsumerTopic.ChatReceive, (resp: ChatMessageResponse) => {
+      if (resp.id === this.roomId) {
+        if (resp.parent) {
+          const message = this.messages.find(({ uuid }) => resp.parent === uuid)
+          if (!message) {
+            throw new Error(`Could not find message with id ${resp.uuid} to add child`)
+          }
+          message.removed = false
+          message.children = [
+            ...message.children,
+            {
+              ...resp,
+              removed: false
+            }
+          ]
+        } else {
+          this.messages = [...this.messages, {
+            ...resp,
+            children: [],
+            removed: false
+          }]
+        }
+      }
+    })
+
+    this.subscriptionManager.addSubscription(ConsumerTopic.ChatRemove, (resp: ChatMessageResponse) => {
+      if (resp.id === this.roomId) {
+        if (resp.parent) {
+          const message = this.messages.find(({ uuid }) => uuid === resp.parent)
+          if (!message) {
+            throw new Error(`Could not find message with id ${resp.parent} to remove child`)
+          }
+          const childMessage = message.children.find(c => c.uuid === resp.uuid)
+          if (!childMessage) {
+            throw new Error(`Could not find child message with id ${resp.uuid}`)
+          }
+          childMessage.removed = true
+        } else {
+          const message = this.messages.find(({ uuid }) => resp.uuid === uuid)
+          if (!message) {
+            throw new Error(`Could not find message with id ${resp.uuid}`)
+          }
+          message.removed = true
+        }
+      }
+    })
+
+  }
+
   /**
    * Join a chat room. Once joined all the messages property will be dynamically updated as messages
    * are sent/blocked.
@@ -248,6 +325,7 @@ export class Chat {
    */
   join (): Promise<void> {
     return new Promise((resolve, reject) => {
+        this.setupChatListeners()
         this.subscriptionManager.addSubscription(ConsumerTopic.ChatGet, (resp: InitialResponse | GetChatResponse ) => {
           if ('error' in resp) {
             reject(resp.error)
@@ -290,60 +368,37 @@ export class Chat {
             resolve()
           }
         })
-
-        this.subscriptionManager.addSubscription(ConsumerTopic.ChatReceive, (resp: ChatMessageResponse) => {
-          if (resp.id === this.roomId) {
-            if (resp.parent) {
-              const message = this.messages.find(({ uuid }) => resp.parent === uuid)
-              if (!message) {
-                throw new Error(`Could not find message with id ${resp.uuid} to add child`)
-              }
-              message.removed = false
-              message.children = [
-                ...message.children,
-                {
-                  ...resp,
-                  removed: false
-                }
-              ]
-            } else {
-              this.messages = [...this.messages, {
-                ...resp,
-                children: [],
-                removed: false
-              }]
-            }
-          }
-        })
-
-        this.subscriptionManager.addSubscription(ConsumerTopic.ChatRemove, (resp: ChatMessageResponse) => {
-          if (resp.id === this.roomId) {
-            if (resp.parent) {
-              const message = this.messages.find(({ uuid }) => uuid === resp.parent)
-              if (!message) {
-                throw new Error(`Could not find message with id ${resp.parent} to remove child`)
-              }
-              const childMessage = message.children.find(c => c.uuid === resp.uuid)
-              if (!childMessage) {
-                throw new Error(`Could not find child message with id ${resp.uuid}`)
-              }
-              childMessage.removed = true
-            } else {
-              const message = this.messages.find(({ uuid }) => resp.uuid === uuid)
-              if (!message) {
-                throw new Error(`Could not find message with id ${resp.uuid}`)
-              }
-              message.removed = true
-            }
-          }
-        })
-
         this.socket.emit(ConsumerTopic.ChatGet, {
           id: this.roomId,
           data: {
             instance: this.instance
           }
         })
+    })
+  }
+
+  /**
+   * Start a new dm in the chat room. Once started all the messages property will be dynamically updated as messages
+   * are sent/blocked.
+   */
+  start (): Promise<void> {
+    this.setupChatListeners()
+    return new Promise((resolve, reject) => {
+      const callback = (resp: StartChatResponse | InitialResponse) => {
+        if ('error' in resp) {
+          reject(resp.error)
+        } else if (!('status' in resp) && resp.payload.id) {
+          if (this.roomId === resp.payload.id) {
+            this.instance = resp.payload.data.instance
+            resolve()
+            this.socket.removeListener(ConsumerTopic.ChatStart, callback)
+          }
+        }
+      }
+      this.socket.on(ConsumerTopic.ChatStart, callback)
+      this.socket.emit(ConsumerTopic.ChatStart, {
+        id: this.roomId,
+      })
     })
   }
 

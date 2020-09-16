@@ -19,21 +19,23 @@ export class Consumer {
   /**
    * Create a chat room.
    *
-   * @param { ChatRoom } roomId
+   * @param { Chat } roomId
    */
-  join (roomId: string): Chat {
-    this.room = new Chat(this.socket, roomId)
+  join (roomId: string, instanceId?: string): Chat {
+    this.room = new Chat(this.socket, roomId, instanceId)
     return this.room
   }
 
-  joinDm (instanceId: string) {
-
+  startChat (roomId: string) {
+    this.room = new Chat(this.socket, roomId)
+    this.room.start()
+    return this.room
   }
 
   /**
    * Create an instance of a chat room and join that chat room.
    *
-   * @param { Promise<ChatRoom>  } roomId
+   * @param { Promise<Chat>  } roomId
    */
   async create (roomId: string): Promise<Chat> {
     const chatRoom = new Chat(this.socket, roomId)
