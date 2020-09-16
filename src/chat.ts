@@ -244,7 +244,7 @@ export class Chat {
                 delete messages[id]
               } else {
                 acc[message.parent] = acc[message.parent]
-                  ? [...acc[message.parent] , message].sort(Chat.sortByDate)
+                  ? [...acc[message.parent], message].sort(Chat.sortByDate)
                   : [message]
                 delete messages[id]
               }
@@ -276,18 +276,20 @@ export class Chat {
               if (!message) {
                 throw new Error(`Could not find message with id ${resp.uuid} to add child`)
               }
+              message.removed = false
               message.children = [
                 ...message.children,
-                resp
+                {
+                  ...resp,
+                  removed: false
+                }
               ]
-              message.removed = false
             } else {
-              const pushMessage = {
+              this.messages = [...this.messages, {
                 ...resp,
                 children: [],
                 removed: false
-               } as Message
-              this.messages = [...this.messages, pushMessage]
+              }]
             }
           }
         })
