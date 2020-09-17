@@ -5,21 +5,7 @@ import { Admin as AdminActions, Admin } from './src/admin'
 import { Consumer as ConsumerActions, Consumer } from './src/consumer'
 import { Client as ClientActions, Client } from './src/client'
 import 'isomorphic-fetch'
-
-// Authentication types
-export interface AuthenticationParams {
-  username: string;
-  password: string;
-  'grant_type': string;
-}
-
-export interface AuthenticationResponse {
-  accessToken: string;
-  accessTokenExpiresAt: string;
-  id: string;
-  refreshToken: string;
-  refreshTokenExpiresAt: string;
-}
+import User from './src/user'
 
 // Events by organization
 export interface ExtreamOptions {
@@ -35,9 +21,10 @@ export interface ExtreamOptions {
  */
 export class ExtreamClient {
   public socket: SocketIOClient.Socket | null = null;
-  private adminActions: AdminActions | null = null;
-  private consumerActions: ConsumerActions | null = null;
-  private clientActions: ClientActions | null = null;
+  public adminActions: AdminActions | null = null;
+  public consumerActions: ConsumerActions | null = null;
+  public clientActions: ClientActions | null = null;
+  public user: User;
   private options: ExtreamOptions;
   private headers: Headers;
 
@@ -47,15 +34,21 @@ export class ExtreamClient {
       'Content-Type': 'application/x-www-form-urlencoded',
       Authorization: `Basic ${this.options.apiKey}`
     })
+    this.user = new User(this.options)
   }
+
+  // get user (): User {
+  //   if (!this.userActions) {
+  //     throw new Error('Please connect and authenticate before trying to perform any actions')
+  //   }
+  //   return this.userActions
+  // }
+
 
   get client (): ClientActions {
     if (!this.clientActions) {
       throw new Error('Please connect and authenticate before trying to perform any actions')
     }
-    // else if (!this.socket?.connected) {
-    //   throw new Error('Socket has not connected yet. Please wait for socket to connect successfully before connecting')
-    // }
     return this.clientActions
   }
 
@@ -63,9 +56,6 @@ export class ExtreamClient {
     if (!this.consumerActions) {
       throw new Error('Please connect and authenticate before trying to perform any actions')
     }
-    // else if (!this.socket?.connected) {
-    //   throw new Error('Socket has not connected yet. Please wait for socket to connect successfully before connecting')
-    // }
     return this.consumerActions
   }
 
@@ -73,21 +63,7 @@ export class ExtreamClient {
     if (!this.adminActions) {
       throw new Error('Please connect and authenticate before trying to perform any actions')
     }
-    // else if (!this.socket?.connected) {
-    //   throw new Error('Socket has not connected yet. Please wait for socket to connect successfully before connecting')
-    // }
     return this.adminActions
-  }
-
-  private async performFetch<T> (
-    url: string,
-    options: RequestInit | undefined
-  ): Promise<T> {
-    const resp = await fetch(url, options)
-    if (!resp.ok) {
-      throw new Error(`Response returned a non OK status code ${resp.status}`)
-    }
-    return resp.json()
   }
 
   /**
@@ -152,52 +128,5 @@ export class ExtreamClient {
       throw new Error('No socket connection found. Try connecting first. See method ExtreamClient.connect()')
     }
     this.socket.on(topic, cb)
-  }
-
-  /**
-   * Given a username and password, will authenticate the user against the ExtreamClient
-   *
-   * @param { string } username
-   * @param { string } password
-   * @returns { Promise<AuthenticationResponse> }
-   *
-   */
-  public async authenticate (
-    username: string,
-    password: string
-  ): Promise<AuthenticationResponse> {
-    const params = {
-      username,
-      password,
-      grant_type: 'password'
-    }
-
-    const resp = await this.performFetch<AuthenticationResponse>(
-      `${this.options.auth}/auth/login`,
-      {
-        method: 'POST',
-        headers: this.headers,
-        body: `username=${params.username}&password=${params.password}&grant_type=${params.grant_type}`
-      }
-    )
-
-    return resp
-  }
-
-  /**
-   * Given a username and password, will fetch the user
-   *
-   * @param { string } username
-   * @returns { Promise<ExtreamAuthUser> }
-   *
-   */
-  public fetchUser (username: string): Promise<ExtreamAuthUser> {
-    return this.performFetch<ExtreamAuthUser>(
-      `${this.options.auth}/auth/login?username=${username}`,
-      {
-        method: 'GET',
-        headers: this.headers
-      }
-    )
   }
 }

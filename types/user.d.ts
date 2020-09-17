@@ -1,13 +1,14 @@
 export interface UserFields {
-    firstName: string;
-    lastName: string;
-    company: string;
-    region: string;
-    job: string;
+    firstName?: string;
+    lastName?: string;
+    company?: string;
+    region?: string;
+    job?: string;
   }
 
 export interface ExtreamAuthUser {
   username: string;
+  password: string;
   user_type: string;
 }
 
