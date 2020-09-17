@@ -1,7 +1,4 @@
 /* eslint-disable */
-
-import { ConsumerTopic, ClientTopic } from '../types/topic'
-import { ExtreamUser } from '../types/user';
 import { Chat } from './chat';
 
 export class Consumer {
