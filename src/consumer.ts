@@ -2,10 +2,13 @@
 
 import { ConsumerTopic, ClientTopic } from '../types/topic'
 import { ExtreamUser } from '../types/user';
-import { ChatRoom } from './chat-room';
+import { Chat } from './chat';
 
 export class Consumer {
   private socket: SocketIOClient.Socket;
+  public room: Chat | null = null
+  public dms: Chat[] = []
+
   /**
    * Create an instance of the admin sdk
    */
@@ -16,20 +19,27 @@ export class Consumer {
   /**
    * Create a chat room.
    *
-   * @param { ChatRoom } roomId
+   * @param { Chat } roomId
    */
-  createChatRoomInstance (roomId: string): ChatRoom {
-    return new ChatRoom(this.socket, roomId)
+  join (roomId: string, instanceId?: string): Chat {
+    this.room = new Chat(this.socket, roomId, instanceId)
+    return this.room
+  }
+
+  startChat (roomId: string) {
+    this.room = new Chat(this.socket, roomId)
+    this.room.start()
+    return this.room
   }
 
   /**
    * Create an instance of a chat room and join that chat room.
    *
-   * @param { Promise<ChatRoom>  } roomId
+   * @param { Promise<Chat>  } roomId
    */
-  async joinChatRoom (roomId: string): Promise<ChatRoom> {
-    const chatRoom = new ChatRoom(this.socket, roomId)
-    await chatRoom.joinChat()
+  async create (roomId: string): Promise<Chat> {
+    const chatRoom = new Chat(this.socket, roomId)
+    await chatRoom.join()
     return chatRoom
   }
 }
