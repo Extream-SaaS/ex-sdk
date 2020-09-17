@@ -37,12 +37,21 @@ export default class User {
     })
   }
 
+  /**
+   * Utility to turn object into url encoded form data
+   * @param params
+   */
   private objectToUrlFormData (params: {[ key: string ]: any }): string {
     return Object.entries(params)
     .map(([key, value]) => `${key}=${value}`)
     .join('&')
   }
 
+  /**
+   * Utility to perform a generic fetch request
+   * @param url Url to fetch to
+   * @param options Fetch options
+   */
   private async performFetch<T> (
     url: string,
     options: RequestInit | undefined
@@ -54,6 +63,10 @@ export default class User {
     return resp.json()
   }
 
+  /**
+   * Register a new user
+   * @param { RegisterUserRequest } params Use information
+   */
   public async registerUser (params: RegisterUserRequest) {
     const user = await this.performFetch(
       `${this.options.auth}/auth/register`,

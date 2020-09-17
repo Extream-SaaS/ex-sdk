@@ -15,14 +15,18 @@ const extreamClient = new ExtreamClient({
 })
 
 // authenticate
-const { accessToken } = await this.extreamClient.authenticate('rich@extream.app', 'password')
+const { accessToken } = await extreamClient.user.login('rich@extream.app', 'password')
 
 // fetch user
-const user = await this.extreamClient.fetchUser('rich@extream.app')
+const user = await extreamClient.user.fetchUser('rich@extream.app')
 
 // connect to the server
-this.extreamClient.connect(accessToken)
+extreamClient.connect(accessToken)
 
+// The raw socket is exposed as a property
+const { socket } = extreamClient
+
+// Helpers exist to allow you to add listeners easily
 // subscribe to a topic
 this.extreamClient.on('some_topic', (val) => {
   console.log(val)
@@ -32,7 +36,6 @@ this.extreamClient.on('some_topic', (val) => {
 this.extreamClient.emit('some_topic', {
   someProperty: 'someValue'
 })
-
 ```
 
 ## Build from source
