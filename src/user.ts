@@ -73,7 +73,7 @@ export default class User {
    * Try and fetch a user and see weather they exist or not
    * @param {string} username the username to check if it exists or not
    */
-  public async checkUserExists (username: string): Promise<ExtreamAuthUser | null> {
+  public async fetchUser (username: string): Promise<ExtreamAuthUser | null> {
     try {
       const user = await this.performFetch<ExtreamAuthUser>(
         `${this.options.auth}/auth/login?username=${username}`,
