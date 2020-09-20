@@ -23,9 +23,9 @@ export class Consumer {
     return this.room
   }
 
-  startChat (roomId: string) {
+  async startChat (roomId: string) {
     this.room = new Chat(this.socket, roomId)
-    this.room.start()
+    await this.room.start()
     return this.room
   }
 
