@@ -1,6 +1,6 @@
 /* eslint-disable */
 import io from 'socket.io-client'
-import { ExtreamAuthUser } from './src/user'
+import { ExtreamUser } from './src/user'
 import { Admin as AdminActions, Admin } from './src/admin'
 import { Consumer as ConsumerActions, Consumer } from './src/consumer'
 import { Client as ClientActions, Client } from './src/client'
@@ -26,24 +26,11 @@ export class ExtreamClient {
   public clientActions: ClientActions | null = null;
   public user: User;
   private options: ExtreamOptions;
-  private headers: Headers;
 
   constructor (options: ExtreamOptions) {
     this.options = options
-    this.headers = new Headers({
-      'Content-Type': 'application/x-www-form-urlencoded',
-      Authorization: `Basic ${this.options.apiKey}`
-    })
     this.user = new User(this.options)
   }
-
-  // get user (): User {
-  //   if (!this.userActions) {
-  //     throw new Error('Please connect and authenticate before trying to perform any actions')
-  //   }
-  //   return this.userActions
-  // }
-
 
   get client (): ClientActions {
     if (!this.clientActions) {
@@ -73,10 +60,10 @@ export class ExtreamClient {
    * @returns { void }
    *
    */
-  connect (accessToken: string): Promise<ExtreamAuthUser> {
+  connect (accessToken: string): Promise<ExtreamUser> {
     const unsubscribe = () => {
-      this.socket?.removeEventListener('connect')
-      this.socket?.removeEventListener('connect_error')
+      this.socket?.removeEventListener('authorized')
+      this.socket?.removeEventListener('unauthorized')
     }
     return new Promise((resolve, reject) => {
       this.socket = io(`${this.options.gateway}?x-auth=${accessToken}`, {
@@ -85,11 +72,12 @@ export class ExtreamClient {
       this.adminActions = new Admin(this.socket)
       this.clientActions = new Client(this.socket)
       this.consumerActions = new Consumer(this.socket)
-      this.socket.on('connect', (user: ExtreamAuthUser) => {
+      this.socket.emit(`authorize`, { method: 'oauth2', token: accessToken })
+      this.socket.on('authorized', (user: ExtreamUser) => {
         resolve(user)
         unsubscribe()
       })
-      this.socket.on('connect_error', (error: Error) => {
+      this.socket.on('unauthorized', (error: Error) => {
         reject(error)
         unsubscribe()
       })
