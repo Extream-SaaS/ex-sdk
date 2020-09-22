@@ -6,6 +6,7 @@ import { Consumer as ConsumerActions, Consumer } from './src/consumer'
 import { Client as ClientActions, Client } from './src/client'
 import 'isomorphic-fetch'
 import User from './src/user'
+import { AuthorizationTopic } from './src/topic'
 
 // Events by organization
 export interface ExtreamOptions {
@@ -62,8 +63,8 @@ export class ExtreamClient {
    */
   connect (accessToken: string): Promise<ExtreamUser> {
     const unsubscribe = () => {
-      this.socket?.removeEventListener('authorized')
-      this.socket?.removeEventListener('unauthorized')
+      this.socket?.removeEventListener(AuthorizationTopic.Authorized)
+      this.socket?.removeEventListener(AuthorizationTopic.Unauthorized)
     }
     return new Promise((resolve, reject) => {
       this.socket = io(`${this.options.gateway}?x-auth=${accessToken}`, {
@@ -72,12 +73,12 @@ export class ExtreamClient {
       this.adminActions = new Admin(this.socket)
       this.clientActions = new Client(this.socket)
       this.consumerActions = new Consumer(this.socket)
-      this.socket.emit(`authorize`, { method: 'oauth2', token: accessToken })
-      this.socket.on('authorized', (user: ExtreamUser) => {
+      this.socket.emit(AuthorizationTopic.Authorize, { method: 'oauth2', token: accessToken })
+      this.socket.on(AuthorizationTopic.Authorized, (user: ExtreamUser) => {
         resolve(user)
         unsubscribe()
       })
-      this.socket.on('unauthorized', (error: Error) => {
+      this.socket.on(AuthorizationTopic.Unauthorized, (error: Error) => {
         reject(error)
         unsubscribe()
       })

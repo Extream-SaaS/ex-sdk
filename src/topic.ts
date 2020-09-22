@@ -40,6 +40,7 @@ export enum ConsumerTopic {
 /* authorization events */
 export enum AuthorizationTopic {
   Authorized = 'authorized',
+  Authorize = 'authorize',
   Unauthorized = 'unauthorized',
   Mfa = 'mfa',
   Connect = 'connect',
