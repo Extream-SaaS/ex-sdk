@@ -30,6 +30,11 @@ export class Consumer {
     return this.room
   }
 
+  /**
+   * Start a new DM in a specific room
+   *
+   * @param { string } roomId the room id associated with the new dm
+   */
   async startChat (roomId: string) {
     this.room = new Chat(this.socket, roomId)
     await this.room.start()
