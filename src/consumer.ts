@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { Chat } from './chat';
-import { GetEventItineraryResponse } from './events';
+import { GetEventItineraryResponse, GetItineraryResponse } from './events';
 import SubscriptionManager from './subscription-manager';
 import { ConsumerTopic } from './topic';
 import { InitialResponse } from './utils';
@@ -36,20 +36,35 @@ export class Consumer {
     return this.room
   }
 
-  public itineraryByEvent (id: string): Promise<GetEventItineraryResponse> {
+  private getItinerary <T>(request: { id?: string, event?: string}): Promise<T> {
     return new Promise((resolve, reject) => {
-      const callback = (resp: InitialResponse | GetEventItineraryResponse) => {
+      const callback = (resp: InitialResponse | T) => {
         if ('error' in resp) {
           reject(resp.error)
+          this.socket.removeListener(ConsumerTopic.ChatStart, callback)
         } else if (!('status' in resp)) {
           resolve(resp)
+          this.socket.removeListener(ConsumerTopic.ChatStart, callback)
         }
-        this.socket.removeListener(ConsumerTopic.ChatStart, callback)
       }
       this.subscriptionManager.addSubscription(ConsumerTopic.ItineraryGet, callback)
-      this.socket.emit(ConsumerTopic.ItineraryGet, {
-        event: id
-      })
+      this.socket.emit(ConsumerTopic.ItineraryGet, request)
     })
+  }
+
+  /**
+   * Get a single itinerary item
+   * @param { string } id the id of the itinerary item to get
+   */
+  public itinerary (id: string): Promise<GetItineraryResponse> {
+    return this.getItinerary<GetItineraryResponse>({ id })
+  }
+
+  /**
+   * Get all itinerary items for a specific event
+   * @param { string } event the id of the event to the itinerary items for
+   */
+  public itineraryByEvent (event: string): Promise<GetEventItineraryResponse> {
+    return this.getItinerary<GetEventItineraryResponse>({ id: event })
   }
 }
