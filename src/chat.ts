@@ -217,6 +217,7 @@ export class Chat {
       const callback = (resp: SendChatMessageResponse | InitialResponse) => {
         if ('error' in resp) {
           reject(new Error(resp.error))
+          this.socket.removeListener(ConsumerTopic.ChatSend, callback)
         } else if (!('status' in resp)) {
           // We get 2 messages
           // First response is confirmation there were no errors sending message
