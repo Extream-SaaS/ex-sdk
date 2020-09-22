@@ -20,6 +20,7 @@ export class Consumer {
    */
   join (roomId: string, instanceId?: string): Chat {
     this.room = new Chat(this.socket, roomId, instanceId)
+    this.room.join()
     return this.room
   }
 
