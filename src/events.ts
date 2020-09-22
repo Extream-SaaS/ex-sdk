@@ -36,7 +36,7 @@ export interface ItineraryPayload {
   createdAt: Date;
   updatedAt: Date;
   landing_page?: string;
-  event: string;
+  event?: string;
 }
 
 export interface GetEventItineraryResponse {
@@ -44,6 +44,15 @@ export interface GetEventItineraryResponse {
   action: string;
   command: string;
   payload: ItineraryPayload[];
+  user: ExtreamUser;
+  socketId: string;
+}
+
+export interface GetItineraryResponse {
+  domain: string;
+  action: string;
+  command: string;
+  payload: ItineraryPayload;
   user: ExtreamUser;
   socketId: string;
 }
