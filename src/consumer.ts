@@ -1,8 +1,13 @@
 /* eslint-disable */
 import { Chat } from './chat';
+import { GetEventItineraryResponse } from './events';
+import SubscriptionManager from './subscription-manager';
+import { ConsumerTopic } from './topic';
+import { InitialResponse } from './utils';
 
 export class Consumer {
   private socket: SocketIOClient.Socket;
+  private subscriptionManager: SubscriptionManager;
   public room: Chat | null = null
   public dms: Chat[] = []
 
@@ -11,6 +16,7 @@ export class Consumer {
    */
   constructor (socket: SocketIOClient.Socket) {
     this.socket = socket
+    this.subscriptionManager = new SubscriptionManager(this.socket)
   }
 
   /**
@@ -30,14 +36,20 @@ export class Consumer {
     return this.room
   }
 
-  /**
-   * Create an instance of a chat room and join that chat room.
-   *
-   * @param { Promise<Chat>  } roomId
-   */
-  async create (roomId: string): Promise<Chat> {
-    const chatRoom = new Chat(this.socket, roomId)
-    await chatRoom.join()
-    return chatRoom
+  public itineraryByEvent (id: string): Promise<GetEventItineraryResponse> {
+    return new Promise((resolve, reject) => {
+      const callback = (resp: InitialResponse | GetEventItineraryResponse) => {
+        if ('error' in resp) {
+          reject(resp.error)
+        } else if (!('status' in resp)) {
+          resolve(resp)
+        }
+        this.socket.removeListener(ConsumerTopic.ChatStart, callback)
+      }
+      this.subscriptionManager.addSubscription(ConsumerTopic.ItineraryGet, callback)
+      this.socket.emit(ConsumerTopic.ItineraryGet, {
+        event: id
+      })
+    })
   }
 }

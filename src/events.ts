@@ -39,7 +39,7 @@ export interface ItineraryPayload {
   event: string;
 }
 
-export interface GetItineraryResponse {
+export interface GetEventItineraryResponse {
   domain: string;
   action: string;
   command: string;
