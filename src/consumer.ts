@@ -70,6 +70,6 @@ export class Consumer {
    * @param { string } event the id of the event to the itinerary items for
    */
   public itineraryByEvent (event: string): Promise<GetEventItineraryResponse> {
-    return this.getItinerary<GetEventItineraryResponse>({ id: event })
+    return this.getItinerary<GetEventItineraryResponse>({ event })
   }
 }
