@@ -1,13 +1,14 @@
 /* eslint-disable */
-import io from 'socket.io-client'
-import { ExtreamUser } from './src/user'
-import { Admin as AdminActions, Admin } from './src/admin'
-import { Consumer as ConsumerActions, Consumer } from './src/consumer'
-import { Client as ClientActions, Client } from './src/client'
 import 'isomorphic-fetch'
-import User from './src/user'
-import { AuthorizationTopic } from './src/topic'
+
+import io from 'socket.io-client'
+
+import { Admin } from './src/admin'
+import { Client } from './src/client'
+import { Consumer } from './src/consumer'
 import SubscriptionManager from './src/subscription-manager'
+import { AuthorizationTopic } from './src/topic'
+import User, { ExtreamUser } from './src/user'
 
 // Events by organization
 export interface ExtreamOptions {
@@ -23,9 +24,9 @@ export interface ExtreamOptions {
  */
 export class ExtreamClient {
   public socket: SocketIOClient.Socket | null = null;
-  public adminActions: AdminActions | null = null;
-  public consumerActions: ConsumerActions | null = null;
-  public clientActions: ClientActions | null = null;
+  public adminActions: Admin | null = null;
+  public consumerActions: Consumer | null = null;
+  public clientActions: Client | null = null;
   public user: User;
   private options: ExtreamOptions;
   private subscriptionManager: SubscriptionManager | null = null;
@@ -35,32 +36,32 @@ export class ExtreamClient {
     this.user = new User(this.options)
   }
 
-  get client (): ClientActions {
-    if (!this.clientActions) {
-      throw new Error('Please connect and authenticate before trying to perform any actions')
-    }
-    return this.clientActions
-  }
-
-  get consumer (): ConsumerActions {
-    if (!this.consumerActions) {
-      throw new Error('Please connect and authenticate before trying to perform any actions')
-    }
-    return this.consumerActions
-  }
-
-  get admin (): AdminActions {
+  get admin (): Admin {
     if (!this.adminActions) {
       throw new Error('Please connect and authenticate before trying to perform any actions')
     }
     return this.adminActions
   }
 
+  get client (): Client {
+    if (!this.clientActions) {
+      throw new Error('Please connect and authenticate before trying to perform any actions')
+    }
+    return this.clientActions
+  }
+
+  get consumer (): Consumer {
+    if (!this.consumerActions) {
+      throw new Error('Please connect and authenticate before trying to perform any actions')
+    }
+    return this.consumerActions
+  }
+
   /**
    * Create an instance of the websocket and connect to it using the access token provided
    *
    * @param { string } accessToken
-   * @returns { void }
+   * @returns { Promise<ExtreamUser> }
    *
    */
   connect (accessToken: string): Promise<ExtreamUser> {
@@ -95,7 +96,7 @@ export class ExtreamClient {
    *
    * @param { string } event
    * @param { any } payload
-   * @returns { any }
+   * @returns { void }
    *
    */
   public emit (topic: string, payload: any): void {
@@ -112,7 +113,7 @@ export class ExtreamClient {
    *
    * @param { string } event
    * @param { any } cb
-   * @returns { any }
+   * @returns { void }
    *
    */
   public on (topic: string, cb: (response: any) => void): void {
