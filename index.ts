@@ -7,6 +7,7 @@ import { Client as ClientActions, Client } from './src/client'
 import 'isomorphic-fetch'
 import User from './src/user'
 import { AuthorizationTopic } from './src/topic'
+import SubscriptionManager from './src/subscription-manager'
 
 // Events by organization
 export interface ExtreamOptions {
@@ -27,6 +28,7 @@ export class ExtreamClient {
   public clientActions: ClientActions | null = null;
   public user: User;
   private options: ExtreamOptions;
+  private subscriptionManager: SubscriptionManager | null = null;
 
   constructor (options: ExtreamOptions) {
     this.options = options
@@ -70,6 +72,7 @@ export class ExtreamClient {
       this.socket = io(`${this.options.gateway}?x-auth=${accessToken}`, {
         transports: [ 'websocket' ]
       })
+      this.subscriptionManager = new SubscriptionManager(this.socket)
       this.adminActions = new Admin(this.socket)
       this.clientActions = new Client(this.socket)
       this.consumerActions = new Consumer(this.socket)
@@ -113,9 +116,17 @@ export class ExtreamClient {
    *
    */
   public on (topic: string, cb: (response: any) => void): void {
-    if (!this.socket) {
+    if (!this.socket || !this.subscriptionManager) {
       throw new Error('No socket connection found. Try connecting first. See method ExtreamClient.connect()')
     }
+    this.subscriptionManager.addSubscription(topic, cb)
     this.socket.on(topic, cb)
+  }
+
+  public destroy () {
+    if (!this.subscriptionManager) {
+      throw new Error('No socket connection found. You do not need to destroy a socket that has never been connected.')
+    }
+    this.subscriptionManager.removeAllSubscriptions()
   }
 }
