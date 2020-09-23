@@ -375,7 +375,7 @@ export class Chat {
         if ('error' in resp) {
           reject(resp.error)
           this.socket.removeListener(ConsumerTopic.ChatStart, callback)
-        } else if (!('status' in resp) && resp.payload.id) {
+        } else if (!('status' in resp) && (resp.payload.id === this.roomId)) {
           if (this.roomId === resp.payload.id) {
             this.instance = resp.payload.data.instance
             resolve()
