@@ -4,6 +4,7 @@
 import { ConsumerTopic, ClientTopic } from './topic'
 import { ExtreamUser } from './user';
 import SubscriptionManager from './subscription-manager';
+import { InitialResponse } from './utils';
 
 /**
  * Chat message response for a message being streamed in
@@ -30,19 +31,6 @@ export interface SendChatMessageResponse {
   payload: SendChatMessagePayload;
   user: ExtreamUser;
   socketId: string;
-}
-
-export interface InitialResponse {
-  /**
-   * Error message. Present if sending failed
-   */
-  error: string;
-  /**
-   * The id of the message
-   */
-  messageId: string;
-  status: number;
-  topic: string;
 }
 
 export interface ReplyMessageData {
@@ -226,9 +214,10 @@ export class Chat {
    */
   private emitMessage (message: MessageData): Promise<void> {
     return new Promise((resolve, reject) => {
-      const callback = (resp: SendChatMessageResponse| InitialResponse) => {
+      const callback = (resp: SendChatMessageResponse | InitialResponse) => {
         if ('error' in resp) {
           reject(new Error(resp.error))
+          this.socket.removeListener(ConsumerTopic.ChatSend, callback)
         } else if (!('status' in resp)) {
           // We get 2 messages
           // First response is confirmation there were no errors sending message
@@ -386,6 +375,7 @@ export class Chat {
       const callback = (resp: StartChatResponse | InitialResponse) => {
         if ('error' in resp) {
           reject(resp.error)
+          this.socket.removeListener(ConsumerTopic.ChatStart, callback)
         } else if (!('status' in resp) && resp.payload.id) {
           if (this.roomId === resp.payload.id) {
             this.instance = resp.payload.data.instance

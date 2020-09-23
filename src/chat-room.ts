@@ -4,6 +4,7 @@
 import { ConsumerTopic, ClientTopic } from './topic'
 import { ExtreamUser } from './user';
 import SubscriptionManager from './subscription-manager';
+import { InitialResponse } from './utils';
 
 /**
  * Chat message response for a message being streamed in
@@ -30,19 +31,6 @@ export interface SendChatMessageResponse {
   payload: SendChatMessagePayload;
   user: ExtreamUser;
   socketId: string;
-}
-
-export interface InitialResponse {
-  /**
-   * Error message. Present if sending failed
-   */
-  error: string;
-  /**
-   * The id of the message
-   */
-  messageId: string;
-  status: number;
-  topic: string;
 }
 
 export interface ReplyMessageData {
@@ -183,7 +171,7 @@ export class ChatRoom {
 
   private emitMessage (message: SendChatRequest<MessageData>): Promise<void> {
     return new Promise((resolve, reject) => {
-      const callback = (resp: SendChatMessageResponse| InitialResponse) => {
+      const callback = (resp: SendChatMessageResponse | InitialResponse) => {
         if ('error' in resp) {
           reject(new Error(resp.error))
         } else if (!('status' in resp)) {
