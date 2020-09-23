@@ -317,7 +317,7 @@ export class Chat {
         this.subscriptionManager.addSubscription(ConsumerTopic.ChatGet, (resp: InitialResponse | GetChatResponse ) => {
           if ('error' in resp) {
             reject(resp.error)
-          } else if (!('status' in resp) && resp.payload.id) {
+          } else if (!('status' in resp) && resp.payload.id === this.roomId) {
             const messages = resp.payload.messages
             const childrenMap = {}
             // Process all messages with parents first and push them as children into their parents
