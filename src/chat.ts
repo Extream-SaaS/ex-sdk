@@ -328,13 +328,10 @@ export class Chat {
               if (!messages[message.parent]) {
                 // @ts-ignore
                 console.warn(`Could not find parent for message ${id}`)
-                // throw new Error(`Could not find parent for message ${id}`)
-                delete messages[id]
               } else {
                 acc[message.parent] = acc[message.parent]
                   ? [...acc[message.parent], message].sort(Chat.sortByDate)
                   : [message]
-                delete messages[id]
               }
               return acc
             }, childrenMap)
