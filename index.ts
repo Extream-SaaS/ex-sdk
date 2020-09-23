@@ -121,7 +121,6 @@ export class ExtreamClient {
       throw new Error('No socket connection found. Try connecting first. See method ExtreamClient.connect()')
     }
     this.subscriptionManager.addSubscription(topic, cb)
-    this.socket.on(topic, cb)
   }
 
   public destroy () {
