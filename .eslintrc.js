@@ -18,5 +18,11 @@ module.exports = {
   ],
   rules: {
     camelcase: 'off'
-  }
+  },
+  overrides: [{
+    files: ['*.spec.ts'],
+    env: {
+      jest: true
+    }
+  }]
 }
