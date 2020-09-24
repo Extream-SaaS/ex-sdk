@@ -537,16 +537,4 @@ describe('Chat class', () => {
       expect(e.message).toBe('Things went wrong')
     }
   })
-
-  // it('allows users to reply to a message', () => {
-  //   expect(false).toBeTruthy()
-  // })
-
-  // it('throws error if reply message could not be sent', () => {
-  //   expect(false).toBeTruthy()
-  // })
-
-  // it('allows users to remove a message', () => {
-  //   expect(false).toBeTruthy()
-  // })
 })
