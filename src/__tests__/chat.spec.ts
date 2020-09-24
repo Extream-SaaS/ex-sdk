@@ -242,4 +242,60 @@ describe('Chat class', () => {
     expect(chat.messages[1].uuid).toBe('id1')
     expect(chat.messages[2].uuid).toBe('id2')
   })
+
+  it('removes a message if streamed in', () => {
+    expect(false).toBeTruthy()
+  })
+
+  it('removes a child message if streamed in', () => {
+    expect(false).toBeTruthy()
+  })
+
+  it('removes a child message if streamed in', () => {
+    expect(false).toBeTruthy()
+  })
+
+  it('adds a message if streamed in', () => {
+    expect(false).toBeTruthy()
+  })
+
+  it('adds a child message if streamed in', () => {
+    expect(false).toBeTruthy()
+  })
+
+  it('does not resolve if the get message is not the same as the room id', () => {
+    expect(false).toBeTruthy()
+  })
+
+  it('does not add the message if the room id is different', () => {
+    expect(false).toBeTruthy()
+  })
+
+  it('does not remove the message if the room id is different', () => {
+    expect(false).toBeTruthy()
+  })
+
+  it('does not resolve if the get message is not the same as the room id', () => {
+    expect(false).toBeTruthy()
+  })
+
+  it('allows users to send a message', () => {
+    expect(false).toBeTruthy()
+  })
+
+  it('throws error if message could not be sent', () => {
+    expect(false).toBeTruthy()
+  })
+
+  it('allows users to reply to a message', () => {
+    expect(false).toBeTruthy()
+  })
+
+  it('throws error if reply message could not be sent', () => {
+    expect(false).toBeTruthy()
+  })
+
+  it('allows users to remove a message', () => {
+    expect(false).toBeTruthy()
+  })
 })
