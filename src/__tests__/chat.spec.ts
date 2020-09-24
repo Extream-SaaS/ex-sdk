@@ -98,7 +98,7 @@ describe('Chat class', () => {
         },
         message: 'Some text',
         sent: '2020-09-23T00:00:17.047Z',
-        uuid: '2be3f790-d12a-49a3-858c-3ef63c3c7ed7',
+        uuid: 'id1',
         children: [],
         removed: false
       }
@@ -139,7 +139,7 @@ describe('Chat class', () => {
     socket.socketClient.emit(ConsumerTopic.ChatGet, initialResponse)
     socket.socketClient.emit(ConsumerTopic.ChatGet, response)
     await joinPromise
-    console.log(JSON.stringify(chat.messages, null, '\t'))
+
     expect(chat.messages).toStrictEqual([
       {
         from: {
