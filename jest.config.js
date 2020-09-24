@@ -1,6 +1,18 @@
-console.log('************************************************************************************')
-
 module.exports = {
+  collectCoverage: true,
+  collectCoverageFrom: [
+    'src/**/*.{js,ts}'
+  ],
+  coveragePathIgnorePatterns: [
+    '/.*\\.spec\\.(js|ts)$/',
+    '/node_modules/'
+  ],
+  /**
+   * JSON for post processing scripts
+   * HTML for readability
+   * LCOV incase sonar is ever introduced
+   */
+  coverageReporters: ['json', 'html', 'lcov'],
   roots: [
     '<rootDir>/src'
   ],
