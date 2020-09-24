@@ -3,13 +3,12 @@ import { Chat } from '../chat'
 // @ts-ignore
 import MockedSocket from 'socket.io-mock'
 import { ConsumerTopic } from '../topic'
-import { InitialResponse } from '../utils'
 
 const initialResponse = {
   messageId: '1529023143077761',
   status: 202,
   topic: 'ex-discussion'
-} as InitialResponse
+}
 
 const mockUser = {
   email: 'foo@bar.com',
@@ -211,5 +210,36 @@ describe('Chat class', () => {
         removed: false
       }
     ])
+  })
+
+  test('it sorts messages by date they were sent', async () => {
+    const messages = {
+      id1: message,
+      id2: {
+        ...message,
+        uuid: 'id2',
+        sent: new Date().toISOString()
+      },
+      id3: {
+        ...message,
+        uuid: 'id3',
+        sent: new Date(0).toISOString()
+      }
+    }
+    const response = {
+      ...chatResponse,
+      payload: {
+        ...payload,
+        messages
+      }
+    }
+    const joinPromise = chat.join()
+    socket.socketClient.emit(ConsumerTopic.ChatGet, initialResponse)
+    socket.socketClient.emit(ConsumerTopic.ChatGet, response)
+    await joinPromise
+
+    expect(chat.messages[0].uuid).toBe('id3')
+    expect(chat.messages[1].uuid).toBe('id1')
+    expect(chat.messages[2].uuid).toBe('id2')
   })
 })
