@@ -243,59 +243,137 @@ describe('Chat class', () => {
     expect(chat.messages[2].uuid).toBe('id2')
   })
 
-  it('removes a message if streamed in', () => {
-    expect(false).toBeTruthy()
+  it('adds a message if streamed in', async () => {
+    const joinPromise = chat.join()
+    socket.socketClient.emit(ConsumerTopic.ChatGet, initialResponse)
+    socket.socketClient.emit(ConsumerTopic.ChatGet, chatResponse)
+    await joinPromise
+    socket.socketClient.emit(ConsumerTopic.ChatReceive, {
+      from: mockUser,
+      id: 'roomId',
+      message: 'Next message',
+      sent: '2020-09-24T19:54:05.940Z',
+      uuid: 'id4'
+    })
+
+    expect(chat.messages).toStrictEqual([{
+      from: {
+        email: 'foo@bar.com',
+        id: '1',
+        token: 'token',
+        user_type: 'audience',
+        username: 'baz'
+      },
+      message: 'Some text',
+      sent: '2020-09-23T00:00:17.047Z',
+      uuid: 'id1',
+      children: [],
+      removed: false
+    },
+    {
+      from: {
+        email: 'foo@bar.com',
+        id: '1',
+        token: 'token',
+        user_type: 'audience',
+        username: 'baz'
+      },
+      id: 'roomId',
+      message: 'Next message',
+      sent: '2020-09-24T19:54:05.940Z',
+      uuid: 'id4',
+      children: [],
+      removed: false
+    }])
   })
 
-  it('removes a child message if streamed in', () => {
-    expect(false).toBeTruthy()
+  it('adds a child message if streamed in', async () => {
+    const joinPromise = chat.join()
+    socket.socketClient.emit(ConsumerTopic.ChatGet, initialResponse)
+    socket.socketClient.emit(ConsumerTopic.ChatGet, chatResponse)
+    await joinPromise
+    socket.socketClient.emit(ConsumerTopic.ChatReceive, {
+      from: mockUser,
+      id: 'roomId',
+      message: 'Next message',
+      parent: 'id1',
+      sent: '2020-09-24T19:54:05.940Z',
+      uuid: 'id4'
+    })
+    console.log('%o', chat.messages)
+    expect(chat.messages).toStrictEqual([{
+      from: {
+        email: 'foo@bar.com',
+        id: '1',
+        token: 'token',
+        user_type: 'audience',
+        username: 'baz'
+      },
+      message: 'Some text',
+      sent: '2020-09-23T00:00:17.047Z',
+      uuid: 'id1',
+      children: [
+        {
+          from: {
+            email: 'foo@bar.com',
+            id: '1',
+            token: 'token',
+            user_type: 'audience',
+            username: 'baz'
+          },
+          id: 'roomId',
+          message: 'Next message',
+          parent: 'id1',
+          sent: '2020-09-24T19:54:05.940Z',
+          uuid: 'id4',
+          removed: false
+        }
+      ],
+      removed: false
+    }])
   })
 
-  it('removes a child message if streamed in', () => {
-    expect(false).toBeTruthy()
-  })
+  // it('removes a message if streamed in', () => {
+  //   expect(false).toBeTruthy()
+  // })
 
-  it('adds a message if streamed in', () => {
-    expect(false).toBeTruthy()
-  })
+  // it('removes a child message if streamed in', () => {
+  //   expect(false).toBeTruthy()
+  // })
 
-  it('adds a child message if streamed in', () => {
-    expect(false).toBeTruthy()
-  })
+  // it('does not resolve if the get message is not the same as the room id', () => {
+  //   expect(false).toBeTruthy()
+  // })
 
-  it('does not resolve if the get message is not the same as the room id', () => {
-    expect(false).toBeTruthy()
-  })
+  // it('does not add the message if the room id is different', () => {
+  //   expect(false).toBeTruthy()
+  // })
 
-  it('does not add the message if the room id is different', () => {
-    expect(false).toBeTruthy()
-  })
+  // it('does not remove the message if the room id is different', () => {
+  //   expect(false).toBeTruthy()
+  // })
 
-  it('does not remove the message if the room id is different', () => {
-    expect(false).toBeTruthy()
-  })
+  // it('does not resolve if the get message is not the same as the room id', () => {
+  //   expect(false).toBeTruthy()
+  // })
 
-  it('does not resolve if the get message is not the same as the room id', () => {
-    expect(false).toBeTruthy()
-  })
+  // it('allows users to send a message', () => {
+  //   expect(false).toBeTruthy()
+  // })
 
-  it('allows users to send a message', () => {
-    expect(false).toBeTruthy()
-  })
+  // it('throws error if message could not be sent', () => {
+  //   expect(false).toBeTruthy()
+  // })
 
-  it('throws error if message could not be sent', () => {
-    expect(false).toBeTruthy()
-  })
+  // it('allows users to reply to a message', () => {
+  //   expect(false).toBeTruthy()
+  // })
 
-  it('allows users to reply to a message', () => {
-    expect(false).toBeTruthy()
-  })
+  // it('throws error if reply message could not be sent', () => {
+  //   expect(false).toBeTruthy()
+  // })
 
-  it('throws error if reply message could not be sent', () => {
-    expect(false).toBeTruthy()
-  })
-
-  it('allows users to remove a message', () => {
-    expect(false).toBeTruthy()
-  })
+  // it('allows users to remove a message', () => {
+  //   expect(false).toBeTruthy()
+  // })
 })
