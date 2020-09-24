@@ -2,7 +2,9 @@ import { Chat } from '../chat'
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import MockedSocket from 'socket.io-mock'
-import { ConsumerTopic } from '../topic'
+import { ClientTopic, ConsumerTopic } from '../topic'
+import sinon from 'sinon'
+import { Consumer } from '../../dist/src/consumer'
 
 const initialResponse = {
   messageId: '1529023143077761',
@@ -65,8 +67,11 @@ const chatResponse = {
 describe('Chat class', () => {
   let socket: MockedSocket
   let chat: Chat
+  let emit: sinon.SinonStub
   beforeEach(() => {
     socket = new MockedSocket()
+    emit = sinon.stub()
+    socket.emit = emit
     chat = new Chat(socket, 'roomId')
   })
 
@@ -510,7 +515,17 @@ describe('Chat class', () => {
     socket.socketClient.emit(ConsumerTopic.ChatSend, initialResponse)
     socket.socketClient.emit(ConsumerTopic.ChatSend, {})
     await promise
-    expect(chat.messages).toStrictEqual([])
+    const send = emit.getCalls().find(({ args }) => args[0] === ConsumerTopic.ChatSend)
+    expect(send?.args).toStrictEqual([
+      'consumer_chat_send',
+      {
+        id: 'roomId',
+        data: {
+          instance: undefined,
+          message: 'abc'
+        }
+      }
+    ])
   })
 
   test('throws error if message could not be sent', async () => {
@@ -537,4 +552,70 @@ describe('Chat class', () => {
       expect(e.message).toBe('Things went wrong')
     }
   })
+
+  it('allows users to reply to a message', async () => {
+    const joinPromise = chat.join()
+    socket.socketClient.emit(ConsumerTopic.ChatGet, initialResponse)
+    socket.socketClient.emit(ConsumerTopic.ChatGet, chatResponse)
+    await joinPromise
+    const promise = chat.replyToMessage({
+      message: 'abc',
+      private: false,
+      parent: 'id1'
+    })
+    socket.socketClient.emit(ConsumerTopic.ChatSend, initialResponse)
+    socket.socketClient.emit(ConsumerTopic.ChatSend, {})
+    await promise
+    const send = emit.getCalls().find(({ args }) => args[0] === ConsumerTopic.ChatSend)
+    expect(send?.args).toStrictEqual([
+      'consumer_chat_send',
+      {
+        id: 'roomId',
+        data: {
+          instance: undefined,
+          message: 'abc',
+          parent: 'id1',
+          private: false
+        }
+      }
+    ])
+  })
+
+  it('throws error if chat could not be joined', async () => {
+    const joinPromise = chat.join()
+    socket.socketClient.emit(ConsumerTopic.ChatGet, { error: 'Wut' })
+    try {
+      await joinPromise
+    } catch (e) {
+      expect(e.message).toBe('Wut')
+    }
+  })
+
+  it('allows users to remove a message', async () => {
+    const joinPromise = chat.join()
+    socket.socketClient.emit(ConsumerTopic.ChatGet, initialResponse)
+    socket.socketClient.emit(ConsumerTopic.ChatGet, chatResponse)
+    await joinPromise
+    chat.removeMessage({
+      uuid: 'id1'
+    })
+    const send = emit.getCalls().find(({ args }) => args[0] === ClientTopic.ChatBan)
+    expect(send?.args).toStrictEqual([
+      'client_chat_ban',
+      {
+        id: 'roomId',
+        data: {
+          uuid: 'id1'
+        }
+      }
+    ])
+  })
+
+  // it('throws error if reply message could not be sent', () => {
+  //   expect(false).toBeTruthy()
+  // })
+
+  // it('allows users to start a chat', () => {
+  //   expect(false).toBeTruthy()
+  // })
 })
