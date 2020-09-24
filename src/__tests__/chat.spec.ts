@@ -23,7 +23,7 @@ const message = {
   from: mockUser,
   message: 'Some text',
   sent: '2020-09-23T00:00:17.047Z',
-  uuid: '2be3f790-d12a-49a3-858c-3ef63c3c7ed7'
+  uuid: 'id1'
 }
 
 const payload = {
@@ -64,10 +64,24 @@ const chatResponse = {
 }
 
 describe('Chat class', () => {
-  test('it sets the messages when chat get is responded', async () => {
-    const socket = new MockedSocket()
-    const chat = new Chat(socket, 'roomId')
+  let socket: MockedSocket
+  let chat: Chat
+  beforeEach(() => {
+    socket = new MockedSocket()
+    chat = new Chat(socket, 'roomId')
+  })
 
+  afterEach(() => {
+    chat.destroy()
+    const nonCleanedUpListeners = Object
+      .values(socket._callbacks as (...args: any[]) => void[])
+      .reduce((acc: number, cur: (...args: any[]) => void[]) => acc + cur.length, 0)
+    if (nonCleanedUpListeners) {
+      throw new Error('Socket listeners were not cleaned up between tests')
+    }
+  })
+
+  test('it sets the messages when chat get is responded', async () => {
     const joinPromise = chat.join()
     socket.socketClient.emit(ConsumerTopic.ChatGet, initialResponse)
     socket.socketClient.emit(ConsumerTopic.ChatGet, chatResponse)
@@ -86,6 +100,114 @@ describe('Chat class', () => {
         sent: '2020-09-23T00:00:17.047Z',
         uuid: '2be3f790-d12a-49a3-858c-3ef63c3c7ed7',
         children: [],
+        removed: false
+      }
+    ])
+  })
+
+  test('it groups child messages into parent', async () => {
+    const messages = {
+      id1: message,
+      id2: {
+        ...message,
+        uuid: 'id2',
+        parent: message.uuid
+      },
+      id3: {
+        ...message,
+        uuid: 'id3',
+        parent: message.uuid
+      },
+      id4: {
+        ...message,
+        uuid: 'id4'
+      },
+      id5: {
+        ...message,
+        uuid: 'id5',
+        parent: 'id4'
+      }
+    }
+    const response = {
+      ...chatResponse,
+      payload: {
+        ...payload,
+        messages
+      }
+    }
+    const joinPromise = chat.join()
+    socket.socketClient.emit(ConsumerTopic.ChatGet, initialResponse)
+    socket.socketClient.emit(ConsumerTopic.ChatGet, response)
+    await joinPromise
+    console.log(JSON.stringify(chat.messages, null, '\t'))
+    expect(chat.messages).toStrictEqual([
+      {
+        from: {
+          email: 'foo@bar.com',
+          id: '1',
+          token: 'token',
+          user_type: 'audience',
+          username: 'baz'
+        },
+        message: 'Some text',
+        sent: '2020-09-23T00:00:17.047Z',
+        uuid: 'id1',
+        children: [
+          {
+            from: {
+              email: 'foo@bar.com',
+              id: '1',
+              token: 'token',
+              user_type: 'audience',
+              username: 'baz'
+            },
+            message: 'Some text',
+            sent: '2020-09-23T00:00:17.047Z',
+            uuid: 'id2',
+            parent: 'id1'
+          },
+          {
+            from: {
+              email: 'foo@bar.com',
+              id: '1',
+              token: 'token',
+              user_type: 'audience',
+              username: 'baz'
+            },
+            message: 'Some text',
+            sent: '2020-09-23T00:00:17.047Z',
+            uuid: 'id3',
+            parent: 'id1'
+          }
+        ],
+        removed: false
+      },
+      {
+        from: {
+          email: 'foo@bar.com',
+          id: '1',
+          token: 'token',
+          user_type: 'audience',
+          username: 'baz'
+        },
+        message: 'Some text',
+        sent: '2020-09-23T00:00:17.047Z',
+        uuid: 'id4',
+        children: [
+          {
+            from: {
+              email: 'foo@bar.com',
+              id: '1',
+              token: 'token',
+              user_type: 'audience',
+              username: 'baz'
+            },
+            message: 'Some text',
+            sent: '2020-09-23T00:00:17.047Z',
+            uuid: 'id5',
+            parent: 'id4'
+          }
+        ],
         removed: false
       }
     ])
