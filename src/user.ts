@@ -10,9 +10,9 @@ export interface UserFields {
 }
 
 export interface ExtreamAuthUser {
-username: string;
-password: string;
-user_type: string;
+  username: string;
+  password: string;
+  user_type: string;
 }
 
 export interface ExtreamUser {
