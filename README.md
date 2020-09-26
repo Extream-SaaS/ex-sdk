@@ -1,6 +1,8 @@
 # ExtreamClient
 
-ExtreamClient is a JavaScript SDK for interacting with the Extream platform written in TypeScript
+ExtreamClient is a JavaScript SDK for interacting with the Extream platform written in TypeScript.
+
+All async requests will be rejected if no response is received from the server in 10 seconds.
 
 ## Usage
 

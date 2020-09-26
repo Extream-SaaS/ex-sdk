@@ -9,7 +9,7 @@ import { Consumer } from './consumer'
 import SubscriptionManager from './subscription-manager'
 import { AuthorizationTopic } from './topic'
 import User, { ExtreamUser } from './user'
-import { ExtreamOptions } from './utils'
+import { ExtreamOptions, promiseTimeout } from './utils'
 
 /**
  * The Extream websocket and http communication client.
@@ -63,7 +63,7 @@ export class ExtreamClient {
       this.socket?.removeEventListener(AuthorizationTopic.Authorized)
       this.socket?.removeEventListener(AuthorizationTopic.Unauthorized)
     }
-    return new Promise((resolve, reject) => {
+    return promiseTimeout(new Promise((resolve, reject) => {
       this.socket = io(`${this.options.gateway}?x-auth=${accessToken}`, {
         transports: [ 'websocket' ]
       })
@@ -80,7 +80,7 @@ export class ExtreamClient {
         reject(error)
         unsubscribe()
       })
-    })
+    }))
   }
 
   /**

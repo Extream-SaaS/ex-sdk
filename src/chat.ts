@@ -4,7 +4,7 @@
 import { ConsumerTopic, ClientTopic } from './topic'
 import { ExtreamUser } from './user';
 import SubscriptionManager from './subscription-manager';
-import { InitialResponse } from './utils';
+import { InitialResponse, promiseTimeout } from './utils';
 
 /**
  * Chat message response for a message being streamed in
@@ -213,7 +213,7 @@ export class Chat {
    * @param { MessageData } message Message data to be sent
    */
   private emitMessage (message: MessageData): Promise<void> {
-    return new Promise((resolve, reject) => {
+    return promiseTimeout(new Promise((resolve, reject) => {
       const callback = (resp: SendChatMessageResponse | InitialResponse) => {
         if ('error' in resp) {
           reject(new Error(resp.error))
@@ -236,7 +236,7 @@ export class Chat {
           instance: this.instance
         }
       })
-    })
+    }))
   }
 
   /**
@@ -312,7 +312,7 @@ export class Chat {
    *
    */
   join (): Promise<void> {
-    return new Promise((resolve, reject) => {
+    return promiseTimeout(new Promise((resolve, reject) => {
         this.setupChatListeners()
         this.subscriptionManager.addSubscription(ConsumerTopic.ChatGet, (resp: InitialResponse | GetChatResponse ) => {
           if ('error' in resp) {
@@ -359,7 +359,7 @@ export class Chat {
             instance: this.instance
           }
         })
-    })
+    }))
   }
 
   /**
@@ -368,10 +368,10 @@ export class Chat {
    */
   start (): Promise<void> {
     this.setupChatListeners()
-    return new Promise((resolve, reject) => {
+    return promiseTimeout(new Promise((resolve, reject) => {
       const callback = (resp: StartChatResponse | InitialResponse) => {
         if ('error' in resp) {
-          reject(resp.error)
+          reject(new Error(resp.error))
           this.socket.removeListener(ConsumerTopic.ChatStart, callback)
         } else if (!('status' in resp) && resp.payload.id) {
           if (this.roomId === resp.payload.id) {
@@ -385,7 +385,7 @@ export class Chat {
       this.socket.emit(ConsumerTopic.ChatStart, {
         id: this.roomId,
       })
-    })
+    }))
   }
 
   /**

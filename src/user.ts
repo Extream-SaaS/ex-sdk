@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import { ExtreamOptions } from "./utils"
+import { ExtreamOptions, promiseTimeout } from "./utils"
 
 export interface UserFields {
   firstName?: string;
@@ -78,11 +78,15 @@ export default class User {
     url: string,
     options: RequestInit | undefined
   ): Promise<T> {
-    const resp = await fetch(url, options)
-    if (!resp.ok) {
-      throw resp
-    }
-    return resp.json()
+    return promiseTimeout<T>(
+      fetch(url, options)
+      .then((resp: Response) => {
+        if (!resp.ok) {
+          throw resp
+        }
+        return resp.json()
+      })
+    )
   }
 
   /**

@@ -17,7 +17,8 @@ module.exports = {
     '@typescript-eslint'
   ],
   rules: {
-    camelcase: 'off'
+    camelcase: 'off',
+    'prefer-promise-reject-errors': 'error'
   },
   overrides: [{
     files: ['*.spec.ts'],

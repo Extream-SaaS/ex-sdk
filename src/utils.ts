@@ -17,3 +17,12 @@ export interface ExtreamOptions {
   gateway: string;
   apiKey: string;
 }
+
+export const promiseTimeout = <T>(promise: Promise<T>): Promise<T> => new Promise((resolve, reject) => {
+  setTimeout(() => {
+    reject(new Error('Response not received within timeout'))
+  }, 10000)
+  return promise
+    .then((resp: T) => resolve(resp))
+    .catch((e) => reject(e))
+})
