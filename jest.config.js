@@ -10,9 +10,17 @@ module.exports = {
   /**
    * JSON for post processing scripts
    * HTML for readability
-   * LCOV incase sonar is ever introduced
+   * LCOV incase sonar is ever introduced, and for VScode coverage highlighting plugins
    */
   coverageReporters: ['json', 'html', 'lcov'],
+  coverageThreshold: {
+    global: {
+      branches: 46,
+      functions: 49,
+      lines: 48,
+      statements: 48
+    }
+  },
   roots: [
     '<rootDir>/src'
   ],
