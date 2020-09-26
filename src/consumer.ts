@@ -3,7 +3,7 @@ import { Chat } from './chat';
 import { GetEventItineraryResponse, GetItineraryResponse } from './events';
 import SubscriptionManager from './subscription-manager';
 import { ConsumerTopic } from './topic';
-import { InitialResponse } from './utils';
+import { InitialResponse, promiseTimeout } from './utils';
 
 export class Consumer {
   private socket: SocketIOClient.Socket;
@@ -42,7 +42,7 @@ export class Consumer {
   }
 
   private getItinerary <T>(request: { id?: string, event?: string}): Promise<T> {
-    return new Promise((resolve, reject) => {
+    return promiseTimeout(new Promise((resolve, reject) => {
       const callback = (resp: InitialResponse | T) => {
         if ('error' in resp) {
           reject(new Error(resp.error))
@@ -54,7 +54,7 @@ export class Consumer {
       }
       this.subscriptionManager.addSubscription(ConsumerTopic.ItineraryGet, callback)
       this.socket.emit(ConsumerTopic.ItineraryGet, request)
-    })
+    }))
   }
 
   /**

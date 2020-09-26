@@ -17,3 +17,8 @@ export interface ExtreamOptions {
   gateway: string;
   apiKey: string;
 }
+
+export const promiseTimeout = <T>(promise: Promise<T>): Promise<T> => new Promise((resolve, reject) => {
+  setTimeout(reject, 10000)
+  resolve(promise)
+})
