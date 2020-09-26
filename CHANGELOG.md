@@ -1,9 +1,9 @@
-## 0.3.2 (2020-09-23)
+## 0.3.3 (2020-09-23)
 
 
 ### Bug Fixes
 
-* do not modify the response object directly ([b2260a1](https://github.com/Extream-SaaS/ex-sdk/commit/b2260a1e5919ded6b086519aa3a82cd9669afce6))
+* double event listeners ([8ce6a16](https://github.com/Extream-SaaS/ex-sdk/commit/8ce6a16301b99dd9b3ced77a0fb84b2d6eca95a6))
 
 
 

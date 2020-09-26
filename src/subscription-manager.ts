@@ -33,5 +33,6 @@ export default class SubscriptionManager {
     this.listeners.forEach(({ key, listener }) => {
       this.socket.removeEventListener(key, listener)
     })
+    this.listeners = []
   }
 }

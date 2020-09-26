@@ -3,12 +3,12 @@ import 'isomorphic-fetch'
 
 import io from 'socket.io-client'
 
-import { Admin } from './src/admin'
-import { Client } from './src/client'
-import { Consumer } from './src/consumer'
-import SubscriptionManager from './src/subscription-manager'
-import { AuthorizationTopic } from './src/topic'
-import User, { ExtreamUser } from './src/user'
+import { Admin } from './admin'
+import { Client } from './client'
+import { Consumer } from './consumer'
+import SubscriptionManager from './subscription-manager'
+import { AuthorizationTopic } from './topic'
+import User, { ExtreamUser } from './user'
 
 // Events by organization
 export interface ExtreamOptions {
@@ -121,7 +121,6 @@ export class ExtreamClient {
       throw new Error('No socket connection found. Try connecting first. See method ExtreamClient.connect()')
     }
     this.subscriptionManager.addSubscription(topic, cb)
-    this.socket.on(topic, cb)
   }
 
   public destroy () {
