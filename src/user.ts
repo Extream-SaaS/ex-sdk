@@ -28,6 +28,7 @@ export interface ExtreamUser {
 export interface AuthenticationParams {
   username: string;
   password: string;
+  eventId?: string;
   'grant_type': string;
 }
 
@@ -138,11 +139,13 @@ export default class User {
    */
   public async login (
     username: string,
-    password: string
+    password: string,
+    eventId?: string
   ): Promise<AuthenticationResponse> {
     const params = {
       username,
       password,
+      eventId,
       grant_type: 'password'
     }
 
