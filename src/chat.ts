@@ -316,7 +316,7 @@ export class Chat {
         this.setupChatListeners()
         this.subscriptionManager.addSubscription(ConsumerTopic.ChatGet, (resp: InitialResponse | GetChatResponse ) => {
           if ('error' in resp) {
-            reject(resp.error)
+            reject(new Error(resp.error))
           } else if (!('status' in resp) && resp.payload.id === this.roomId) {
             const messages = resp.payload.messages
             const childrenMap = {}
