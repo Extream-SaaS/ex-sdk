@@ -1,5 +1,6 @@
 /* eslint-disable */
-import { ExtreamOptions } from '..'
+
+import { ExtreamOptions } from "./utils"
 
 export interface UserFields {
   firstName?: string;

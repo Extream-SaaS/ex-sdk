@@ -10,3 +10,10 @@ export interface InitialResponse {
   status: number;
   topic: string;
 }
+
+// Events by organization
+export interface ExtreamOptions {
+  auth: string;
+  gateway: string;
+  apiKey: string;
+}

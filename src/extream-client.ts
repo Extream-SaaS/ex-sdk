@@ -9,13 +9,7 @@ import { Consumer } from './consumer'
 import SubscriptionManager from './subscription-manager'
 import { AuthorizationTopic } from './topic'
 import User, { ExtreamUser } from './user'
-
-// Events by organization
-export interface ExtreamOptions {
-  auth: string;
-  gateway: string;
-  apiKey: string;
-}
+import { ExtreamOptions } from './utils'
 
 /**
  * The Extream websocket and http communication client.
