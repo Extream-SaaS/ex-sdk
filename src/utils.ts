@@ -19,6 +19,10 @@ export interface ExtreamOptions {
 }
 
 export const promiseTimeout = <T>(promise: Promise<T>): Promise<T> => new Promise((resolve, reject) => {
-  setTimeout(reject, 10000)
-  resolve(promise)
+  setTimeout(() => {
+    reject(new Error('Response not received within timeout'))
+  }, 10000)
+  return promise
+    .then((resp: T) => resolve(resp))
+    .catch((e) => reject(e))
 })
