@@ -45,7 +45,7 @@ export class Consumer {
     return new Promise((resolve, reject) => {
       const callback = (resp: InitialResponse | T) => {
         if ('error' in resp) {
-          reject(resp.error)
+          reject(new Error(resp.error))
           this.socket.removeListener(ConsumerTopic.ChatStart, callback)
         } else if (!('status' in resp)) {
           resolve(resp)

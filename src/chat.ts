@@ -371,7 +371,7 @@ export class Chat {
     return new Promise((resolve, reject) => {
       const callback = (resp: StartChatResponse | InitialResponse) => {
         if ('error' in resp) {
-          reject(resp.error)
+          reject(new Error(resp.error))
           this.socket.removeListener(ConsumerTopic.ChatStart, callback)
         } else if (!('status' in resp) && resp.payload.id) {
           if (this.roomId === resp.payload.id) {
