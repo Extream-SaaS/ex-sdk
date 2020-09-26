@@ -4,7 +4,6 @@ import { Chat } from '../chat'
 import MockedSocket from 'socket.io-mock'
 import { ClientTopic, ConsumerTopic } from '../topic'
 import sinon from 'sinon'
-import { Consumer } from '../../dist/src/consumer'
 
 const initialResponse = {
   messageId: '1529023143077761',
