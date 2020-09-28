@@ -21,7 +21,7 @@
 
 • **moderation**: *string*
 
-*Defined in [chat.ts:78](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L78)*
+*Defined in [chat.ts:68](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L68)*
 
 ___
 
@@ -29,7 +29,7 @@ ___
 
 • **moderators**: *string[]*
 
-*Defined in [chat.ts:77](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L77)*
+*Defined in [chat.ts:67](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L67)*
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 • **private**: *boolean*
 
-*Defined in [chat.ts:79](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L79)*
+*Defined in [chat.ts:69](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L69)*
 
 ___
 
@@ -45,4 +45,4 @@ ___
 
 • **threads**: *boolean*
 
-*Defined in [chat.ts:80](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L80)*
+*Defined in [chat.ts:70](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L70)*

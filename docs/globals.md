@@ -18,12 +18,12 @@
 * [Client](classes/client.md)
 * [Consumer](classes/consumer.md)
 * [ExtreamClient](classes/extreamclient.md)
+* [Itinerary](classes/itinerary.md)
 * [SubscriptionManager](classes/subscriptionmanager.md)
 * [User](classes/user.md)
 
 ### Interfaces
 
-* [AddedAt](interfaces/addedat.md)
 * [AuthenticationParams](interfaces/authenticationparams.md)
 * [AuthenticationResponse](interfaces/authenticationresponse.md)
 * [BanMessageData](interfaces/banmessagedata.md)
@@ -46,8 +46,11 @@
 * [Message](interfaces/message.md)
 * [Messages](interfaces/messages.md)
 * [PrimaryContact](interfaces/primarycontact.md)
+* [ReadWebRtcResponse](interfaces/readwebrtcresponse.md)
+* [ReadWebRtcResponsePayload](interfaces/readwebrtcresponsepayload.md)
 * [RegisterUserRequest](interfaces/registeruserrequest.md)
 * [ReplyMessageData](interfaces/replymessagedata.md)
+* [RtcConfiguration](interfaces/rtcconfiguration.md)
 * [SendChatMessagePayload](interfaces/sendchatmessagepayload.md)
 * [SendChatMessageResponse](interfaces/sendchatmessageresponse.md)
 * [SendChatRequest](interfaces/sendchatrequest.md)
@@ -55,8 +58,8 @@
 * [StartChatResponse](interfaces/startchatresponse.md)
 * [StartChatResponsePayload](interfaces/startchatresponsepayload.md)
 * [StartChatResponsePayloadData](interfaces/startchatresponsepayloaddata.md)
+* [TimeStamp](interfaces/timestamp.md)
 * [UpdateOrganizationParams](interfaces/updateorganizationparams.md)
-* [UpdatedAt](interfaces/updatedat.md)
 * [UserFields](interfaces/userfields.md)
 
 ### Type aliases
@@ -73,7 +76,7 @@
 
 Ƭ **MessageData**: *[ReplyMessageData](interfaces/replymessagedata.md) | [SendMessageData](interfaces/sendmessagedata.md)*
 
-*Defined in [chat.ts:52](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L52)*
+*Defined in [chat.ts:52](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L52)*
 
 ## Functions
 
@@ -81,7 +84,7 @@
 
 ▸ **promiseTimeout**‹**T**›(`promise`: Promise‹T›): *Promise‹T›*
 
-*Defined in [utils.ts:21](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/utils.ts#L21)*
+*Defined in [utils.ts:26](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/utils.ts#L26)*
 
 **Type parameters:**
 

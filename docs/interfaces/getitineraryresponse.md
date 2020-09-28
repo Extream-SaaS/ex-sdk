@@ -23,7 +23,7 @@
 
 • **action**: *string*
 
-*Defined in [events.ts:53](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/events.ts#L53)*
+*Defined in [events.ts:53](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/events.ts#L53)*
 
 ___
 
@@ -31,7 +31,7 @@ ___
 
 • **command**: *string*
 
-*Defined in [events.ts:54](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/events.ts#L54)*
+*Defined in [events.ts:54](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/events.ts#L54)*
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 • **domain**: *string*
 
-*Defined in [events.ts:52](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/events.ts#L52)*
+*Defined in [events.ts:52](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/events.ts#L52)*
 
 ___
 
@@ -47,7 +47,7 @@ ___
 
 • **payload**: *[ItineraryPayload](itinerarypayload.md)*
 
-*Defined in [events.ts:55](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/events.ts#L55)*
+*Defined in [events.ts:55](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/events.ts#L55)*
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 • **socketId**: *string*
 
-*Defined in [events.ts:57](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/events.ts#L57)*
+*Defined in [events.ts:57](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/events.ts#L57)*
 
 ___
 
@@ -63,4 +63,4 @@ ___
 
 • **user**: *[ExtreamUser](extreamuser.md)*
 
-*Defined in [events.ts:56](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/events.ts#L56)*
+*Defined in [events.ts:56](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/events.ts#L56)*

@@ -21,7 +21,7 @@
 
 • **from**: *[ExtreamUser](extreamuser.md)*
 
-*Defined in [chat.ts:137](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L137)*
+*Defined in [chat.ts:127](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L127)*
 
 ___
 
@@ -29,7 +29,7 @@ ___
 
 • **instance**: *string*
 
-*Defined in [chat.ts:138](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L138)*
+*Defined in [chat.ts:128](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L128)*
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 • **operators**: *string[]*
 
-*Defined in [chat.ts:139](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L139)*
+*Defined in [chat.ts:129](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L129)*
 
 ___
 
@@ -45,4 +45,4 @@ ___
 
 • **sent**: *Date*
 
-*Defined in [chat.ts:136](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L136)*
+*Defined in [chat.ts:126](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L126)*

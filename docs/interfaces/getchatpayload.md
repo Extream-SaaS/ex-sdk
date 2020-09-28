@@ -27,9 +27,9 @@
 
 ###  addedAt
 
-• **addedAt**: *[AddedAt](addedat.md)*
+• **addedAt**: *[TimeStamp](timestamp.md)*
 
-*Defined in [chat.ts:92](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L92)*
+*Defined in [chat.ts:82](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L82)*
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 • **addedBy**: *string*
 
-*Defined in [chat.ts:90](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L90)*
+*Defined in [chat.ts:80](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L80)*
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 • **configuration**: *[Configuration](configuration.md)*
 
-*Defined in [chat.ts:97](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L97)*
+*Defined in [chat.ts:87](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L87)*
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 • **end_date**: *string*
 
-*Defined in [chat.ts:99](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L99)*
+*Defined in [chat.ts:89](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L89)*
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 • **id**: *string*
 
-*Defined in [chat.ts:88](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L88)*
+*Defined in [chat.ts:78](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L78)*
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 • **itinerary**: *string*
 
-*Defined in [chat.ts:89](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L89)*
+*Defined in [chat.ts:79](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L79)*
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 • **messages**: *[ChatMessages](chatmessages.md)*
 
-*Defined in [chat.ts:96](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L96)*
+*Defined in [chat.ts:86](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L86)*
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 • **start_date**: *string*
 
-*Defined in [chat.ts:93](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L93)*
+*Defined in [chat.ts:83](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L83)*
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 • **title**: *string*
 
-*Defined in [chat.ts:91](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L91)*
+*Defined in [chat.ts:81](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L81)*
 
 ___
 
@@ -101,15 +101,15 @@ ___
 
 • **type**: *string*
 
-*Defined in [chat.ts:94](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L94)*
+*Defined in [chat.ts:84](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L84)*
 
 ___
 
 ###  updatedAt
 
-• **updatedAt**: *[UpdatedAt](updatedat.md)*
+• **updatedAt**: *[TimeStamp](timestamp.md)*
 
-*Defined in [chat.ts:98](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L98)*
+*Defined in [chat.ts:88](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L88)*
 
 ___
 
@@ -117,4 +117,4 @@ ___
 
 • **updatedBy**: *string*
 
-*Defined in [chat.ts:95](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L95)*
+*Defined in [chat.ts:85](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L85)*

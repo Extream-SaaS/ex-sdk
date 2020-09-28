@@ -23,7 +23,7 @@
 
 • **id**: *string*
 
-*Defined in [admin.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/admin.ts#L13)*
+*Defined in [admin.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/admin.ts#L13)*
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 *Inherited from [CreateOrganizationParams](createorganizationparams.md).[name](createorganizationparams.md#name)*
 
-*Defined in [admin.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/admin.ts#L7)*
+*Defined in [admin.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/admin.ts#L7)*
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 *Inherited from [CreateOrganizationParams](createorganizationparams.md).[primary_contact](createorganizationparams.md#primary_contact)*
 
-*Defined in [admin.ts:9](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/admin.ts#L9)*
+*Defined in [admin.ts:9](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/admin.ts#L9)*
 
 ___
 
@@ -53,4 +53,4 @@ ___
 
 *Inherited from [CreateOrganizationParams](createorganizationparams.md).[website](createorganizationparams.md#website)*
 
-*Defined in [admin.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/admin.ts#L8)*
+*Defined in [admin.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/admin.ts#L8)*

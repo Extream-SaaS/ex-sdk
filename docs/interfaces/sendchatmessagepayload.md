@@ -19,7 +19,7 @@
 
 • **data**: *[ChatMessageResponse](chatmessageresponse.md)*
 
-*Defined in [chat.ts:24](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L24)*
+*Defined in [chat.ts:24](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L24)*
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 • **id**: *string*
 
-*Defined in [chat.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L23)*
+*Defined in [chat.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L23)*
