@@ -23,7 +23,7 @@
 
 • **ChatGet**: = "consumer_chat_get"
 
-*Defined in [topic.ts:28](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/topic.ts#L28)*
+*Defined in [topic.ts:28](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/topic.ts#L28)*
 
 ___
 
@@ -31,7 +31,7 @@ ___
 
 • **ChatReceive**: = "consumer_chat_receive"
 
-*Defined in [topic.ts:29](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/topic.ts#L29)*
+*Defined in [topic.ts:29](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/topic.ts#L29)*
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 • **ChatRemove**: = "consumer_chat_remove"
 
-*Defined in [topic.ts:30](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/topic.ts#L30)*
+*Defined in [topic.ts:30](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/topic.ts#L30)*
 
 ___
 
@@ -47,7 +47,7 @@ ___
 
 • **ChatSend**: = "consumer_chat_send"
 
-*Defined in [topic.ts:31](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/topic.ts#L31)*
+*Defined in [topic.ts:31](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/topic.ts#L31)*
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 • **ChatStart**: = "consumer_chat_start"
 
-*Defined in [topic.ts:32](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/topic.ts#L32)*
+*Defined in [topic.ts:32](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/topic.ts#L32)*
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 • **EventGet**: = "consumer_event_get"
 
-*Defined in [topic.ts:33](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/topic.ts#L33)*
+*Defined in [topic.ts:33](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/topic.ts#L33)*
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 • **ItineraryGet**: = "consumer_itinerary_get"
 
-*Defined in [topic.ts:34](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/topic.ts#L34)*
+*Defined in [topic.ts:34](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/topic.ts#L34)*
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 • **PollAnswer**: = "consumer_poll_answer"
 
-*Defined in [topic.ts:36](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/topic.ts#L36)*
+*Defined in [topic.ts:36](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/topic.ts#L36)*
 
 ___
 
@@ -87,7 +87,7 @@ ___
 
 • **PollGet**: = "consumer_poll_get"
 
-*Defined in [topic.ts:35](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/topic.ts#L35)*
+*Defined in [topic.ts:35](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/topic.ts#L35)*
 
 ___
 
@@ -95,4 +95,4 @@ ___
 
 • **RtmpGet**: = "consumer_rtmp_get"
 
-*Defined in [topic.ts:37](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/topic.ts#L37)*
+*Defined in [topic.ts:37](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/topic.ts#L37)*

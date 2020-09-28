@@ -19,7 +19,7 @@
 
 • **_nanoseconds**: *number*
 
-*Defined in [chat.ts:68](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L68)*
+*Defined in [chat.ts:68](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L68)*
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 • **_seconds**: *number*
 
-*Defined in [chat.ts:67](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L67)*
+*Defined in [chat.ts:67](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L67)*

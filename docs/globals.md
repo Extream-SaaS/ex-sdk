@@ -73,7 +73,7 @@
 
 Ƭ **MessageData**: *[ReplyMessageData](interfaces/replymessagedata.md) | [SendMessageData](interfaces/sendmessagedata.md)*
 
-*Defined in [chat.ts:52](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L52)*
+*Defined in [chat.ts:52](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L52)*
 
 ## Functions
 
@@ -81,7 +81,7 @@
 
 ▸ **promiseTimeout**‹**T**›(`promise`: Promise‹T›): *Promise‹T›*
 
-*Defined in [utils.ts:21](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/utils.ts#L21)*
+*Defined in [utils.ts:21](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/utils.ts#L21)*
 
 **Type parameters:**
 

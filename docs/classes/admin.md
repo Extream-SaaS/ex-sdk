@@ -22,7 +22,7 @@
 
 \+ **new Admin**(`socket`: Socket): *[Admin](admin.md)*
 
-*Defined in [admin.ts:17](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/admin.ts#L17)*
+*Defined in [admin.ts:17](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/admin.ts#L17)*
 
 Create an instance of the admin sdk
 
@@ -40,4 +40,4 @@ Name | Type |
 
 • **socket**: *Socket | null* = null
 
-*Defined in [admin.ts:17](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/admin.ts#L17)*
+*Defined in [admin.ts:17](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/admin.ts#L17)*

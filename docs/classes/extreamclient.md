@@ -45,7 +45,7 @@ Only one of these should ever be created per application instance and shared acr
 
 \+ **new ExtreamClient**(`options`: [ExtreamOptions](../interfaces/extreamoptions.md)): *[ExtreamClient](extreamclient.md)*
 
-*Defined in [extream-client.ts:26](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/extream-client.ts#L26)*
+*Defined in [extream-client.ts:26](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/extream-client.ts#L26)*
 
 **Parameters:**
 
@@ -61,7 +61,7 @@ Name | Type |
 
 • **adminActions**: *[Admin](admin.md) | null* = null
 
-*Defined in [extream-client.ts:21](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/extream-client.ts#L21)*
+*Defined in [extream-client.ts:21](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/extream-client.ts#L21)*
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 • **clientActions**: *[Client](client.md) | null* = null
 
-*Defined in [extream-client.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/extream-client.ts#L23)*
+*Defined in [extream-client.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/extream-client.ts#L23)*
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 • **consumerActions**: *[Consumer](consumer.md) | null* = null
 
-*Defined in [extream-client.ts:22](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/extream-client.ts#L22)*
+*Defined in [extream-client.ts:22](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/extream-client.ts#L22)*
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 • **options**: *[ExtreamOptions](../interfaces/extreamoptions.md)*
 
-*Defined in [extream-client.ts:25](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/extream-client.ts#L25)*
+*Defined in [extream-client.ts:25](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/extream-client.ts#L25)*
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 • **socket**: *Socket | null* = null
 
-*Defined in [extream-client.ts:20](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/extream-client.ts#L20)*
+*Defined in [extream-client.ts:20](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/extream-client.ts#L20)*
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 • **subscriptionManager**: *[SubscriptionManager](subscriptionmanager.md) | null* = null
 
-*Defined in [extream-client.ts:26](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/extream-client.ts#L26)*
+*Defined in [extream-client.ts:26](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/extream-client.ts#L26)*
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 • **user**: *[User](user.md)*
 
-*Defined in [extream-client.ts:24](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/extream-client.ts#L24)*
+*Defined in [extream-client.ts:24](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/extream-client.ts#L24)*
 
 ## Accessors
 
@@ -117,7 +117,7 @@ ___
 
 • **get admin**(): *[Admin](admin.md)*
 
-*Defined in [extream-client.ts:33](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/extream-client.ts#L33)*
+*Defined in [extream-client.ts:33](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/extream-client.ts#L33)*
 
 **Returns:** *[Admin](admin.md)*
 
@@ -127,7 +127,7 @@ ___
 
 • **get client**(): *[Client](client.md)*
 
-*Defined in [extream-client.ts:40](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/extream-client.ts#L40)*
+*Defined in [extream-client.ts:40](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/extream-client.ts#L40)*
 
 **Returns:** *[Client](client.md)*
 
@@ -137,7 +137,7 @@ ___
 
 • **get consumer**(): *[Consumer](consumer.md)*
 
-*Defined in [extream-client.ts:47](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/extream-client.ts#L47)*
+*Defined in [extream-client.ts:47](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/extream-client.ts#L47)*
 
 **Returns:** *[Consumer](consumer.md)*
 
@@ -147,7 +147,7 @@ ___
 
 ▸ **connect**(`accessToken`: string): *Promise‹[ExtreamUser](../interfaces/extreamuser.md)›*
 
-*Defined in [extream-client.ts:61](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/extream-client.ts#L61)*
+*Defined in [extream-client.ts:61](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/extream-client.ts#L61)*
 
 Create an instance of the websocket and connect to it using the access token provided
 
@@ -165,7 +165,7 @@ ___
 
 ▸ **destroy**(): *void*
 
-*Defined in [extream-client.ts:120](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/extream-client.ts#L120)*
+*Defined in [extream-client.ts:120](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/extream-client.ts#L120)*
 
 **Returns:** *void*
 
@@ -175,7 +175,7 @@ ___
 
 ▸ **emit**(`topic`: string, `payload`: any): *void*
 
-*Defined in [extream-client.ts:96](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/extream-client.ts#L96)*
+*Defined in [extream-client.ts:96](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/extream-client.ts#L96)*
 
 Returns the emit method from the websocket instance
 
@@ -196,7 +196,7 @@ ___
 
 ▸ **on**(`topic`: string, `cb`: function): *void*
 
-*Defined in [extream-client.ts:113](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/extream-client.ts#L113)*
+*Defined in [extream-client.ts:113](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/extream-client.ts#L113)*
 
 Returns the on method from the websocket instance
 

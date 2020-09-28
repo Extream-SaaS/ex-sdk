@@ -19,7 +19,7 @@
 
 • **data**: *[StartChatResponsePayloadData](startchatresponsepayloaddata.md)*
 
-*Defined in [chat.ts:144](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L144)*
+*Defined in [chat.ts:144](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L144)*
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 • **id**: *string*
 
-*Defined in [chat.ts:143](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L143)*
+*Defined in [chat.ts:143](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L143)*

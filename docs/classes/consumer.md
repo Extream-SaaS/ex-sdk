@@ -33,7 +33,7 @@
 
 \+ **new Consumer**(`socket`: Socket): *[Consumer](consumer.md)*
 
-*Defined in [consumer.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/consumer.ts#L12)*
+*Defined in [consumer.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/consumer.ts#L12)*
 
 Create an instance of the admin sdk
 
@@ -51,7 +51,7 @@ Name | Type |
 
 • **dms**: *[Chat](chat.md)[]* = []
 
-*Defined in [consumer.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/consumer.ts#L12)*
+*Defined in [consumer.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/consumer.ts#L12)*
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 • **room**: *[Chat](chat.md) | null* = null
 
-*Defined in [consumer.ts:11](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/consumer.ts#L11)*
+*Defined in [consumer.ts:11](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/consumer.ts#L11)*
 
 ___
 
@@ -67,7 +67,7 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [consumer.ts:9](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/consumer.ts#L9)*
+*Defined in [consumer.ts:9](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/consumer.ts#L9)*
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 • **subscriptionManager**: *[SubscriptionManager](subscriptionmanager.md)*
 
-*Defined in [consumer.ts:10](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/consumer.ts#L10)*
+*Defined in [consumer.ts:10](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/consumer.ts#L10)*
 
 ## Methods
 
@@ -83,7 +83,7 @@ ___
 
 ▸ **getItinerary**‹**T**›(`request`: object): *Promise‹T›*
 
-*Defined in [consumer.ts:44](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/consumer.ts#L44)*
+*Defined in [consumer.ts:44](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/consumer.ts#L44)*
 
 **Type parameters:**
 
@@ -106,7 +106,7 @@ ___
 
 ▸ **itinerary**(`id`: string): *Promise‹[GetItineraryResponse](../interfaces/getitineraryresponse.md)›*
 
-*Defined in [consumer.ts:64](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/consumer.ts#L64)*
+*Defined in [consumer.ts:64](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/consumer.ts#L64)*
 
 Get a single itinerary item
 
@@ -124,7 +124,7 @@ ___
 
 ▸ **itineraryByEvent**(`event`: string): *Promise‹[GetEventItineraryResponse](../interfaces/geteventitineraryresponse.md)›*
 
-*Defined in [consumer.ts:72](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/consumer.ts#L72)*
+*Defined in [consumer.ts:72](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/consumer.ts#L72)*
 
 Get all itinerary items for a specific event
 
@@ -142,7 +142,7 @@ ___
 
 ▸ **join**(`roomId`: string, `instanceId?`: undefined | string): *[Chat](chat.md)*
 
-*Defined in [consumer.ts:27](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/consumer.ts#L27)*
+*Defined in [consumer.ts:27](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/consumer.ts#L27)*
 
 Create a chat room.
 
@@ -161,7 +161,7 @@ ___
 
 ▸ **startChat**(`roomId`: string): *Promise‹[Chat](chat.md)‹››*
 
-*Defined in [consumer.ts:38](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/consumer.ts#L38)*
+*Defined in [consumer.ts:38](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/consumer.ts#L38)*
 
 Start a new DM in a specific room
 

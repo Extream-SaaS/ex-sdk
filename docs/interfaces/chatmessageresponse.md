@@ -28,7 +28,7 @@ Chat message response for a message being streamed in
 
 • **from**: *[ExtreamUser](extreamuser.md)*
 
-*Defined in [chat.ts:14](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L14)*
+*Defined in [chat.ts:14](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L14)*
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 • **id**? : *undefined | string*
 
-*Defined in [chat.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L13)*
+*Defined in [chat.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L13)*
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 • **message**: *string*
 
-*Defined in [chat.ts:17](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L17)*
+*Defined in [chat.ts:17](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L17)*
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 • **parent**: *string*
 
-*Defined in [chat.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L16)*
+*Defined in [chat.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L16)*
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 • **removed**: *boolean*
 
-*Defined in [chat.ts:19](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L19)*
+*Defined in [chat.ts:19](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L19)*
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 • **sent**: *Date*
 
-*Defined in [chat.ts:18](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L18)*
+*Defined in [chat.ts:18](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L18)*
 
 ___
 
@@ -76,4 +76,4 @@ ___
 
 • **uuid**: *string*
 
-*Defined in [chat.ts:15](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L15)*
+*Defined in [chat.ts:15](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L15)*

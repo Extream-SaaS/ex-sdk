@@ -21,7 +21,7 @@
 
 • **error**: *string*
 
-*Defined in [utils.ts:5](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/utils.ts#L5)*
+*Defined in [utils.ts:5](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/utils.ts#L5)*
 
 Error message. Present if sending failed
 
@@ -31,7 +31,7 @@ ___
 
 • **messageId**: *string*
 
-*Defined in [utils.ts:9](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/utils.ts#L9)*
+*Defined in [utils.ts:9](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/utils.ts#L9)*
 
 The id of the message
 
@@ -41,7 +41,7 @@ ___
 
 • **status**: *number*
 
-*Defined in [utils.ts:10](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/utils.ts#L10)*
+*Defined in [utils.ts:10](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/utils.ts#L10)*
 
 ___
 
@@ -49,4 +49,4 @@ ___
 
 • **topic**: *string*
 
-*Defined in [utils.ts:11](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/utils.ts#L11)*
+*Defined in [utils.ts:11](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/utils.ts#L11)*

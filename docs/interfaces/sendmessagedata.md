@@ -18,6 +18,6 @@
 
 • **message**: *string*
 
-*Defined in [chat.ts:49](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L49)*
+*Defined in [chat.ts:49](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/chat.ts#L49)*
 
 The message to send to the chat

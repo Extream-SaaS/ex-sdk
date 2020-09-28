@@ -20,7 +20,7 @@
 
 • **password**: *string*
 
-*Defined in [user.ts:15](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/user.ts#L15)*
+*Defined in [user.ts:15](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/user.ts#L15)*
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 • **user_type**: *string*
 
-*Defined in [user.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/user.ts#L16)*
+*Defined in [user.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/user.ts#L16)*
 
 ___
 
@@ -36,4 +36,4 @@ ___
 
 • **username**: *string*
 
-*Defined in [user.ts:14](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/user.ts#L14)*
+*Defined in [user.ts:14](https://github.com/Extream-SaaS/ex-sdk/blob/489cbc8/src/user.ts#L14)*
