@@ -36,10 +36,15 @@ jobs:
       - run: npm audit --audit-level=moderate
         id: Audit
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN}}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Test
         id: Test
         run: npm test
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Test
+        id: Generate docs
+        run: npm run docs
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - uses: TriPSs/conventional-changelog-action@v1.2.0
