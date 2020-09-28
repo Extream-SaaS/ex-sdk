@@ -18,6 +18,11 @@ export interface ExtreamOptions {
   apiKey: string;
 }
 
+export interface TimeStamp {
+  _seconds: number;
+  _nanoseconds: number;
+}
+
 export const promiseTimeout = <T>(promise: Promise<T>): Promise<T> => new Promise((resolve, reject) => {
   setTimeout(() => {
     reject(new Error('Response not received within timeout'))

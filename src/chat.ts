@@ -4,7 +4,7 @@
 import { ConsumerTopic, ClientTopic } from './topic'
 import { ExtreamUser } from './user';
 import SubscriptionManager from './subscription-manager';
-import { InitialResponse, promiseTimeout } from './utils';
+import { InitialResponse, promiseTimeout, TimeStamp } from './utils';
 
 /**
  * Chat message response for a message being streamed in
@@ -63,16 +63,6 @@ export interface SendChatRequest<T> {
   data: T;
 }
 
-export interface UpdatedAt {
-  _seconds: number;
-  _nanoseconds: number;
-}
-
-export interface AddedAt {
-  _seconds: number;
-  _nanoseconds: number;
-}
-
 export interface Configuration {
   moderators: string[];
   moderation: string;
@@ -89,13 +79,13 @@ export interface GetChatPayload {
   itinerary: string;
   addedBy: string;
   title: string;
-  addedAt: AddedAt;
+  addedAt: TimeStamp;
   start_date: string;
   type: string;
   updatedBy: string;
   messages: ChatMessages;
   configuration: Configuration;
-  updatedAt: UpdatedAt;
+  updatedAt: TimeStamp;
   end_date: string;
 }
 
