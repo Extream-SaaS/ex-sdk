@@ -42,7 +42,7 @@ jobs:
         run: npm test
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: Test
+      - name: Generate_docs
         id: Generate_docs
         run: npm run docs
         env:
