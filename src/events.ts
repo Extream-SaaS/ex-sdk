@@ -31,7 +31,7 @@ export interface ItineraryPayload {
   website: string;
   start_date: Date;
   end_date: Date;
-  items: string;
+  items: string | string[];
   createdBy: string;
   createdAt: Date;
   updatedAt: Date;
