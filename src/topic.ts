@@ -35,6 +35,7 @@ export enum ConsumerTopic {
   PollGet = 'consumer_poll_get',
   PollAnswer = 'consumer_poll_answer',
   RtmpGet = 'consumer_rtmp_get',
+  WebrtcRead = 'consumer_webrtc_read'
 }
 
 /* authorization events */
