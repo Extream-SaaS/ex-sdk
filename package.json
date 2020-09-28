@@ -2,7 +2,7 @@
   "name": "@sublime-productions/extream-sdk",
   "version": "0.3.7",
   "description": "ExtreamClient is a JavaScript SDK for interacting with the Extream platform written in TypeScript",
-  "main": "dist/extream-client.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "docs": "typedoc",
