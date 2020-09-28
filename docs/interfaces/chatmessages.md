@@ -1,4 +1,4 @@
-[extream-sdk](../README.md) › [Globals](../globals.md) › [ChatMessages](chatmessages.md)
+[@sublime-productions/extream-sdk](../README.md) › [Globals](../globals.md) › [ChatMessages](chatmessages.md)
 
 # Interface: ChatMessages
 

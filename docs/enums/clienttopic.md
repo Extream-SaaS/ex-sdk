@@ -1,4 +1,4 @@
-[extream-sdk](../README.md) › [Globals](../globals.md) › [ClientTopic](clienttopic.md)
+[@sublime-productions/extream-sdk](../README.md) › [Globals](../globals.md) › [ClientTopic](clienttopic.md)
 
 # Enumeration: ClientTopic
 
@@ -18,7 +18,7 @@
 
 • **ChatActivate**: = "client_chat_activate"
 
-*Defined in [types/topic.ts:22](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/types/topic.ts#L22)*
+*Defined in [topic.ts:22](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/topic.ts#L22)*
 
 ___
 
@@ -26,7 +26,7 @@ ___
 
 • **ChatBan**: = "client_chat_ban"
 
-*Defined in [types/topic.ts:21](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/types/topic.ts#L21)*
+*Defined in [topic.ts:21](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/topic.ts#L21)*
 
 ___
 
@@ -34,7 +34,7 @@ ___
 
 • **PollListener**: = "client_poll_listener"
 
-*Defined in [types/topic.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/types/topic.ts#L23)*
+*Defined in [topic.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/topic.ts#L23)*
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 • **RtmpActivate**: = "client_rtmp_activate"
 
-*Defined in [types/topic.ts:20](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/types/topic.ts#L20)*
+*Defined in [topic.ts:20](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/topic.ts#L20)*
 
 ___
 
@@ -50,4 +50,4 @@ ___
 
 • **RtmpGet**: = "client_rtmp_get"
 
-*Defined in [types/topic.ts:19](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/types/topic.ts#L19)*
+*Defined in [topic.ts:19](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/topic.ts#L19)*

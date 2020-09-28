@@ -1,4 +1,4 @@
-[extream-sdk](../README.md) › [Globals](../globals.md) › [ExtreamClient](extreamclient.md)
+[@sublime-productions/extream-sdk](../README.md) › [Globals](../globals.md) › [ExtreamClient](extreamclient.md)
 
 # Class: ExtreamClient
 
@@ -18,12 +18,13 @@ Only one of these should ever be created per application instance and shared acr
 
 ### Properties
 
-* [adminActions](extreamclient.md#private-adminactions)
-* [clientActions](extreamclient.md#private-clientactions)
-* [consumerActions](extreamclient.md#private-consumeractions)
-* [headers](extreamclient.md#private-headers)
+* [adminActions](extreamclient.md#adminactions)
+* [clientActions](extreamclient.md#clientactions)
+* [consumerActions](extreamclient.md#consumeractions)
 * [options](extreamclient.md#private-options)
 * [socket](extreamclient.md#socket)
+* [subscriptionManager](extreamclient.md#private-subscriptionmanager)
+* [user](extreamclient.md#user)
 
 ### Accessors
 
@@ -33,12 +34,10 @@ Only one of these should ever be created per application instance and shared acr
 
 ### Methods
 
-* [authenticate](extreamclient.md#authenticate)
 * [connect](extreamclient.md#connect)
+* [destroy](extreamclient.md#destroy)
 * [emit](extreamclient.md#emit)
-* [fetchUser](extreamclient.md#fetchuser)
 * [on](extreamclient.md#on)
-* [performFetch](extreamclient.md#private-performfetch)
 
 ## Constructors
 
@@ -46,7 +45,7 @@ Only one of these should ever be created per application instance and shared acr
 
 \+ **new ExtreamClient**(`options`: [ExtreamOptions](../interfaces/extreamoptions.md)): *[ExtreamClient](extreamclient.md)*
 
-*Defined in [index.ts:42](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/index.ts#L42)*
+*Defined in [extream-client.ts:26](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/extream-client.ts#L26)*
 
 **Parameters:**
 
@@ -58,35 +57,27 @@ Name | Type |
 
 ## Properties
 
-### `Private` adminActions
+###  adminActions
 
-• **adminActions**: *AdminActions | null* = null
+• **adminActions**: *[Admin](admin.md) | null* = null
 
-*Defined in [index.ts:38](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/index.ts#L38)*
-
-___
-
-### `Private` clientActions
-
-• **clientActions**: *ClientActions | null* = null
-
-*Defined in [index.ts:40](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/index.ts#L40)*
+*Defined in [extream-client.ts:21](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/extream-client.ts#L21)*
 
 ___
 
-### `Private` consumerActions
+###  clientActions
 
-• **consumerActions**: *ConsumerActions | null* = null
+• **clientActions**: *[Client](client.md) | null* = null
 
-*Defined in [index.ts:39](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/index.ts#L39)*
+*Defined in [extream-client.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/extream-client.ts#L23)*
 
 ___
 
-### `Private` headers
+###  consumerActions
 
-• **headers**: *Headers*
+• **consumerActions**: *[Consumer](consumer.md) | null* = null
 
-*Defined in [index.ts:42](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/index.ts#L42)*
+*Defined in [extream-client.ts:22](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/extream-client.ts#L22)*
 
 ___
 
@@ -94,7 +85,7 @@ ___
 
 • **options**: *[ExtreamOptions](../interfaces/extreamoptions.md)*
 
-*Defined in [index.ts:41](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/index.ts#L41)*
+*Defined in [extream-client.ts:25](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/extream-client.ts#L25)*
 
 ___
 
@@ -102,64 +93,61 @@ ___
 
 • **socket**: *Socket | null* = null
 
-*Defined in [index.ts:37](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/index.ts#L37)*
+*Defined in [extream-client.ts:20](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/extream-client.ts#L20)*
+
+___
+
+### `Private` subscriptionManager
+
+• **subscriptionManager**: *[SubscriptionManager](subscriptionmanager.md) | null* = null
+
+*Defined in [extream-client.ts:26](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/extream-client.ts#L26)*
+
+___
+
+###  user
+
+• **user**: *[User](user.md)*
+
+*Defined in [extream-client.ts:24](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/extream-client.ts#L24)*
 
 ## Accessors
 
 ###  admin
 
-• **get admin**(): *AdminActions*
+• **get admin**(): *[Admin](admin.md)*
 
-*Defined in [index.ts:72](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/index.ts#L72)*
+*Defined in [extream-client.ts:33](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/extream-client.ts#L33)*
 
-**Returns:** *AdminActions*
+**Returns:** *[Admin](admin.md)*
 
 ___
 
 ###  client
 
-• **get client**(): *ClientActions*
+• **get client**(): *[Client](client.md)*
 
-*Defined in [index.ts:52](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/index.ts#L52)*
+*Defined in [extream-client.ts:40](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/extream-client.ts#L40)*
 
-**Returns:** *ClientActions*
+**Returns:** *[Client](client.md)*
 
 ___
 
 ###  consumer
 
-• **get consumer**(): *ConsumerActions*
+• **get consumer**(): *[Consumer](consumer.md)*
 
-*Defined in [index.ts:62](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/index.ts#L62)*
+*Defined in [extream-client.ts:47](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/extream-client.ts#L47)*
 
-**Returns:** *ConsumerActions*
+**Returns:** *[Consumer](consumer.md)*
 
 ## Methods
 
-###  authenticate
-
-▸ **authenticate**(`username`: string, `password`: string): *Promise‹[AuthenticationResponse](../interfaces/authenticationresponse.md)›*
-
-*Defined in [index.ts:165](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/index.ts#L165)*
-
-Given a username and password, will authenticate the user against the ExtreamClient
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`username` | string |
-`password` | string |
-
-**Returns:** *Promise‹[AuthenticationResponse](../interfaces/authenticationresponse.md)›*
-
-___
-
 ###  connect
 
-▸ **connect**(`accessToken`: string): *Promise‹void›*
+▸ **connect**(`accessToken`: string): *Promise‹[ExtreamUser](../interfaces/extreamuser.md)›*
 
-*Defined in [index.ts:100](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/index.ts#L100)*
+*Defined in [extream-client.ts:61](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/extream-client.ts#L61)*
 
 Create an instance of the websocket and connect to it using the access token provided
 
@@ -169,7 +157,17 @@ Name | Type |
 ------ | ------ |
 `accessToken` | string |
 
-**Returns:** *Promise‹void›*
+**Returns:** *Promise‹[ExtreamUser](../interfaces/extreamuser.md)›*
+
+___
+
+###  destroy
+
+▸ **destroy**(): *void*
+
+*Defined in [extream-client.ts:120](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/extream-client.ts#L120)*
+
+**Returns:** *void*
 
 ___
 
@@ -177,7 +175,7 @@ ___
 
 ▸ **emit**(`topic`: string, `payload`: any): *void*
 
-*Defined in [index.ts:133](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/index.ts#L133)*
+*Defined in [extream-client.ts:96](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/extream-client.ts#L96)*
 
 Returns the emit method from the websocket instance
 
@@ -194,29 +192,11 @@ Name | Type |
 
 ___
 
-###  fetchUser
-
-▸ **fetchUser**(`username`: string): *Promise‹ExtreamAuthUser›*
-
-*Defined in [index.ts:194](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/index.ts#L194)*
-
-Given a username and password, will fetch the user
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`username` | string |
-
-**Returns:** *Promise‹ExtreamAuthUser›*
-
-___
-
 ###  on
 
 ▸ **on**(`topic`: string, `cb`: function): *void*
 
-*Defined in [index.ts:150](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/index.ts#L150)*
+*Defined in [extream-client.ts:113](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/extream-client.ts#L113)*
 
 Returns the on method from the websocket instance
 
@@ -237,24 +217,3 @@ Name | Type |
 `response` | any |
 
 **Returns:** *void*
-
-___
-
-### `Private` performFetch
-
-▸ **performFetch**‹**T**›(`url`: string, `options`: RequestInit | undefined): *Promise‹T›*
-
-*Defined in [index.ts:82](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/index.ts#L82)*
-
-**Type parameters:**
-
-▪ **T**
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`url` | string |
-`options` | RequestInit &#124; undefined |
-
-**Returns:** *Promise‹T›*

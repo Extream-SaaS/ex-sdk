@@ -1,6 +1,10 @@
-[extream-sdk](../README.md) › [Globals](../globals.md) › [SendChatRequest](sendchatrequest.md)
+[@sublime-productions/extream-sdk](../README.md) › [Globals](../globals.md) › [SendChatRequest](sendchatrequest.md)
 
-# Interface: SendChatRequest
+# Interface: SendChatRequest ‹**T**›
+
+## Type parameters
+
+▪ **T**
 
 ## Hierarchy
 
@@ -18,9 +22,9 @@
 
 ###  data
 
-• **data**: *[MessageData](messagedata.md)*
+• **data**: *T*
 
-*Defined in [src/chat-room.ts:65](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L65)*
+*Defined in [chat.ts:63](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L63)*
 
 The message data
 
@@ -30,7 +34,7 @@ ___
 
 • **id**: *string*
 
-*Defined in [src/chat-room.ts:60](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L60)*
+*Defined in [chat.ts:58](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L58)*
 
 The id of the room that to send the chat message to
 
@@ -40,4 +44,4 @@ ___
 
 • **instance**? : *undefined | string*
 
-*Defined in [src/chat-room.ts:61](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L61)*
+*Defined in [chat.ts:59](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L59)*

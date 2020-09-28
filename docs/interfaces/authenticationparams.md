@@ -1,4 +1,4 @@
-[extream-sdk](../README.md) › [Globals](../globals.md) › [AuthenticationParams](authenticationparams.md)
+[@sublime-productions/extream-sdk](../README.md) › [Globals](../globals.md) › [AuthenticationParams](authenticationparams.md)
 
 # Interface: AuthenticationParams
 
@@ -10,17 +10,26 @@
 
 ### Properties
 
+* [eventId](authenticationparams.md#optional-eventid)
 * [grant_type](authenticationparams.md#grant_type)
 * [password](authenticationparams.md#password)
 * [username](authenticationparams.md#username)
 
 ## Properties
 
+### `Optional` eventId
+
+• **eventId**? : *undefined | string*
+
+*Defined in [user.ts:31](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/user.ts#L31)*
+
+___
+
 ###  grant_type
 
 • **grant_type**: *string*
 
-*Defined in [index.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/index.ts#L13)*
+*Defined in [user.ts:32](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/user.ts#L32)*
 
 ___
 
@@ -28,7 +37,7 @@ ___
 
 • **password**: *string*
 
-*Defined in [index.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/index.ts#L12)*
+*Defined in [user.ts:30](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/user.ts#L30)*
 
 ___
 
@@ -36,4 +45,4 @@ ___
 
 • **username**: *string*
 
-*Defined in [index.ts:11](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/index.ts#L11)*
+*Defined in [user.ts:29](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/user.ts#L29)*

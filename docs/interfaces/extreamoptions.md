@@ -1,4 +1,4 @@
-[extream-sdk](../README.md) › [Globals](../globals.md) › [ExtreamOptions](extreamoptions.md)
+[@sublime-productions/extream-sdk](../README.md) › [Globals](../globals.md) › [ExtreamOptions](extreamoptions.md)
 
 # Interface: ExtreamOptions
 
@@ -20,7 +20,7 @@
 
 • **apiKey**: *string*
 
-*Defined in [index.ts:28](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/index.ts#L28)*
+*Defined in [utils.ts:18](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/utils.ts#L18)*
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 • **auth**: *string*
 
-*Defined in [index.ts:26](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/index.ts#L26)*
+*Defined in [utils.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/utils.ts#L16)*
 
 ___
 
@@ -36,4 +36,4 @@ ___
 
 • **gateway**: *string*
 
-*Defined in [index.ts:27](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/index.ts#L27)*
+*Defined in [utils.ts:17](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/utils.ts#L17)*

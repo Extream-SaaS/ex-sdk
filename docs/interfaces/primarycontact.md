@@ -1,4 +1,4 @@
-[extream-sdk](../README.md) › [Globals](../globals.md) › [PrimaryContact](primarycontact.md)
+[@sublime-productions/extream-sdk](../README.md) › [Globals](../globals.md) › [PrimaryContact](primarycontact.md)
 
 # Interface: PrimaryContact
 
@@ -18,4 +18,4 @@
 
 • **id**: *string*
 
-*Defined in [types/admin.ts:3](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/types/admin.ts#L3)*
+*Defined in [admin.ts:3](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/admin.ts#L3)*

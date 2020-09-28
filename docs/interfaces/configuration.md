@@ -1,4 +1,4 @@
-[extream-sdk](../README.md) › [Globals](../globals.md) › [Configuration](configuration.md)
+[@sublime-productions/extream-sdk](../README.md) › [Globals](../globals.md) › [Configuration](configuration.md)
 
 # Interface: Configuration
 
@@ -21,7 +21,7 @@
 
 • **moderation**: *string*
 
-*Defined in [src/chat-room.ts:80](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L80)*
+*Defined in [chat.ts:78](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L78)*
 
 ___
 
@@ -29,7 +29,7 @@ ___
 
 • **moderators**: *string[]*
 
-*Defined in [src/chat-room.ts:79](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L79)*
+*Defined in [chat.ts:77](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L77)*
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 • **private**: *boolean*
 
-*Defined in [src/chat-room.ts:81](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L81)*
+*Defined in [chat.ts:79](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L79)*
 
 ___
 
@@ -45,4 +45,4 @@ ___
 
 • **threads**: *boolean*
 
-*Defined in [src/chat-room.ts:82](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L82)*
+*Defined in [chat.ts:80](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L80)*

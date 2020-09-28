@@ -1,4 +1,4 @@
-[extream-sdk](../README.md) › [Globals](../globals.md) › [AuthenticationResponse](authenticationresponse.md)
+[@sublime-productions/extream-sdk](../README.md) › [Globals](../globals.md) › [AuthenticationResponse](authenticationresponse.md)
 
 # Interface: AuthenticationResponse
 
@@ -22,7 +22,7 @@
 
 • **accessToken**: *string*
 
-*Defined in [index.ts:17](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/index.ts#L17)*
+*Defined in [user.ts:36](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/user.ts#L36)*
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 • **accessTokenExpiresAt**: *string*
 
-*Defined in [index.ts:18](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/index.ts#L18)*
+*Defined in [user.ts:37](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/user.ts#L37)*
 
 ___
 
@@ -38,7 +38,7 @@ ___
 
 • **id**: *string*
 
-*Defined in [index.ts:19](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/index.ts#L19)*
+*Defined in [user.ts:38](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/user.ts#L38)*
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 • **refreshToken**: *string*
 
-*Defined in [index.ts:20](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/index.ts#L20)*
+*Defined in [user.ts:39](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/user.ts#L39)*
 
 ___
 
@@ -54,4 +54,4 @@ ___
 
 • **refreshTokenExpiresAt**: *string*
 
-*Defined in [index.ts:21](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/index.ts#L21)*
+*Defined in [user.ts:40](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/user.ts#L40)*

@@ -1,4 +1,4 @@
-[extream-sdk](../README.md) › [Globals](../globals.md) › [SendChatMessagePayload](sendchatmessagepayload.md)
+[@sublime-productions/extream-sdk](../README.md) › [Globals](../globals.md) › [SendChatMessagePayload](sendchatmessagepayload.md)
 
 # Interface: SendChatMessagePayload
 
@@ -19,7 +19,7 @@
 
 • **data**: *[ChatMessageResponse](chatmessageresponse.md)*
 
-*Defined in [src/chat-room.ts:22](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L22)*
+*Defined in [chat.ts:24](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L24)*
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 • **id**: *string*
 
-*Defined in [src/chat-room.ts:21](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L21)*
+*Defined in [chat.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L23)*

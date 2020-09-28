@@ -1,4 +1,4 @@
-[extream-sdk](../README.md) › [Globals](../globals.md) › [Admin](admin.md)
+[@sublime-productions/extream-sdk](../README.md) › [Globals](../globals.md) › [Admin](admin.md)
 
 # Class: Admin
 
@@ -22,7 +22,7 @@
 
 \+ **new Admin**(`socket`: Socket): *[Admin](admin.md)*
 
-*Defined in [src/admin.ts:2](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/admin.ts#L2)*
+*Defined in [admin.ts:17](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/admin.ts#L17)*
 
 Create an instance of the admin sdk
 
@@ -40,4 +40,4 @@ Name | Type |
 
 • **socket**: *Socket | null* = null
 
-*Defined in [src/admin.ts:2](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/admin.ts#L2)*
+*Defined in [admin.ts:17](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/admin.ts#L17)*

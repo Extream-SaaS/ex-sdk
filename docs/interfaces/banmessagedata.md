@@ -1,4 +1,4 @@
-[extream-sdk](../README.md) › [Globals](../globals.md) › [BanMessageData](banmessagedata.md)
+[@sublime-productions/extream-sdk](../README.md) › [Globals](../globals.md) › [BanMessageData](banmessagedata.md)
 
 # Interface: BanMessageData
 
@@ -19,7 +19,7 @@
 
 • **parent**? : *undefined | string*
 
-*Defined in [src/chat-room.ts:118](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L118)*
+*Defined in [chat.ts:116](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L116)*
 
 ___
 
@@ -27,6 +27,6 @@ ___
 
 • **uuid**: *string*
 
-*Defined in [src/chat-room.ts:117](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L117)*
+*Defined in [chat.ts:115](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L115)*
 
 The uuid of the message to be banned

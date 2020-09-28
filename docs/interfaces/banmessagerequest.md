@@ -1,4 +1,4 @@
-[extream-sdk](../README.md) › [Globals](../globals.md) › [BanMessageRequest](banmessagerequest.md)
+[@sublime-productions/extream-sdk](../README.md) › [Globals](../globals.md) › [BanMessageRequest](banmessagerequest.md)
 
 # Interface: BanMessageRequest
 
@@ -19,7 +19,7 @@
 
 • **data**: *[BanMessageData](banmessagedata.md)*
 
-*Defined in [src/chat-room.ts:126](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L126)*
+*Defined in [chat.ts:124](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L124)*
 
 ___
 
@@ -27,6 +27,6 @@ ___
 
 • **id**: *string*
 
-*Defined in [src/chat-room.ts:125](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L125)*
+*Defined in [chat.ts:123](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L123)*
 
 The id of the room that the message is contained within

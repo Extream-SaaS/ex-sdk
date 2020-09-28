@@ -1,4 +1,4 @@
-[extream-sdk](../README.md) › [Globals](../globals.md) › [Message](message.md)
+[@sublime-productions/extream-sdk](../README.md) › [Globals](../globals.md) › [Message](message.md)
 
 # Interface: Message
 
@@ -27,17 +27,17 @@
 
 • **children**: *[ChatMessageResponse](chatmessageresponse.md)[]*
 
-*Defined in [src/chat-room.ts:130](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L130)*
+*Defined in [chat.ts:128](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L128)*
 
 ___
 
 ###  from
 
-• **from**: *ExtreamUser*
+• **from**: *[ExtreamUser](extreamuser.md)*
 
 *Inherited from [ChatMessageResponse](chatmessageresponse.md).[from](chatmessageresponse.md#from)*
 
-*Defined in [src/chat-room.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L12)*
+*Defined in [chat.ts:14](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L14)*
 
 ___
 
@@ -47,7 +47,7 @@ ___
 
 *Inherited from [ChatMessageResponse](chatmessageresponse.md).[id](chatmessageresponse.md#optional-id)*
 
-*Defined in [src/chat-room.ts:11](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L11)*
+*Defined in [chat.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L13)*
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 *Inherited from [ChatMessageResponse](chatmessageresponse.md).[message](chatmessageresponse.md#message)*
 
-*Defined in [src/chat-room.ts:15](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L15)*
+*Defined in [chat.ts:17](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L17)*
 
 ___
 
@@ -67,7 +67,7 @@ ___
 
 *Inherited from [ChatMessageResponse](chatmessageresponse.md).[parent](chatmessageresponse.md#parent)*
 
-*Defined in [src/chat-room.ts:14](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L14)*
+*Defined in [chat.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L16)*
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 *Inherited from [ChatMessageResponse](chatmessageresponse.md).[removed](chatmessageresponse.md#removed)*
 
-*Defined in [src/chat-room.ts:17](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L17)*
+*Defined in [chat.ts:19](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L19)*
 
 ___
 
@@ -87,7 +87,7 @@ ___
 
 *Inherited from [ChatMessageResponse](chatmessageresponse.md).[sent](chatmessageresponse.md#sent)*
 
-*Defined in [src/chat-room.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L16)*
+*Defined in [chat.ts:18](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L18)*
 
 ___
 
@@ -97,4 +97,4 @@ ___
 
 *Inherited from [ChatMessageResponse](chatmessageresponse.md).[uuid](chatmessageresponse.md#uuid)*
 
-*Defined in [src/chat-room.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L13)*
+*Defined in [chat.ts:15](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L15)*

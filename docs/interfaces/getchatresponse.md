@@ -1,4 +1,4 @@
-[extream-sdk](../README.md) › [Globals](../globals.md) › [GetChatResponse](getchatresponse.md)
+[@sublime-productions/extream-sdk](../README.md) › [Globals](../globals.md) › [GetChatResponse](getchatresponse.md)
 
 # Interface: GetChatResponse
 
@@ -23,7 +23,7 @@
 
 • **action**: *string*
 
-*Defined in [src/chat-room.ts:106](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L106)*
+*Defined in [chat.ts:104](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L104)*
 
 ___
 
@@ -31,7 +31,7 @@ ___
 
 • **command**: *string*
 
-*Defined in [src/chat-room.ts:107](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L107)*
+*Defined in [chat.ts:105](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L105)*
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 • **domain**: *string*
 
-*Defined in [src/chat-room.ts:105](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L105)*
+*Defined in [chat.ts:103](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L103)*
 
 ___
 
@@ -47,7 +47,7 @@ ___
 
 • **payload**: *[GetChatPayload](getchatpayload.md)*
 
-*Defined in [src/chat-room.ts:108](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L108)*
+*Defined in [chat.ts:106](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L106)*
 
 ___
 
@@ -55,12 +55,12 @@ ___
 
 • **socketId**: *string*
 
-*Defined in [src/chat-room.ts:110](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L110)*
+*Defined in [chat.ts:108](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L108)*
 
 ___
 
 ###  user
 
-• **user**: *ExtreamUser*
+• **user**: *[ExtreamUser](extreamuser.md)*
 
-*Defined in [src/chat-room.ts:109](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L109)*
+*Defined in [chat.ts:107](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L107)*

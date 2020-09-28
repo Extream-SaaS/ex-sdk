@@ -1,4 +1,4 @@
-[extream-sdk](../README.md) › [Globals](../globals.md) › [AddedAt](addedat.md)
+[@sublime-productions/extream-sdk](../README.md) › [Globals](../globals.md) › [AddedAt](addedat.md)
 
 # Interface: AddedAt
 
@@ -19,7 +19,7 @@
 
 • **_nanoseconds**: *number*
 
-*Defined in [src/chat-room.ts:75](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L75)*
+*Defined in [chat.ts:73](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L73)*
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 • **_seconds**: *number*
 
-*Defined in [src/chat-room.ts:74](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L74)*
+*Defined in [chat.ts:72](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L72)*

@@ -1,4 +1,4 @@
-[extream-sdk](../README.md) › [Globals](../globals.md) › [CreateOrganizationParams](createorganizationparams.md)
+[@sublime-productions/extream-sdk](../README.md) › [Globals](../globals.md) › [CreateOrganizationParams](createorganizationparams.md)
 
 # Interface: CreateOrganizationParams
 
@@ -22,7 +22,7 @@
 
 • **name**: *string*
 
-*Defined in [types/admin.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/types/admin.ts#L7)*
+*Defined in [admin.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/admin.ts#L7)*
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 • **primary_contact**: *[PrimaryContact](primarycontact.md)*
 
-*Defined in [types/admin.ts:9](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/types/admin.ts#L9)*
+*Defined in [admin.ts:9](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/admin.ts#L9)*
 
 ___
 
@@ -38,4 +38,4 @@ ___
 
 • **website**: *string*
 
-*Defined in [types/admin.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/types/admin.ts#L8)*
+*Defined in [admin.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/admin.ts#L8)*

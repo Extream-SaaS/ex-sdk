@@ -1,4 +1,4 @@
-[extream-sdk](../README.md) › [Globals](../globals.md) › [GetChatPayload](getchatpayload.md)
+[@sublime-productions/extream-sdk](../README.md) › [Globals](../globals.md) › [GetChatPayload](getchatpayload.md)
 
 # Interface: GetChatPayload
 
@@ -29,7 +29,7 @@
 
 • **addedAt**: *[AddedAt](addedat.md)*
 
-*Defined in [src/chat-room.ts:94](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L94)*
+*Defined in [chat.ts:92](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L92)*
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 • **addedBy**: *string*
 
-*Defined in [src/chat-room.ts:92](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L92)*
+*Defined in [chat.ts:90](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L90)*
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 • **configuration**: *[Configuration](configuration.md)*
 
-*Defined in [src/chat-room.ts:99](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L99)*
+*Defined in [chat.ts:97](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L97)*
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 • **end_date**: *string*
 
-*Defined in [src/chat-room.ts:101](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L101)*
+*Defined in [chat.ts:99](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L99)*
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 • **id**: *string*
 
-*Defined in [src/chat-room.ts:90](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L90)*
+*Defined in [chat.ts:88](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L88)*
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 • **itinerary**: *string*
 
-*Defined in [src/chat-room.ts:91](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L91)*
+*Defined in [chat.ts:89](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L89)*
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 • **messages**: *[ChatMessages](chatmessages.md)*
 
-*Defined in [src/chat-room.ts:98](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L98)*
+*Defined in [chat.ts:96](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L96)*
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 • **start_date**: *string*
 
-*Defined in [src/chat-room.ts:95](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L95)*
+*Defined in [chat.ts:93](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L93)*
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 • **title**: *string*
 
-*Defined in [src/chat-room.ts:93](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L93)*
+*Defined in [chat.ts:91](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L91)*
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 • **type**: *string*
 
-*Defined in [src/chat-room.ts:96](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L96)*
+*Defined in [chat.ts:94](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L94)*
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 • **updatedAt**: *[UpdatedAt](updatedat.md)*
 
-*Defined in [src/chat-room.ts:100](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L100)*
+*Defined in [chat.ts:98](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L98)*
 
 ___
 
@@ -117,4 +117,4 @@ ___
 
 • **updatedBy**: *string*
 
-*Defined in [src/chat-room.ts:97](https://github.com/Extream-SaaS/ex-sdk/blob/1abcccc/src/chat-room.ts#L97)*
+*Defined in [chat.ts:95](https://github.com/Extream-SaaS/ex-sdk/blob/b2de5a9/src/chat.ts#L95)*
