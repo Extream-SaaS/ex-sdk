@@ -1,4 +1,5 @@
-import { GetItineraryResponse, ItineraryPayload } from './events'
+import { Chat } from './chat'
+import { GetItineraryResponse, ItineraryItem, ItineraryPayload } from './event'
 import SubscriptionManager from './subscription-manager'
 import { ConsumerTopic } from './topic'
 import { ExtreamUser } from './user'
@@ -31,38 +32,66 @@ export interface ReadWebRtcResponse {
   socketId: string;
 }
 
-export class Itinerary {
+export class Video {
   private socket: SocketIOClient.Socket
-  private subscriptionManager: SubscriptionManager
-  public payload: ItineraryPayload | null = null
-  public itineraryItems: ReadWebRtcResponsePayload[] = []
+  public id: string
+  public data: ReadWebRtcResponsePayload | null = null
 
-  constructor (socket: SocketIOClient.Socket) {
+  constructor (socket: SocketIOClient.Socket, id: string) {
     this.socket = socket
-    this.subscriptionManager = new SubscriptionManager(this.socket)
+    this.id = id
   }
 
-  private readWebRtc (id: string): Promise<void> {
+  get (): Promise<void> {
     return new Promise<void>((resolve, reject) => {
       const callback = (itemData: ReadWebRtcResponse) => {
         if (itemData.error) {
           reject(new Error(itemData.error))
           this.socket.removeEventListener(ConsumerTopic.WebrtcRead, callback)
-        } else if (itemData.payload && itemData.payload.id === id) {
-          this.itineraryItems.push(itemData.payload)
+        } else if (itemData.payload && itemData.payload.id === this.id) {
+          this.data = itemData.payload
           resolve()
           this.socket.removeEventListener(ConsumerTopic.WebrtcRead, callback)
         }
       }
       this.socket.on(ConsumerTopic.WebrtcRead, callback)
       this.socket.emit(ConsumerTopic.WebrtcRead, {
-        id
+        id: this.id
       })
     })
   }
+}
 
-  private async getWebRtcUrls (itineraryItems: string[]): Promise<void> {
-    await Promise.all(itineraryItems.map(this.readWebRtc.bind(this)))
+export class Itinerary {
+  private socket: SocketIOClient.Socket
+  public payload: ItineraryPayload | null = null
+  public chats: Chat[] = []
+  public videos: Video[] = []
+
+  constructor (socket: SocketIOClient.Socket) {
+    this.socket = socket
+  }
+
+  private createWebRtcItem (item: ItineraryItem): Video {
+    const rtc = new Video(this.socket, item.id)
+    return rtc
+  }
+
+  private createChatItem (item: ItineraryItem): Chat {
+    const chat = new Chat(this.socket, item.id)
+    return chat
+  }
+
+  public async createItineraryItem (payload: ItineraryPayload): Promise<void> {
+    const items: ItineraryItem[] = JSON.parse(payload.items as string)
+    this.payload = {
+      ...payload,
+      items
+    }
+    const rtcItems = items.filter(i => i.type && i.type === 'rtmp')
+    const chatItems = items.filter(i => i.type && i.type === 'chat')
+    this.videos = rtcItems.map(this.createWebRtcItem.bind(this))
+    this.chats = chatItems.map(this.createChatItem.bind(this))
   }
 
   public getItinerary (id: string): Promise<void> {
@@ -70,21 +99,15 @@ export class Itinerary {
       const callback = (resp: InitialResponse | GetItineraryResponse) => {
         if ('error' in resp) {
           reject(new Error(resp.error))
-          // TODO fix this. Wrong removal. Leaving it to see if the tests pick it up
-          this.socket.removeListener(ConsumerTopic.ChatStart, callback)
+          this.socket.removeListener(ConsumerTopic.ItineraryGet, callback)
         } else if (!('status' in resp)) {
-          const items: string[] = JSON.parse(resp.payload.items as string)
-          this.payload = {
-            ...resp.payload,
-            items
-          }
-          this.getWebRtcUrls(items)
+          this.createItineraryItem(resp.payload)
             .then(() => {
               resolve()
             }).catch((e) => {
               reject(e)
             })
-          this.socket.removeListener(ConsumerTopic.ChatStart, callback)
+          this.socket.removeListener(ConsumerTopic.ItineraryGet, callback)
         }
       }
       this.socket.on(ConsumerTopic.ItineraryGet, callback)
@@ -92,9 +115,5 @@ export class Itinerary {
         id
       })
     }))
-  }
-
-  destroy (): void {
-    this.subscriptionManager.removeAllSubscriptions()
   }
 }
