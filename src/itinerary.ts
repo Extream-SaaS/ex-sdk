@@ -32,6 +32,11 @@ export interface ReadWebRtcResponse {
   socketId: string;
 }
 
+export enum ItineraryType {
+  Rtmp = 'rtmp',
+  Chat = 'chats',
+}
+
 export class Itinerary {
   private socket: SocketIOClient.Socket
   public payload: ItineraryPayload | null = null
@@ -58,8 +63,8 @@ export class Itinerary {
       ...payload,
       items
     }
-    const rtcItems = items.filter(i => i.type && i.type === 'rtmp')
-    const chatItems = items.filter(i => i.type && i.type === 'chat')
+    const rtcItems = items.filter(i => i.type && i.type === ItineraryType.Rtmp)
+    const chatItems = items.filter(i => i.type && i.type === ItineraryType.Chat)
     this.videos = rtcItems.map(this.createWebRtcItem.bind(this))
     this.chats = chatItems.map(this.createChatItem.bind(this))
   }
