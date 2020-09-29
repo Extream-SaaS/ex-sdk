@@ -70,25 +70,22 @@ export class Itinerary {
   }
 
   public getItinerary (id: string): Promise<void> {
-    return promiseTimeout(new Promise((resolve, reject) => {
-      const callback = (resp: InitialResponse | GetItineraryResponse) => {
+    let callback: (resp: InitialResponse | GetItineraryResponse) => void
+    return promiseTimeout(new Promise<void>((resolve, reject) => {
+      callback = (resp: InitialResponse | GetItineraryResponse) => {
         if ('error' in resp) {
           reject(new Error(resp.error))
-          this.socket.removeListener(ConsumerTopic.ItineraryGet, callback)
         } else if (!('status' in resp)) {
           this.createItineraryItem(resp.payload)
-            .then(() => {
-              resolve()
-            }).catch((e) => {
-              reject(e)
-            })
-          this.socket.removeListener(ConsumerTopic.ItineraryGet, callback)
+          resolve()
         }
       }
       this.socket.on(ConsumerTopic.ItineraryGet, callback)
       this.socket.emit(ConsumerTopic.ItineraryGet, {
         id
       })
-    }))
+    })).finally(() => {
+      this.socket.removeListener(ConsumerTopic.ItineraryGet, callback)
+    })
   }
 }

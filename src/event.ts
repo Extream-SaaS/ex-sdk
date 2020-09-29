@@ -85,11 +85,11 @@ export class Event {
   }
 
   public getItineraryItems (): Promise<void> {
-    return promiseTimeout(new Promise((resolve, reject) => {
-      const callback = (resp: InitialResponse | GetEventItineraryResponse) => {
+    let callback: (resp: InitialResponse | GetEventItineraryResponse) => void
+    return promiseTimeout(new Promise<void>((resolve, reject) => {
+      callback = (resp: InitialResponse | GetEventItineraryResponse) => {
         if ('error' in resp) {
           reject(new Error(resp.error))
-          this.socket.removeListener(ConsumerTopic.ItineraryGet, callback)
         } else if (!('status' in resp)) {
           this.getItineraryInformation(resp.payload)
             .then(() => {
@@ -97,13 +97,14 @@ export class Event {
             }).catch((e) => {
               reject(e)
             })
-          this.socket.removeListener(ConsumerTopic.ItineraryGet, callback)
         }
       }
       this.socket.on(ConsumerTopic.ItineraryGet, callback)
       this.socket.emit(ConsumerTopic.ItineraryGet, {
         event: this.id
       })
-    }))
+    })).finally(() => {
+      this.socket.removeListener(ConsumerTopic.ItineraryGet, callback)
+    })
   }
 }

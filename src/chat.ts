@@ -203,18 +203,17 @@ export class Chat {
    * @param { MessageData } message Message data to be sent
    */
   private emitMessage (message: MessageData): Promise<void> {
-    return promiseTimeout(new Promise((resolve, reject) => {
-      const callback = (resp: SendChatMessageResponse | InitialResponse) => {
+    let callback: (resp: SendChatMessageResponse | InitialResponse) => void
+    return promiseTimeout(new Promise<void>((resolve, reject) => {
+      callback = (resp: SendChatMessageResponse | InitialResponse) => {
         if ('error' in resp) {
           reject(new Error(resp.error))
-          this.socket.removeListener(ConsumerTopic.ChatSend, callback)
         } else if (!('status' in resp)) {
           // We get 2 messages
           // First response is confirmation there were no errors sending message
           // second response is confirmation that message was sent properly
           // wait for second message before resolving
           resolve()
-          this.socket.removeListener(ConsumerTopic.ChatSend, callback)
         }
       }
       // This one removes itself so does not need to go through subscription manager
@@ -226,7 +225,9 @@ export class Chat {
           instance: this.instance
         }
       })
-    }))
+    })).finally(() => {
+      this.socket.removeListener(ConsumerTopic.ChatSend, callback)
+    })
   }
 
   /**

@@ -59,11 +59,7 @@ export class ExtreamClient {
    *
    */
   connect (accessToken: string): Promise<ExtreamUser> {
-    const unsubscribe = () => {
-      this.socket?.removeEventListener(AuthorizationTopic.Authorized)
-      this.socket?.removeEventListener(AuthorizationTopic.Unauthorized)
-    }
-    return promiseTimeout(new Promise((resolve, reject) => {
+    return promiseTimeout(new Promise<ExtreamUser>((resolve, reject) => {
       this.socket = io(`${this.options.gateway}?x-auth=${accessToken}`, {
         transports: [ 'websocket' ]
       })
@@ -74,13 +70,14 @@ export class ExtreamClient {
       this.socket.emit(AuthorizationTopic.Authorize, { method: 'oauth2', token: accessToken })
       this.socket.on(AuthorizationTopic.Authorized, (user: ExtreamUser) => {
         resolve(user)
-        unsubscribe()
       })
       this.socket.on(AuthorizationTopic.Unauthorized, (error: Error) => {
         reject(error)
-        unsubscribe()
       })
-    }))
+    })).finally(() => {
+      this.socket?.removeEventListener(AuthorizationTopic.Authorized)
+      this.socket?.removeEventListener(AuthorizationTopic.Unauthorized)
+    })
   }
 
   /**

@@ -1,5 +1,6 @@
 import { ReadWebRtcResponse, ReadWebRtcResponsePayload } from './itinerary'
 import { ConsumerTopic } from './topic'
+import { promiseTimeout } from './utils'
 
 export class Video {
   private socket: SocketIOClient.Socket
@@ -12,21 +13,22 @@ export class Video {
   }
 
   get (): Promise<void> {
-    return new Promise<void>((resolve, reject) => {
-      const callback = (itemData: ReadWebRtcResponse) => {
+    let callback: (itemData: ReadWebRtcResponse) => void
+    return promiseTimeout(new Promise<void>((resolve, reject) => {
+      callback = (itemData: ReadWebRtcResponse) => {
         if (itemData.error) {
           reject(new Error(itemData.error))
-          this.socket.removeEventListener(ConsumerTopic.WebrtcRead, callback)
         } else if (itemData.payload && itemData.payload.id === this.id) {
           this.data = itemData.payload
           resolve()
-          this.socket.removeEventListener(ConsumerTopic.WebrtcRead, callback)
         }
       }
       this.socket.on(ConsumerTopic.WebrtcRead, callback)
       this.socket.emit(ConsumerTopic.WebrtcRead, {
         id: this.id
       })
+    })).finally(() => {
+      this.socket.removeEventListener(ConsumerTopic.WebrtcRead, callback)
     })
   }
 }
