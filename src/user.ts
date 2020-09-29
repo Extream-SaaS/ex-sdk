@@ -40,11 +40,19 @@ export interface AuthenticationResponse {
   refreshTokenExpiresAt: string;
 }
 
+export enum UserType {
+  Actor = 'actor',
+  Admin = 'admin',
+  Audience = 'audience',
+  Crew = 'crew',
+  Chief = 'chief',
+}
+
 export interface RegisterUserRequest {
   username?: string;
   email?: string;
   password: string;
-  user_type: string;
+  user_type: UserType;
   user: UserFields;
 }
 
