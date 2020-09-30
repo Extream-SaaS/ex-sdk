@@ -43,7 +43,7 @@ or call `start` in order to create a chat instance.
 
 \+ **new Chat**(`socket`: Socket, `roomId`: string, `instance?`: undefined | string): *[Chat](chat.md)*
 
-*Defined in [chat.ts:166](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L166)*
+*Defined in [chat.ts:166](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L166)*
 
 Create an instance of a chat
 
@@ -63,7 +63,7 @@ Name | Type |
 
 • **instance**: *string | undefined*
 
-*Defined in [chat.ts:166](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L166)*
+*Defined in [chat.ts:166](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L166)*
 
 The instance id of the chat this instance is associated with
 
@@ -73,7 +73,7 @@ ___
 
 • **messages**: *[Message](../interfaces/message.md)[]* = []
 
-*Defined in [chat.ts:158](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L158)*
+*Defined in [chat.ts:158](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L158)*
 
 Dynamically updated list of messages for this room
 
@@ -83,7 +83,7 @@ ___
 
 • **roomId**: *string*
 
-*Defined in [chat.ts:162](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L162)*
+*Defined in [chat.ts:162](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L162)*
 
 The id of the chat this instance is associated with
 
@@ -93,7 +93,7 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [chat.ts:153](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L153)*
+*Defined in [chat.ts:153](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L153)*
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 • **subscriptionManager**: *[SubscriptionManager](subscriptionmanager.md)*
 
-*Defined in [chat.ts:154](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L154)*
+*Defined in [chat.ts:154](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L154)*
 
 ## Methods
 
@@ -109,7 +109,7 @@ ___
 
 ▸ **destroy**(): *void*
 
-*Defined in [chat.ts:386](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L386)*
+*Defined in [chat.ts:387](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L387)*
 
 Call once the a user leaves the chat to remove all event listener.
 
@@ -123,7 +123,7 @@ ___
 
 ▸ **emitMessage**(`message`: [MessageData](../globals.md#messagedata)): *Promise‹void›*
 
-*Defined in [chat.ts:205](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L205)*
+*Defined in [chat.ts:205](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L205)*
 
 The message data to be sent
 
@@ -141,7 +141,7 @@ ___
 
 ▸ **join**(): *Promise‹void›*
 
-*Defined in [chat.ts:304](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L304)*
+*Defined in [chat.ts:305](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L305)*
 
 Join a chat room. Once joined all the messages property will be dynamically updated as messages
 are sent/blocked.
@@ -154,7 +154,7 @@ ___
 
 ▸ **removeMessage**(`message`: [BanMessageData](../interfaces/banmessagedata.md)): *void*
 
-*Defined in [chat.ts:194](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L194)*
+*Defined in [chat.ts:194](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L194)*
 
 Remove a specific message for all user in the chat room.
 
@@ -174,7 +174,7 @@ ___
 
 ▸ **replyToMessage**(`message`: [ReplyMessageData](../interfaces/replymessagedata.md)): *Promise‹void›*
 
-*Defined in [chat.ts:246](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L246)*
+*Defined in [chat.ts:247](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L247)*
 
 Reply to a specific message in the chat
 
@@ -192,7 +192,7 @@ ___
 
 ▸ **sendMessage**(`message`: [SendMessageData](../interfaces/sendmessagedata.md)): *Promise‹void›*
 
-*Defined in [chat.ts:237](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L237)*
+*Defined in [chat.ts:238](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L238)*
 
 Send a message to the chat
 
@@ -210,7 +210,7 @@ ___
 
 ▸ **setupChatListeners**(): *void*
 
-*Defined in [chat.ts:250](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L250)*
+*Defined in [chat.ts:251](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L251)*
 
 **Returns:** *void*
 
@@ -220,7 +220,7 @@ ___
 
 ▸ **start**(): *Promise‹void›*
 
-*Defined in [chat.ts:359](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L359)*
+*Defined in [chat.ts:360](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L360)*
 
 Start a new dm in the chat room. Once started all the messages property will be dynamically updated as messages
 are sent/blocked.
@@ -233,7 +233,7 @@ ___
 
 ▸ **sortByDate**(`a`: [Message](../interfaces/message.md) | [ChatMessageResponse](../interfaces/chatmessageresponse.md), `b`: [Message](../interfaces/message.md) | [ChatMessageResponse](../interfaces/chatmessageresponse.md)): *number*
 
-*Defined in [chat.ts:183](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L183)*
+*Defined in [chat.ts:183](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L183)*
 
 Sort messages based on date descending
 

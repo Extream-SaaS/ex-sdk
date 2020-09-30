@@ -22,7 +22,7 @@
 
 \+ **new Client**(`socket`: Socket): *[Client](client.md)*
 
-*Defined in [client.ts:3](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/client.ts#L3)*
+*Defined in [client.ts:3](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/client.ts#L3)*
 
 Create an instance of the admin sdk
 
@@ -40,4 +40,4 @@ Name | Type |
 
 • **socket**: *Socket | null* = null
 
-*Defined in [client.ts:3](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/client.ts#L3)*
+*Defined in [client.ts:3](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/client.ts#L3)*

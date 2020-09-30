@@ -18,4 +18,4 @@
 
 • **id**: *string*
 
-*Defined in [admin.ts:3](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/admin.ts#L3)*
+*Defined in [admin.ts:3](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/admin.ts#L3)*

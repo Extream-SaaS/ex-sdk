@@ -23,7 +23,7 @@
 
 • **action**: *string*
 
-*Defined in [chat.ts:94](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L94)*
+*Defined in [chat.ts:94](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L94)*
 
 ___
 
@@ -31,7 +31,7 @@ ___
 
 • **command**: *string*
 
-*Defined in [chat.ts:95](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L95)*
+*Defined in [chat.ts:95](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L95)*
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 • **domain**: *string*
 
-*Defined in [chat.ts:93](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L93)*
+*Defined in [chat.ts:93](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L93)*
 
 ___
 
@@ -47,7 +47,7 @@ ___
 
 • **payload**: *[GetChatPayload](getchatpayload.md)*
 
-*Defined in [chat.ts:96](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L96)*
+*Defined in [chat.ts:96](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L96)*
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 • **socketId**: *string*
 
-*Defined in [chat.ts:98](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L98)*
+*Defined in [chat.ts:98](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L98)*
 
 ___
 
@@ -63,4 +63,4 @@ ___
 
 • **user**: *[ExtreamUser](extreamuser.md)*
 
-*Defined in [chat.ts:97](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/chat.ts#L97)*
+*Defined in [chat.ts:97](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L97)*

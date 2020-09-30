@@ -14,17 +14,17 @@
 
 ### Properties
 
-* [itineraryItems](itinerary.md#itineraryitems)
+* [chats](itinerary.md#chats)
 * [payload](itinerary.md#payload)
 * [socket](itinerary.md#private-socket)
-* [subscriptionManager](itinerary.md#private-subscriptionmanager)
+* [videos](itinerary.md#videos)
 
 ### Methods
 
-* [destroy](itinerary.md#destroy)
+* [createChatItem](itinerary.md#private-createchatitem)
+* [createItineraryItem](itinerary.md#createitineraryitem)
+* [createWebRtcItem](itinerary.md#private-createwebrtcitem)
 * [getItinerary](itinerary.md#getitinerary)
-* [getWebRtcUrls](itinerary.md#private-getwebrtcurls)
-* [readWebRtc](itinerary.md#private-readwebrtc)
 
 ## Constructors
 
@@ -32,7 +32,7 @@
 
 \+ **new Itinerary**(`socket`: Socket): *[Itinerary](itinerary.md)*
 
-*Defined in [itinerary.ts:38](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/itinerary.ts#L38)*
+*Defined in [itinerary.ts:44](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/itinerary.ts#L44)*
 
 **Parameters:**
 
@@ -44,11 +44,11 @@ Name | Type |
 
 ## Properties
 
-###  itineraryItems
+###  chats
 
-• **itineraryItems**: *[ReadWebRtcResponsePayload](../interfaces/readwebrtcresponsepayload.md)[]* = []
+• **chats**: *[Chat](chat.md)[]* = []
 
-*Defined in [itinerary.ts:38](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/itinerary.ts#L38)*
+*Defined in [itinerary.ts:43](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/itinerary.ts#L43)*
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 • **payload**: *[ItineraryPayload](../interfaces/itinerarypayload.md) | null* = null
 
-*Defined in [itinerary.ts:37](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/itinerary.ts#L37)*
+*Defined in [itinerary.ts:42](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/itinerary.ts#L42)*
 
 ___
 
@@ -64,25 +64,63 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [itinerary.ts:35](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/itinerary.ts#L35)*
+*Defined in [itinerary.ts:41](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/itinerary.ts#L41)*
 
 ___
 
-### `Private` subscriptionManager
+###  videos
 
-• **subscriptionManager**: *[SubscriptionManager](subscriptionmanager.md)*
+• **videos**: *[Video](video.md)[]* = []
 
-*Defined in [itinerary.ts:36](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/itinerary.ts#L36)*
+*Defined in [itinerary.ts:44](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/itinerary.ts#L44)*
 
 ## Methods
 
-###  destroy
+### `Private` createChatItem
 
-▸ **destroy**(): *void*
+▸ **createChatItem**(`item`: [ItineraryItem](../interfaces/itineraryitem.md)): *[Chat](chat.md)*
 
-*Defined in [itinerary.ts:97](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/itinerary.ts#L97)*
+*Defined in [itinerary.ts:55](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/itinerary.ts#L55)*
 
-**Returns:** *void*
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`item` | [ItineraryItem](../interfaces/itineraryitem.md) |
+
+**Returns:** *[Chat](chat.md)*
+
+___
+
+###  createItineraryItem
+
+▸ **createItineraryItem**(`payload`: [ItineraryPayload](../interfaces/itinerarypayload.md)): *Promise‹void›*
+
+*Defined in [itinerary.ts:60](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/itinerary.ts#L60)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`payload` | [ItineraryPayload](../interfaces/itinerarypayload.md) |
+
+**Returns:** *Promise‹void›*
+
+___
+
+### `Private` createWebRtcItem
+
+▸ **createWebRtcItem**(`item`: [ItineraryItem](../interfaces/itineraryitem.md)): *[Video](video.md)*
+
+*Defined in [itinerary.ts:50](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/itinerary.ts#L50)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`item` | [ItineraryItem](../interfaces/itineraryitem.md) |
+
+**Returns:** *[Video](video.md)*
 
 ___
 
@@ -90,39 +128,7 @@ ___
 
 ▸ **getItinerary**(`id`: string): *Promise‹void›*
 
-*Defined in [itinerary.ts:68](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/itinerary.ts#L68)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`id` | string |
-
-**Returns:** *Promise‹void›*
-
-___
-
-### `Private` getWebRtcUrls
-
-▸ **getWebRtcUrls**(`itineraryItems`: string[]): *Promise‹void›*
-
-*Defined in [itinerary.ts:64](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/itinerary.ts#L64)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`itineraryItems` | string[] |
-
-**Returns:** *Promise‹void›*
-
-___
-
-### `Private` readWebRtc
-
-▸ **readWebRtc**(`id`: string): *Promise‹void›*
-
-*Defined in [itinerary.ts:45](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/itinerary.ts#L45)*
+*Defined in [itinerary.ts:72](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/itinerary.ts#L72)*
 
 **Parameters:**
 

@@ -29,7 +29,7 @@
 
 • **createdAt**: *Date*
 
-*Defined in [events.ts:36](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/events.ts#L36)*
+*Defined in [event.ts:44](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/event.ts#L44)*
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 • **createdBy**: *string*
 
-*Defined in [events.ts:35](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/events.ts#L35)*
+*Defined in [event.ts:43](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/event.ts#L43)*
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 • **end_date**: *Date*
 
-*Defined in [events.ts:33](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/events.ts#L33)*
+*Defined in [event.ts:41](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/event.ts#L41)*
 
 ___
 
@@ -53,23 +53,23 @@ ___
 
 • **event**? : *undefined | string*
 
-*Defined in [events.ts:39](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/events.ts#L39)*
+*Defined in [event.ts:47](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/event.ts#L47)*
 
 ___
 
 ###  id
 
-• **id**: *number*
+• **id**: *string*
 
-*Defined in [events.ts:28](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/events.ts#L28)*
+*Defined in [event.ts:36](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/event.ts#L36)*
 
 ___
 
 ###  items
 
-• **items**: *string | string[]*
+• **items**: *string | [ItineraryItem](itineraryitem.md)[]*
 
-*Defined in [events.ts:34](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/events.ts#L34)*
+*Defined in [event.ts:42](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/event.ts#L42)*
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 • **landing_page**? : *undefined | string*
 
-*Defined in [events.ts:38](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/events.ts#L38)*
+*Defined in [event.ts:46](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/event.ts#L46)*
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 • **name**: *string*
 
-*Defined in [events.ts:30](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/events.ts#L30)*
+*Defined in [event.ts:38](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/event.ts#L38)*
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 • **public_id**: *string*
 
-*Defined in [events.ts:29](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/events.ts#L29)*
+*Defined in [event.ts:37](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/event.ts#L37)*
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 • **start_date**: *Date*
 
-*Defined in [events.ts:32](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/events.ts#L32)*
+*Defined in [event.ts:40](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/event.ts#L40)*
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 • **updatedAt**: *Date*
 
-*Defined in [events.ts:37](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/events.ts#L37)*
+*Defined in [event.ts:45](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/event.ts#L45)*
 
 ___
 
@@ -117,4 +117,4 @@ ___
 
 • **website**: *string*
 
-*Defined in [events.ts:31](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/events.ts#L31)*
+*Defined in [event.ts:39](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/event.ts#L39)*

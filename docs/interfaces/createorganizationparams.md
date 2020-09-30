@@ -22,7 +22,7 @@
 
 • **name**: *string*
 
-*Defined in [admin.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/admin.ts#L7)*
+*Defined in [admin.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/admin.ts#L7)*
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 • **primary_contact**: *[PrimaryContact](primarycontact.md)*
 
-*Defined in [admin.ts:9](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/admin.ts#L9)*
+*Defined in [admin.ts:9](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/admin.ts#L9)*
 
 ___
 
@@ -38,4 +38,4 @@ ___
 
 • **website**: *string*
 
-*Defined in [admin.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/1dafdd0/src/admin.ts#L8)*
+*Defined in [admin.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/admin.ts#L8)*
