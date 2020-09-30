@@ -1,8 +1,9 @@
-import { GetItineraryResponse, ItineraryPayload } from './events'
-import SubscriptionManager from './subscription-manager'
+import { Chat } from './chat'
+import { GetItineraryResponse, ItineraryItem, ItineraryPayload } from './event'
 import { ConsumerTopic } from './topic'
 import { ExtreamUser } from './user'
 import { InitialResponse, promiseTimeout, TimeStamp } from './utils'
+import { Video } from './video'
 
 export interface RtcConfiguration {
   operators: string[];
@@ -31,70 +32,60 @@ export interface ReadWebRtcResponse {
   socketId: string;
 }
 
+export enum ItineraryType {
+  Rtmp = 'rtmp',
+  Chat = 'chats',
+}
+
 export class Itinerary {
   private socket: SocketIOClient.Socket
-  private subscriptionManager: SubscriptionManager
   public payload: ItineraryPayload | null = null
-  public itineraryItems: ReadWebRtcResponsePayload[] = []
+  public chats: Chat[] = []
+  public videos: Video[] = []
 
   constructor (socket: SocketIOClient.Socket) {
     this.socket = socket
-    this.subscriptionManager = new SubscriptionManager(this.socket)
   }
 
-  private readWebRtc (id: string): Promise<void> {
-    return new Promise<void>((resolve, reject) => {
-      const callback = (itemData: ReadWebRtcResponse) => {
-        if (itemData.error) {
-          reject(new Error(itemData.error))
-          this.socket.removeEventListener(ConsumerTopic.WebrtcRead, callback)
-        } else if (itemData.payload && itemData.payload.id === id) {
-          this.itineraryItems.push(itemData.payload)
-          resolve()
-          this.socket.removeEventListener(ConsumerTopic.WebrtcRead, callback)
-        }
-      }
-      this.socket.on(ConsumerTopic.WebrtcRead, callback)
-      this.socket.emit(ConsumerTopic.WebrtcRead, {
-        id
-      })
-    })
+  private createWebRtcItem (item: ItineraryItem): Video {
+    const rtc = new Video(this.socket, item.id)
+    return rtc
   }
 
-  private async getWebRtcUrls (itineraryItems: string[]): Promise<void> {
-    await Promise.all(itineraryItems.map(this.readWebRtc.bind(this)))
+  private createChatItem (item: ItineraryItem): Chat {
+    const chat = new Chat(this.socket, item.id)
+    return chat
+  }
+
+  public async createItineraryItem (payload: ItineraryPayload): Promise<void> {
+    const items: ItineraryItem[] = JSON.parse(payload.items as string)
+    this.payload = {
+      ...payload,
+      items
+    }
+    const rtcItems = items.filter(i => i.type && i.type === ItineraryType.Rtmp)
+    const chatItems = items.filter(i => i.type && i.type === ItineraryType.Chat)
+    this.videos = rtcItems.map(this.createWebRtcItem.bind(this))
+    this.chats = chatItems.map(this.createChatItem.bind(this))
   }
 
   public getItinerary (id: string): Promise<void> {
-    return promiseTimeout(new Promise((resolve, reject) => {
-      const callback = (resp: InitialResponse | GetItineraryResponse) => {
+    let callback: (resp: InitialResponse | GetItineraryResponse) => void
+    return promiseTimeout(new Promise<void>((resolve, reject) => {
+      callback = (resp: InitialResponse | GetItineraryResponse) => {
         if ('error' in resp) {
           reject(new Error(resp.error))
-          // TODO fix this. Wrong removal. Leaving it to see if the tests pick it up
-          this.socket.removeListener(ConsumerTopic.ChatStart, callback)
         } else if (!('status' in resp)) {
-          const items: string[] = JSON.parse(resp.payload.items as string)
-          this.payload = {
-            ...resp.payload,
-            items
-          }
-          this.getWebRtcUrls(items)
-            .then(() => {
-              resolve()
-            }).catch((e) => {
-              reject(e)
-            })
-          this.socket.removeListener(ConsumerTopic.ChatStart, callback)
+          this.createItineraryItem(resp.payload)
+          resolve()
         }
       }
       this.socket.on(ConsumerTopic.ItineraryGet, callback)
       this.socket.emit(ConsumerTopic.ItineraryGet, {
         id
       })
-    }))
-  }
-
-  destroy (): void {
-    this.subscriptionManager.removeAllSubscriptions()
+    })).finally(() => {
+      this.socket.removeListener(ConsumerTopic.ItineraryGet, callback)
+    })
   }
 }
