@@ -2,7 +2,7 @@ import { Chat, Video } from './itinerary-item'
 import { GetItineraryResponse, ItineraryItem, ItineraryPayload } from './event'
 import { ConsumerTopic } from './topic'
 import { ExtreamUser } from './user'
-import { InitialResponse, promiseTimeout, TimeStamp } from './utils'
+import { InitialResponse, promiseTimeout, SocketResponse, TimeStamp } from './utils'
 
 export interface RtcConfiguration {
   operators: string[];
@@ -21,15 +21,7 @@ export interface ReadWebRtcResponsePayload {
   end_date: TimeStamp;
 }
 
-export interface ReadWebRtcResponse {
-  error?: string;
-  domain: string;
-  action: string;
-  command: string;
-  payload: ReadWebRtcResponsePayload;
-  user: ExtreamUser;
-  socketId: string;
-}
+export type ReadWebRtcResponse = SocketResponse<ReadWebRtcResponsePayload>
 
 export enum ItineraryType {
   Rtmp = 'rtmp',

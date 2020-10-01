@@ -113,7 +113,7 @@ export class ExtreamClient {
     this.subscriptionManager.addSubscription(topic, cb)
   }
 
-  public destroy () {
+  public destroy (): void {
     if (!this.subscriptionManager) {
       throw new Error('No socket connection found. You do not need to destroy a socket that has never been connected.')
     }

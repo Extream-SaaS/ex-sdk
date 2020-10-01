@@ -1,7 +1,6 @@
 import { Itinerary } from './itinerary'
 import { ConsumerTopic } from './topic'
-import { ExtreamUser } from './user'
-import { InitialResponse, promiseTimeout } from './utils'
+import { InitialResponse, promiseTimeout, SocketResponse } from './utils'
 
 export interface EventsPayload {
   id: number;
@@ -18,14 +17,7 @@ export interface EventsPayload {
   organisation: string;
 }
 
-export interface EventsByOrganizationResponse {
-  domain: string;
-  action: string;
-  command: string;
-  payload: EventsPayload[];
-  user: ExtreamUser;
-  socketId: string;
-}
+export type EventsByOrganizationResponse = SocketResponse<EventsPayload[]>
 
 export interface ItineraryItem {
   type: string;
@@ -47,23 +39,9 @@ export interface ItineraryPayload {
   event?: string;
 }
 
-export interface GetEventItineraryResponse {
-  domain: string;
-  action: string;
-  command: string;
-  payload: ItineraryPayload[];
-  user: ExtreamUser;
-  socketId: string;
-}
+export type GetEventItineraryResponse = SocketResponse<ItineraryPayload[]>
 
-export interface GetItineraryResponse {
-  domain: string;
-  action: string;
-  command: string;
-  payload: ItineraryPayload;
-  user: ExtreamUser;
-  socketId: string;
-}
+export type GetItineraryResponse = SocketResponse<ItineraryPayload>
 
 export class Event {
   private socket: SocketIOClient.Socket

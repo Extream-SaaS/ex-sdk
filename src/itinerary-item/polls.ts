@@ -1,5 +1,5 @@
 import SubscriptionManager from '../subscription-manager';
-import { ConsumerTopic } from '../topic'
+import { ClientTopic, ConsumerTopic } from '../topic'
 import { InitialResponse, promiseTimeout } from '../utils'
 
 export interface GetPollsResponse {
@@ -7,6 +7,10 @@ export interface GetPollsResponse {
 }
 
 export interface AnswerPollsResponse {
+  payload: any
+}
+
+export interface PollListenerResponse {
   payload: any
 }
 
@@ -28,9 +32,11 @@ export class Poll {
     this.id = id
   }
 
-  listen () {
+  // listen () {
+  //   this.subscriptionManager.addSubscription(ClientTopic.PollListener, () => {
 
-  }
+  //   })
+  // }
 
   answer (data: QuestionAnswerData): Promise<void> {
     let callback: (resp: InitialResponse | AnswerPollsResponse) => void

@@ -1,7 +1,7 @@
 import { ConsumerTopic, ClientTopic } from '../topic'
 import { ExtreamUser } from '../user'
 import SubscriptionManager from '../subscription-manager'
-import { InitialResponse, promiseTimeout, TimeStamp } from '../utils'
+import { InitialResponse, promiseTimeout, SocketResponse, TimeStamp } from '../utils'
 
 /**
  * Chat message response for a message being streamed in
@@ -21,14 +21,7 @@ export interface SendChatMessagePayload {
   data: ChatMessageResponse;
 }
 
-export interface SendChatMessageResponse {
-  domain: string;
-  action: string;
-  command: string;
-  payload: SendChatMessagePayload;
-  user: ExtreamUser;
-  socketId: string;
-}
+export type SendChatMessageResponse = SocketResponse<SendChatMessagePayload>
 
 export interface ReplyMessageData {
   /**
@@ -86,14 +79,7 @@ export interface GetChatPayload {
   end_date: string;
 }
 
-export interface GetChatResponse {
-  domain: string;
-  action: string;
-  command: string;
-  payload: GetChatPayload;
-  user: ExtreamUser;
-  socketId: string;
-}
+export type GetChatResponse = SocketResponse<GetChatPayload>
 
 export interface BanMessageData {
   /**
@@ -131,14 +117,7 @@ export interface StartChatResponsePayload {
   data: StartChatResponsePayloadData;
 }
 
-export interface StartChatResponse {
-  domain: string;
-  action: string;
-  command: string;
-  payload: StartChatResponsePayload;
-  user: ExtreamUser;
-  socketId: string;
-}
+export type StartChatResponse = SocketResponse<StartChatResponsePayload>
 
 /**
  * Represents a single chat and handles all subscription and updating logic for that chat
