@@ -1,5 +1,5 @@
 import SubscriptionManager from '../subscription-manager'
-import { ConsumerTopic } from '../topic'
+import { ClientTopic, ConsumerTopic } from '../topic'
 import { InitialResponse, promiseTimeout } from '../utils'
 
 export interface GetPollsResponse {
@@ -19,24 +19,22 @@ export interface QuestionAnswerData {
   answer: string;
 }
 
-export class Poll {
-  private socket: SocketIOClient.Socket;
-  private subscriptionManager: SubscriptionManager;
-  public id: string;
-  /**
-   *
-   */
-  constructor (socket: SocketIOClient.Socket, id: string) {
+export enum QuestionType {
+  Timed = 'Timed',
+  Immediate = 'Immediate'
+}
+
+export class Question {
+  private socket: SocketIOClient.Socket
+  public type: QuestionType
+  public data: any
+  public id: string
+
+  constructor (socket: SocketIOClient.Socket, type: QuestionType, id: string) {
     this.socket = socket
-    this.subscriptionManager = new SubscriptionManager(this.socket)
+    this.type = type
     this.id = id
   }
-
-  // listen () {
-  //   this.subscriptionManager.addSubscription(ClientTopic.PollListener, () => {
-
-  //   })
-  // }
 
   answer (data: QuestionAnswerData): Promise<void> {
     let callback: (resp: InitialResponse | AnswerPollsResponse) => void
@@ -57,6 +55,29 @@ export class Poll {
       this.socket.removeListener(ConsumerTopic.PollAnswer, callback)
     })
   }
+}
+
+export class Poll {
+  private socket: SocketIOClient.Socket;
+  private subscriptionManager: SubscriptionManager;
+  public id: string;
+  public questions: Question[] = []
+
+  /**
+   *
+   */
+  constructor (socket: SocketIOClient.Socket, id: string) {
+    this.socket = socket
+    this.subscriptionManager = new SubscriptionManager(this.socket)
+    this.id = id
+  }
+
+  listen (): void {
+    // TODO add question? Or update question answers? Need to see repsonse.
+    // this.subscriptionManager.addSubscription(ClientTopic.PollListener, () => {
+
+    // })
+  }
 
   get (): Promise<void> {
     let callback: (resp: InitialResponse | GetPollsResponse) => void
@@ -65,6 +86,7 @@ export class Poll {
         if ('error' in resp) {
           reject(new Error(resp.error))
         } else if (!('status' in resp)) {
+          // TODO create a question instance per response
           resolve()
         }
       }
