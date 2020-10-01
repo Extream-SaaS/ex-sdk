@@ -1,4 +1,3 @@
-/* eslint-disable */
 import 'isomorphic-fetch'
 
 import io from 'socket.io-client'
@@ -61,7 +60,7 @@ export class ExtreamClient {
   connect (accessToken: string): Promise<ExtreamUser> {
     return promiseTimeout(new Promise<ExtreamUser>((resolve, reject) => {
       this.socket = io(`${this.options.gateway}?x-auth=${accessToken}`, {
-        transports: [ 'websocket' ]
+        transports: ['websocket']
       })
       this.subscriptionManager = new SubscriptionManager(this.socket)
       this.adminActions = new Admin(this.socket)

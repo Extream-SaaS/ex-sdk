@@ -1,6 +1,3 @@
-/* eslint-disable */
-// TODO timeout all promises
-
 import { ConsumerTopic, ClientTopic } from '../topic'
 import { ExtreamUser } from '../user';
 import SubscriptionManager from '../subscription-manager';

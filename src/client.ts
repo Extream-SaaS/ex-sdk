@@ -1,4 +1,3 @@
-/* eslint-disable */
 export class Client {
   private socket: SocketIOClient.Socket | null = null;
   /**

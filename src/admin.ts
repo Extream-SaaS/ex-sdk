@@ -1,4 +1,3 @@
-/* eslint-disable */
 export interface PrimaryContact {
   id: string;
 }

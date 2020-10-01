@@ -1,5 +1,4 @@
-/* eslint-disable */
-import { Chat } from './itinerary-item';
+import { Chat } from './itinerary-item'
 
 export class Consumer {
   private socket: SocketIOClient.Socket;
