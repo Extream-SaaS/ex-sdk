@@ -1,4 +1,4 @@
-import { Chat } from '../chat'
+import { Chat } from '../itinerary-item'
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import MockedSocket from 'socket.io-mock'
