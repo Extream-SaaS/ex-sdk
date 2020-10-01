@@ -1,4 +1,4 @@
-import { UserFields } from './user'
+import { ExtreamUser, UserFields } from './user'
 
 export interface InitialResponse {
   /**
@@ -23,14 +23,6 @@ export interface ExtreamOptions {
 export interface TimeStamp {
   _seconds: number;
   _nanoseconds: number;
-}
-
-export interface ExtreamUser {
-  id: string;
-  email: string;
-  fields: UserFields;
-  username: string;
-  user_type: string;
 }
 
 export interface SocketResponse<T> {
