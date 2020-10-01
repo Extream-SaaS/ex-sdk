@@ -1,3 +1,12 @@
+/* authorization events */
+export enum AuthorizationTopic {
+  Authorized = 'authorized',
+  Authorize = 'authorize',
+  Unauthorized = 'unauthorized',
+  Mfa = 'mfa',
+  Connect = 'connect',
+}
+
 /* admin events */
 export enum AdminTopic {
   OrganisationCreate = 'admin_organisation_create',
@@ -38,13 +47,11 @@ export enum ConsumerTopic {
   WebrtcRead = 'consumer_webrtc_read'
 }
 
-/* authorization events */
-export enum AuthorizationTopic {
-  Authorized = 'authorized',
-  Authorize = 'authorize',
-  Unauthorized = 'unauthorized',
-  Mfa = 'mfa',
-  Connect = 'connect',
+export type Topics = {
+  Authorization: AuthorizationTopic,
+  AdminTopic: AdminTopic,
+  ClientTopic: ClientTopic,
+  ConsumerTopic: ConsumerTopic,
 }
 
 // type ValueOf<T> = T[keyof T];
