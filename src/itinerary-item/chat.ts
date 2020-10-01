@@ -359,16 +359,15 @@ export class Chat {
    */
   start (): Promise<void> {
     this.setupChatListeners()
-    return promiseTimeout(new Promise((resolve, reject) => {
-      const callback = (resp: StartChatResponse | InitialResponse) => {
+    let callback: (resp: StartChatResponse | InitialResponse) => void
+    return promiseTimeout(new Promise<void>((resolve, reject) => {
+      callback = (resp: StartChatResponse | InitialResponse) => {
         if ('error' in resp) {
           reject(new Error(resp.error))
-          this.socket.removeListener(ConsumerTopic.ChatStart, callback)
         } else if (!('status' in resp) && resp.payload.id) {
           if (this.roomId === resp.payload.id) {
             this.instance = resp.payload.data.instance
             resolve()
-            this.socket.removeListener(ConsumerTopic.ChatStart, callback)
           }
         }
       }
@@ -376,7 +375,9 @@ export class Chat {
       this.socket.emit(ConsumerTopic.ChatStart, {
         id: this.roomId,
       })
-    }))
+    })).finally(() => {
+      this.socket.removeListener(ConsumerTopic.ChatStart, callback)
+    })
   }
 
   /**
