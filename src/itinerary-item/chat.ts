@@ -1,7 +1,7 @@
 import { ConsumerTopic, ClientTopic } from '../topic'
-import { ExtreamUser } from '../user';
-import SubscriptionManager from '../subscription-manager';
-import { InitialResponse, promiseTimeout, TimeStamp } from '../utils';
+import { ExtreamUser } from '../user'
+import SubscriptionManager from '../subscription-manager'
+import { InitialResponse, promiseTimeout, TimeStamp } from '../utils'
 
 /**
  * Chat message response for a message being streamed in
@@ -241,7 +241,7 @@ export class Chat {
    *
    * @param { ReplyMessageData } message
    */
-  replyToMessage (message: ReplyMessageData): Promise<void>  {
+  replyToMessage (message: ReplyMessageData): Promise<void> {
     return this.emitMessage(message)
   }
 
@@ -301,20 +301,19 @@ export class Chat {
    */
   join (): Promise<void> {
     return promiseTimeout(new Promise((resolve, reject) => {
-        this.setupChatListeners()
-        this.subscriptionManager.addSubscription(ConsumerTopic.ChatGet, (resp: InitialResponse | GetChatResponse ) => {
-          if ('error' in resp) {
-            reject(new Error(resp.error))
-          } else if (!('status' in resp) && resp.payload.id === this.roomId) {
-            const messages = resp.payload.messages
-            const childrenMap = {}
-            // Process all messages with parents first and push them as children into their parents
-            const children: { [key: string]: ChatMessageResponse[] } = Object.keys(messages)
+      this.setupChatListeners()
+      this.subscriptionManager.addSubscription(ConsumerTopic.ChatGet, (resp: InitialResponse | GetChatResponse) => {
+        if ('error' in resp) {
+          reject(new Error(resp.error))
+        } else if (!('status' in resp) && resp.payload.id === this.roomId) {
+          const messages = resp.payload.messages
+          const childrenMap = {}
+          // Process all messages with parents first and push them as children into their parents
+          const children: { [key: string]: ChatMessageResponse[] } = Object.keys(messages)
             .filter(id => messages[id].parent)
             .reduce((acc: { [key: string]: ChatMessageResponse[] }, id) => {
               const message = messages[id]
               if (!messages[message.parent]) {
-                // @ts-ignore
                 console.warn(`Could not find parent for message ${id}`)
               } else {
                 acc[message.parent] = acc[message.parent]
@@ -324,29 +323,29 @@ export class Chat {
               return acc
             }, childrenMap)
 
-            // Process all messages without parents
-            const messageArray = Object
-              .keys(messages)
-              .filter(id => !messages[id].parent)
-              .reduce((acc: Message[], id: string) => {
-                const message = messages[id] as Message
-                message.children = children[message.uuid] ? children[message.uuid] : []
-                message.removed = message.removed || false
-                acc.push(message)
-                return acc
-              }, [])
-              .sort(Chat.sortByDate)
+          // Process all messages without parents
+          const messageArray = Object
+            .keys(messages)
+            .filter(id => !messages[id].parent)
+            .reduce((acc: Message[], id: string) => {
+              const message = messages[id] as Message
+              message.children = children[message.uuid] ? children[message.uuid] : []
+              message.removed = message.removed || false
+              acc.push(message)
+              return acc
+            }, [])
+            .sort(Chat.sortByDate)
 
-            this.messages = messageArray
-            resolve()
-          }
-        })
-        this.socket.emit(ConsumerTopic.ChatGet, {
-          id: this.roomId,
-          data: {
-            instance: this.instance
-          }
-        })
+          this.messages = messageArray
+          resolve()
+        }
+      })
+      this.socket.emit(ConsumerTopic.ChatGet, {
+        id: this.roomId,
+        data: {
+          instance: this.instance
+        }
+      })
     }))
   }
 
@@ -370,7 +369,7 @@ export class Chat {
       }
       this.socket.on(ConsumerTopic.ChatStart, callback)
       this.socket.emit(ConsumerTopic.ChatStart, {
-        id: this.roomId,
+        id: this.roomId
       })
     })).finally(() => {
       this.socket.removeListener(ConsumerTopic.ChatStart, callback)
