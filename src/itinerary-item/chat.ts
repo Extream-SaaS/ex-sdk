@@ -1,10 +1,10 @@
 /* eslint-disable */
 // TODO timeout all promises
 
-import { ConsumerTopic, ClientTopic } from './topic'
-import { ExtreamUser } from './user';
-import SubscriptionManager from './subscription-manager';
-import { InitialResponse, promiseTimeout, TimeStamp } from './utils';
+import { ConsumerTopic, ClientTopic } from '../topic'
+import { ExtreamUser } from '../user';
+import SubscriptionManager from '../subscription-manager';
+import { InitialResponse, promiseTimeout, TimeStamp } from '../utils';
 
 /**
  * Chat message response for a message being streamed in

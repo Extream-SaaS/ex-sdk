@@ -1,6 +1,6 @@
-import { ReadWebRtcResponse, ReadWebRtcResponsePayload } from './itinerary'
-import { ConsumerTopic } from './topic'
-import { promiseTimeout } from './utils'
+import { ReadWebRtcResponse, ReadWebRtcResponsePayload } from '../itinerary'
+import { ConsumerTopic } from '../topic'
+import { promiseTimeout } from '../utils'
 
 export class Video {
   private socket: SocketIOClient.Socket

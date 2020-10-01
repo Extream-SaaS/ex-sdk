@@ -1,9 +1,8 @@
-import { Chat } from './chat'
+import { Chat, Video } from './itinerary-item'
 import { GetItineraryResponse, ItineraryItem, ItineraryPayload } from './event'
 import { ConsumerTopic } from './topic'
 import { ExtreamUser } from './user'
 import { InitialResponse, promiseTimeout, TimeStamp } from './utils'
-import { Video } from './video'
 
 export interface RtcConfiguration {
   operators: string[];

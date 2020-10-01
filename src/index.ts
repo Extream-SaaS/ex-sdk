@@ -1,5 +1,5 @@
 export * from './admin'
-export * from './chat'
+export * from './itinerary-item'
 export * from './client'
 export * from './consumer'
 export * from './event'
