@@ -1,3 +1,4 @@
+import SubscriptionManager from '../subscription-manager';
 import { ConsumerTopic } from '../topic'
 import { InitialResponse, promiseTimeout } from '../utils'
 
@@ -16,13 +17,19 @@ export interface QuestionAnswerData {
 
 export class Poll {
   private socket: SocketIOClient.Socket;
+  private subscriptionManager: SubscriptionManager;
   public id: string;
   /**
    *
    */
   constructor (socket: SocketIOClient.Socket, id: string) {
     this.socket = socket
+    this.subscriptionManager = new SubscriptionManager(this.socket)
     this.id = id
+  }
+
+  listen () {
+
   }
 
   answer (data: QuestionAnswerData): Promise<void> {
@@ -62,5 +69,9 @@ export class Poll {
     })).finally(() => {
       this.socket.removeListener(ConsumerTopic.PollGet, callback)
     })
+  }
+
+  destroy (): void {
+    this.subscriptionManager.removeAllSubscriptions()
   }
 }
