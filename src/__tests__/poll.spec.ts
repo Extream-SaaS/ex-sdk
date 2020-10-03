@@ -3,7 +3,7 @@ import { Poll, PollType } from '../itinerary-item'
 // @ts-ignore
 import MockedSocket from 'socket.io-mock'
 import sinon from 'sinon'
-import { ConsumerTopic } from '../topic'
+import { ClientTopic, ConsumerTopic } from '../topic'
 
 const initialResponse = {
   messageId: '1529023143077761',
@@ -66,6 +66,17 @@ const addQuestionResponse = {
         text: 'way up high'
       }
     ]
+  }
+}
+
+const pollResponses = {
+  id: 'id',
+  data: {
+    id: 'question_id',
+    responses: {
+      answer_id_1: 4,
+      answer_id_2: 2
+    }
   }
 }
 
@@ -268,5 +279,17 @@ describe('Poll', () => {
       id: 'foo'
     })
     expect(poll.questions.length).toEqual(0)
+  })
+
+  it('listens for responses', async () => {
+    const get = poll.get()
+    socket.socketClient.emit(ConsumerTopic.PollGet, initialResponse)
+    socket.socketClient.emit(ConsumerTopic.PollGet, pollResponse)
+    await get
+    socket.socketClient.emit(ClientTopic.PollListener, pollResponses)
+    expect(poll.questions[0].responses).toStrictEqual({
+      answer_id_1: 4,
+      answer_id_2: 2
+    })
   })
 })
