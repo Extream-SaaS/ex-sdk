@@ -176,6 +176,59 @@ describe('Poll', () => {
     expect(poll.questions[2].id).toEqual('question_id_3')
   })
 
+  it('orders the answers of questions', async () => {
+    const get = poll.get()
+    socket.socketClient.emit(ConsumerTopic.PollGet, initialResponse)
+    socket.socketClient.emit(ConsumerTopic.PollGet, {
+      ...pollResponse,
+      payload: {
+        ...payload,
+        questions: [
+          {
+            question: 'Donde esta la biblioteca?',
+            id: 'question_id',
+            order: 3,
+            answers: [
+              {
+                id: 'answer_id_3',
+                order: 3,
+                text: 'me llamo t bone la araña discoteca'
+              },
+              {
+                id: 'answer_id_1',
+                order: 1,
+                text: 'discoteca. Discoteca, muñeca, La biblioteca Está en'
+              },
+              {
+                id: 'answer_id_2',
+                order: 2,
+                text: 'discoteca. Discoteca, muñeca, La biblioteca Está en'
+              }
+            ]
+          }
+        ]
+      }
+    })
+    await get
+    expect(poll.questions[0].answers).toStrictEqual([
+      {
+        id: 'answer_id_1',
+        order: 1,
+        text: 'discoteca. Discoteca, muñeca, La biblioteca Está en'
+      },
+      {
+        id: 'answer_id_2',
+        order: 2,
+        text: 'discoteca. Discoteca, muñeca, La biblioteca Está en'
+      },
+      {
+        id: 'answer_id_3',
+        order: 3,
+        text: 'me llamo t bone la araña discoteca'
+      }
+    ])
+  })
+
   // it('allows questions to be streamed in', async () => {
   //   const get = poll.get()
   //   socket.socketClient.emit(ConsumerTopic.PollGet, initialResponse)

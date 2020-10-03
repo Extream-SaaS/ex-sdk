@@ -51,7 +51,11 @@ export class Question {
   constructor (socket: SocketIOClient.Socket, id: string, data: QuestionResponse) {
     this.socket = socket
     this.id = id
-    this.answers = data.answers
+    this.answers = [...data.answers].sort(Question.sortByOrder)
+  }
+
+  static sortByOrder (a: AnswerResponse, b: AnswerResponse): number {
+    return a.order - b.order
   }
 
   answer (data: QuestionAnswerData): Promise<void> {
@@ -104,7 +108,7 @@ export class Poll {
   //   })
   // }
 
-  static sortByOrder (a: QuestionResponse, b: QuestionResponse) {
+  static sortByOrder (a: QuestionResponse, b: QuestionResponse): number {
     return a.order - b.order
   }
 
