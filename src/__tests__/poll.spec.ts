@@ -292,4 +292,41 @@ describe('Poll', () => {
       answer_id_2: 2
     })
   })
+
+  it('ignores responses for different polls', async () => {
+    const get = poll.get()
+    socket.socketClient.emit(ConsumerTopic.PollGet, initialResponse)
+    socket.socketClient.emit(ConsumerTopic.PollGet, pollResponse)
+    await get
+    socket.socketClient.emit(ClientTopic.PollListener, {
+      ...pollResponses,
+      id: 'foo'
+    })
+    expect(poll.questions[0].responses).toStrictEqual({
+      answer_id_1: 0,
+      answer_id_2: 0
+    })
+  })
+
+  it('throws an error if ', async () => {
+    try {
+      const get = poll.get()
+      socket.socketClient.emit(ConsumerTopic.PollGet, initialResponse)
+      socket.socketClient.emit(ConsumerTopic.PollGet, pollResponse)
+      await get
+      socket.socketClient.emit(ClientTopic.PollListener, {
+        ...pollResponses,
+        data: {
+          id: 'foo',
+          responses: {
+            answer_id_1: 4,
+            answer_id_2: 2
+          }
+        }
+      })
+      expect(false).toBe(true)
+    } catch (e) {
+      expect(e.message).toBe('Could not find question with id: foo')
+    }
+  })
 })
