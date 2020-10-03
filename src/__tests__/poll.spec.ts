@@ -110,4 +110,17 @@ describe('Poll', () => {
     ])
     expect(poll.type).toEqual(PollType.Immediate)
   })
+
+  it('rejects if there is an error in the response', async () => {
+    const get = poll.get()
+    socket.socketClient.emit(ConsumerTopic.PollGet, {
+      error: 'foo',
+      ...initialResponse
 })
+    try {
+      await get
+      expect(false).toBe(true)
+    } catch (e) {
+      expect(e.message).toBe('foo')
+    }
+  })
