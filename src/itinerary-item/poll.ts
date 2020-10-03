@@ -1,5 +1,5 @@
 import SubscriptionManager from '../subscription-manager'
-import { ClientTopic, ConsumerTopic } from '../topic'
+import { ConsumerTopic } from '../topic'
 import { InitialResponse, promiseTimeout } from '../utils'
 
 export enum PollType {
