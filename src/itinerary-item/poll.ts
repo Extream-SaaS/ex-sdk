@@ -1,5 +1,5 @@
 import SubscriptionManager from '../subscription-manager'
-import { ConsumerTopic } from '../topic'
+import { ClientTopic, ConsumerTopic } from '../topic'
 import { InitialResponse, promiseTimeout, TimeStamp } from '../utils'
 
 export enum PollType {
@@ -41,6 +41,11 @@ export interface PollListenerResponse {
 export interface QuestionAnswerData {
   question: string;
   answer: string;
+}
+
+export interface PollQuestionResponse {
+  id: string;
+  data: QuestionResponse
 }
 
 export class Question {
@@ -101,12 +106,14 @@ export class Poll {
   // })
   // }
 
-  // listenForQuestions (): void {
-  //   // TODO add question? Or update question answers? Need to see repsonse.
-  //   this.subscriptionManager.addSubscription(ClientTopic.PollListener, () => {
-
-  //   })
-  // }
+  listenForQuestions (): void {
+    this.subscriptionManager.addSubscription(ConsumerTopic.PollQuestion, (resp: PollQuestionResponse) => {
+      if (resp.id === this.id) {
+        const question = new Question(this.socket, resp.data.id, resp.data)
+        this.questions = [...this.questions, question]
+      }
+    })
+  }
 
   static sortByOrder (a: QuestionResponse, b: QuestionResponse): number {
     return a.order - b.order
@@ -124,6 +131,8 @@ export class Poll {
             const responseQuestions = [...resp.payload.questions].sort(Poll.sortByOrder)
             const questions = responseQuestions.map((q) => new Question(this.socket, q.id, q))
             this.questions = questions
+          } else {
+            this.listenForQuestions()
           }
           resolve()
         }

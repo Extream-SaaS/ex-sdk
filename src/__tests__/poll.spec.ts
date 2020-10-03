@@ -1,4 +1,4 @@
-import { Poll, PollType } from '../itinerary-item'
+import { Chat, Poll, PollType } from '../itinerary-item'
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import MockedSocket from 'socket.io-mock'
@@ -54,7 +54,7 @@ const pollResponse = {
 }
 
 const addQuestionResponse = {
-  id: 'poll_id',
+  id: 'id',
   data: {
     question: 'Where is the moon?',
     id: 'question_id',
@@ -81,6 +81,7 @@ describe('Poll', () => {
   })
 
   afterEach(() => {
+    poll.destroy()
     if (socket._callbacks) {
       const nonCleanedUpListeners = Object
         .values(socket._callbacks as (...args: any[]) => void[])
@@ -229,21 +230,26 @@ describe('Poll', () => {
     ])
   })
 
-  // it('allows questions to be streamed in', async () => {
-  //   const get = poll.get()
-  //   socket.socketClient.emit(ConsumerTopic.PollGet, initialResponse)
-  //   socket.socketClient.emit(ConsumerTopic.PollGet, {
-  //     ...pollResponse,
-  //     payload: {
-  //       ...payload,
-  //       questions: []
-  //     }
-  //   })
-  //   await get
-  //   socket.socketClient.emit(ConsumerTopic.PollQuestion, addQuestionResponse)
-
-  //   expect(false).toBe(true)
-  // })
+  it('allows questions to be streamed in', async () => {
+    const get = poll.get()
+    socket.socketClient.emit(ConsumerTopic.PollGet, initialResponse)
+    socket.socketClient.emit(ConsumerTopic.PollGet, {
+      ...pollResponse,
+      payload: {
+        ...payload,
+        type: PollType.Immediate,
+        questions: []
+      }
+    })
+    await get
+    socket.socketClient.emit(ConsumerTopic.PollQuestion, addQuestionResponse)
+    expect(poll.questions[0].id).toEqual('question_id')
+    expect(poll.questions[0].answers).toBe([{
+      id: 'answer_id',
+      order: 1,
+      text: 'way up high'
+    }])
+  })
 
   // it('orders the questions streamed in', async () => {
   //   expect(false).toBe(true)
