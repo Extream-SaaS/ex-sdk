@@ -1,5 +1,5 @@
 import SubscriptionManager from '../subscription-manager'
-import { ConsumerTopic } from '../topic'
+import { ClientTopic, ConsumerTopic } from '../topic'
 import { InitialResponse, promiseTimeout, TimeStamp } from '../utils'
 
 export enum PollType {
@@ -46,6 +46,14 @@ export interface QuestionAnswerData {
 export interface PollQuestionResponse {
   id: string;
   data: QuestionResponse
+}
+
+export interface PollAnswerResponse {
+  id: string
+  data: {
+    id: string
+    responses: { [key: string]: number }
+  }
 }
 
 export class Question {
