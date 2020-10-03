@@ -81,11 +81,13 @@ describe('Poll', () => {
   })
 
   afterEach(() => {
+    if (socket._callbacks) {
     const nonCleanedUpListeners = Object
       .values(socket._callbacks as (...args: any[]) => void[])
       .reduce((acc: number, cur: (...args: any[]) => void[]) => acc + cur.length, 0)
     if (nonCleanedUpListeners) {
       throw new Error('Socket listeners were not cleaned up between tests')
+    }
     }
   })
 
