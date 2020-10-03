@@ -140,4 +140,16 @@ describe('Poll', () => {
     expect(poll.questions.length).toEqual(0)
     expect(poll.type).toEqual(PollType.Immediate)
   })
+
+  it('orders the questions that are received initially', async () => {
+    expect(false).toBe(true)
+  })
+
+  it('allows questions to be streamed in', async () => {
+    expect(false).toBe(true)
+  })
+
+  it('orders the questions streamed in', async () => {
+    expect(false).toBe(true)
+  })
 })
