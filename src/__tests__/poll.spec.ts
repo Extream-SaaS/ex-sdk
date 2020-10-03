@@ -14,7 +14,7 @@ const initialResponse = {
 const pollId = 'id'
 
 const payload = {
-  type: PollType.Immediate,
+  type: PollType.Timed,
   questions: [
     {
       question: 'Donde esta la biblioteca?',
@@ -109,7 +109,7 @@ describe('Poll', () => {
         text: 'discoteca. Discoteca, muñeca, La biblioteca Está en'
       }
     ])
-    expect(poll.type).toEqual(PollType.Immediate)
+    expect(poll.type).toEqual(PollType.Timed)
   })
 
   it('rejects if there is an error in the response', async () => {
@@ -129,7 +129,13 @@ describe('Poll', () => {
   it('does not set questions if format is immediate', async () => {
     const get = poll.get()
     socket.socketClient.emit(ConsumerTopic.PollGet, initialResponse)
-    socket.socketClient.emit(ConsumerTopic.PollGet, pollResponse)
+    socket.socketClient.emit(ConsumerTopic.PollGet, {
+      ...pollResponse,
+      payload: {
+        ...payload,
+        type: PollType.Immediate
+      }
+    })
     await get
     expect(poll.questions.length).toEqual(0)
     expect(poll.type).toEqual(PollType.Immediate)

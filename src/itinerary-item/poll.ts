@@ -106,7 +106,9 @@ export class Poll {
         } else if (!('status' in resp)) {
           const questions = resp.payload.questions.map((q) => new Question(this.socket, q.id, q))
           this.type = resp.payload.type
-          this.questions = questions
+          if (this.type !== PollType.Immediate) {
+            this.questions = questions
+          }
           resolve()
         }
       }
