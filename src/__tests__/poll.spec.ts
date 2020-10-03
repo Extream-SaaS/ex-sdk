@@ -244,14 +244,29 @@ describe('Poll', () => {
     await get
     socket.socketClient.emit(ConsumerTopic.PollQuestion, addQuestionResponse)
     expect(poll.questions[0].id).toEqual('question_id')
-    expect(poll.questions[0].answers).toBe([{
+    expect(poll.questions[0].answers).toStrictEqual([{
       id: 'answer_id',
       order: 1,
       text: 'way up high'
     }])
   })
 
-  // it('orders the questions streamed in', async () => {
-  //   expect(false).toBe(true)
-  // })
+  it('ignores a question streamed in for a different poll', async () => {
+    const get = poll.get()
+    socket.socketClient.emit(ConsumerTopic.PollGet, initialResponse)
+    socket.socketClient.emit(ConsumerTopic.PollGet, {
+      ...pollResponse,
+      payload: {
+        ...payload,
+        type: PollType.Immediate,
+        questions: []
+      }
+    })
+    await get
+    socket.socketClient.emit(ConsumerTopic.PollQuestion, {
+      ...addQuestionResponse,
+      id: 'foo'
+    })
+    expect(poll.questions.length).toEqual(0)
+  })
 })
