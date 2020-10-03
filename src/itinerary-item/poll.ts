@@ -56,7 +56,6 @@ export class Poll {
   }
 
   listenForResponses (): void {
-    // TODO add question? Or update question answers? Need to see repsonse.
     this.subscriptionManager.addSubscription(ClientTopic.PollListener, (resp: PollAnswerResponse) => {
       if (this.id === resp.id) {
         const question = this.questions.find(({ id }) => id === resp.data.id)
