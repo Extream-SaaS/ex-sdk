@@ -84,6 +84,7 @@ describe('Poll', () => {
   let poll: Poll
   let socket: MockedSocket
   let emit: sinon.SinonStub
+
   beforeEach(() => {
     socket = new MockedSocket()
     emit = sinon.stub()
@@ -308,7 +309,7 @@ describe('Poll', () => {
     })
   })
 
-  it('throws an error if ', async () => {
+  it('throws an error if question cannot be found', async () => {
     try {
       const get = poll.get()
       socket.socketClient.emit(ConsumerTopic.PollGet, initialResponse)
@@ -327,6 +328,61 @@ describe('Poll', () => {
       expect(false).toBe(true)
     } catch (e) {
       expect(e.message).toBe('Could not find question with id: foo')
+    }
+  })
+
+  it('allows users to awnser questions', async () => {
+    const get = poll.get()
+    socket.socketClient.emit(ConsumerTopic.PollGet, initialResponse)
+    socket.socketClient.emit(ConsumerTopic.PollGet, pollResponse)
+    await get
+    const sendPromise = poll.answer('question_id', 'answer_id')
+    expect(emit.calledTwice).toBeTruthy()
+    expect(emit.secondCall.args).toStrictEqual([
+      'consumer_poll_answer',
+      {
+        answer: 'answer_id',
+        question: 'question_id'
+      }
+    ])
+    socket.socketClient.emit(ConsumerTopic.PollAnswer, initialResponse)
+    socket.socketClient.emit(ConsumerTopic.PollAnswer, {})
+    await sendPromise
+  })
+
+  it('throws if question cannot be found', async () => {
+    const get = poll.get()
+    socket.socketClient.emit(ConsumerTopic.PollGet, initialResponse)
+    socket.socketClient.emit(ConsumerTopic.PollGet, pollResponse)
+    await get
+    try {
+      await poll.answer('foo', 'answer_id')
+      expect(false).toBe(true)
+    } catch (e) {
+      expect(e.message).toBe('Could not find question with id: foo')
+    }
+  })
+
+  it('throws if there is an error answering a question', async () => {
+    const get = poll.get()
+    socket.socketClient.emit(ConsumerTopic.PollGet, initialResponse)
+    socket.socketClient.emit(ConsumerTopic.PollGet, pollResponse)
+    await get
+    const sendPromise = poll.answer('question_id', 'answer_id')
+    expect(emit.calledTwice).toBeTruthy()
+    expect(emit.secondCall.args).toStrictEqual([
+      'consumer_poll_answer',
+      {
+        answer: 'answer_id',
+        question: 'question_id'
+      }
+    ])
+    socket.socketClient.emit(ConsumerTopic.PollAnswer, { error: 'foo' })
+    try {
+      await sendPromise
+      expect(false).toBe(true)
+    } catch (e) {
+      expect(e.message).toBe('foo')
     }
   })
 })

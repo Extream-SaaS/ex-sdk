@@ -81,7 +81,7 @@ export class Question {
     this.responses = responses
   }
 
-  answer (data: QuestionAnswerData): Promise<void> {
+  answer (answer: string): Promise<void> {
     let callback: (resp: InitialResponse | AnswerPollsResponse) => void
     return promiseTimeout(new Promise<void>((resolve, reject) => {
       callback = (resp: InitialResponse | AnswerPollsResponse) => {
@@ -93,8 +93,8 @@ export class Question {
       }
       this.socket.on(ConsumerTopic.PollAnswer, callback)
       this.socket.emit(ConsumerTopic.PollAnswer, {
-        id: this.id,
-        data
+        answer,
+        question: this.id
       })
     })).finally(() => {
       this.socket.removeListener(ConsumerTopic.PollAnswer, callback)
@@ -142,6 +142,14 @@ export class Poll {
 
   static sortByOrder (a: QuestionResponse, b: QuestionResponse): number {
     return a.order - b.order
+  }
+
+  async answer (questionId: string, answerId: string): Promise<void> {
+    const question = this.questions.find(({ id }) => id === questionId)
+    if (!question) {
+      throw new Error(`Could not find question with id: ${questionId}`)
+    }
+    await question.answer(answerId)
   }
 
   get (): Promise<void> {
