@@ -1,4 +1,4 @@
-import { Poll } from '../itinerary-item'
+import { Poll, PollType } from '../itinerary-item'
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import MockedSocket from 'socket.io-mock'
@@ -14,6 +14,7 @@ const initialResponse = {
 const pollId = 'id'
 
 const payload = {
+  type: PollType.Immediate,
   questions: [
     {
       question: 'Donde esta la biblioteca?',
@@ -88,11 +89,23 @@ describe('Poll', () => {
     }
   })
 
-  it('creates a video item for each video item responded', async () => {
+  it('creates a questions for the poll and sets poll type', async () => {
     const get = poll.get()
     socket.socketClient.emit(ConsumerTopic.PollGet, initialResponse)
     socket.socketClient.emit(ConsumerTopic.PollGet, pollResponse)
     await get
-    expect(false).toBe(true)
+    expect(poll.questions[0].id).toEqual('question_id')
+    expect(poll.questions[0].answers).toStrictEqual([
+      {
+        id: 'answer_id_1',
+        order: 1,
+        text: 'me llamo t bone la araña discoteca'
+      },
+      {
+        id: 'answer_id_2',
+        order: 2,
+        text: 'discoteca. Discoteca, muñeca, La biblioteca Está en' }
+    ])
+    expect(poll.type).toEqual(PollType.Immediate)
   })
 })

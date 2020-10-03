@@ -2,8 +2,31 @@ import SubscriptionManager from '../subscription-manager'
 import { ClientTopic, ConsumerTopic } from '../topic'
 import { InitialResponse, promiseTimeout } from '../utils'
 
-export interface GetPollsResponse {
-  payload: any
+export enum PollType {
+  Timed = 'Timed',
+  Immediate = 'Immediate'
+}
+
+export interface AnswerResponse {
+  id: string
+  order: number
+  text: string
+}
+
+export interface QuestionResponse {
+  question: string
+  id: string
+  order: number
+  answers: AnswerResponse[]
+}
+
+export interface GetPollResponsePayload {
+  type: PollType
+  questions: QuestionResponse []
+}
+
+export interface GetPollResponse {
+  payload: GetPollResponsePayload
 }
 
 export interface AnswerPollsResponse {
@@ -19,21 +42,15 @@ export interface QuestionAnswerData {
   answer: string;
 }
 
-export enum QuestionType {
-  Timed = 'Timed',
-  Immediate = 'Immediate'
-}
-
 export class Question {
   private socket: SocketIOClient.Socket
-  public type: QuestionType
-  public data: any
   public id: string
+  public answers: AnswerResponse[]
 
-  constructor (socket: SocketIOClient.Socket, type: QuestionType, id: string) {
+  constructor (socket: SocketIOClient.Socket, id: string, data: QuestionResponse) {
     this.socket = socket
-    this.type = type
     this.id = id
+    this.answers = data.answers
   }
 
   answer (data: QuestionAnswerData): Promise<void> {
@@ -55,6 +72,16 @@ export class Question {
       this.socket.removeListener(ConsumerTopic.PollAnswer, callback)
     })
   }
+
+  toJSON (): Omit<Question, 'socket'> {
+    const clone = {
+      ...this
+    }
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    delete clone.socket
+    return clone as Omit<Question, 'socket'>
+  }
 }
 
 export class Poll {
@@ -62,6 +89,7 @@ export class Poll {
   private subscriptionManager: SubscriptionManager;
   public id: string;
   public questions: Question[] = []
+  public type: PollType | null = null
 
   /**
    *
@@ -80,13 +108,15 @@ export class Poll {
   }
 
   get (): Promise<void> {
-    let callback: (resp: InitialResponse | GetPollsResponse) => void
+    let callback: (resp: InitialResponse | GetPollResponse) => void
     return promiseTimeout(new Promise<void>((resolve, reject) => {
-      callback = (resp: InitialResponse | GetPollsResponse) => {
+      callback = (resp: InitialResponse | GetPollResponse) => {
         if ('error' in resp) {
           reject(new Error(resp.error))
         } else if (!('status' in resp)) {
-          // TODO create a question instance per response
+          const questions = resp.payload.questions.map((q) => new Question(this.socket, q.id, q))
+          this.type = resp.payload.type
+          this.questions = questions
           resolve()
         }
       }
@@ -101,5 +131,9 @@ export class Poll {
 
   destroy (): void {
     this.subscriptionManager.removeAllSubscriptions()
+  }
+
+  toJSON (): string {
+    return ''
   }
 }
