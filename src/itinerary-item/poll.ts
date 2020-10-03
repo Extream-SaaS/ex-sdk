@@ -72,16 +72,6 @@ export class Question {
       this.socket.removeListener(ConsumerTopic.PollAnswer, callback)
     })
   }
-
-  toJSON (): Omit<Question, 'socket'> {
-    const clone = {
-      ...this
-    }
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    delete clone.socket
-    return clone as Omit<Question, 'socket'>
-  }
 }
 
 export class Poll {
@@ -131,9 +121,5 @@ export class Poll {
 
   destroy (): void {
     this.subscriptionManager.removeAllSubscriptions()
-  }
-
-  toJSON (): string {
-    return ''
   }
 }
