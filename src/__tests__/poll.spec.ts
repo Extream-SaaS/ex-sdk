@@ -82,12 +82,12 @@ describe('Poll', () => {
 
   afterEach(() => {
     if (socket._callbacks) {
-    const nonCleanedUpListeners = Object
-      .values(socket._callbacks as (...args: any[]) => void[])
-      .reduce((acc: number, cur: (...args: any[]) => void[]) => acc + cur.length, 0)
-    if (nonCleanedUpListeners) {
-      throw new Error('Socket listeners were not cleaned up between tests')
-    }
+      const nonCleanedUpListeners = Object
+        .values(socket._callbacks as (...args: any[]) => void[])
+        .reduce((acc: number, cur: (...args: any[]) => void[]) => acc + cur.length, 0)
+      if (nonCleanedUpListeners) {
+        throw new Error('Socket listeners were not cleaned up between tests')
+      }
     }
   })
 
@@ -106,7 +106,8 @@ describe('Poll', () => {
       {
         id: 'answer_id_2',
         order: 2,
-        text: 'discoteca. Discoteca, muñeca, La biblioteca Está en' }
+        text: 'discoteca. Discoteca, muñeca, La biblioteca Está en'
+      }
     ])
     expect(poll.type).toEqual(PollType.Immediate)
   })
@@ -116,7 +117,7 @@ describe('Poll', () => {
     socket.socketClient.emit(ConsumerTopic.PollGet, {
       error: 'foo',
       ...initialResponse
-})
+    })
     try {
       await get
       expect(false).toBe(true)
@@ -124,3 +125,13 @@ describe('Poll', () => {
       expect(e.message).toBe('foo')
     }
   })
+
+  it('does not set questions if format is immediate', async () => {
+    const get = poll.get()
+    socket.socketClient.emit(ConsumerTopic.PollGet, initialResponse)
+    socket.socketClient.emit(ConsumerTopic.PollGet, pollResponse)
+    await get
+    expect(poll.questions.length).toEqual(0)
+    expect(poll.type).toEqual(PollType.Immediate)
+  })
+})
