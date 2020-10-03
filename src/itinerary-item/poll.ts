@@ -1,6 +1,6 @@
 import SubscriptionManager from '../subscription-manager'
 import { ConsumerTopic } from '../topic'
-import { InitialResponse, promiseTimeout } from '../utils'
+import { InitialResponse, promiseTimeout, TimeStamp } from '../utils'
 
 export enum PollType {
   Timed = 'Timed',
@@ -14,6 +14,7 @@ export interface AnswerResponse {
 }
 
 export interface QuestionResponse {
+  time?: TimeStamp
   question: string
   id: string
   order: number
@@ -90,11 +91,21 @@ export class Poll {
     this.id = id
   }
 
-  listen (): void {
-    // TODO add question? Or update question answers? Need to see repsonse.
-    // this.subscriptionManager.addSubscription(ClientTopic.PollListener, () => {
+  // listen (): void {
+  // // TODO add question? Or update question answers? Need to see repsonse.
+  // this.subscriptionManager.addSubscription(ClientTopic.PollListener, () => {
+  // })
+  // }
 
-    // })
+  // listenForQuestions (): void {
+  //   // TODO add question? Or update question answers? Need to see repsonse.
+  //   this.subscriptionManager.addSubscription(ClientTopic.PollListener, () => {
+
+  //   })
+  // }
+
+  static sortByOrder (a: QuestionResponse, b: QuestionResponse) {
+    return a.order - b.order
   }
 
   get (): Promise<void> {
@@ -104,9 +115,10 @@ export class Poll {
         if ('error' in resp) {
           reject(new Error(resp.error))
         } else if (!('status' in resp)) {
-          const questions = resp.payload.questions.map((q) => new Question(this.socket, q.id, q))
           this.type = resp.payload.type
           if (this.type !== PollType.Immediate) {
+            const responseQuestions = [...resp.payload.questions].sort(Poll.sortByOrder)
+            const questions = responseQuestions.map((q) => new Question(this.socket, q.id, q))
             this.questions = questions
           }
           resolve()

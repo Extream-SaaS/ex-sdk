@@ -41,8 +41,9 @@ export enum ConsumerTopic {
   ChatStart = 'consumer_chat_start',
   EventGet = 'consumer_event_get',
   ItineraryGet = 'consumer_itinerary_get',
-  PollGet = 'consumer_poll_get',
   PollAnswer = 'consumer_poll_answer',
+  PollGet = 'consumer_poll_get',
+  PollQuestion = 'consumer_poll_question',
   RtmpGet = 'consumer_rtmp_get',
   WebrtcRead = 'consumer_webrtc_read'
 }

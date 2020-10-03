@@ -53,21 +53,21 @@ const pollResponse = {
   user: mockUser
 }
 
-// const addQuestionResponse = {
-//   id: 'poll_id',
-//   data: {
-//     question: 'Where is the moon?',
-//     id: 'question_id',
-//     order: 1,
-//     answers: [
-//       {
-//         id: 'answer_id',
-//         order: 1,
-//         text: 'way up high'
-//       }
-//     ]
-//   }
-// }
+const addQuestionResponse = {
+  id: 'poll_id',
+  data: {
+    question: 'Where is the moon?',
+    id: 'question_id',
+    order: 1,
+    answers: [
+      {
+        id: 'answer_id',
+        order: 1,
+        text: 'way up high'
+      }
+    ]
+  }
+}
 
 describe('Poll', () => {
   let poll: Poll
@@ -142,14 +142,57 @@ describe('Poll', () => {
   })
 
   it('orders the questions that are received initially', async () => {
-    expect(false).toBe(true)
+    const get = poll.get()
+    socket.socketClient.emit(ConsumerTopic.PollGet, initialResponse)
+    socket.socketClient.emit(ConsumerTopic.PollGet, {
+      ...pollResponse,
+      payload: {
+        ...payload,
+        questions: [
+          {
+            question: 'Donde esta la biblioteca?',
+            id: 'question_id_3',
+            order: 3,
+            answers: []
+          },
+          {
+            question: 'Donde esta la biblioteca?',
+            id: 'question_id_1',
+            order: 1,
+            answers: []
+          },
+          {
+            question: 'Donde esta la biblioteca?',
+            id: 'question_id_2',
+            order: 2,
+            answers: []
+          }
+        ]
+      }
+    })
+    await get
+    expect(poll.questions[0].id).toEqual('question_id_1')
+    expect(poll.questions[1].id).toEqual('question_id_2')
+    expect(poll.questions[2].id).toEqual('question_id_3')
   })
 
-  it('allows questions to be streamed in', async () => {
-    expect(false).toBe(true)
-  })
+  // it('allows questions to be streamed in', async () => {
+  //   const get = poll.get()
+  //   socket.socketClient.emit(ConsumerTopic.PollGet, initialResponse)
+  //   socket.socketClient.emit(ConsumerTopic.PollGet, {
+  //     ...pollResponse,
+  //     payload: {
+  //       ...payload,
+  //       questions: []
+  //     }
+  //   })
+  //   await get
+  //   socket.socketClient.emit(ConsumerTopic.PollQuestion, addQuestionResponse)
 
-  it('orders the questions streamed in', async () => {
-    expect(false).toBe(true)
-  })
+  //   expect(false).toBe(true)
+  // })
+
+  // it('orders the questions streamed in', async () => {
+  //   expect(false).toBe(true)
+  // })
 })
