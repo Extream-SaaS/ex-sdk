@@ -1,7 +1,6 @@
-import { Chat, Video } from './itinerary-item'
+import { Chat, Video, Poll } from './itinerary-item'
 import { GetItineraryResponse, ItineraryItem, ItineraryPayload } from './event'
 import { ConsumerTopic } from './topic'
-import { ExtreamUser } from './user'
 import { InitialResponse, promiseTimeout, SocketResponse, TimeStamp } from './utils'
 
 export interface RtcConfiguration {
@@ -26,6 +25,7 @@ export type ReadWebRtcResponse = SocketResponse<ReadWebRtcResponsePayload>
 export enum ItineraryType {
   Rtmp = 'rtmp',
   Chat = 'chats',
+  Poll = 'poll',
 }
 
 export class Itinerary {
@@ -33,6 +33,7 @@ export class Itinerary {
   public payload: ItineraryPayload | null = null
   public chats: Chat[] = []
   public videos: Video[] = []
+  public polls: Poll[] = []
 
   constructor (socket: SocketIOClient.Socket) {
     this.socket = socket
