@@ -1,4 +1,4 @@
-import { Chat, Poll, PollType } from '../itinerary-item'
+import { Poll, PollType } from '../itinerary-item'
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import MockedSocket from 'socket.io-mock'
