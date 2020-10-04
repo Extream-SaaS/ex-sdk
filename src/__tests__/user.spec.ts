@@ -1,5 +1,4 @@
-import User from '../user'
-import sinon from 'sinon'
+import User, { UserType } from '../user'
 
 import fetchMock from 'jest-fetch-mock'
 
@@ -65,5 +64,50 @@ describe('User', () => {
     } catch (e) {
       expect(e).toBeInstanceOf(Response)
     }
+  })
+
+  it('login calls endpoint with username, password and eventId', async () => {
+    const user = new User({
+      auth: 'www.url.com',
+      gateway: 'gateway',
+      apiKey: 'apiKey'
+    })
+
+    fetchMock.mockOnce(async (resp: Request) => {
+      const body = await resp.text()
+      expect(resp.url).toBe('www.url.com/auth/login')
+      expect(body).toBe('username=username&password=password&eventId=eventId&grant_type=password')
+      expect(resp.headers.get('Content-type')).toBe('application/x-www-form-urlencoded')
+      return JSON.stringify({})
+    })
+
+    await user.login('username', 'password', 'eventId')
+  })
+
+  it('register calls endpoint with correct information', async () => {
+    const user = new User({
+      auth: 'www.url.com',
+      gateway: 'gateway',
+      apiKey: 'apiKey'
+    })
+
+    fetchMock.mockOnce(async (resp: Request) => {
+      const body = await resp.text()
+
+      expect(resp.url).toBe('www.url.com/auth/register')
+      expect(resp.headers.get('Content-type')).toBe('application/x-www-form-urlencoded')
+      expect(body).toBe('username=username&email=email&password=password&user_type=actor&user={\"firstName\":\"asd\"}')
+      return JSON.stringify({})
+    })
+
+    await user.registerUser({
+      username: 'username',
+      email: 'email',
+      password: 'password',
+      user_type: UserType.Actor,
+      user: {
+        firstName: 'asd'
+      }
+    })
   })
 })
