@@ -85,7 +85,7 @@ export class Poll {
     if (!question) {
       throw new Error(`Could not find question with id: ${questionId}`)
     }
-    await question.answer(answerId)
+    await question.answer(answerId, this.id)
   }
 
   get (): Promise<void> {

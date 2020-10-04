@@ -331,7 +331,7 @@ describe('Poll', () => {
     }
   })
 
-  it('allows users to awnser questions', async () => {
+  it('allows users to answer questions', async () => {
     const get = poll.get()
     socket.socketClient.emit(ConsumerTopic.PollGet, initialResponse)
     socket.socketClient.emit(ConsumerTopic.PollGet, pollResponse)
@@ -341,8 +341,11 @@ describe('Poll', () => {
     expect(emit.secondCall.args).toStrictEqual([
       'consumer_poll_answer',
       {
-        answer: 'answer_id',
-        question: 'question_id'
+        id: 'id',
+        data: {
+          answer: 'answer_id',
+          question: 'question_id'
+        }
       }
     ])
     socket.socketClient.emit(ConsumerTopic.PollAnswer, initialResponse)
@@ -370,13 +373,6 @@ describe('Poll', () => {
     await get
     const sendPromise = poll.answer('question_id', 'answer_id')
     expect(emit.calledTwice).toBeTruthy()
-    expect(emit.secondCall.args).toStrictEqual([
-      'consumer_poll_answer',
-      {
-        answer: 'answer_id',
-        question: 'question_id'
-      }
-    ])
     socket.socketClient.emit(ConsumerTopic.PollAnswer, { error: 'foo' })
     try {
       await sendPromise

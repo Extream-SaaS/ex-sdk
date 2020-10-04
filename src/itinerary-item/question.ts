@@ -44,7 +44,7 @@ export class Question {
     this.responses = responses
   }
 
-  answer (answer: string): Promise<void> {
+  answer (answer: string, poll: string): Promise<void> {
     let callback: (resp: InitialResponse | AnswerPollsResponse) => void
     return promiseTimeout(new Promise<void>((resolve, reject) => {
       callback = (resp: InitialResponse | AnswerPollsResponse) => {
@@ -56,8 +56,11 @@ export class Question {
       }
       this.socket.on(ConsumerTopic.PollAnswer, callback)
       this.socket.emit(ConsumerTopic.PollAnswer, {
-        answer,
-        question: this.id
+        id: poll,
+        data: {
+          answer,
+          question: this.id
+        }
       })
     })).finally(() => {
       this.socket.removeListener(ConsumerTopic.PollAnswer, callback)
