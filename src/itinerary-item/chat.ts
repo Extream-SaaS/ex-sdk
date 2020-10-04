@@ -224,14 +224,19 @@ export class Chat {
     return this.emitMessage(message)
   }
 
+  private findMessage (id: string): Message {
+    const message = this.messages.find(({ uuid }) => id === uuid)
+    if (!message) {
+      throw new Error(`Could not find message with id ${id} to add child`)
+    }
+    return message
+  }
+
   private setupChatListeners (): void {
     this.subscriptionManager.addSubscription(ConsumerTopic.ChatReceive, (resp: ChatMessageResponse) => {
       if (resp.id === this.roomId) {
         if (resp.parent) {
-          const message = this.messages.find(({ uuid }) => resp.parent === uuid)
-          if (!message) {
-            throw new Error(`Could not find message with id ${resp.uuid} to add child`)
-          }
+          const message = this.findMessage(resp.parent)
           message.removed = false
           message.children = [
             ...message.children,
@@ -253,20 +258,14 @@ export class Chat {
     this.subscriptionManager.addSubscription(ConsumerTopic.ChatRemove, (resp: ChatMessageResponse) => {
       if (resp.id === this.roomId) {
         if (resp.parent) {
-          const message = this.messages.find(({ uuid }) => uuid === resp.parent)
-          if (!message) {
-            throw new Error(`Could not find message with id ${resp.parent} to remove child`)
-          }
+          const message = this.findMessage(resp.parent)
           const childMessage = message.children.find(c => c.uuid === resp.uuid)
           if (!childMessage) {
             throw new Error(`Could not find child message with id ${resp.uuid}`)
           }
           childMessage.removed = true
         } else {
-          const message = this.messages.find(({ uuid }) => resp.uuid === uuid)
-          if (!message) {
-            throw new Error(`Could not find message with id ${resp.uuid}`)
-          }
+          const message = this.findMessage(resp.uuid)
           message.removed = true
         }
       }
