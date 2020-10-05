@@ -1,10 +1,7 @@
-/* eslint-disable */
 import 'isomorphic-fetch'
 
 import io from 'socket.io-client'
 
-import { Admin } from './admin'
-import { Client } from './client'
 import { Consumer } from './consumer'
 import SubscriptionManager from './subscription-manager'
 import { AuthorizationTopic } from './topic'
@@ -18,9 +15,7 @@ import { ExtreamOptions, promiseTimeout } from './utils'
  */
 export class ExtreamClient {
   public socket: SocketIOClient.Socket | null = null;
-  public adminActions: Admin | null = null;
   public consumerActions: Consumer | null = null;
-  public clientActions: Client | null = null;
   public user: User;
   private options: ExtreamOptions;
   private subscriptionManager: SubscriptionManager | null = null;
@@ -28,20 +23,6 @@ export class ExtreamClient {
   constructor (options: ExtreamOptions) {
     this.options = options
     this.user = new User(this.options)
-  }
-
-  get admin (): Admin {
-    if (!this.adminActions) {
-      throw new Error('Please connect and authenticate before trying to perform any actions')
-    }
-    return this.adminActions
-  }
-
-  get client (): Client {
-    if (!this.clientActions) {
-      throw new Error('Please connect and authenticate before trying to perform any actions')
-    }
-    return this.clientActions
   }
 
   get consumer (): Consumer {
@@ -61,11 +42,9 @@ export class ExtreamClient {
   connect (accessToken: string): Promise<ExtreamUser> {
     return promiseTimeout(new Promise<ExtreamUser>((resolve, reject) => {
       this.socket = io(`${this.options.gateway}?x-auth=${accessToken}`, {
-        transports: [ 'websocket' ]
+        transports: ['websocket']
       })
       this.subscriptionManager = new SubscriptionManager(this.socket)
-      this.adminActions = new Admin(this.socket)
-      this.clientActions = new Client(this.socket)
       this.consumerActions = new Consumer(this.socket)
       this.socket.emit(AuthorizationTopic.Authorize, { method: 'oauth2', token: accessToken })
       this.socket.on(AuthorizationTopic.Authorized, (user: ExtreamUser) => {
@@ -114,7 +93,7 @@ export class ExtreamClient {
     this.subscriptionManager.addSubscription(topic, cb)
   }
 
-  public destroy () {
+  public destroy (): void {
     if (!this.subscriptionManager) {
       throw new Error('No socket connection found. You do not need to destroy a socket that has never been connected.')
     }

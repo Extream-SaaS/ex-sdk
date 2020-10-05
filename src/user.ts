@@ -1,6 +1,4 @@
-/* eslint-disable */
-
-import { ExtreamOptions, promiseTimeout } from "./utils"
+import { ExtreamOptions, promiseTimeout } from './utils'
 
 export interface UserFields {
   firstName?: string;
@@ -74,8 +72,8 @@ export default class User {
    */
   private objectToUrlFormData (params: {[ key: string ]: any }): string {
     return Object.entries(params)
-    .map(([key, value]) => `${key}=${value}`)
-    .join('&')
+      .map(([key, value]) => `${key}=${value}`)
+      .join('&')
   }
 
   /**
@@ -89,12 +87,12 @@ export default class User {
   ): Promise<T> {
     return promiseTimeout<T>(
       fetch(url, options)
-      .then((resp: Response) => {
-        if (!resp.ok) {
-          throw resp
-        }
-        return resp.json()
-      })
+        .then((resp: Response) => {
+          if (!resp.ok) {
+            throw resp
+          }
+          return resp.json()
+        })
     )
   }
 
@@ -105,14 +103,14 @@ export default class User {
   public async registerUser (params: RegisterUserRequest) {
     const user = await this.performFetch(
       `${this.options.auth}/auth/register`,
-        {
-          method: 'POST',
-          headers: this.headers,
-          body: this.objectToUrlFormData({
-            ...params,
-            user: JSON.stringify(params.user)
-          })
-        }
+      {
+        method: 'POST',
+        headers: this.headers,
+        body: this.objectToUrlFormData({
+          ...params,
+          user: JSON.stringify(params.user)
+        })
+      }
     )
     return user
   }

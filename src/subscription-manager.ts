@@ -1,4 +1,3 @@
-/* eslint-disable */
 /**
  * Manages a list of subscriptions, holding references to the listeners attached to allow classes to clean
  * up all the listeners they setup on creation easily.

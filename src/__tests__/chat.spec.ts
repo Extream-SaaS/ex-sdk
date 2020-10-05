@@ -1,4 +1,4 @@
-import { Chat } from '../chat'
+import { Chat } from '../itinerary-item'
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import MockedSocket from 'socket.io-mock'
@@ -610,11 +610,54 @@ describe('Chat class', () => {
     ])
   })
 
-  // it('throws error if reply message could not be sent', () => {
-  //   expect(false).toBeTruthy()
-  // })
+  test('it sets the messages when chat get is responded', async () => {
+    const startPromise = chat.start()
+    socket.socketClient.emit(ConsumerTopic.ChatStart, initialResponse)
+    socket.socketClient.emit(ConsumerTopic.ChatStart, {
+      payload: {
+        id: 'roomId',
+        data: {
+          instance: 'foo'
+        }
+      }
+    })
+    await startPromise
 
-  // it('allows users to start a chat', () => {
-  //   expect(false).toBeTruthy()
-  // })
+    expect(chat.instance).toEqual('foo')
+    expect(chat.messages).toStrictEqual([])
+  })
+
+  test('it ignores the start responses for other rooms', async () => {
+    const startPromise = chat.start()
+    socket.socketClient.emit(ConsumerTopic.ChatStart, initialResponse)
+    socket.socketClient.emit(ConsumerTopic.ChatStart, {
+      payload: {
+        id: 'bar',
+        data: {
+          instance: 'foo'
+        }
+      }
+    })
+    socket.socketClient.emit(ConsumerTopic.ChatStart, {
+      payload: {
+        id: 'roomId',
+        data: {
+          instance: 'baz'
+        }
+      }
+    })
+    await startPromise
+
+    expect(chat.instance).toBe('baz')
+  })
+
+  test('it throws an error if there is an error in the response', async () => {
+    const startPromise = chat.start()
+    socket.socketClient.emit(ConsumerTopic.ChatStart, { error: 'foo' })
+    try {
+      await startPromise
+    } catch (e) {
+      expect(e.message).toBe('foo')
+    }
+  })
 })

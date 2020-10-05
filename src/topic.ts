@@ -1,3 +1,12 @@
+/* authorization events */
+export enum AuthorizationTopic {
+  Authorized = 'authorized',
+  Authorize = 'authorize',
+  Unauthorized = 'unauthorized',
+  Mfa = 'mfa',
+  Connect = 'connect',
+}
+
 /* admin events */
 export enum AdminTopic {
   OrganisationCreate = 'admin_organisation_create',
@@ -32,19 +41,19 @@ export enum ConsumerTopic {
   ChatStart = 'consumer_chat_start',
   EventGet = 'consumer_event_get',
   ItineraryGet = 'consumer_itinerary_get',
-  PollGet = 'consumer_poll_get',
   PollAnswer = 'consumer_poll_answer',
+  PollGet = 'consumer_poll_get',
+  PollQuestion = 'consumer_poll_question',
+  QuestionCreate = 'consumer_question_create',
   RtmpGet = 'consumer_rtmp_get',
   WebrtcRead = 'consumer_webrtc_read'
 }
 
-/* authorization events */
-export enum AuthorizationTopic {
-  Authorized = 'authorized',
-  Authorize = 'authorize',
-  Unauthorized = 'unauthorized',
-  Mfa = 'mfa',
-  Connect = 'connect',
+export type Topics = {
+  Authorization: AuthorizationTopic,
+  AdminTopic: AdminTopic,
+  ClientTopic: ClientTopic,
+  ConsumerTopic: ConsumerTopic,
 }
 
 // type ValueOf<T> = T[keyof T];

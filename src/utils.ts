@@ -1,3 +1,5 @@
+import { ExtreamUser, UserFields } from './user'
+
 export interface InitialResponse {
   /**
    * Error message. Present if sending failed
@@ -21,6 +23,16 @@ export interface ExtreamOptions {
 export interface TimeStamp {
   _seconds: number;
   _nanoseconds: number;
+}
+
+export interface SocketResponse<T> {
+  error?: string
+  domain: string;
+  action: string;
+  command: string;
+  payload: T;
+  user: ExtreamUser;
+  socketId: string;
 }
 
 export const promiseTimeout = <T>(promise: Promise<T>): Promise<T> => new Promise((resolve, reject) => {
