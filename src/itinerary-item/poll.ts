@@ -17,6 +17,11 @@ export interface GetPollResponse {
   payload: GetPollResponsePayload
 }
 
+export interface CreateQuestionResponse {
+  id: string;
+  payload: QuestionResponse;
+}
+
 export interface PollListenerResponse {
   payload: any
 }
@@ -37,6 +42,15 @@ export interface PollAnswerResponse {
     id: string
     responses: { [key: string]: number }
   }
+}
+
+export interface QuestionRequest {
+  question: string;
+  order: number;
+  answers: {
+    order: number;
+    text: string;
+  } []
 }
 
 export class Poll {
@@ -86,6 +100,30 @@ export class Poll {
       throw new Error(`Could not find question with id: ${questionId}`)
     }
     await question.answer(answerId, this.id)
+  }
+
+  createQuestion (question: QuestionRequest): Promise<void> {
+    let callback: (resp: InitialResponse | CreateQuestionResponse) => void
+    return promiseTimeout(new Promise<void>((resolve, reject) => {
+      callback = (resp: InitialResponse | CreateQuestionResponse) => {
+        if ('error' in resp) {
+          reject(new Error(resp.error))
+        } else if (!('status' in resp)) {
+          if (resp.id === this.id) {
+            const question = new Question(this.socket, resp.payload.id, resp.payload)
+            this.questions = [...this.questions, question]
+            resolve()
+          }
+        }
+      }
+      this.socket.on(ConsumerTopic.QuestionCreate, callback)
+      this.socket.emit(ConsumerTopic.QuestionCreate, {
+        id: this.id,
+        ...question
+      })
+    })).finally(() => {
+      this.socket.removeListener(ConsumerTopic.QuestionCreate, callback)
+    })
   }
 
   get (): Promise<void> {

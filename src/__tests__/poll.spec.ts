@@ -53,7 +53,7 @@ const pollResponse = {
   user: mockUser
 }
 
-const addQuestionResponse = {
+const streamQuestionInResponse = {
   id: 'id',
   data: {
     question: 'Where is the moon?',
@@ -254,7 +254,7 @@ describe('Poll', () => {
       }
     })
     await get
-    socket.socketClient.emit(ConsumerTopic.PollQuestion, addQuestionResponse)
+    socket.socketClient.emit(ConsumerTopic.PollQuestion, streamQuestionInResponse)
     expect(poll.questions[0].id).toEqual('question_id')
     expect(poll.questions[0].answers).toStrictEqual([{
       id: 'answer_id',
@@ -276,7 +276,7 @@ describe('Poll', () => {
     })
     await get
     socket.socketClient.emit(ConsumerTopic.PollQuestion, {
-      ...addQuestionResponse,
+      ...streamQuestionInResponse,
       id: 'foo'
     })
     expect(poll.questions.length).toEqual(0)
@@ -377,6 +377,145 @@ describe('Poll', () => {
     try {
       await sendPromise
       expect(false).toBe(true)
+    } catch (e) {
+      expect(e.message).toBe('foo')
+    }
+  })
+
+  it('lets users create a question for a poll', async () => {
+    const get = poll.get()
+    socket.socketClient.emit(ConsumerTopic.PollGet, initialResponse)
+    socket.socketClient.emit(ConsumerTopic.PollGet, {
+      ...pollResponse,
+      payload: {
+        ...payload,
+        type: PollType.Immediate,
+        questions: []
+      }
+    })
+    await get
+    const createPromise = poll.createQuestion({
+      question: 'Where is the moon?',
+      order: 1,
+      answers: [
+        {
+          order: 1,
+          text: 'way up high'
+        }
+      ]
+    })
+
+    socket.socketClient.emit(ConsumerTopic.QuestionCreate, initialResponse)
+    socket.socketClient.emit(ConsumerTopic.QuestionCreate, {
+      id: 'id',
+      payload: {
+        question: 'Where is the moon?',
+        id: 'question_id',
+        order: 1,
+        answers: [
+          {
+            id: 'answer_id',
+            order: 1,
+            text: 'way up high'
+          }
+        ]
+      }
+    })
+    await createPromise
+    expect(poll.questions.length).toEqual(1)
+    expect(poll.questions[0].id).toEqual('question_id')
+    expect(poll.questions[0].answers).toStrictEqual([{
+      id: 'answer_id',
+      order: 1,
+      text: 'way up high'
+    }])
+  })
+
+  it('ignores responses for different polls', async () => {
+    const get = poll.get()
+    socket.socketClient.emit(ConsumerTopic.PollGet, initialResponse)
+    socket.socketClient.emit(ConsumerTopic.PollGet, {
+      ...pollResponse,
+      payload: {
+        ...payload,
+        type: PollType.Immediate,
+        questions: []
+      }
+    })
+    await get
+    const createPromise = poll.createQuestion({
+      question: 'Where is the moon?',
+      order: 1,
+      answers: [
+        {
+          order: 1,
+          text: 'way up high'
+        }
+      ]
+    })
+
+    socket.socketClient.emit(ConsumerTopic.QuestionCreate, initialResponse)
+    socket.socketClient.emit(ConsumerTopic.QuestionCreate, {
+      id: 'a different poll',
+      payload: {
+        question: 'Where is the moon?',
+        id: 'question_id',
+        order: 1,
+        answers: [
+          {
+            id: 'answer_id',
+            order: 1,
+            text: 'way up high'
+          }
+        ]
+      }
+    })
+    socket.socketClient.emit(ConsumerTopic.QuestionCreate, {
+      id: 'id',
+      payload: {
+        question: 'Where is the moon?',
+        id: 'question_id',
+        order: 1,
+        answers: [
+          {
+            id: 'answer_id',
+            order: 1,
+            text: 'way up high'
+          }
+        ]
+      }
+    })
+    await createPromise
+    expect(poll.questions.length).toEqual(1)
+  })
+
+  it('lets rejects if there is an error', async () => {
+    const get = poll.get()
+    socket.socketClient.emit(ConsumerTopic.PollGet, initialResponse)
+    socket.socketClient.emit(ConsumerTopic.PollGet, {
+      ...pollResponse,
+      payload: {
+        ...payload,
+        type: PollType.Immediate,
+        questions: []
+      }
+    })
+    await get
+    const createPromise = poll.createQuestion({
+      question: 'Where is the moon?',
+      order: 1,
+      answers: [
+        {
+          order: 1,
+          text: 'way up high'
+        }
+      ]
+    })
+
+    socket.socketClient.emit(ConsumerTopic.QuestionCreate, { error: 'foo' })
+    try {
+      await createPromise
+      expect(false).toBeTruthy()
     } catch (e) {
       expect(e.message).toBe('foo')
     }

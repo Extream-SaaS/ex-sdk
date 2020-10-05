@@ -44,6 +44,7 @@ export enum ConsumerTopic {
   PollAnswer = 'consumer_poll_answer',
   PollGet = 'consumer_poll_get',
   PollQuestion = 'consumer_poll_question',
+  QuestionCreate = 'consumer_question_create',
   RtmpGet = 'consumer_rtmp_get',
   WebrtcRead = 'consumer_webrtc_read'
 }
