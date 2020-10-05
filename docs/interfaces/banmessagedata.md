@@ -19,7 +19,7 @@
 
 • **parent**? : *undefined | string*
 
-*Defined in [chat.ts:106](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L106)*
+*Defined in [itinerary-item/chat.ts:89](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/chat.ts#L89)*
 
 ___
 
@@ -27,6 +27,6 @@ ___
 
 • **uuid**: *string*
 
-*Defined in [chat.ts:105](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L105)*
+*Defined in [itinerary-item/chat.ts:88](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/chat.ts#L88)*
 
 The uuid of the message to be banned

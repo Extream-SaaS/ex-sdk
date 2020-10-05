@@ -20,7 +20,7 @@
 
 • **message**: *string*
 
-*Defined in [chat.ts:40](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L40)*
+*Defined in [itinerary-item/chat.ts:30](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/chat.ts#L30)*
 
 The message to send to the chat
 
@@ -30,7 +30,7 @@ ___
 
 • **parent**: *string*
 
-*Defined in [chat.ts:42](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L42)*
+*Defined in [itinerary-item/chat.ts:32](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/chat.ts#L32)*
 
 ___
 
@@ -38,4 +38,4 @@ ___
 
 • **private**: *boolean*
 
-*Defined in [chat.ts:41](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L41)*
+*Defined in [itinerary-item/chat.ts:31](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/chat.ts#L31)*

@@ -28,7 +28,7 @@
 
 \+ **new Video**(`socket`: Socket, `id`: string): *[Video](video.md)*
 
-*Defined in [video.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/video.ts#L8)*
+*Defined in [itinerary-item/video.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/video.ts#L8)*
 
 **Parameters:**
 
@@ -45,7 +45,7 @@ Name | Type |
 
 • **data**: *[ReadWebRtcResponsePayload](../interfaces/readwebrtcresponsepayload.md) | null* = null
 
-*Defined in [video.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/video.ts#L8)*
+*Defined in [itinerary-item/video.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/video.ts#L8)*
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 • **id**: *string*
 
-*Defined in [video.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/video.ts#L7)*
+*Defined in [itinerary-item/video.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/video.ts#L7)*
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [video.ts:6](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/video.ts#L6)*
+*Defined in [itinerary-item/video.ts:6](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/video.ts#L6)*
 
 ## Methods
 
@@ -69,6 +69,6 @@ ___
 
 ▸ **get**(): *Promise‹void›*
 
-*Defined in [video.ts:15](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/video.ts#L15)*
+*Defined in [itinerary-item/video.ts:15](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/video.ts#L15)*
 
 **Returns:** *Promise‹void›*

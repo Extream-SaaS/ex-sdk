@@ -7,6 +7,7 @@
 ### Enumeration members
 
 * [Chat](itinerarytype.md#chat)
+* [Poll](itinerarytype.md#poll)
 * [Rtmp](itinerarytype.md#rtmp)
 
 ## Enumeration members
@@ -15,7 +16,15 @@
 
 • **Chat**: = "chats"
 
-*Defined in [itinerary.ts:37](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/itinerary.ts#L37)*
+*Defined in [itinerary.ts:27](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary.ts#L27)*
+
+___
+
+###  Poll
+
+• **Poll**: = "poll"
+
+*Defined in [itinerary.ts:28](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary.ts#L28)*
 
 ___
 
@@ -23,4 +32,4 @@ ___
 
 • **Rtmp**: = "rtmp"
 
-*Defined in [itinerary.ts:36](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/itinerary.ts#L36)*
+*Defined in [itinerary.ts:26](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary.ts#L26)*

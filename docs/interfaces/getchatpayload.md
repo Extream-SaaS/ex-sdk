@@ -29,7 +29,7 @@
 
 • **addedAt**: *[TimeStamp](timestamp.md)*
 
-*Defined in [chat.ts:82](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L82)*
+*Defined in [itinerary-item/chat.ts:72](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/chat.ts#L72)*
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 • **addedBy**: *string*
 
-*Defined in [chat.ts:80](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L80)*
+*Defined in [itinerary-item/chat.ts:70](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/chat.ts#L70)*
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 • **configuration**: *[Configuration](configuration.md)*
 
-*Defined in [chat.ts:87](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L87)*
+*Defined in [itinerary-item/chat.ts:77](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/chat.ts#L77)*
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 • **end_date**: *string*
 
-*Defined in [chat.ts:89](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L89)*
+*Defined in [itinerary-item/chat.ts:79](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/chat.ts#L79)*
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 • **id**: *string*
 
-*Defined in [chat.ts:78](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L78)*
+*Defined in [itinerary-item/chat.ts:68](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/chat.ts#L68)*
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 • **itinerary**: *string*
 
-*Defined in [chat.ts:79](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L79)*
+*Defined in [itinerary-item/chat.ts:69](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/chat.ts#L69)*
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 • **messages**: *[ChatMessages](chatmessages.md)*
 
-*Defined in [chat.ts:86](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L86)*
+*Defined in [itinerary-item/chat.ts:76](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/chat.ts#L76)*
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 • **start_date**: *string*
 
-*Defined in [chat.ts:83](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L83)*
+*Defined in [itinerary-item/chat.ts:73](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/chat.ts#L73)*
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 • **title**: *string*
 
-*Defined in [chat.ts:81](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L81)*
+*Defined in [itinerary-item/chat.ts:71](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/chat.ts#L71)*
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 • **type**: *string*
 
-*Defined in [chat.ts:84](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L84)*
+*Defined in [itinerary-item/chat.ts:74](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/chat.ts#L74)*
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 • **updatedAt**: *[TimeStamp](timestamp.md)*
 
-*Defined in [chat.ts:88](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L88)*
+*Defined in [itinerary-item/chat.ts:78](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/chat.ts#L78)*
 
 ___
 
@@ -117,4 +117,4 @@ ___
 
 • **updatedBy**: *string*
 
-*Defined in [chat.ts:85](https://github.com/Extream-SaaS/ex-sdk/blob/3458c8e/src/chat.ts#L85)*
+*Defined in [itinerary-item/chat.ts:75](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/chat.ts#L75)*
