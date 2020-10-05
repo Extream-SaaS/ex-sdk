@@ -383,17 +383,6 @@ describe('Poll', () => {
   })
 
   it('lets users create a question for a poll', async () => {
-    const get = poll.get()
-    socket.socketClient.emit(ConsumerTopic.PollGet, initialResponse)
-    socket.socketClient.emit(ConsumerTopic.PollGet, {
-      ...pollResponse,
-      payload: {
-        ...payload,
-        type: PollType.Immediate,
-        questions: []
-      }
-    })
-    await get
     const createPromise = poll.createQuestion({
       question: 'Where is the moon?',
       order: 1,
@@ -429,20 +418,20 @@ describe('Poll', () => {
       order: 1,
       text: 'way up high'
     }])
+    expect(emit.firstCall.args).toStrictEqual(["consumer_question_create", {
+      id: 'id',
+      question: 'Where is the moon?',
+      order: 1,
+      answers: [
+        {
+          order: 1,
+          text: 'way up high'
+        }
+      ]
+    }])
   })
 
   it('ignores responses for different polls', async () => {
-    const get = poll.get()
-    socket.socketClient.emit(ConsumerTopic.PollGet, initialResponse)
-    socket.socketClient.emit(ConsumerTopic.PollGet, {
-      ...pollResponse,
-      payload: {
-        ...payload,
-        type: PollType.Immediate,
-        questions: []
-      }
-    })
-    await get
     const createPromise = poll.createQuestion({
       question: 'Where is the moon?',
       order: 1,
@@ -490,17 +479,6 @@ describe('Poll', () => {
   })
 
   it('lets rejects if there is an error', async () => {
-    const get = poll.get()
-    socket.socketClient.emit(ConsumerTopic.PollGet, initialResponse)
-    socket.socketClient.emit(ConsumerTopic.PollGet, {
-      ...pollResponse,
-      payload: {
-        ...payload,
-        type: PollType.Immediate,
-        questions: []
-      }
-    })
-    await get
     const createPromise = poll.createQuestion({
       question: 'Where is the moon?',
       order: 1,
