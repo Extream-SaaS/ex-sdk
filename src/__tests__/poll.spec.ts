@@ -418,7 +418,7 @@ describe('Poll', () => {
       order: 1,
       text: 'way up high'
     }])
-    expect(emit.firstCall.args).toStrictEqual(["consumer_question_create", {
+    expect(emit.firstCall.args).toStrictEqual(['consumer_question_create', {
       id: 'id',
       question: 'Where is the moon?',
       order: 1,
