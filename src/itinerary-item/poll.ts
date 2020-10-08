@@ -9,8 +9,10 @@ export enum PollType {
 }
 
 export interface GetPollResponsePayload {
-  type: PollType
   questions: QuestionResponse[]
+  configuration: {
+    mode: PollType
+  }
 }
 
 export interface GetPollResponse {
@@ -133,9 +135,10 @@ export class Poll {
         if ('error' in resp) {
           reject(new Error(resp.error))
         } else if (!('status' in resp)) {
-          this.type = resp.payload.type
+          console.log(resp.payload)
+          this.type = resp.payload.configuration.mode
           if (this.type !== PollType.Immediate) {
-            const responseQuestions = [...resp.payload.questions].sort(Poll.sortByOrder)
+            const responseQuestions = [...Object.values(resp.payload.questions)].sort(Poll.sortByOrder)
             const questions = responseQuestions.map((q) => new Question(this.socket, q.id, q))
             this.questions = questions
           } else {

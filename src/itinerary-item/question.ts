@@ -16,7 +16,7 @@ export interface QuestionResponse {
   question: string
   id: string
   order: number
-  answers: AnswerResponse[]
+  answers: { [id: string]: AnswerResponse }
 }
 
 export class Question {
@@ -28,9 +28,9 @@ export class Question {
   constructor (socket: SocketIOClient.Socket, id: string, data: QuestionResponse) {
     this.socket = socket
     this.id = id
-    this.answers = [...data.answers].sort(Question.sortByOrder)
+    this.answers = [...Object.values(data.answers)].sort(Question.sortByOrder)
     // TODO do we get the initial responses from the server or not?
-    this.responses = data.answers.reduce((acc: Record<string, number>, cur: AnswerResponse) => {
+    this.responses = this.answers.reduce((acc: Record<string, number>, cur: AnswerResponse) => {
       acc[cur.id] = 0
       return acc
     }, {})
