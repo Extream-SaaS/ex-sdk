@@ -135,7 +135,6 @@ export class Poll {
         if ('error' in resp) {
           reject(new Error(resp.error))
         } else if (!('status' in resp)) {
-          console.log(resp.payload)
           this.type = resp.payload.configuration.mode
           if (this.type !== PollType.Immediate) {
             const responseQuestions = [...Object.values(resp.payload.questions)].sort(Poll.sortByOrder)

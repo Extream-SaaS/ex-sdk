@@ -24,10 +24,12 @@ export class Question {
   public id: string
   public answers: AnswerResponse[]
   public responses: { [key: string]: number }
+  public question: string
 
   constructor (socket: SocketIOClient.Socket, id: string, data: QuestionResponse) {
     this.socket = socket
     this.id = id
+    this.question = data.question
     this.answers = [...Object.values(data.answers)].sort(Question.sortByOrder)
     // TODO do we get the initial responses from the server or not?
     this.responses = this.answers.reduce((acc: Record<string, number>, cur: AnswerResponse) => {
