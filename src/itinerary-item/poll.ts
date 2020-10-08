@@ -4,8 +4,8 @@ import { InitialResponse, promiseTimeout } from '../utils'
 import { Question, QuestionResponse } from './question'
 
 export enum PollType {
-  Timed = 'Timed',
-  Immediate = 'Immediate'
+  Timed = 'timed',
+  Immediate = 'immediate'
 }
 
 export interface GetPollResponsePayload {
