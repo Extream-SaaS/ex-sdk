@@ -8,7 +8,13 @@ export interface AnswerResponse {
 }
 
 export interface AnswerPollsResponse {
-  payload: any
+  payload: {
+    id: string
+    data: {
+      id: string
+      responses: { [key: string]: number }
+    }
+  }
 }
 
 export interface QuestionResponse {
@@ -17,6 +23,13 @@ export interface QuestionResponse {
   id: string
   order: number
   answers: { [id: string]: AnswerResponse }
+  responses: {
+    [id: string]: {
+      id: string
+      responses: number
+      respondants: string[]
+    }
+  }
 }
 
 export class Question {
@@ -31,9 +44,8 @@ export class Question {
     this.id = id
     this.question = data.question
     this.answers = [...Object.values(data.answers)].sort(Question.sortByOrder)
-    // TODO do we get the initial responses from the server or not?
-    this.responses = this.answers.reduce((acc: Record<string, number>, cur: AnswerResponse) => {
-      acc[cur.id] = 0
+    this.responses = Object.values(data.responses).reduce((acc: { [key: string]: number }, cur) => {
+      acc[cur.id] = cur.responses
       return acc
     }, {})
   }
@@ -52,8 +64,11 @@ export class Question {
       callback = (resp: InitialResponse | AnswerPollsResponse) => {
         if ('error' in resp) {
           reject(new Error(resp.error))
-        } else if (!('status' in resp)) {
-          resolve()
+        } else if (!('status' in resp) && resp.payload) {
+          if (resp.payload.data.id === this.id) {
+            this.responses = { ...resp.payload.data.responses }
+            resolve()
+          }
         }
       }
       this.socket.on(ConsumerTopic.PollAnswer, callback)
