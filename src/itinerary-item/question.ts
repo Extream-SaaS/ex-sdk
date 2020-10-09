@@ -18,7 +18,7 @@ export interface AnswerPollsResponse {
 }
 
 export interface QuestionResponse {
-  time?: TimeStamp
+  timeToLive: number
   question: string
   id: string
   order: number
@@ -38,6 +38,8 @@ export class Question {
   public answers: AnswerResponse[]
   public responses: { [key: string]: number }
   public question: string
+  public timeToLive: number
+  public timeAdded: number
 
   constructor (socket: SocketIOClient.Socket, id: string, data: QuestionResponse) {
     this.socket = socket
@@ -48,6 +50,8 @@ export class Question {
       acc[cur.id] = cur.responses
       return acc
     }, {})
+    this.timeToLive = data.timeToLive || 5
+    this.timeAdded = Date.now()
   }
 
   static sortByOrder (a: AnswerResponse, b: AnswerResponse): number {
