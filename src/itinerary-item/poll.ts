@@ -1,11 +1,11 @@
 import SubscriptionManager from '../subscription-manager'
-import { ClientTopic, ConsumerTopic } from '../topic'
+import { ConsumerTopic } from '../topic'
 import { InitialResponse, promiseTimeout } from '../utils'
-import { Question, QuestionResponse } from './question'
+import { AnswerPollsResponse, Question, QuestionResponse } from './question'
 
 export enum PollType {
   Timed = 'timed',
-  Immediate = 'immediate'
+  Immediate = 'live'
 }
 
 export interface GetPollResponsePayload {
@@ -87,7 +87,7 @@ export class Poll {
     this.subscriptionManager.addSubscription(ConsumerTopic.PollQuestion, (resp: PollQuestionResponse) => {
       if (resp.id === this.id) {
         const question = new Question(this.socket, resp.data.id, resp.data)
-        this.questions = [...this.questions, question]
+        this.questions = [question, ...this.questions]
       }
     })
   }
@@ -113,7 +113,7 @@ export class Poll {
         } else if (!('status' in resp)) {
           if (resp.id === this.id) {
             const question = new Question(this.socket, resp.payload.id, resp.payload)
-            this.questions = [...this.questions, question]
+            this.questions = [question, ...this.questions]
             resolve()
           }
         }

@@ -8,6 +8,7 @@ export interface AnswerResponse {
 }
 
 export interface AnswerPollsResponse {
+  error?: string
   payload: {
     id: string
     data: {
