@@ -1,16 +1,18 @@
 import SubscriptionManager from '../subscription-manager'
-import { ClientTopic, ConsumerTopic } from '../topic'
+import { ConsumerTopic } from '../topic'
 import { InitialResponse, promiseTimeout } from '../utils'
-import { Question, QuestionResponse } from './question'
+import { AnswerPollsResponse, Question, QuestionResponse } from './question'
 
 export enum PollType {
-  Timed = 'Timed',
-  Immediate = 'Immediate'
+  Timed = 'timed',
+  Immediate = 'live'
 }
 
 export interface GetPollResponsePayload {
-  type: PollType
   questions: QuestionResponse[]
+  configuration: {
+    mode: PollType
+  }
 }
 
 export interface GetPollResponse {
@@ -70,13 +72,17 @@ export class Poll {
   }
 
   listenForResponses (): void {
-    this.subscriptionManager.addSubscription(ClientTopic.PollListener, (resp: PollAnswerResponse) => {
-      if (this.id === resp.id) {
-        const question = this.questions.find(({ id }) => id === resp.data.id)
-        if (!question) {
-          throw new Error(`Could not find question with id: ${resp.data.id}`)
+    this.subscriptionManager.addSubscription(ConsumerTopic.PollAnswer, (resp: AnswerPollsResponse) => {
+      if ('error' in resp) {
+        throw new Error(resp.error)
+      } else if (!('status' in resp) && resp.payload) {
+        if (resp.payload.id === this.id) {
+          const question = this.questions.find(({ id }) => id === resp.payload.data.id)
+          if (!question) {
+            throw new Error(`Could not find question with id: ${resp.payload.data.id}`)
+          }
+          question.setResponses(resp.payload.data.responses)
         }
-        question.setResponses(resp.data.responses)
       }
     })
   }
@@ -85,7 +91,7 @@ export class Poll {
     this.subscriptionManager.addSubscription(ConsumerTopic.PollQuestion, (resp: PollQuestionResponse) => {
       if (resp.id === this.id) {
         const question = new Question(this.socket, resp.data.id, resp.data)
-        this.questions = [...this.questions, question]
+        this.questions = [question, ...this.questions]
       }
     })
   }
@@ -111,7 +117,7 @@ export class Poll {
         } else if (!('status' in resp)) {
           if (resp.id === this.id) {
             const question = new Question(this.socket, resp.payload.id, resp.payload)
-            this.questions = [...this.questions, question]
+            this.questions = [question, ...this.questions]
             resolve()
           }
         }
@@ -133,9 +139,9 @@ export class Poll {
         if ('error' in resp) {
           reject(new Error(resp.error))
         } else if (!('status' in resp)) {
-          this.type = resp.payload.type
+          this.type = resp.payload.configuration.mode
           if (this.type !== PollType.Immediate) {
-            const responseQuestions = [...resp.payload.questions].sort(Poll.sortByOrder)
+            const responseQuestions = [...Object.values(resp.payload.questions)].sort(Poll.sortByOrder)
             const questions = responseQuestions.map((q) => new Question(this.socket, q.id, q))
             this.questions = questions
           } else {
