@@ -284,7 +284,7 @@ export class Chat {
         if ('error' in resp) {
           reject(new Error(resp.error))
         } else if (!('status' in resp) && resp.payload.id === this.roomId) {
-          const messages = resp.payload.messages
+          const messages = resp.payload.messages || {}
           const childrenMap = {}
           // Process all messages with parents first and push them as children into their parents
           const children: { [key: string]: ChatMessageResponse[] } = Object.keys(messages)
