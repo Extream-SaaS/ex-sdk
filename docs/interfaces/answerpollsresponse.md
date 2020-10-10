@@ -10,12 +10,31 @@
 
 ### Properties
 
+* [error](answerpollsresponse.md#optional-error)
 * [payload](answerpollsresponse.md#payload)
 
 ## Properties
 
+### `Optional` error
+
+• **error**? : *undefined | string*
+
+*Defined in [itinerary-item/question.ts:11](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary-item/question.ts#L11)*
+
+___
+
 ###  payload
 
-• **payload**: *any*
+• **payload**: *object*
 
-*Defined in [itinerary-item/question.ts:11](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/question.ts#L11)*
+*Defined in [itinerary-item/question.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary-item/question.ts#L12)*
+
+#### Type declaration:
+
+* **data**(): *object*
+
+  * **id**: *string*
+
+  * **responses**(): *object*
+
+* **id**: *string*

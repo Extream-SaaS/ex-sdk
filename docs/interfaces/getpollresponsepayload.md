@@ -10,21 +10,25 @@
 
 ### Properties
 
+* [configuration](getpollresponsepayload.md#configuration)
 * [questions](getpollresponsepayload.md#questions)
-* [type](getpollresponsepayload.md#type)
 
 ## Properties
+
+###  configuration
+
+• **configuration**: *object*
+
+*Defined in [itinerary-item/poll.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary-item/poll.ts#L13)*
+
+#### Type declaration:
+
+* **mode**: *[PollType](../enums/polltype.md)*
+
+___
 
 ###  questions
 
 • **questions**: *[QuestionResponse](questionresponse.md)[]*
 
-*Defined in [itinerary-item/poll.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/poll.ts#L13)*
-
-___
-
-###  type
-
-• **type**: *[PollType](../enums/polltype.md)*
-
-*Defined in [itinerary-item/poll.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/poll.ts#L12)*
+*Defined in [itinerary-item/poll.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary-item/poll.ts#L12)*

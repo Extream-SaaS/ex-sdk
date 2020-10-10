@@ -16,8 +16,11 @@
 
 * [answers](question.md#answers)
 * [id](question.md#id)
+* [question](question.md#question)
 * [responses](question.md#responses)
 * [socket](question.md#private-socket)
+* [timeAdded](question.md#timeadded)
+* [timeToLive](question.md#timetolive)
 
 ### Methods
 
@@ -31,7 +34,7 @@
 
 \+ **new Question**(`socket`: Socket, `id`: string, `data`: [QuestionResponse](../interfaces/questionresponse.md)): *[Question](question.md)*
 
-*Defined in [itinerary-item/question.ts:26](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/question.ts#L26)*
+*Defined in [itinerary-item/question.ts:43](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary-item/question.ts#L43)*
 
 **Parameters:**
 
@@ -49,7 +52,7 @@ Name | Type |
 
 • **answers**: *[AnswerResponse](../interfaces/answerresponse.md)[]*
 
-*Defined in [itinerary-item/question.ts:25](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/question.ts#L25)*
+*Defined in [itinerary-item/question.ts:39](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary-item/question.ts#L39)*
 
 ___
 
@@ -57,7 +60,15 @@ ___
 
 • **id**: *string*
 
-*Defined in [itinerary-item/question.ts:24](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/question.ts#L24)*
+*Defined in [itinerary-item/question.ts:38](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary-item/question.ts#L38)*
+
+___
+
+###  question
+
+• **question**: *string*
+
+*Defined in [itinerary-item/question.ts:41](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary-item/question.ts#L41)*
 
 ___
 
@@ -65,7 +76,7 @@ ___
 
 • **responses**: *object*
 
-*Defined in [itinerary-item/question.ts:26](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/question.ts#L26)*
+*Defined in [itinerary-item/question.ts:40](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary-item/question.ts#L40)*
 
 #### Type declaration:
 
@@ -77,7 +88,23 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [itinerary-item/question.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/question.ts#L23)*
+*Defined in [itinerary-item/question.ts:37](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary-item/question.ts#L37)*
+
+___
+
+###  timeAdded
+
+• **timeAdded**: *number*
+
+*Defined in [itinerary-item/question.ts:43](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary-item/question.ts#L43)*
+
+___
+
+###  timeToLive
+
+• **timeToLive**: *number*
+
+*Defined in [itinerary-item/question.ts:42](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary-item/question.ts#L42)*
 
 ## Methods
 
@@ -85,7 +112,7 @@ ___
 
 ▸ **answer**(`answer`: string, `poll`: string): *Promise‹void›*
 
-*Defined in [itinerary-item/question.ts:47](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/question.ts#L47)*
+*Defined in [itinerary-item/question.ts:69](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary-item/question.ts#L69)*
 
 **Parameters:**
 
@@ -102,7 +129,7 @@ ___
 
 ▸ **setResponses**(`responses`: object): *void*
 
-*Defined in [itinerary-item/question.ts:43](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/question.ts#L43)*
+*Defined in [itinerary-item/question.ts:65](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary-item/question.ts#L65)*
 
 **Parameters:**
 
@@ -118,7 +145,7 @@ ___
 
 ▸ **sortByOrder**(`a`: [AnswerResponse](../interfaces/answerresponse.md), `b`: [AnswerResponse](../interfaces/answerresponse.md)): *number*
 
-*Defined in [itinerary-item/question.ts:39](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/question.ts#L39)*
+*Defined in [itinerary-item/question.ts:61](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary-item/question.ts#L61)*
 
 **Parameters:**
 

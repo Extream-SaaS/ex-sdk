@@ -14,15 +14,20 @@
 * [id](questionresponse.md#id)
 * [order](questionresponse.md#order)
 * [question](questionresponse.md#question)
-* [time](questionresponse.md#optional-time)
+* [responses](questionresponse.md#responses)
+* [timeToLive](questionresponse.md#timetolive)
 
 ## Properties
 
 ###  answers
 
-• **answers**: *[AnswerResponse](answerresponse.md)[]*
+• **answers**: *object*
 
-*Defined in [itinerary-item/question.ts:19](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/question.ts#L19)*
+*Defined in [itinerary-item/question.ts:26](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary-item/question.ts#L26)*
+
+#### Type declaration:
+
+* \[ **id**: *string*\]: [AnswerResponse](answerresponse.md)
 
 ___
 
@@ -30,7 +35,7 @@ ___
 
 • **id**: *string*
 
-*Defined in [itinerary-item/question.ts:17](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/question.ts#L17)*
+*Defined in [itinerary-item/question.ts:24](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary-item/question.ts#L24)*
 
 ___
 
@@ -38,7 +43,7 @@ ___
 
 • **order**: *number*
 
-*Defined in [itinerary-item/question.ts:18](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/question.ts#L18)*
+*Defined in [itinerary-item/question.ts:25](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary-item/question.ts#L25)*
 
 ___
 
@@ -46,12 +51,30 @@ ___
 
 • **question**: *string*
 
-*Defined in [itinerary-item/question.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/question.ts#L16)*
+*Defined in [itinerary-item/question.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary-item/question.ts#L23)*
 
 ___
 
-### `Optional` time
+###  responses
 
-• **time**? : *[TimeStamp](timestamp.md)*
+• **responses**: *object*
 
-*Defined in [itinerary-item/question.ts:15](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary-item/question.ts#L15)*
+*Defined in [itinerary-item/question.ts:27](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary-item/question.ts#L27)*
+
+#### Type declaration:
+
+* \[ **id**: *string*\]: object
+
+* **id**: *string*
+
+* **respondants**: *string[]*
+
+* **responses**: *number*
+
+___
+
+###  timeToLive
+
+• **timeToLive**: *number*
+
+*Defined in [itinerary-item/question.ts:22](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary-item/question.ts#L22)*

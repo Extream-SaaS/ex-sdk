@@ -33,7 +33,7 @@
 
 \+ **new Itinerary**(`socket`: Socket): *[Itinerary](itinerary.md)*
 
-*Defined in [itinerary.ts:36](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary.ts#L36)*
+*Defined in [itinerary.ts:36](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary.ts#L36)*
 
 **Parameters:**
 
@@ -49,7 +49,7 @@ Name | Type |
 
 • **chats**: *[Chat](chat.md)[]* = []
 
-*Defined in [itinerary.ts:34](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary.ts#L34)*
+*Defined in [itinerary.ts:34](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary.ts#L34)*
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 • **payload**: *[ItineraryPayload](../interfaces/itinerarypayload.md) | null* = null
 
-*Defined in [itinerary.ts:33](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary.ts#L33)*
+*Defined in [itinerary.ts:33](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary.ts#L33)*
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 • **polls**: *[Poll](poll.md)[]* = []
 
-*Defined in [itinerary.ts:36](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary.ts#L36)*
+*Defined in [itinerary.ts:36](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary.ts#L36)*
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [itinerary.ts:32](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary.ts#L32)*
+*Defined in [itinerary.ts:32](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary.ts#L32)*
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 • **videos**: *[Video](video.md)[]* = []
 
-*Defined in [itinerary.ts:35](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary.ts#L35)*
+*Defined in [itinerary.ts:35](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary.ts#L35)*
 
 ## Methods
 
@@ -89,7 +89,7 @@ ___
 
 ▸ **createChatItem**(`item`: [ItineraryItem](../interfaces/itineraryitem.md)): *[Chat](chat.md)*
 
-*Defined in [itinerary.ts:47](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary.ts#L47)*
+*Defined in [itinerary.ts:47](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary.ts#L47)*
 
 **Parameters:**
 
@@ -105,7 +105,7 @@ ___
 
 ▸ **createItineraryItem**(`payload`: [ItineraryPayload](../interfaces/itinerarypayload.md)): *Promise‹void›*
 
-*Defined in [itinerary.ts:52](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary.ts#L52)*
+*Defined in [itinerary.ts:52](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary.ts#L52)*
 
 **Parameters:**
 
@@ -121,7 +121,7 @@ ___
 
 ▸ **createWebRtcItem**(`item`: [ItineraryItem](../interfaces/itineraryitem.md)): *[Video](video.md)*
 
-*Defined in [itinerary.ts:42](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary.ts#L42)*
+*Defined in [itinerary.ts:42](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary.ts#L42)*
 
 **Parameters:**
 
@@ -137,7 +137,7 @@ ___
 
 ▸ **getItinerary**(`id`: string): *Promise‹void›*
 
-*Defined in [itinerary.ts:64](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/itinerary.ts#L64)*
+*Defined in [itinerary.ts:64](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary.ts#L64)*
 
 **Parameters:**
 

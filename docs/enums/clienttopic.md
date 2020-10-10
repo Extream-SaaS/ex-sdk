@@ -18,7 +18,7 @@
 
 • **ChatActivate**: = "client_chat_activate"
 
-*Defined in [topic.ts:31](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/topic.ts#L31)*
+*Defined in [topic.ts:31](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/topic.ts#L31)*
 
 ___
 
@@ -26,7 +26,7 @@ ___
 
 • **ChatBan**: = "client_chat_ban"
 
-*Defined in [topic.ts:30](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/topic.ts#L30)*
+*Defined in [topic.ts:30](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/topic.ts#L30)*
 
 ___
 
@@ -34,7 +34,7 @@ ___
 
 • **PollListener**: = "client_poll_listener"
 
-*Defined in [topic.ts:32](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/topic.ts#L32)*
+*Defined in [topic.ts:32](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/topic.ts#L32)*
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 • **RtmpActivate**: = "client_rtmp_activate"
 
-*Defined in [topic.ts:29](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/topic.ts#L29)*
+*Defined in [topic.ts:29](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/topic.ts#L29)*
 
 ___
 
@@ -50,4 +50,4 @@ ___
 
 • **RtmpGet**: = "client_rtmp_get"
 
-*Defined in [topic.ts:28](https://github.com/Extream-SaaS/ex-sdk/blob/a37ebb4/src/topic.ts#L28)*
+*Defined in [topic.ts:28](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/topic.ts#L28)*
