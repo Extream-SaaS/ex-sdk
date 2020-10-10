@@ -18,6 +18,6 @@
 
 • **message**: *string*
 
-*Defined in [itinerary-item/chat.ts:39](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary-item/chat.ts#L39)*
+*Defined in [itinerary-item/chat.ts:39](https://github.com/Extream-SaaS/ex-sdk/blob/fc506a8/src/itinerary-item/chat.ts#L39)*
 
 The message to send to the chat

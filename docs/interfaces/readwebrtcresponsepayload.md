@@ -26,7 +26,7 @@
 
 • **addedAt**: *[TimeStamp](timestamp.md)*
 
-*Defined in [itinerary.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary.ts#L16)*
+*Defined in [itinerary.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/fc506a8/src/itinerary.ts#L16)*
 
 ___
 
@@ -34,7 +34,7 @@ ___
 
 • **addedBy**: *string*
 
-*Defined in [itinerary.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary.ts#L13)*
+*Defined in [itinerary.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/fc506a8/src/itinerary.ts#L13)*
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 • **configuration**: *[RtcConfiguration](rtcconfiguration.md)*
 
-*Defined in [itinerary.ts:18](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary.ts#L18)*
+*Defined in [itinerary.ts:18](https://github.com/Extream-SaaS/ex-sdk/blob/fc506a8/src/itinerary.ts#L18)*
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 • **end_date**: *[TimeStamp](timestamp.md)*
 
-*Defined in [itinerary.ts:20](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary.ts#L20)*
+*Defined in [itinerary.ts:20](https://github.com/Extream-SaaS/ex-sdk/blob/fc506a8/src/itinerary.ts#L20)*
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 • **id**: *string*
 
-*Defined in [itinerary.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary.ts#L12)*
+*Defined in [itinerary.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/fc506a8/src/itinerary.ts#L12)*
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 • **itinerary**: *string*
 
-*Defined in [itinerary.ts:14](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary.ts#L14)*
+*Defined in [itinerary.ts:14](https://github.com/Extream-SaaS/ex-sdk/blob/fc506a8/src/itinerary.ts#L14)*
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 • **start_date**: *[TimeStamp](timestamp.md)*
 
-*Defined in [itinerary.ts:17](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary.ts#L17)*
+*Defined in [itinerary.ts:17](https://github.com/Extream-SaaS/ex-sdk/blob/fc506a8/src/itinerary.ts#L17)*
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 • **title**: *string*
 
-*Defined in [itinerary.ts:15](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary.ts#L15)*
+*Defined in [itinerary.ts:15](https://github.com/Extream-SaaS/ex-sdk/blob/fc506a8/src/itinerary.ts#L15)*
 
 ___
 
@@ -90,4 +90,4 @@ ___
 
 • **type**: *string*
 
-*Defined in [itinerary.ts:19](https://github.com/Extream-SaaS/ex-sdk/blob/954d97e/src/itinerary.ts#L19)*
+*Defined in [itinerary.ts:19](https://github.com/Extream-SaaS/ex-sdk/blob/fc506a8/src/itinerary.ts#L19)*
