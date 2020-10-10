@@ -13,14 +13,14 @@ module.exports = {
    * LCOV incase sonar is ever introduced, and for VScode coverage highlighting plugins
    */
   coverageReporters: ['json', 'html', 'lcov'],
-  coverageThreshold: {
-    global: {
-      branches: 50,
-      functions: 50,
-      lines: 50,
-      statements: 50
-    }
-  },
+  // coverageThreshold: {
+  //   global: {
+  //     branches: 50,
+  //     functions: 50,
+  //     lines: 50,
+  //     statements: 50
+  //   }
+  // },
   roots: [
     '<rootDir>/src'
   ],
