@@ -45,13 +45,16 @@ export class Question {
   constructor (socket: SocketIOClient.Socket, id: string, data: QuestionResponse) {
     this.socket = socket
     this.id = id
-    this.question = data.question
+    // TODO unfuck this
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    this.question = typeof data.question === 'string' ? data.question : data.question.question
     this.answers = [...Object.values(data.answers)].sort(Question.sortByOrder)
-    this.responses = Object.values(data.responses).reduce((acc: { [key: string]: number }, cur) => {
+    this.responses = Object.values(data.responses || {}).reduce((acc: { [key: string]: number }, cur) => {
       acc[cur.id] = cur.responses
       return acc
     }, {})
-    this.timeToLive = data.timeToLive || 5
+    this.timeToLive = data.timeToLive || 60
     this.timeAdded = Date.now()
   }
 

@@ -72,13 +72,17 @@ export class Poll {
   }
 
   listenForResponses (): void {
-    this.subscriptionManager.addSubscription(ClientTopic.PollListener, (resp: PollAnswerResponse) => {
-      if (this.id === resp.id) {
-        const question = this.questions.find(({ id }) => id === resp.data.id)
-        if (!question) {
-          throw new Error(`Could not find question with id: ${resp.data.id}`)
+    this.subscriptionManager.addSubscription(ConsumerTopic.PollAnswer, (resp: AnswerPollsResponse) => {
+      if ('error' in resp) {
+        throw new Error(resp.error)
+      } else if (!('status' in resp) && resp.payload) {
+        if (resp.payload.id === this.id) {
+          const question = this.questions.find(({ id }) => id === resp.payload.data.id)
+          if (!question) {
+            throw new Error(`Could not find question with id: ${resp.payload.data.id}`)
+          }
+          question.setResponses(resp.payload.data.responses)
         }
-        question.setResponses(resp.data.responses)
       }
     })
   }
