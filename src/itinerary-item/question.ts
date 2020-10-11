@@ -54,7 +54,10 @@ export class Question {
       acc[cur.id] = cur.responses
       return acc
     }, {})
-    this.timeToLive = data.timeToLive || 60
+    // TODO unfuck this
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    this.timeToLive = (typeof data.timeToLive === 'string' ? parseInt(data.timeToLive) : parseInt(data.question.timeToLive)) || 60
     this.timeAdded = Date.now()
   }
 
