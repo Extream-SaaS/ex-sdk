@@ -7,6 +7,13 @@ export interface GetNoticesResponse {}
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface Notice {}
 
+export interface NoticeGetRequest {
+  event: string,
+  itinerary?: string,
+  page?: string,
+  read?: boolean,
+}
+
 export class Notices {
   private subscriptionManager: SubscriptionManager;
   private socket: SocketIOClient.Socket;
@@ -16,7 +23,7 @@ export class Notices {
     this.subscriptionManager = new SubscriptionManager(this.socket)
   }
 
-  private listenForNotices (request: { event: string, itinerary: string, page: string, read: boolean }): void {
+  private listenForNotices (request: NoticeGetRequest): void {
     this.subscriptionManager.addSubscription(ConsumerTopic.NoticeReceive, (resp: GetNoticesResponse) => {
       // TODO push the notice into the notices array
       // this.notices = [...this.notices, resp.payload]?
@@ -24,7 +31,7 @@ export class Notices {
     this.socket.emit(ConsumerTopic.NoticeReceive, request)
   }
 
-  get (request: { event: string, itinerary: string, page: string, read: boolean }) : Promise<void> {
+  get (request: NoticeGetRequest) : Promise<void> {
     let callback: (resp: InitialResponse | GetNoticesResponse) => void
     return promiseTimeout(new Promise<void>((resolve, reject) => {
       callback = (resp: InitialResponse | GetNoticesResponse) => {

@@ -1,5 +1,5 @@
 import { Chat } from './itinerary-item'
-import { Notices } from './notices'
+import { NoticeGetRequest, Notices } from './notices'
 
 export class Consumer {
   private socket: SocketIOClient.Socket;
@@ -39,7 +39,7 @@ export class Consumer {
    *
    * @param request The event, itineraray, page or read filters to get notices
    */
-  async notices (request: { event: string, itinerary: string, page: string, read: boolean }): Promise<Notices> {
+  async notices (request: NoticeGetRequest): Promise<Notices> {
     const notices = new Notices(this.socket)
     await notices.get(request)
     return notices
