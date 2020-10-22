@@ -30,6 +30,7 @@ export enum ClientTopic {
   ChatBan = 'client_chat_ban',
   ChatActivate = 'client_chat_activate',
   PollListener = 'client_poll_listener',
+  NoticeSend = 'client_notice_send',
 }
 
 /* consumer events */
@@ -48,7 +49,7 @@ export enum ConsumerTopic {
   RtmpGet = 'consumer_rtmp_get',
   WebrtcRead = 'consumer_webrtc_read',
   NoticeGet = 'consumer_notice_get',
-  NoticeReceive = 'consumer_notice_receive'
+  NoticeReceive = 'consumer_notice_receive',
 }
 
 export type Topics = {
