@@ -5,7 +5,10 @@ import { InitialResponse, promiseTimeout } from './utils'
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface GetNoticesResponse {}
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface Notice {}
+export interface ReadNoticesResponse {}
+export interface Notice {
+  id: string
+}
 
 export interface NoticeGetRequest {
   event: string,
@@ -48,6 +51,29 @@ export class Notices {
       this.socket.emit(ConsumerTopic.NoticeGet, request)
     })).finally(() => {
       this.socket.removeListener(ConsumerTopic.NoticeGet, callback)
+    })
+  }
+
+  readNotice (id: string): Promise<void> {
+    const notice = this.notices.find(({ id: noticeId }) => id === noticeId)
+    if (!notice) {
+      throw new Error(`Could not find notice with id ${id}`)
+    }
+    let callback: (resp: InitialResponse | ReadNoticesResponse) => void
+    return promiseTimeout(new Promise<void>((resolve, reject) => {
+      callback = (resp: InitialResponse | ReadNoticesResponse) => {
+        if ('error' in resp) {
+          reject(new Error(resp.error))
+        } else if (!('status' in resp)) {
+          resolve()
+        }
+      }
+      this.socket.on(ConsumerTopic.NoticeRead, callback)
+      this.socket.emit(ConsumerTopic.NoticeRead, {
+        message: id
+      })
+    })).finally(() => {
+      this.socket.removeListener(ConsumerTopic.NoticeRead, callback)
     })
   }
 

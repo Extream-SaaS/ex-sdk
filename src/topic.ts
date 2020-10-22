@@ -50,6 +50,7 @@ export enum ConsumerTopic {
   WebrtcRead = 'consumer_webrtc_read',
   NoticeGet = 'consumer_notice_get',
   NoticeReceive = 'consumer_notice_receive',
+  NoticeRead = 'consumer_notice_read',
 }
 
 export type Topics = {
