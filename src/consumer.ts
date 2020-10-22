@@ -1,4 +1,5 @@
 import { Chat } from './itinerary-item'
+import { Notices } from './notices'
 
 export class Consumer {
   private socket: SocketIOClient.Socket;
@@ -28,9 +29,19 @@ export class Consumer {
    *
    * @param { string } roomId the room id associated with the new dm
    */
-  async startChat (roomId: string) {
+  async startChat (roomId: string): Promise<Chat> {
     this.room = new Chat(this.socket, roomId)
     await this.room.start()
     return this.room
+  }
+
+  /**
+   *
+   * @param request The event, itineraray, page or read filters to get notices
+   */
+  async notices (request: { event: string, itinerary: string, page: string, read: boolean }): Promise<Notices> {
+    const notices = new Notices(this.socket)
+    await notices.get(request)
+    return notices
   }
 }
