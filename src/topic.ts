@@ -46,7 +46,8 @@ export enum ConsumerTopic {
   PollQuestion = 'consumer_poll_question',
   QuestionCreate = 'consumer_question_create',
   RtmpGet = 'consumer_rtmp_get',
-  WebrtcRead = 'consumer_webrtc_read'
+  WebrtcRead = 'consumer_webrtc_read',
+  NoticeGet = 'consumer_notice_get'
 }
 
 export type Topics = {
