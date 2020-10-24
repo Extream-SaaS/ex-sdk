@@ -1,5 +1,5 @@
 import { ConsumerTopic } from '../topic'
-import { InitialResponse, promiseTimeout, TimeStamp } from '../utils'
+import { InitialResponse, promiseTimeout } from '../utils'
 
 export interface AnswerResponse {
   id: string

@@ -2,6 +2,7 @@ import 'isomorphic-fetch'
 
 import io from 'socket.io-client'
 
+import { Admin } from './admin'
 import { Consumer } from './consumer'
 import SubscriptionManager from './subscription-manager'
 import { AuthorizationTopic } from './topic'
@@ -15,6 +16,7 @@ import { ExtreamOptions, promiseTimeout } from './utils'
  */
 export class ExtreamClient {
   public socket: SocketIOClient.Socket | null = null;
+  public adminActions: Admin | null = null;
   public consumerActions: Consumer | null = null;
   public user: User;
   private options: ExtreamOptions;
@@ -23,6 +25,13 @@ export class ExtreamClient {
   constructor (options: ExtreamOptions) {
     this.options = options
     this.user = new User(this.options)
+  }
+
+  get admin (): Admin {
+    if (!this.adminActions) {
+      throw new Error('Please connect and authenticate before trying to perform any actions')
+    }
+    return this.adminActions
   }
 
   get consumer (): Consumer {
@@ -45,6 +54,7 @@ export class ExtreamClient {
         transports: ['websocket']
       })
       this.subscriptionManager = new SubscriptionManager(this.socket)
+      this.adminActions = new Admin(this.socket)
       this.consumerActions = new Consumer(this.socket)
       this.socket.emit(AuthorizationTopic.Authorize, { method: 'oauth2', token: accessToken })
       this.socket.on(AuthorizationTopic.Authorized, (user: ExtreamUser) => {
