@@ -16,11 +16,13 @@
 
 ### Classes
 
+* [Admin](classes/admin.md)
 * [Chat](classes/chat.md)
 * [Consumer](classes/consumer.md)
 * [Event](classes/event.md)
 * [ExtreamClient](classes/extreamclient.md)
 * [Itinerary](classes/itinerary.md)
+* [Notices](classes/notices.md)
 * [Poll](classes/poll.md)
 * [Question](classes/question.md)
 * [SubscriptionManager](classes/subscriptionmanager.md)
@@ -44,6 +46,7 @@
 * [ExtreamOptions](interfaces/extreamoptions.md)
 * [ExtreamUser](interfaces/extreamuser.md)
 * [GetChatPayload](interfaces/getchatpayload.md)
+* [GetNoticesResponse](interfaces/getnoticesresponse.md)
 * [GetPollResponse](interfaces/getpollresponse.md)
 * [GetPollResponsePayload](interfaces/getpollresponsepayload.md)
 * [InitialResponse](interfaces/initialresponse.md)
@@ -51,12 +54,15 @@
 * [ItineraryPayload](interfaces/itinerarypayload.md)
 * [Message](interfaces/message.md)
 * [Messages](interfaces/messages.md)
+* [Notice](interfaces/notice.md)
+* [NoticeGetRequest](interfaces/noticegetrequest.md)
 * [PollAnswerResponse](interfaces/pollanswerresponse.md)
 * [PollListenerResponse](interfaces/polllistenerresponse.md)
 * [PollQuestionResponse](interfaces/pollquestionresponse.md)
 * [QuestionAnswerData](interfaces/questionanswerdata.md)
 * [QuestionRequest](interfaces/questionrequest.md)
 * [QuestionResponse](interfaces/questionresponse.md)
+* [ReadNoticesResponse](interfaces/readnoticesresponse.md)
 * [ReadWebRtcResponsePayload](interfaces/readwebrtcresponsepayload.md)
 * [RegisterUserRequest](interfaces/registeruserrequest.md)
 * [ReplyMessageData](interfaces/replymessagedata.md)
@@ -64,6 +70,8 @@
 * [SendChatMessagePayload](interfaces/sendchatmessagepayload.md)
 * [SendChatRequest](interfaces/sendchatrequest.md)
 * [SendMessageData](interfaces/sendmessagedata.md)
+* [SendNoticeRequest](interfaces/sendnoticerequest.md)
+* [SendNoticeResponse](interfaces/sendnoticeresponse.md)
 * [SocketResponse](interfaces/socketresponse.md)
 * [StartChatResponsePayload](interfaces/startchatresponsepayload.md)
 * [StartChatResponsePayloadData](interfaces/startchatresponsepayloaddata.md)
@@ -92,7 +100,7 @@
 
 Ƭ **EventsByOrganizationResponse**: *[SocketResponse](interfaces/socketresponse.md)‹[EventsPayload](interfaces/eventspayload.md)[]›*
 
-*Defined in [event.ts:20](https://github.com/Extream-SaaS/ex-sdk/blob/84845a8/src/event.ts#L20)*
+*Defined in [event.ts:20](https://github.com/Extream-SaaS/ex-sdk/blob/d44c660/src/event.ts#L20)*
 
 ___
 
@@ -100,7 +108,7 @@ ___
 
 Ƭ **GetChatResponse**: *[SocketResponse](interfaces/socketresponse.md)‹[GetChatPayload](interfaces/getchatpayload.md)›*
 
-*Defined in [itinerary-item/chat.ts:82](https://github.com/Extream-SaaS/ex-sdk/blob/84845a8/src/itinerary-item/chat.ts#L82)*
+*Defined in [itinerary-item/chat.ts:82](https://github.com/Extream-SaaS/ex-sdk/blob/d44c660/src/itinerary-item/chat.ts#L82)*
 
 ___
 
@@ -108,7 +116,7 @@ ___
 
 Ƭ **GetEventItineraryResponse**: *[SocketResponse](interfaces/socketresponse.md)‹[ItineraryPayload](interfaces/itinerarypayload.md)[]›*
 
-*Defined in [event.ts:42](https://github.com/Extream-SaaS/ex-sdk/blob/84845a8/src/event.ts#L42)*
+*Defined in [event.ts:42](https://github.com/Extream-SaaS/ex-sdk/blob/d44c660/src/event.ts#L42)*
 
 ___
 
@@ -116,7 +124,7 @@ ___
 
 Ƭ **GetItineraryResponse**: *[SocketResponse](interfaces/socketresponse.md)‹[ItineraryPayload](interfaces/itinerarypayload.md)›*
 
-*Defined in [event.ts:44](https://github.com/Extream-SaaS/ex-sdk/blob/84845a8/src/event.ts#L44)*
+*Defined in [event.ts:44](https://github.com/Extream-SaaS/ex-sdk/blob/d44c660/src/event.ts#L44)*
 
 ___
 
@@ -124,7 +132,7 @@ ___
 
 Ƭ **MessageData**: *[ReplyMessageData](interfaces/replymessagedata.md) | [SendMessageData](interfaces/sendmessagedata.md)*
 
-*Defined in [itinerary-item/chat.ts:42](https://github.com/Extream-SaaS/ex-sdk/blob/84845a8/src/itinerary-item/chat.ts#L42)*
+*Defined in [itinerary-item/chat.ts:42](https://github.com/Extream-SaaS/ex-sdk/blob/d44c660/src/itinerary-item/chat.ts#L42)*
 
 ___
 
@@ -132,7 +140,7 @@ ___
 
 Ƭ **ReadWebRtcResponse**: *[SocketResponse](interfaces/socketresponse.md)‹[ReadWebRtcResponsePayload](interfaces/readwebrtcresponsepayload.md)›*
 
-*Defined in [itinerary.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/84845a8/src/itinerary.ts#L23)*
+*Defined in [itinerary.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/d44c660/src/itinerary.ts#L23)*
 
 ___
 
@@ -140,7 +148,7 @@ ___
 
 Ƭ **SendChatMessageResponse**: *[SocketResponse](interfaces/socketresponse.md)‹[SendChatMessagePayload](interfaces/sendchatmessagepayload.md)›*
 
-*Defined in [itinerary-item/chat.ts:24](https://github.com/Extream-SaaS/ex-sdk/blob/84845a8/src/itinerary-item/chat.ts#L24)*
+*Defined in [itinerary-item/chat.ts:24](https://github.com/Extream-SaaS/ex-sdk/blob/d44c660/src/itinerary-item/chat.ts#L24)*
 
 ___
 
@@ -148,7 +156,7 @@ ___
 
 Ƭ **StartChatResponse**: *[SocketResponse](interfaces/socketresponse.md)‹[StartChatResponsePayload](interfaces/startchatresponsepayload.md)›*
 
-*Defined in [itinerary-item/chat.ts:120](https://github.com/Extream-SaaS/ex-sdk/blob/84845a8/src/itinerary-item/chat.ts#L120)*
+*Defined in [itinerary-item/chat.ts:120](https://github.com/Extream-SaaS/ex-sdk/blob/d44c660/src/itinerary-item/chat.ts#L120)*
 
 ___
 
@@ -156,7 +164,7 @@ ___
 
 Ƭ **Topics**: *object*
 
-*Defined in [topic.ts:52](https://github.com/Extream-SaaS/ex-sdk/blob/84845a8/src/topic.ts#L52)*
+*Defined in [topic.ts:56](https://github.com/Extream-SaaS/ex-sdk/blob/d44c660/src/topic.ts#L56)*
 
 #### Type declaration:
 
@@ -174,7 +182,7 @@ ___
 
 ▸ **promiseTimeout**‹**T**›(`promise`: Promise‹T›): *Promise‹T›*
 
-*Defined in [utils.ts:38](https://github.com/Extream-SaaS/ex-sdk/blob/84845a8/src/utils.ts#L38)*
+*Defined in [utils.ts:38](https://github.com/Extream-SaaS/ex-sdk/blob/d44c660/src/utils.ts#L38)*
 
 **Type parameters:**
 

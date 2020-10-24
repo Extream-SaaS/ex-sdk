@@ -21,6 +21,7 @@
 ### Methods
 
 * [join](consumer.md#join)
+* [notices](consumer.md#notices)
 * [startChat](consumer.md#startchat)
 
 ## Constructors
@@ -29,7 +30,7 @@
 
 \+ **new Consumer**(`socket`: Socket): *[Consumer](consumer.md)*
 
-*Defined in [consumer.ts:6](https://github.com/Extream-SaaS/ex-sdk/blob/84845a8/src/consumer.ts#L6)*
+*Defined in [consumer.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/d44c660/src/consumer.ts#L7)*
 
 Create an instance of the admin sdk
 
@@ -47,7 +48,7 @@ Name | Type |
 
 • **dms**: *[Chat](chat.md)[]* = []
 
-*Defined in [consumer.ts:6](https://github.com/Extream-SaaS/ex-sdk/blob/84845a8/src/consumer.ts#L6)*
+*Defined in [consumer.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/d44c660/src/consumer.ts#L7)*
 
 ___
 
@@ -55,7 +56,7 @@ ___
 
 • **room**: *[Chat](chat.md) | null* = null
 
-*Defined in [consumer.ts:5](https://github.com/Extream-SaaS/ex-sdk/blob/84845a8/src/consumer.ts#L5)*
+*Defined in [consumer.ts:6](https://github.com/Extream-SaaS/ex-sdk/blob/d44c660/src/consumer.ts#L6)*
 
 ___
 
@@ -63,7 +64,7 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [consumer.ts:4](https://github.com/Extream-SaaS/ex-sdk/blob/84845a8/src/consumer.ts#L4)*
+*Defined in [consumer.ts:5](https://github.com/Extream-SaaS/ex-sdk/blob/d44c660/src/consumer.ts#L5)*
 
 ## Methods
 
@@ -71,7 +72,7 @@ ___
 
 ▸ **join**(`roomId`: string, `instanceId?`: undefined | string): *[Chat](chat.md)*
 
-*Defined in [consumer.ts:20](https://github.com/Extream-SaaS/ex-sdk/blob/84845a8/src/consumer.ts#L20)*
+*Defined in [consumer.ts:21](https://github.com/Extream-SaaS/ex-sdk/blob/d44c660/src/consumer.ts#L21)*
 
 Create a chat room.
 
@@ -86,11 +87,27 @@ Name | Type | Description |
 
 ___
 
+###  notices
+
+▸ **notices**(`request`: [NoticeGetRequest](../interfaces/noticegetrequest.md)): *Promise‹[Notices](notices.md)›*
+
+*Defined in [consumer.ts:42](https://github.com/Extream-SaaS/ex-sdk/blob/d44c660/src/consumer.ts#L42)*
+
+**Parameters:**
+
+Name | Type | Description |
+------ | ------ | ------ |
+`request` | [NoticeGetRequest](../interfaces/noticegetrequest.md) | The event, itineraray, page or read filters to get notices  |
+
+**Returns:** *Promise‹[Notices](notices.md)›*
+
+___
+
 ###  startChat
 
-▸ **startChat**(`roomId`: string): *Promise‹[Chat](chat.md)‹››*
+▸ **startChat**(`roomId`: string): *Promise‹[Chat](chat.md)›*
 
-*Defined in [consumer.ts:31](https://github.com/Extream-SaaS/ex-sdk/blob/84845a8/src/consumer.ts#L31)*
+*Defined in [consumer.ts:32](https://github.com/Extream-SaaS/ex-sdk/blob/d44c660/src/consumer.ts#L32)*
 
 Start a new DM in a specific room
 
@@ -100,4 +117,4 @@ Name | Type | Description |
 ------ | ------ | ------ |
 `roomId` | string | the room id associated with the new dm  |
 
-**Returns:** *Promise‹[Chat](chat.md)‹››*
+**Returns:** *Promise‹[Chat](chat.md)›*
