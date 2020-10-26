@@ -1,26 +1,12 @@
 import { Chat, Rtmp, Poll } from './itinerary-item'
 import { GetItineraryResponse, ItineraryItem, ItineraryPayload } from './event'
 import { ConsumerTopic } from './topic'
-import { InitialResponse, promiseTimeout, SocketResponse, TimeStamp } from './utils'
+import { InitialResponse, promiseTimeout, TimeStamp } from './utils'
 
 export interface RtcConfiguration {
   operators: string[];
   mode: string;
 }
-
-export interface ReadWebRtcResponsePayload {
-  id: string;
-  addedBy: string;
-  itinerary: string;
-  title: string;
-  addedAt: TimeStamp;
-  start_date: TimeStamp;
-  configuration: RtcConfiguration;
-  type: string;
-  end_date: TimeStamp;
-}
-
-export type ReadWebRtcResponse = SocketResponse<ReadWebRtcResponsePayload>
 
 export enum ItineraryType {
   Rtmp = 'rtmp',
