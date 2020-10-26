@@ -49,6 +49,11 @@ export class Itinerary {
     return chat
   }
 
+  private createPollItem (item: ItineraryItem): Poll {
+    const poll = new Poll(this.socket, item.id)
+    return poll
+  }
+
   public async createItineraryItem (payload: ItineraryPayload): Promise<void> {
     const items: ItineraryItem[] = JSON.parse(payload.items as string)
     this.payload = {
@@ -57,8 +62,10 @@ export class Itinerary {
     }
     const rtcItems = items.filter(i => i.type && i.type === ItineraryType.Rtmp)
     const chatItems = items.filter(i => i.type && i.type === ItineraryType.Chat)
+    const pollItems = items.filter(i => i.type && i.type === ItineraryType.Poll)
     this.videos = rtcItems.map(this.createWebRtcItem.bind(this))
     this.chats = chatItems.map(this.createChatItem.bind(this))
+    this.polls = pollItems.map(this.createPollItem.bind(this))
   }
 
   public getItinerary (id: string): Promise<void> {

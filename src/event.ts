@@ -69,12 +69,7 @@ export class Event {
         if ('error' in resp) {
           reject(new Error(resp.error))
         } else if (!('status' in resp)) {
-          this.getItineraryInformation(resp.payload)
-            .then(() => {
-              resolve()
-            }).catch((e) => {
-              reject(e)
-            })
+          resolve(this.getItineraryInformation(resp.payload))
         }
       }
       this.socket.on(ConsumerTopic.ItineraryGet, callback)

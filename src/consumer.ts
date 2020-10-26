@@ -1,3 +1,4 @@
+import { Event } from './event';
 import { Chat } from './itinerary-item'
 import { NoticeGetRequest, Notices } from './notices'
 
@@ -43,5 +44,11 @@ export class Consumer {
     const notices = new Notices(this.socket)
     await notices.get(request)
     return notices
+  }
+
+  async event (id: string): Promise<Event> {
+    const event = new Event(this.socket, id)
+    await event.getItineraryItems()
+    return event
   }
 }
