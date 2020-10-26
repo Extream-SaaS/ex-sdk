@@ -1,4 +1,4 @@
-import { Event } from './event';
+import { Event } from './event'
 import { Chat } from './itinerary-item'
 import { NoticeGetRequest, Notices } from './notices'
 

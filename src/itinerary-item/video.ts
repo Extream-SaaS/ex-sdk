@@ -2,7 +2,7 @@ import { ReadWebRtcResponse, ReadWebRtcResponsePayload } from '../itinerary'
 import { ConsumerTopic } from '../topic'
 import { promiseTimeout } from '../utils'
 
-export class Video {
+export class Rtmp {
   private socket: SocketIOClient.Socket
   public id: string
   public data: ReadWebRtcResponsePayload | null = null
