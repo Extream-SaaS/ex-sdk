@@ -1,4 +1,5 @@
 import { Itinerary } from './itinerary'
+import { Notices } from './notices'
 import { ConsumerTopic } from './topic'
 import { InitialResponse, promiseTimeout, SocketResponse } from './utils'
 
@@ -47,10 +48,18 @@ export class Event {
   private socket: SocketIOClient.Socket
   public itinerary: Itinerary[] = []
   public id: string
+  public notices: Notices
 
   constructor (socket: SocketIOClient.Socket, id: string) {
     this.socket = socket
     this.id = id
+    this.notices = new Notices(this.socket)
+  }
+
+  public getNotices (): Promise<void> {
+    return this.notices.get({
+      event: this.id
+    })
   }
 
   private async getItineraryInformation (payload: ItineraryPayload[]): Promise<void> {
