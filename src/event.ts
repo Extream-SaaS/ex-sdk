@@ -89,4 +89,10 @@ export class Event {
       this.socket.removeListener(ConsumerTopic.ItineraryGet, callback)
     })
   }
+
+  public destroy (): void {
+    if (this.notices.destroy) {
+      this.notices.destroy()
+    }
+  }
 }
