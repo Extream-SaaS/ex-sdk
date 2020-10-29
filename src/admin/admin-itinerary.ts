@@ -2,7 +2,7 @@ import { GetItineraryResponse, ItineraryPayload } from '../event'
 import { AdminTopic, ConsumerTopic } from '../topic'
 import { InitialResponse, promiseTimeout } from '../utils'
 
-export class Itinerary {
+export class AdminItinerary {
   private socket: SocketIOClient.Socket
   public data: ItineraryPayload | null = null
   public id: string
@@ -12,6 +12,13 @@ export class Itinerary {
     this.id = id
   }
 
+  createItem (payload: ItineraryPayload): void {
+    this.data = {
+      ...payload,
+      items: JSON.parse(payload.items as string)
+    }
+  }
+
   update (update: Partial<ItineraryPayload>): Promise<void> {
     let callback: (resp: InitialResponse | GetItineraryResponse) => void
     return promiseTimeout(new Promise<void>((resolve, reject) => {
@@ -19,10 +26,7 @@ export class Itinerary {
         if ('error' in resp) {
           reject(new Error(resp.error))
         } else if (!('status' in resp)) {
-          this.data = {
-            ...resp.payload,
-            items: JSON.parse(resp.payload.items as string)
-          }
+          this.createItem(resp.payload)
           resolve()
         }
       }
@@ -42,10 +46,7 @@ export class Itinerary {
         if ('error' in resp) {
           reject(new Error(resp.error))
         } else if (!('status' in resp)) {
-          this.data = {
-            ...resp.payload,
-            items: JSON.parse(resp.payload.items as string)
-          }
+          this.createItem(resp.payload)
           resolve()
         }
       }

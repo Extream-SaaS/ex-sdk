@@ -1,4 +1,5 @@
-import { Itinerary } from './admin/admin-itinerary'
+import AdminItineraries from './admin/admin-itineraries';
+import { AdminItinerary } from './admin/admin-itinerary'
 import { ClientTopic } from './topic'
 import { InitialResponse, promiseTimeout } from './utils'
 
@@ -36,8 +37,14 @@ export class Admin {
     this.socket = socket
   }
 
-  async getItinerary (id: string): Promise<Itinerary> {
-    const itinerary = new Itinerary(this.socket, id)
+  async getItineraries (event: string): Promise<AdminItineraries> {
+    const itinerary = new AdminItineraries(this.socket, event)
+    await itinerary.getAll()
+    return itinerary
+  }
+
+  async getItinerary (id: string): Promise<AdminItinerary> {
+    const itinerary = new AdminItinerary(this.socket, id)
     await itinerary.get()
     return itinerary
   }
