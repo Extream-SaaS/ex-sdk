@@ -19,7 +19,7 @@
 
 • **id**: *string*
 
-*Defined in [itinerary-item/poll.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/d44c660/src/itinerary-item/poll.ts#L23)*
+*Defined in [itinerary-item/poll.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/d73bdfb/src/itinerary-item/poll.ts#L23)*
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 • **payload**: *[QuestionResponse](questionresponse.md)*
 
-*Defined in [itinerary-item/poll.ts:24](https://github.com/Extream-SaaS/ex-sdk/blob/d44c660/src/itinerary-item/poll.ts#L24)*
+*Defined in [itinerary-item/poll.ts:24](https://github.com/Extream-SaaS/ex-sdk/blob/d73bdfb/src/itinerary-item/poll.ts#L24)*

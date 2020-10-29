@@ -16,12 +16,15 @@
 
 * [id](event.md#id)
 * [itinerary](event.md#itinerary)
+* [notices](event.md#notices)
 * [socket](event.md#private-socket)
 
 ### Methods
 
+* [destroy](event.md#destroy)
 * [getItineraryInformation](event.md#private-getitineraryinformation)
 * [getItineraryItems](event.md#getitineraryitems)
+* [getNotices](event.md#getnotices)
 
 ## Constructors
 
@@ -29,7 +32,7 @@
 
 \+ **new Event**(`socket`: Socket, `id`: string): *[Event](event.md)*
 
-*Defined in [event.ts:49](https://github.com/Extream-SaaS/ex-sdk/blob/d44c660/src/event.ts#L49)*
+*Defined in [event.ts:51](https://github.com/Extream-SaaS/ex-sdk/blob/d73bdfb/src/event.ts#L51)*
 
 **Parameters:**
 
@@ -46,7 +49,7 @@ Name | Type |
 
 • **id**: *string*
 
-*Defined in [event.ts:49](https://github.com/Extream-SaaS/ex-sdk/blob/d44c660/src/event.ts#L49)*
+*Defined in [event.ts:50](https://github.com/Extream-SaaS/ex-sdk/blob/d73bdfb/src/event.ts#L50)*
 
 ___
 
@@ -54,7 +57,15 @@ ___
 
 • **itinerary**: *[Itinerary](itinerary.md)[]* = []
 
-*Defined in [event.ts:48](https://github.com/Extream-SaaS/ex-sdk/blob/d44c660/src/event.ts#L48)*
+*Defined in [event.ts:49](https://github.com/Extream-SaaS/ex-sdk/blob/d73bdfb/src/event.ts#L49)*
+
+___
+
+###  notices
+
+• **notices**: *[Notices](notices.md)*
+
+*Defined in [event.ts:51](https://github.com/Extream-SaaS/ex-sdk/blob/d73bdfb/src/event.ts#L51)*
 
 ___
 
@@ -62,15 +73,25 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [event.ts:47](https://github.com/Extream-SaaS/ex-sdk/blob/d44c660/src/event.ts#L47)*
+*Defined in [event.ts:48](https://github.com/Extream-SaaS/ex-sdk/blob/d73bdfb/src/event.ts#L48)*
 
 ## Methods
+
+###  destroy
+
+▸ **destroy**(): *void*
+
+*Defined in [event.ts:93](https://github.com/Extream-SaaS/ex-sdk/blob/d73bdfb/src/event.ts#L93)*
+
+**Returns:** *void*
+
+___
 
 ### `Private` getItineraryInformation
 
 ▸ **getItineraryInformation**(`payload`: [ItineraryPayload](../interfaces/itinerarypayload.md)[]): *Promise‹void›*
 
-*Defined in [event.ts:56](https://github.com/Extream-SaaS/ex-sdk/blob/d44c660/src/event.ts#L56)*
+*Defined in [event.ts:65](https://github.com/Extream-SaaS/ex-sdk/blob/d73bdfb/src/event.ts#L65)*
 
 **Parameters:**
 
@@ -86,6 +107,16 @@ ___
 
 ▸ **getItineraryItems**(): *Promise‹void›*
 
-*Defined in [event.ts:65](https://github.com/Extream-SaaS/ex-sdk/blob/d44c660/src/event.ts#L65)*
+*Defined in [event.ts:74](https://github.com/Extream-SaaS/ex-sdk/blob/d73bdfb/src/event.ts#L74)*
+
+**Returns:** *Promise‹void›*
+
+___
+
+###  getNotices
+
+▸ **getNotices**(): *Promise‹void›*
+
+*Defined in [event.ts:59](https://github.com/Extream-SaaS/ex-sdk/blob/d73bdfb/src/event.ts#L59)*
 
 **Returns:** *Promise‹void›*

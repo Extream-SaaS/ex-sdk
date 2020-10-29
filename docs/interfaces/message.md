@@ -27,7 +27,7 @@
 
 • **children**: *[ChatMessageResponse](chatmessageresponse.md)[]*
 
-*Defined in [itinerary-item/chat.ts:101](https://github.com/Extream-SaaS/ex-sdk/blob/d44c660/src/itinerary-item/chat.ts#L101)*
+*Defined in [itinerary-item/chat.ts:101](https://github.com/Extream-SaaS/ex-sdk/blob/d73bdfb/src/itinerary-item/chat.ts#L101)*
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 *Inherited from [ChatMessageResponse](chatmessageresponse.md).[from](chatmessageresponse.md#from)*
 
-*Defined in [itinerary-item/chat.ts:11](https://github.com/Extream-SaaS/ex-sdk/blob/d44c660/src/itinerary-item/chat.ts#L11)*
+*Defined in [itinerary-item/chat.ts:11](https://github.com/Extream-SaaS/ex-sdk/blob/d73bdfb/src/itinerary-item/chat.ts#L11)*
 
 ___
 
@@ -47,7 +47,7 @@ ___
 
 *Inherited from [ChatMessageResponse](chatmessageresponse.md).[id](chatmessageresponse.md#optional-id)*
 
-*Defined in [itinerary-item/chat.ts:10](https://github.com/Extream-SaaS/ex-sdk/blob/d44c660/src/itinerary-item/chat.ts#L10)*
+*Defined in [itinerary-item/chat.ts:10](https://github.com/Extream-SaaS/ex-sdk/blob/d73bdfb/src/itinerary-item/chat.ts#L10)*
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 *Inherited from [ChatMessageResponse](chatmessageresponse.md).[message](chatmessageresponse.md#message)*
 
-*Defined in [itinerary-item/chat.ts:14](https://github.com/Extream-SaaS/ex-sdk/blob/d44c660/src/itinerary-item/chat.ts#L14)*
+*Defined in [itinerary-item/chat.ts:14](https://github.com/Extream-SaaS/ex-sdk/blob/d73bdfb/src/itinerary-item/chat.ts#L14)*
 
 ___
 
@@ -67,7 +67,7 @@ ___
 
 *Inherited from [ChatMessageResponse](chatmessageresponse.md).[parent](chatmessageresponse.md#parent)*
 
-*Defined in [itinerary-item/chat.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/d44c660/src/itinerary-item/chat.ts#L13)*
+*Defined in [itinerary-item/chat.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/d73bdfb/src/itinerary-item/chat.ts#L13)*
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 *Inherited from [ChatMessageResponse](chatmessageresponse.md).[removed](chatmessageresponse.md#removed)*
 
-*Defined in [itinerary-item/chat.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/d44c660/src/itinerary-item/chat.ts#L16)*
+*Defined in [itinerary-item/chat.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/d73bdfb/src/itinerary-item/chat.ts#L16)*
 
 ___
 
@@ -87,7 +87,7 @@ ___
 
 *Inherited from [ChatMessageResponse](chatmessageresponse.md).[sent](chatmessageresponse.md#sent)*
 
-*Defined in [itinerary-item/chat.ts:15](https://github.com/Extream-SaaS/ex-sdk/blob/d44c660/src/itinerary-item/chat.ts#L15)*
+*Defined in [itinerary-item/chat.ts:15](https://github.com/Extream-SaaS/ex-sdk/blob/d73bdfb/src/itinerary-item/chat.ts#L15)*
 
 ___
 
@@ -97,4 +97,4 @@ ___
 
 *Inherited from [ChatMessageResponse](chatmessageresponse.md).[uuid](chatmessageresponse.md#uuid)*
 
-*Defined in [itinerary-item/chat.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/d44c660/src/itinerary-item/chat.ts#L12)*
+*Defined in [itinerary-item/chat.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/d73bdfb/src/itinerary-item/chat.ts#L12)*
