@@ -1,4 +1,5 @@
 import { Itinerary } from './itinerary'
+import { Notices } from './notices'
 import { ConsumerTopic } from './topic'
 import { InitialResponse, promiseTimeout, SocketResponse } from './utils'
 
@@ -47,10 +48,18 @@ export class Event {
   private socket: SocketIOClient.Socket
   public itinerary: Itinerary[] = []
   public id: string
+  public notices: Notices
 
   constructor (socket: SocketIOClient.Socket, id: string) {
     this.socket = socket
     this.id = id
+    this.notices = new Notices(this.socket)
+  }
+
+  public getNotices (): Promise<void> {
+    return this.notices.get({
+      event: this.id
+    })
   }
 
   private async getItineraryInformation (payload: ItineraryPayload[]): Promise<void> {
@@ -69,12 +78,7 @@ export class Event {
         if ('error' in resp) {
           reject(new Error(resp.error))
         } else if (!('status' in resp)) {
-          this.getItineraryInformation(resp.payload)
-            .then(() => {
-              resolve()
-            }).catch((e) => {
-              reject(e)
-            })
+          resolve(this.getItineraryInformation(resp.payload))
         }
       }
       this.socket.on(ConsumerTopic.ItineraryGet, callback)
@@ -84,5 +88,11 @@ export class Event {
     })).finally(() => {
       this.socket.removeListener(ConsumerTopic.ItineraryGet, callback)
     })
+  }
+
+  public destroy (): void {
+    if (this.notices.destroy) {
+      this.notices.destroy()
+    }
   }
 }
