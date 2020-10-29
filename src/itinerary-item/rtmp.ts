@@ -1,7 +1,7 @@
 import { ConsumerTopic } from '../topic'
 import { promiseTimeout, SocketResponse, TimeStamp } from '../utils'
 
-export interface Configuration {
+export interface RtmpConfiguration {
   mode: string;
   actor: string;
   broadcast: boolean;
@@ -22,7 +22,7 @@ export interface ReadRtmpResponsePayload {
   addedBy: string;
   url: string;
   watcherUrl: string;
-  configuration: Configuration;
+  configuration: RtmpConfiguration;
   addedAt: TimeStamp;
   broadcast: boolean;
 }

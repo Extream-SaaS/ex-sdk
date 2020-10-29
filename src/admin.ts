@@ -1,3 +1,4 @@
+import { Itinerary } from './admin/admin-itinerary'
 import { ClientTopic } from './topic'
 import { InitialResponse, promiseTimeout } from './utils'
 
@@ -33,6 +34,12 @@ export class Admin {
    */
   constructor (socket: SocketIOClient.Socket) {
     this.socket = socket
+  }
+
+  async getItinerary (id: string): Promise<Itinerary> {
+    const itinerary = new Itinerary(this.socket, id)
+    await itinerary.get()
+    return itinerary
   }
 
   sendNotice (request: SendNoticeRequest): Promise<void> {
