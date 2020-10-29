@@ -18,7 +18,7 @@ export class Itinerary {
   private socket: SocketIOClient.Socket
   public payload: ItineraryPayload | null = null
   public chats: Chat[] = []
-  public videos: Rtmp[] = []
+  public rtmpFeeds: Rtmp[] = []
   public polls: Poll[] = []
 
   constructor (socket: SocketIOClient.Socket) {
@@ -46,10 +46,10 @@ export class Itinerary {
       ...payload,
       items
     }
-    const rtcItems = items.filter(i => i.type && i.type === ItineraryType.Rtmp)
+    const rtmpItems = items.filter(i => i.type && i.type === ItineraryType.Rtmp)
     const chatItems = items.filter(i => i.type && i.type === ItineraryType.Chat)
     const pollItems = items.filter(i => i.type && i.type === ItineraryType.Poll)
-    this.videos = rtcItems.map(this.createRtmpItem.bind(this))
+    this.rtmpFeeds = rtmpItems.map(this.createRtmpItem.bind(this))
     this.chats = chatItems.map(this.createChatItem.bind(this))
     this.polls = pollItems.map(this.createPollItem.bind(this))
   }
