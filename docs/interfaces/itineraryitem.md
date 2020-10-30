@@ -19,7 +19,7 @@
 
 • **id**: *string*
 
-*Defined in [event.ts:25](https://github.com/Extream-SaaS/ex-sdk/blob/d73bdfb/src/event.ts#L25)*
+*Defined in [event.ts:25](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/event.ts#L25)*
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 • **type**: *string*
 
-*Defined in [event.ts:24](https://github.com/Extream-SaaS/ex-sdk/blob/d73bdfb/src/event.ts#L24)*
+*Defined in [event.ts:24](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/event.ts#L24)*
