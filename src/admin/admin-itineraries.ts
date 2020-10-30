@@ -59,24 +59,4 @@ export default class AdminItineraries {
       this.socket.removeListener(AdminTopic.ItineraryRemove, callback)
     })
   }
-
-  create (itinerary: Partial<ItineraryPayload>): Promise<void> {
-    let callback: (resp: InitialResponse | CreateItineraryResponse) => void
-    return promiseTimeout(new Promise<void>((resolve, reject) => {
-      callback = (resp: InitialResponse | CreateItineraryResponse) => {
-        if ('error' in resp) {
-          reject(new Error(resp.error))
-        } else if (!('status' in resp)) {
-          this.getAll()
-          resolve()
-        }
-      }
-      this.socket.on(AdminTopic.ItineraryCreate, callback)
-      this.socket.emit(AdminTopic.ItineraryCreate, {
-        ...itinerary
-      })
-    })).finally(() => {
-      this.socket.removeListener(AdminTopic.ItineraryCreate, callback)
-    })
-  }
 }
