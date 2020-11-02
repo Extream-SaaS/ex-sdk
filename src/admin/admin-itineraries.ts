@@ -40,6 +40,29 @@ export default class AdminItineraries {
     })
   }
 
+  createItinerary (itinerary: Partial<ItineraryPayload>): Promise<string> {
+    let callback: (resp: InitialResponse | CreateItineraryResponse) => void
+    return promiseTimeout(new Promise<string>((resolve, reject) => {
+      callback = (resp: InitialResponse | CreateItineraryResponse) => {
+        if ('error' in resp) {
+          reject(new Error(resp.error))
+        } else if (!('status' in resp)) {
+          const itinerary = new AdminItinerary(this.socket, resp.payload.id)
+          itinerary.createItem(resp.payload)
+          debugger
+          this.itineraries = [...this.itineraries, itinerary]
+          resolve(resp.payload.public_id)
+        }
+      }
+      this.socket.on(AdminTopic.ItineraryCreate, callback)
+      this.socket.emit(AdminTopic.ItineraryCreate, {
+        ...itinerary
+      })
+    })).finally(() => {
+      this.socket.removeListener(AdminTopic.ItineraryCreate, callback)
+    })
+  }
+
   delete (id: string): Promise<void> {
     let callback: (resp: InitialResponse | CreateItineraryResponse) => void
     return promiseTimeout(new Promise<void>((resolve, reject) => {
@@ -47,7 +70,7 @@ export default class AdminItineraries {
         if ('error' in resp) {
           reject(new Error(resp.error))
         } else if (!('status' in resp)) {
-          this.getAll()
+          this.itineraries = this.itineraries.filter(i => i.data?.public_id !== id)
           resolve()
         }
       }

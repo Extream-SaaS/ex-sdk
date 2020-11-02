@@ -15,7 +15,7 @@ export class AdminItinerary {
   createItem (payload: ItineraryPayload): void {
     this.data = {
       ...payload,
-      items: JSON.parse(payload.items as string)
+      ...(payload.items ? {items: JSON.parse(payload.items as string)} : {})
     }
   }
 

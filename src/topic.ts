@@ -18,7 +18,7 @@ export enum AdminTopic {
   ItineraryCreate = 'admin_itinerary_create',
   ItineraryUpdate = 'admin_itinerary_update',
   ItineraryRead = 'admin_itinerary_read',
-  ItineraryRemove = 'admin_itinerary_remove',
+  ItineraryRemove = 'admin_itinerary_delete',
   ItemCreate = 'admin_item_create',
   ItemUpdate = 'admin_item_update',
   ItemRead = 'admin_item_read',

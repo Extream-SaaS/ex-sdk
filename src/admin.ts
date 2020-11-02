@@ -1,7 +1,6 @@
-import AdminItineraries, { CreateItineraryResponse } from './admin/admin-itineraries';
+import AdminItineraries from './admin/admin-itineraries'
 import { AdminItinerary } from './admin/admin-itinerary'
-import { ItineraryPayload } from './event';
-import { AdminTopic, ClientTopic } from './topic'
+import { ClientTopic } from './topic'
 import { InitialResponse, promiseTimeout } from './utils'
 
 // export interface PrimaryContact {
@@ -36,25 +35,6 @@ export class Admin {
    */
   constructor (socket: SocketIOClient.Socket) {
     this.socket = socket
-  }
-
-  createItinerary (itinerary: Partial<ItineraryPayload>): Promise<any> {
-    let callback: (resp: InitialResponse | CreateItineraryResponse) => void
-    return promiseTimeout(new Promise<void>((resolve, reject) => {
-      callback = (resp: InitialResponse | CreateItineraryResponse) => {
-        if ('error' in resp) {
-          reject(new Error(resp.error))
-        } else if (!('status' in resp)) {
-          resolve(resp.payload)
-        }
-      }
-      this.socket.on(AdminTopic.ItineraryCreate, callback)
-      this.socket.emit(AdminTopic.ItineraryCreate, {
-        ...itinerary
-      })
-    })).finally(() => {
-      this.socket.removeListener(AdminTopic.ItineraryCreate, callback)
-    })
   }
 
   async getItineraries (event: string): Promise<AdminItineraries> {
