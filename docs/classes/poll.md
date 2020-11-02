@@ -36,7 +36,7 @@
 
 \+ **new Poll**(`socket`: Socket, `id`: string): *[Poll](poll.md)*
 
-*Defined in [itinerary-item/poll.ts:63](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/itinerary-item/poll.ts#L63)*
+*Defined in [itinerary-item/poll.ts:63](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/itinerary-item/poll.ts#L63)*
 
 **Parameters:**
 
@@ -53,7 +53,7 @@ Name | Type |
 
 • **id**: *string*
 
-*Defined in [itinerary-item/poll.ts:61](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/itinerary-item/poll.ts#L61)*
+*Defined in [itinerary-item/poll.ts:61](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/itinerary-item/poll.ts#L61)*
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 • **questions**: *[Question](question.md)[]* = []
 
-*Defined in [itinerary-item/poll.ts:62](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/itinerary-item/poll.ts#L62)*
+*Defined in [itinerary-item/poll.ts:62](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/itinerary-item/poll.ts#L62)*
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [itinerary-item/poll.ts:59](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/itinerary-item/poll.ts#L59)*
+*Defined in [itinerary-item/poll.ts:59](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/itinerary-item/poll.ts#L59)*
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 • **subscriptionManager**: *[SubscriptionManager](subscriptionmanager.md)*
 
-*Defined in [itinerary-item/poll.ts:60](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/itinerary-item/poll.ts#L60)*
+*Defined in [itinerary-item/poll.ts:60](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/itinerary-item/poll.ts#L60)*
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 • **type**: *[PollType](../enums/polltype.md) | null* = null
 
-*Defined in [itinerary-item/poll.ts:63](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/itinerary-item/poll.ts#L63)*
+*Defined in [itinerary-item/poll.ts:63](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/itinerary-item/poll.ts#L63)*
 
 ## Methods
 
@@ -93,7 +93,7 @@ ___
 
 ▸ **answer**(`questionId`: string, `answerId`: string): *Promise‹void›*
 
-*Defined in [itinerary-item/poll.ts:103](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/itinerary-item/poll.ts#L103)*
+*Defined in [itinerary-item/poll.ts:103](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/itinerary-item/poll.ts#L103)*
 
 **Parameters:**
 
@@ -110,7 +110,7 @@ ___
 
 ▸ **createQuestion**(`question`: [QuestionRequest](../interfaces/questionrequest.md)): *Promise‹void›*
 
-*Defined in [itinerary-item/poll.ts:111](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/itinerary-item/poll.ts#L111)*
+*Defined in [itinerary-item/poll.ts:111](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/itinerary-item/poll.ts#L111)*
 
 **Parameters:**
 
@@ -126,7 +126,7 @@ ___
 
 ▸ **destroy**(): *void*
 
-*Defined in [itinerary-item/poll.ts:163](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/itinerary-item/poll.ts#L163)*
+*Defined in [itinerary-item/poll.ts:163](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/itinerary-item/poll.ts#L163)*
 
 **Returns:** *void*
 
@@ -136,7 +136,7 @@ ___
 
 ▸ **get**(): *Promise‹void›*
 
-*Defined in [itinerary-item/poll.ts:135](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/itinerary-item/poll.ts#L135)*
+*Defined in [itinerary-item/poll.ts:135](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/itinerary-item/poll.ts#L135)*
 
 **Returns:** *Promise‹void›*
 
@@ -146,7 +146,7 @@ ___
 
 ▸ **listenForQuestions**(): *void*
 
-*Defined in [itinerary-item/poll.ts:90](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/itinerary-item/poll.ts#L90)*
+*Defined in [itinerary-item/poll.ts:90](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/itinerary-item/poll.ts#L90)*
 
 **Returns:** *void*
 
@@ -156,7 +156,7 @@ ___
 
 ▸ **listenForResponses**(): *void*
 
-*Defined in [itinerary-item/poll.ts:74](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/itinerary-item/poll.ts#L74)*
+*Defined in [itinerary-item/poll.ts:74](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/itinerary-item/poll.ts#L74)*
 
 **Returns:** *void*
 
@@ -166,7 +166,7 @@ ___
 
 ▸ **sortByOrder**(`a`: [QuestionResponse](../interfaces/questionresponse.md), `b`: [QuestionResponse](../interfaces/questionresponse.md)): *number*
 
-*Defined in [itinerary-item/poll.ts:99](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/itinerary-item/poll.ts#L99)*
+*Defined in [itinerary-item/poll.ts:99](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/itinerary-item/poll.ts#L99)*
 
 **Parameters:**
 

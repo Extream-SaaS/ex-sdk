@@ -20,6 +20,7 @@
 
 ### Methods
 
+* [createItinerary](adminitineraries.md#createitinerary)
 * [delete](adminitineraries.md#delete)
 * [getAll](adminitineraries.md#getall)
 
@@ -29,7 +30,7 @@
 
 \+ **new AdminItineraries**(`socket`: Socket, `event`: string): *[AdminItineraries](adminitineraries.md)*
 
-*Defined in [admin/admin-itineraries.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/admin/admin-itineraries.ts#L12)*
+*Defined in [admin/admin-itineraries.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/admin/admin-itineraries.ts#L12)*
 
 **Parameters:**
 
@@ -46,7 +47,7 @@ Name | Type |
 
 • **event**: *string*
 
-*Defined in [admin/admin-itineraries.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/admin/admin-itineraries.ts#L12)*
+*Defined in [admin/admin-itineraries.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/admin/admin-itineraries.ts#L12)*
 
 ___
 
@@ -54,7 +55,7 @@ ___
 
 • **itineraries**: *[AdminItinerary](adminitinerary.md)[]* = []
 
-*Defined in [admin/admin-itineraries.ts:11](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/admin/admin-itineraries.ts#L11)*
+*Defined in [admin/admin-itineraries.ts:11](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/admin/admin-itineraries.ts#L11)*
 
 ___
 
@@ -62,15 +63,31 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [admin/admin-itineraries.ts:10](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/admin/admin-itineraries.ts#L10)*
+*Defined in [admin/admin-itineraries.ts:10](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/admin/admin-itineraries.ts#L10)*
 
 ## Methods
+
+###  createItinerary
+
+▸ **createItinerary**(`itinerary`: Partial‹[ItineraryPayload](../interfaces/itinerarypayload.md)›): *Promise‹string›*
+
+*Defined in [admin/admin-itineraries.ts:43](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/admin/admin-itineraries.ts#L43)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`itinerary` | Partial‹[ItineraryPayload](../interfaces/itinerarypayload.md)› |
+
+**Returns:** *Promise‹string›*
+
+___
 
 ###  delete
 
 ▸ **delete**(`id`: string): *Promise‹void›*
 
-*Defined in [admin/admin-itineraries.ts:43](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/admin/admin-itineraries.ts#L43)*
+*Defined in [admin/admin-itineraries.ts:66](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/admin/admin-itineraries.ts#L66)*
 
 **Parameters:**
 
@@ -86,6 +103,6 @@ ___
 
 ▸ **getAll**(): *Promise‹void›*
 
-*Defined in [admin/admin-itineraries.ts:19](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/admin/admin-itineraries.ts#L19)*
+*Defined in [admin/admin-itineraries.ts:19](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/admin/admin-itineraries.ts#L19)*
 
 **Returns:** *Promise‹void›*

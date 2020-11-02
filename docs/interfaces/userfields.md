@@ -22,7 +22,7 @@
 
 • **company**? : *undefined | string*
 
-*Defined in [user.ts:6](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/user.ts#L6)*
+*Defined in [user.ts:6](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/user.ts#L6)*
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 • **firstName**? : *undefined | string*
 
-*Defined in [user.ts:4](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/user.ts#L4)*
+*Defined in [user.ts:4](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/user.ts#L4)*
 
 ___
 
@@ -38,7 +38,7 @@ ___
 
 • **job**? : *undefined | string*
 
-*Defined in [user.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/user.ts#L8)*
+*Defined in [user.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/user.ts#L8)*
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 • **lastName**? : *undefined | string*
 
-*Defined in [user.ts:5](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/user.ts#L5)*
+*Defined in [user.ts:5](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/user.ts#L5)*
 
 ___
 
@@ -54,4 +54,4 @@ ___
 
 • **region**? : *undefined | string*
 
-*Defined in [user.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/user.ts#L7)*
+*Defined in [user.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/user.ts#L7)*

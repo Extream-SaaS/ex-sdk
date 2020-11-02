@@ -30,7 +30,7 @@
 
 \+ **new AdminItinerary**(`socket`: Socket, `id`: string): *[AdminItinerary](adminitinerary.md)*
 
-*Defined in [admin/admin-itinerary.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/admin/admin-itinerary.ts#L8)*
+*Defined in [admin/admin-itinerary.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/admin/admin-itinerary.ts#L8)*
 
 **Parameters:**
 
@@ -47,7 +47,7 @@ Name | Type |
 
 • **data**: *[ItineraryPayload](../interfaces/itinerarypayload.md) | null* = null
 
-*Defined in [admin/admin-itinerary.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/admin/admin-itinerary.ts#L7)*
+*Defined in [admin/admin-itinerary.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/admin/admin-itinerary.ts#L7)*
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 • **id**: *string*
 
-*Defined in [admin/admin-itinerary.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/admin/admin-itinerary.ts#L8)*
+*Defined in [admin/admin-itinerary.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/admin/admin-itinerary.ts#L8)*
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [admin/admin-itinerary.ts:6](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/admin/admin-itinerary.ts#L6)*
+*Defined in [admin/admin-itinerary.ts:6](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/admin/admin-itinerary.ts#L6)*
 
 ## Methods
 
@@ -71,7 +71,7 @@ ___
 
 ▸ **createItem**(`payload`: [ItineraryPayload](../interfaces/itinerarypayload.md)): *void*
 
-*Defined in [admin/admin-itinerary.ts:15](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/admin/admin-itinerary.ts#L15)*
+*Defined in [admin/admin-itinerary.ts:15](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/admin/admin-itinerary.ts#L15)*
 
 **Parameters:**
 
@@ -87,7 +87,7 @@ ___
 
 ▸ **get**(): *Promise‹void›*
 
-*Defined in [admin/admin-itinerary.ts:42](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/admin/admin-itinerary.ts#L42)*
+*Defined in [admin/admin-itinerary.ts:42](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/admin/admin-itinerary.ts#L42)*
 
 **Returns:** *Promise‹void›*
 
@@ -97,7 +97,7 @@ ___
 
 ▸ **update**(`update`: Partial‹[ItineraryPayload](../interfaces/itinerarypayload.md)›): *Promise‹void›*
 
-*Defined in [admin/admin-itinerary.ts:22](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/admin/admin-itinerary.ts#L22)*
+*Defined in [admin/admin-itinerary.ts:22](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/admin/admin-itinerary.ts#L22)*
 
 **Parameters:**
 

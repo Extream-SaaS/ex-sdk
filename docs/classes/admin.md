@@ -18,7 +18,6 @@
 
 ### Methods
 
-* [createItinerary](admin.md#createitinerary)
 * [getItineraries](admin.md#getitineraries)
 * [getItinerary](admin.md#getitinerary)
 * [sendNotice](admin.md#sendnotice)
@@ -29,7 +28,7 @@
 
 \+ **new Admin**(`socket`: Socket): *[Admin](admin.md)*
 
-*Defined in [admin.ts:33](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/admin.ts#L33)*
+*Defined in [admin.ts:32](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/admin.ts#L32)*
 
 Create an instance of the admin sdk
 
@@ -47,31 +46,15 @@ Name | Type |
 
 • **socket**: *Socket*
 
-*Defined in [admin.ts:33](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/admin.ts#L33)*
+*Defined in [admin.ts:32](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/admin.ts#L32)*
 
 ## Methods
-
-###  createItinerary
-
-▸ **createItinerary**(`itinerary`: Partial‹[ItineraryPayload](../interfaces/itinerarypayload.md)›): *Promise‹any›*
-
-*Defined in [admin.ts:41](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/admin.ts#L41)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`itinerary` | Partial‹[ItineraryPayload](../interfaces/itinerarypayload.md)› |
-
-**Returns:** *Promise‹any›*
-
-___
 
 ###  getItineraries
 
 ▸ **getItineraries**(`event`: string): *Promise‹[AdminItineraries](adminitineraries.md)›*
 
-*Defined in [admin.ts:60](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/admin.ts#L60)*
+*Defined in [admin.ts:40](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/admin.ts#L40)*
 
 **Parameters:**
 
@@ -87,7 +70,7 @@ ___
 
 ▸ **getItinerary**(`id`: string): *Promise‹[AdminItinerary](adminitinerary.md)›*
 
-*Defined in [admin.ts:66](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/admin.ts#L66)*
+*Defined in [admin.ts:46](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/admin.ts#L46)*
 
 **Parameters:**
 
@@ -103,7 +86,7 @@ ___
 
 ▸ **sendNotice**(`request`: [SendNoticeRequest](../interfaces/sendnoticerequest.md)): *Promise‹void›*
 
-*Defined in [admin.ts:72](https://github.com/Extream-SaaS/ex-sdk/blob/67dc47e/src/admin.ts#L72)*
+*Defined in [admin.ts:52](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/admin.ts#L52)*
 
 **Parameters:**
 
