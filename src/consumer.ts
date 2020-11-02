@@ -19,9 +19,9 @@ export class Consumer {
    *
    * @param { Chat } roomId
    */
-  join (roomId: string, instanceId?: string): Chat {
+  async join (roomId: string, instanceId?: string): Promise<Chat> {
     this.room = new Chat(this.socket, roomId, instanceId)
-    this.room.join()
+    await this.room.join()
     return this.room
   }
 
