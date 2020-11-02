@@ -49,7 +49,6 @@ export default class AdminItineraries {
         } else if (!('status' in resp)) {
           const itinerary = new AdminItinerary(this.socket, resp.payload.id)
           itinerary.createItem(resp.payload)
-          debugger
           this.itineraries = [...this.itineraries, itinerary]
           resolve(resp.payload.public_id)
         }
