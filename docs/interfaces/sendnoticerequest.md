@@ -21,7 +21,7 @@
 
 • **event**: *string*
 
-*Defined in [admin.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/admin.ts#L23)*
+*Defined in [admin.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/38e00dd/src/admin.ts#L23)*
 
 ___
 
@@ -29,7 +29,7 @@ ___
 
 • **itinerary**? : *undefined | string*
 
-*Defined in [admin.ts:24](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/admin.ts#L24)*
+*Defined in [admin.ts:24](https://github.com/Extream-SaaS/ex-sdk/blob/38e00dd/src/admin.ts#L24)*
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 • **message**: *object*
 
-*Defined in [admin.ts:26](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/admin.ts#L26)*
+*Defined in [admin.ts:26](https://github.com/Extream-SaaS/ex-sdk/blob/38e00dd/src/admin.ts#L26)*
 
 #### Type declaration:
 
@@ -49,4 +49,4 @@ ___
 
 • **page**? : *undefined | string*
 
-*Defined in [admin.ts:25](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/admin.ts#L25)*
+*Defined in [admin.ts:25](https://github.com/Extream-SaaS/ex-sdk/blob/38e00dd/src/admin.ts#L25)*

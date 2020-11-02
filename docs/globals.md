@@ -105,7 +105,7 @@
 
 Ƭ **CreateItineraryResponse**: *[SocketResponse](interfaces/socketresponse.md)‹any›*
 
-*Defined in [admin/admin-itineraries.ts:6](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/admin/admin-itineraries.ts#L6)*
+*Defined in [admin/admin-itineraries.ts:6](https://github.com/Extream-SaaS/ex-sdk/blob/38e00dd/src/admin/admin-itineraries.ts#L6)*
 
 ___
 
@@ -113,7 +113,7 @@ ___
 
 Ƭ **EventsByOrganizationResponse**: *[SocketResponse](interfaces/socketresponse.md)‹[EventsPayload](interfaces/eventspayload.md)[]›*
 
-*Defined in [event.ts:21](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/event.ts#L21)*
+*Defined in [event.ts:21](https://github.com/Extream-SaaS/ex-sdk/blob/38e00dd/src/event.ts#L21)*
 
 ___
 
@@ -121,7 +121,7 @@ ___
 
 Ƭ **GetChatResponse**: *[SocketResponse](interfaces/socketresponse.md)‹[GetChatPayload](interfaces/getchatpayload.md)›*
 
-*Defined in [itinerary-item/chat.ts:82](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/itinerary-item/chat.ts#L82)*
+*Defined in [itinerary-item/chat.ts:82](https://github.com/Extream-SaaS/ex-sdk/blob/38e00dd/src/itinerary-item/chat.ts#L82)*
 
 ___
 
@@ -129,7 +129,7 @@ ___
 
 Ƭ **GetEventItinerariesResponse**: *[SocketResponse](interfaces/socketresponse.md)‹[ItineraryPayload](interfaces/itinerarypayload.md)[]›*
 
-*Defined in [admin/admin-itineraries.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/admin/admin-itineraries.ts#L7)*
+*Defined in [admin/admin-itineraries.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/38e00dd/src/admin/admin-itineraries.ts#L7)*
 
 ___
 
@@ -137,7 +137,7 @@ ___
 
 Ƭ **GetEventItineraryResponse**: *[SocketResponse](interfaces/socketresponse.md)‹[ItineraryPayload](interfaces/itinerarypayload.md)[]›*
 
-*Defined in [event.ts:43](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/event.ts#L43)*
+*Defined in [event.ts:43](https://github.com/Extream-SaaS/ex-sdk/blob/38e00dd/src/event.ts#L43)*
 
 ___
 
@@ -145,7 +145,7 @@ ___
 
 Ƭ **GetItineraryResponse**: *[SocketResponse](interfaces/socketresponse.md)‹[ItineraryPayload](interfaces/itinerarypayload.md)›*
 
-*Defined in [event.ts:45](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/event.ts#L45)*
+*Defined in [event.ts:45](https://github.com/Extream-SaaS/ex-sdk/blob/38e00dd/src/event.ts#L45)*
 
 ___
 
@@ -153,7 +153,7 @@ ___
 
 Ƭ **MessageData**: *[ReplyMessageData](interfaces/replymessagedata.md) | [SendMessageData](interfaces/sendmessagedata.md)*
 
-*Defined in [itinerary-item/chat.ts:42](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/itinerary-item/chat.ts#L42)*
+*Defined in [itinerary-item/chat.ts:42](https://github.com/Extream-SaaS/ex-sdk/blob/38e00dd/src/itinerary-item/chat.ts#L42)*
 
 ___
 
@@ -161,7 +161,7 @@ ___
 
 Ƭ **ReadRtmpResponse**: *[SocketResponse](interfaces/socketresponse.md)‹[ReadRtmpResponsePayload](interfaces/readrtmpresponsepayload.md)›*
 
-*Defined in [itinerary-item/rtmp.ts:30](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/itinerary-item/rtmp.ts#L30)*
+*Defined in [itinerary-item/rtmp.ts:30](https://github.com/Extream-SaaS/ex-sdk/blob/38e00dd/src/itinerary-item/rtmp.ts#L30)*
 
 ___
 
@@ -169,7 +169,7 @@ ___
 
 Ƭ **SendChatMessageResponse**: *[SocketResponse](interfaces/socketresponse.md)‹[SendChatMessagePayload](interfaces/sendchatmessagepayload.md)›*
 
-*Defined in [itinerary-item/chat.ts:24](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/itinerary-item/chat.ts#L24)*
+*Defined in [itinerary-item/chat.ts:24](https://github.com/Extream-SaaS/ex-sdk/blob/38e00dd/src/itinerary-item/chat.ts#L24)*
 
 ___
 
@@ -177,7 +177,7 @@ ___
 
 Ƭ **StartChatResponse**: *[SocketResponse](interfaces/socketresponse.md)‹[StartChatResponsePayload](interfaces/startchatresponsepayload.md)›*
 
-*Defined in [itinerary-item/chat.ts:120](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/itinerary-item/chat.ts#L120)*
+*Defined in [itinerary-item/chat.ts:120](https://github.com/Extream-SaaS/ex-sdk/blob/38e00dd/src/itinerary-item/chat.ts#L120)*
 
 ___
 
@@ -185,7 +185,7 @@ ___
 
 Ƭ **Topics**: *object*
 
-*Defined in [topic.ts:57](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/topic.ts#L57)*
+*Defined in [topic.ts:57](https://github.com/Extream-SaaS/ex-sdk/blob/38e00dd/src/topic.ts#L57)*
 
 #### Type declaration:
 
@@ -203,7 +203,7 @@ ___
 
 ▸ **promiseTimeout**‹**T**›(`promise`: Promise‹T›): *Promise‹T›*
 
-*Defined in [utils.ts:38](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/utils.ts#L38)*
+*Defined in [utils.ts:38](https://github.com/Extream-SaaS/ex-sdk/blob/38e00dd/src/utils.ts#L38)*
 
 **Type parameters:**
 

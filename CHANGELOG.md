@@ -1,9 +1,9 @@
-# 0.5.0 (2020-11-02)
+## 0.5.1 (2020-11-02)
 
 
-### Features
+### Bug Fixes
 
-* delete itinerary functional ([6a99c99](https://github.com/Extream-SaaS/ex-sdk/commit/6a99c991b4ca7c05a395960e9fee7b8babb18cd3))
+* await joining of room ([38e00dd](https://github.com/Extream-SaaS/ex-sdk/commit/38e00dd090fc37911756a3e7f4f03f94489e5d5c))
 
 
 

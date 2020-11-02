@@ -32,7 +32,7 @@
 
 \+ **new Notices**(`socket`: Socket): *[Notices](notices.md)*
 
-*Defined in [notices.ts:36](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/notices.ts#L36)*
+*Defined in [notices.ts:36](https://github.com/Extream-SaaS/ex-sdk/blob/38e00dd/src/notices.ts#L36)*
 
 **Parameters:**
 
@@ -48,7 +48,7 @@ Name | Type |
 
 • **notices**: *[Notice](../interfaces/notice.md)[]* = []
 
-*Defined in [notices.ts:36](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/notices.ts#L36)*
+*Defined in [notices.ts:36](https://github.com/Extream-SaaS/ex-sdk/blob/38e00dd/src/notices.ts#L36)*
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [notices.ts:35](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/notices.ts#L35)*
+*Defined in [notices.ts:35](https://github.com/Extream-SaaS/ex-sdk/blob/38e00dd/src/notices.ts#L35)*
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 • **subscriptionManager**: *[SubscriptionManager](subscriptionmanager.md)*
 
-*Defined in [notices.ts:34](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/notices.ts#L34)*
+*Defined in [notices.ts:34](https://github.com/Extream-SaaS/ex-sdk/blob/38e00dd/src/notices.ts#L34)*
 
 ## Methods
 
@@ -72,7 +72,7 @@ ___
 
 ▸ **destroy**(): *void*
 
-*Defined in [notices.ts:102](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/notices.ts#L102)*
+*Defined in [notices.ts:102](https://github.com/Extream-SaaS/ex-sdk/blob/38e00dd/src/notices.ts#L102)*
 
 **Returns:** *void*
 
@@ -82,7 +82,7 @@ ___
 
 ▸ **get**(`request`: [NoticeGetRequest](../interfaces/noticegetrequest.md)): *Promise‹void›*
 
-*Defined in [notices.ts:59](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/notices.ts#L59)*
+*Defined in [notices.ts:59](https://github.com/Extream-SaaS/ex-sdk/blob/38e00dd/src/notices.ts#L59)*
 
 **Parameters:**
 
@@ -98,7 +98,7 @@ ___
 
 ▸ **listenForNotices**(`request`: [NoticeGetRequest](../interfaces/noticegetrequest.md)): *void*
 
-*Defined in [notices.ts:52](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/notices.ts#L52)*
+*Defined in [notices.ts:52](https://github.com/Extream-SaaS/ex-sdk/blob/38e00dd/src/notices.ts#L52)*
 
 **Parameters:**
 
@@ -114,7 +114,7 @@ ___
 
 ▸ **readNotice**(`id`: string): *Promise‹void›*
 
-*Defined in [notices.ts:78](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/notices.ts#L78)*
+*Defined in [notices.ts:78](https://github.com/Extream-SaaS/ex-sdk/blob/38e00dd/src/notices.ts#L78)*
 
 **Parameters:**
 
@@ -130,7 +130,7 @@ ___
 
 ▸ **sortByDate**(`a`: [Notice](../interfaces/notice.md), `b`: [Notice](../interfaces/notice.md)): *number*
 
-*Defined in [notices.ts:48](https://github.com/Extream-SaaS/ex-sdk/blob/6a99c99/src/notices.ts#L48)*
+*Defined in [notices.ts:48](https://github.com/Extream-SaaS/ex-sdk/blob/38e00dd/src/notices.ts#L48)*
 
 Sort messages based on date descending
 
