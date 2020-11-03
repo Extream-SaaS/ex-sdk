@@ -45,10 +45,11 @@ export class ExtreamClient {
    * Create an instance of the websocket and connect to it using the access token provided
    *
    * @param { string } accessToken
+   * @param { boolean } visibility
    * @returns { Promise<ExtreamUser> }
    *
    */
-  connect (accessToken: string): Promise<ExtreamUser> {
+  connect (accessToken: string, visibility: boolean): Promise<ExtreamUser> {
     return promiseTimeout(new Promise<ExtreamUser>((resolve, reject) => {
       this.socket = io(`${this.options.gateway}?x-auth=${accessToken}`, {
         transports: ['websocket']
@@ -56,7 +57,7 @@ export class ExtreamClient {
       this.subscriptionManager = new SubscriptionManager(this.socket)
       this.adminActions = new Admin(this.socket)
       this.consumerActions = new Consumer(this.socket)
-      this.socket.emit(AuthorizationTopic.Authorize, { method: 'oauth2', token: accessToken })
+      this.socket.emit(AuthorizationTopic.Authorize, { method: 'oauth2', token: accessToken, visibility })
       this.socket.on(AuthorizationTopic.Authorized, (user: ExtreamUser) => {
         resolve(user)
       })
