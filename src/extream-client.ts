@@ -9,6 +9,12 @@ import { AuthorizationTopic } from './topic'
 import User, { ExtreamUser } from './user'
 import { ExtreamOptions, promiseTimeout } from './utils'
 
+export interface AuthorizationRequest {
+  method: string;
+  token: string;
+  visibility: boolean;
+}
+
 /**
  * The Extream websocket and http communication client.
  *
@@ -49,7 +55,7 @@ export class ExtreamClient {
    * @returns { Promise<ExtreamUser> }
    *
    */
-  connect (accessToken: string, visibility: boolean): Promise<ExtreamUser> {
+  connect (options: Partial<AuthorizationRequest>): Promise<ExtreamUser> {
     return promiseTimeout(new Promise<ExtreamUser>((resolve, reject) => {
       this.socket = io(`${this.options.gateway}?x-auth=${accessToken}`, {
         transports: ['websocket']
@@ -57,7 +63,7 @@ export class ExtreamClient {
       this.subscriptionManager = new SubscriptionManager(this.socket)
       this.adminActions = new Admin(this.socket)
       this.consumerActions = new Consumer(this.socket)
-      this.socket.emit(AuthorizationTopic.Authorize, { method: 'oauth2', token: accessToken, visibility })
+      this.socket.emit(AuthorizationTopic.Authorize, { method: 'oauth2', ...options })
       this.socket.on(AuthorizationTopic.Authorized, (user: ExtreamUser) => {
         resolve(user)
       })
