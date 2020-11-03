@@ -32,7 +32,7 @@
 
 \+ **new Event**(`socket`: Socket, `id`: string): *[Event](event.md)*
 
-*Defined in [event.ts:51](https://github.com/Extream-SaaS/ex-sdk/blob/38e00dd/src/event.ts#L51)*
+*Defined in [event.ts:51](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/event.ts#L51)*
 
 **Parameters:**
 
@@ -49,7 +49,7 @@ Name | Type |
 
 • **id**: *string*
 
-*Defined in [event.ts:50](https://github.com/Extream-SaaS/ex-sdk/blob/38e00dd/src/event.ts#L50)*
+*Defined in [event.ts:50](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/event.ts#L50)*
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 • **itinerary**: *[Itinerary](itinerary.md)[]* = []
 
-*Defined in [event.ts:49](https://github.com/Extream-SaaS/ex-sdk/blob/38e00dd/src/event.ts#L49)*
+*Defined in [event.ts:49](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/event.ts#L49)*
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 • **notices**: *[Notices](notices.md)*
 
-*Defined in [event.ts:51](https://github.com/Extream-SaaS/ex-sdk/blob/38e00dd/src/event.ts#L51)*
+*Defined in [event.ts:51](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/event.ts#L51)*
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [event.ts:48](https://github.com/Extream-SaaS/ex-sdk/blob/38e00dd/src/event.ts#L48)*
+*Defined in [event.ts:48](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/event.ts#L48)*
 
 ## Methods
 
@@ -81,7 +81,7 @@ ___
 
 ▸ **destroy**(): *void*
 
-*Defined in [event.ts:93](https://github.com/Extream-SaaS/ex-sdk/blob/38e00dd/src/event.ts#L93)*
+*Defined in [event.ts:93](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/event.ts#L93)*
 
 **Returns:** *void*
 
@@ -91,7 +91,7 @@ ___
 
 ▸ **getItineraryInformation**(`payload`: [ItineraryPayload](../interfaces/itinerarypayload.md)[]): *Promise‹void›*
 
-*Defined in [event.ts:65](https://github.com/Extream-SaaS/ex-sdk/blob/38e00dd/src/event.ts#L65)*
+*Defined in [event.ts:65](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/event.ts#L65)*
 
 **Parameters:**
 
@@ -107,7 +107,7 @@ ___
 
 ▸ **getItineraryItems**(): *Promise‹void›*
 
-*Defined in [event.ts:74](https://github.com/Extream-SaaS/ex-sdk/blob/38e00dd/src/event.ts#L74)*
+*Defined in [event.ts:74](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/event.ts#L74)*
 
 **Returns:** *Promise‹void›*
 
@@ -117,6 +117,6 @@ ___
 
 ▸ **getNotices**(): *Promise‹void›*
 
-*Defined in [event.ts:59](https://github.com/Extream-SaaS/ex-sdk/blob/38e00dd/src/event.ts#L59)*
+*Defined in [event.ts:59](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/event.ts#L59)*
 
 **Returns:** *Promise‹void›*
