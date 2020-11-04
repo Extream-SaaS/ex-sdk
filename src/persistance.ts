@@ -1,3 +1,5 @@
+import { AuthenticationResponse } from './user'
+
 export enum PersistanceType {
   None = 'NONE',
   Cookie = 'COOKIE',
@@ -5,7 +7,7 @@ export enum PersistanceType {
 }
 
 export interface IPersistance {
-  setTokens (): void
+  setTokens (loginResponse: AuthenticationResponse): void
   getTokens (): void
 }
 
@@ -15,7 +17,7 @@ export class CookiePersistance implements IPersistance {
     document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/'
   }
 
-  setTokens (): void {
+  setTokens (loginResponse: AuthenticationResponse): void {
     throw new Error('Method not implemented.')
   }
 

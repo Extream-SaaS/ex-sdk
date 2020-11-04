@@ -168,6 +168,10 @@ export default class User {
       }
     )
 
+    if (this.persistance) {
+      this.persistance.setTokens(resp)
+    }
+
     return resp
   }
 }
