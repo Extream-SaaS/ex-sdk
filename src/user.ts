@@ -1,3 +1,4 @@
+import PersistanceFactory, { IPersistance, PersistanceType } from './persistance'
 import { ExtreamOptions, promiseTimeout } from './utils'
 
 export interface UserFields {
@@ -56,9 +57,12 @@ export interface RegisterUserRequest {
 
 export default class User {
   public headers: Headers
+  private persistance: IPersistance | null
   options: ExtreamOptions
 
-  constructor (options: ExtreamOptions) {
+  constructor (options: ExtreamOptions, persistance: PersistanceType) {
+    const factory = new PersistanceFactory()
+    this.persistance = factory.get(persistance)
     this.options = options
     this.headers = new Headers({
       'Content-Type': 'application/x-www-form-urlencoded',
