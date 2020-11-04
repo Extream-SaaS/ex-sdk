@@ -1,15 +1,15 @@
-enum PersistanceType {
+export enum PersistanceType {
   None = 'NONE',
   Cookie = 'COOKIE',
   // LocalStorage = 'LOCAL_STORAGE'
 }
 
-interface IPersistance {
+export interface IPersistance {
   setTokens (): void
   getTokens (): void
 }
 
-class CookiePersistance implements IPersistance {
+export class CookiePersistance implements IPersistance {
   private setCookie (cname: string, cvalue: string, expiry: Date) {
     const expires = 'expires=' + expiry.toUTCString()
     document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/'
