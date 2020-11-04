@@ -10,6 +10,11 @@ interface IPersistance {
 }
 
 class CookiePersistance implements IPersistance {
+  private setCookie (cname: string, cvalue: string, expiry: Date) {
+    const expires = 'expires=' + expiry.toUTCString()
+    document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/'
+  }
+
   setTokens (): void {
     throw new Error('Method not implemented.')
   }
