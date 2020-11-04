@@ -25,7 +25,10 @@ export class CookiePersistance implements IPersistance {
       .split(';')
       .map(
         v => v.split('=')
-          .map((s) => s.trim()))
+          .map(
+            (s) => s.trim()
+          )
+      )
       .find(([key]) => key === name)
     if (keyValuePair) {
       return keyValuePair[1]
