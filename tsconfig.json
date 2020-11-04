@@ -14,7 +14,7 @@
     /* Disallow inconsistently-cased references to the same file. */
     "declaration": true,
     "outDir": "dist",
-    "lib": ["es2017"]
+    "lib": ["es2017", "dom"]
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "**/*.spec.ts", "dist"]
