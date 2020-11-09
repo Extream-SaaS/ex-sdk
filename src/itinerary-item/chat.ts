@@ -30,6 +30,8 @@ export interface ReplyMessageData {
   message: string;
   private: boolean;
   parent: string;
+  requester?: ExtreamUser;
+  moderators?: string[];
 }
 
 export interface SendMessageData {
@@ -37,6 +39,7 @@ export interface SendMessageData {
    * The message to send to the chat
    */
   message: string;
+  moderators?: string[];
 }
 
 export type MessageData = ReplyMessageData | SendMessageData
@@ -86,6 +89,7 @@ export interface BanMessageData {
    * The uuid of the message to be banned
    */
   uuid: string;
+  instance?: string;
   parent?: string;
 }
 
