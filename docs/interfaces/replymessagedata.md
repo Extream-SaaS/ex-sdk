@@ -11,8 +11,10 @@
 ### Properties
 
 * [message](replymessagedata.md#message)
+* [moderators](replymessagedata.md#optional-moderators)
 * [parent](replymessagedata.md#parent)
 * [private](replymessagedata.md#private)
+* [requester](replymessagedata.md#optional-requester)
 
 ## Properties
 
@@ -20,9 +22,17 @@
 
 • **message**: *string*
 
-*Defined in [itinerary-item/chat.ts:30](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/itinerary-item/chat.ts#L30)*
+*Defined in [itinerary-item/chat.ts:30](https://github.com/Extream-SaaS/ex-sdk/blob/9472f23/src/itinerary-item/chat.ts#L30)*
 
 The message to send to the chat
+
+___
+
+### `Optional` moderators
+
+• **moderators**? : *string[]*
+
+*Defined in [itinerary-item/chat.ts:34](https://github.com/Extream-SaaS/ex-sdk/blob/9472f23/src/itinerary-item/chat.ts#L34)*
 
 ___
 
@@ -30,7 +40,7 @@ ___
 
 • **parent**: *string*
 
-*Defined in [itinerary-item/chat.ts:32](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/itinerary-item/chat.ts#L32)*
+*Defined in [itinerary-item/chat.ts:32](https://github.com/Extream-SaaS/ex-sdk/blob/9472f23/src/itinerary-item/chat.ts#L32)*
 
 ___
 
@@ -38,4 +48,12 @@ ___
 
 • **private**: *boolean*
 
-*Defined in [itinerary-item/chat.ts:31](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/itinerary-item/chat.ts#L31)*
+*Defined in [itinerary-item/chat.ts:31](https://github.com/Extream-SaaS/ex-sdk/blob/9472f23/src/itinerary-item/chat.ts#L31)*
+
+___
+
+### `Optional` requester
+
+• **requester**? : *[ExtreamUser](extreamuser.md)*
+
+*Defined in [itinerary-item/chat.ts:33](https://github.com/Extream-SaaS/ex-sdk/blob/9472f23/src/itinerary-item/chat.ts#L33)*

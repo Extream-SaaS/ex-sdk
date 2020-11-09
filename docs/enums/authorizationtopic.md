@@ -18,7 +18,7 @@
 
 • **Authorize**: = "authorize"
 
-*Defined in [topic.ts:4](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/topic.ts#L4)*
+*Defined in [topic.ts:4](https://github.com/Extream-SaaS/ex-sdk/blob/9472f23/src/topic.ts#L4)*
 
 ___
 
@@ -26,7 +26,7 @@ ___
 
 • **Authorized**: = "authorized"
 
-*Defined in [topic.ts:3](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/topic.ts#L3)*
+*Defined in [topic.ts:3](https://github.com/Extream-SaaS/ex-sdk/blob/9472f23/src/topic.ts#L3)*
 
 ___
 
@@ -34,7 +34,7 @@ ___
 
 • **Connect**: = "connect"
 
-*Defined in [topic.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/topic.ts#L7)*
+*Defined in [topic.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/9472f23/src/topic.ts#L7)*
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 • **Mfa**: = "mfa"
 
-*Defined in [topic.ts:6](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/topic.ts#L6)*
+*Defined in [topic.ts:6](https://github.com/Extream-SaaS/ex-sdk/blob/9472f23/src/topic.ts#L6)*
 
 ___
 
@@ -50,4 +50,4 @@ ___
 
 • **Unauthorized**: = "unauthorized"
 
-*Defined in [topic.ts:5](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/topic.ts#L5)*
+*Defined in [topic.ts:5](https://github.com/Extream-SaaS/ex-sdk/blob/9472f23/src/topic.ts#L5)*

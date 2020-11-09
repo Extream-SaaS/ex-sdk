@@ -11,6 +11,7 @@
 ### Properties
 
 * [message](sendmessagedata.md#message)
+* [moderators](sendmessagedata.md#optional-moderators)
 
 ## Properties
 
@@ -18,6 +19,14 @@
 
 • **message**: *string*
 
-*Defined in [itinerary-item/chat.ts:39](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/itinerary-item/chat.ts#L39)*
+*Defined in [itinerary-item/chat.ts:41](https://github.com/Extream-SaaS/ex-sdk/blob/9472f23/src/itinerary-item/chat.ts#L41)*
 
 The message to send to the chat
+
+___
+
+### `Optional` moderators
+
+• **moderators**? : *string[]*
+
+*Defined in [itinerary-item/chat.ts:42](https://github.com/Extream-SaaS/ex-sdk/blob/9472f23/src/itinerary-item/chat.ts#L42)*
