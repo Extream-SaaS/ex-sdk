@@ -10,6 +10,7 @@
 * [EventRead](admintopic.md#eventread)
 * [EventUpdate](admintopic.md#eventupdate)
 * [ItemCreate](admintopic.md#itemcreate)
+* [ItemDelete](admintopic.md#itemdelete)
 * [ItemRead](admintopic.md#itemread)
 * [ItemUpdate](admintopic.md#itemupdate)
 * [ItineraryCreate](admintopic.md#itinerarycreate)
@@ -26,7 +27,7 @@
 
 • **EventCreate**: = "admin_event_create"
 
-*Defined in [topic.ts:15](https://github.com/Extream-SaaS/ex-sdk/blob/9472f23/src/topic.ts#L15)*
+*Defined in [topic.ts:15](https://github.com/Extream-SaaS/ex-sdk/blob/e74397e/src/topic.ts#L15)*
 
 ___
 
@@ -34,7 +35,7 @@ ___
 
 • **EventRead**: = "admin_event_read"
 
-*Defined in [topic.ts:17](https://github.com/Extream-SaaS/ex-sdk/blob/9472f23/src/topic.ts#L17)*
+*Defined in [topic.ts:17](https://github.com/Extream-SaaS/ex-sdk/blob/e74397e/src/topic.ts#L17)*
 
 ___
 
@@ -42,7 +43,7 @@ ___
 
 • **EventUpdate**: = "admin_event_update"
 
-*Defined in [topic.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/9472f23/src/topic.ts#L16)*
+*Defined in [topic.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/e74397e/src/topic.ts#L16)*
 
 ___
 
@@ -50,7 +51,15 @@ ___
 
 • **ItemCreate**: = "admin_item_create"
 
-*Defined in [topic.ts:22](https://github.com/Extream-SaaS/ex-sdk/blob/9472f23/src/topic.ts#L22)*
+*Defined in [topic.ts:22](https://github.com/Extream-SaaS/ex-sdk/blob/e74397e/src/topic.ts#L22)*
+
+___
+
+###  ItemDelete
+
+• **ItemDelete**: = "admin_item_delete"
+
+*Defined in [topic.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/e74397e/src/topic.ts#L23)*
 
 ___
 
@@ -58,7 +67,7 @@ ___
 
 • **ItemRead**: = "admin_item_read"
 
-*Defined in [topic.ts:24](https://github.com/Extream-SaaS/ex-sdk/blob/9472f23/src/topic.ts#L24)*
+*Defined in [topic.ts:25](https://github.com/Extream-SaaS/ex-sdk/blob/e74397e/src/topic.ts#L25)*
 
 ___
 
@@ -66,7 +75,7 @@ ___
 
 • **ItemUpdate**: = "admin_item_update"
 
-*Defined in [topic.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/9472f23/src/topic.ts#L23)*
+*Defined in [topic.ts:24](https://github.com/Extream-SaaS/ex-sdk/blob/e74397e/src/topic.ts#L24)*
 
 ___
 
@@ -74,7 +83,7 @@ ___
 
 • **ItineraryCreate**: = "admin_itinerary_create"
 
-*Defined in [topic.ts:18](https://github.com/Extream-SaaS/ex-sdk/blob/9472f23/src/topic.ts#L18)*
+*Defined in [topic.ts:18](https://github.com/Extream-SaaS/ex-sdk/blob/e74397e/src/topic.ts#L18)*
 
 ___
 
@@ -82,7 +91,7 @@ ___
 
 • **ItineraryRead**: = "admin_itinerary_read"
 
-*Defined in [topic.ts:20](https://github.com/Extream-SaaS/ex-sdk/blob/9472f23/src/topic.ts#L20)*
+*Defined in [topic.ts:20](https://github.com/Extream-SaaS/ex-sdk/blob/e74397e/src/topic.ts#L20)*
 
 ___
 
@@ -90,7 +99,7 @@ ___
 
 • **ItineraryRemove**: = "admin_itinerary_delete"
 
-*Defined in [topic.ts:21](https://github.com/Extream-SaaS/ex-sdk/blob/9472f23/src/topic.ts#L21)*
+*Defined in [topic.ts:21](https://github.com/Extream-SaaS/ex-sdk/blob/e74397e/src/topic.ts#L21)*
 
 ___
 
@@ -98,7 +107,7 @@ ___
 
 • **ItineraryUpdate**: = "admin_itinerary_update"
 
-*Defined in [topic.ts:19](https://github.com/Extream-SaaS/ex-sdk/blob/9472f23/src/topic.ts#L19)*
+*Defined in [topic.ts:19](https://github.com/Extream-SaaS/ex-sdk/blob/e74397e/src/topic.ts#L19)*
 
 ___
 
@@ -106,7 +115,7 @@ ___
 
 • **OrganisationCreate**: = "admin_organisation_create"
 
-*Defined in [topic.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/9472f23/src/topic.ts#L12)*
+*Defined in [topic.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/e74397e/src/topic.ts#L12)*
 
 ___
 
@@ -114,7 +123,7 @@ ___
 
 • **OrganisationRead**: = "admin_organisation_read"
 
-*Defined in [topic.ts:14](https://github.com/Extream-SaaS/ex-sdk/blob/9472f23/src/topic.ts#L14)*
+*Defined in [topic.ts:14](https://github.com/Extream-SaaS/ex-sdk/blob/e74397e/src/topic.ts#L14)*
 
 ___
 
@@ -122,4 +131,4 @@ ___
 
 • **OrganisationUpdate**: = "admin_organisation_update"
 
-*Defined in [topic.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/9472f23/src/topic.ts#L13)*
+*Defined in [topic.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/e74397e/src/topic.ts#L13)*
