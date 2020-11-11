@@ -1,11 +1,13 @@
 import { GetItineraryResponse, ItineraryPayload } from '../event'
 import { AdminTopic, ConsumerTopic } from '../topic'
 import { InitialResponse, promiseTimeout } from '../utils'
+import ItineraryItem, { ItineraryItemPayload } from './itinerary-item'
 
 export class AdminItinerary {
   private socket: SocketIOClient.Socket
   public data: ItineraryPayload | null = null
   public id: string
+  public items: ItineraryItem[] = []
 
   constructor (socket: SocketIOClient.Socket, id: string) {
     this.socket = socket
@@ -13,9 +15,16 @@ export class AdminItinerary {
   }
 
   createItem (payload: ItineraryPayload): void {
+    const items = payload.items
+      ? JSON.parse(payload.items as string)
+      : []
+    this.items = items.map((i: ItineraryItemPayload) => {
+      const item = new ItineraryItem(this.socket, i.id)
+      item.createItem(i)
+      return item
+    })
     this.data = {
-      ...payload,
-      ...(payload.items ? { items: JSON.parse(payload.items as string) } : {})
+      ...payload
     }
   }
 
