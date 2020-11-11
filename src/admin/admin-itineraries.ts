@@ -25,7 +25,7 @@ export default class AdminItineraries {
         } else if (!('status' in resp)) {
           this.itineraries = resp.payload.map(i => {
             const itinerary = new AdminItinerary(this.socket, i.id)
-            itinerary.createItem(i)
+            itinerary.create(i)
             return itinerary
           })
           resolve()
@@ -48,7 +48,7 @@ export default class AdminItineraries {
           reject(new Error(resp.error))
         } else if (!('status' in resp)) {
           const itinerary = new AdminItinerary(this.socket, resp.payload.id)
-          itinerary.createItem(resp.payload)
+          itinerary.create(resp.payload)
           this.itineraries = [...this.itineraries, itinerary]
           resolve(resp.payload.public_id)
         }
