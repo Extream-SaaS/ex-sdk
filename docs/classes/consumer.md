@@ -31,7 +31,7 @@
 
 \+ **new Consumer**(`socket`: Socket): *[Consumer](consumer.md)*
 
-*Defined in [consumer.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/e74397e/src/consumer.ts#L8)*
+*Defined in [consumer.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/consumer.ts#L8)*
 
 Create an instance of the admin sdk
 
@@ -49,7 +49,7 @@ Name | Type |
 
 • **dms**: *[Chat](chat.md)[]* = []
 
-*Defined in [consumer.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/e74397e/src/consumer.ts#L8)*
+*Defined in [consumer.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/consumer.ts#L8)*
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 • **room**: *[Chat](chat.md) | null* = null
 
-*Defined in [consumer.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/e74397e/src/consumer.ts#L7)*
+*Defined in [consumer.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/consumer.ts#L7)*
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [consumer.ts:6](https://github.com/Extream-SaaS/ex-sdk/blob/e74397e/src/consumer.ts#L6)*
+*Defined in [consumer.ts:6](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/consumer.ts#L6)*
 
 ## Methods
 
@@ -73,7 +73,7 @@ ___
 
 ▸ **event**(`id`: string): *Promise‹[Event](event.md)›*
 
-*Defined in [consumer.ts:49](https://github.com/Extream-SaaS/ex-sdk/blob/e74397e/src/consumer.ts#L49)*
+*Defined in [consumer.ts:49](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/consumer.ts#L49)*
 
 **Parameters:**
 
@@ -89,7 +89,7 @@ ___
 
 ▸ **join**(`roomId`: string, `instanceId?`: undefined | string): *Promise‹[Chat](chat.md)›*
 
-*Defined in [consumer.ts:22](https://github.com/Extream-SaaS/ex-sdk/blob/e74397e/src/consumer.ts#L22)*
+*Defined in [consumer.ts:22](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/consumer.ts#L22)*
 
 Create a chat room.
 
@@ -108,7 +108,7 @@ ___
 
 ▸ **notices**(`request`: [NoticeGetRequest](../interfaces/noticegetrequest.md)): *Promise‹[Notices](notices.md)›*
 
-*Defined in [consumer.ts:43](https://github.com/Extream-SaaS/ex-sdk/blob/e74397e/src/consumer.ts#L43)*
+*Defined in [consumer.ts:43](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/consumer.ts#L43)*
 
 **Parameters:**
 
@@ -124,7 +124,7 @@ ___
 
 ▸ **startChat**(`roomId`: string): *Promise‹[Chat](chat.md)›*
 
-*Defined in [consumer.ts:33](https://github.com/Extream-SaaS/ex-sdk/blob/e74397e/src/consumer.ts#L33)*
+*Defined in [consumer.ts:33](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/consumer.ts#L33)*
 
 Start a new DM in a specific room
 

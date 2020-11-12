@@ -28,7 +28,7 @@
 
 \+ **new Rtmp**(`socket`: Socket, `id`: string): *[Rtmp](rtmp.md)*
 
-*Defined in [itinerary-item/rtmp.ts:35](https://github.com/Extream-SaaS/ex-sdk/blob/e74397e/src/itinerary-item/rtmp.ts#L35)*
+*Defined in [itinerary-item/rtmp.ts:35](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/itinerary-item/rtmp.ts#L35)*
 
 **Parameters:**
 
@@ -45,7 +45,7 @@ Name | Type |
 
 • **data**: *[ReadRtmpResponsePayload](../interfaces/readrtmpresponsepayload.md) | null* = null
 
-*Defined in [itinerary-item/rtmp.ts:35](https://github.com/Extream-SaaS/ex-sdk/blob/e74397e/src/itinerary-item/rtmp.ts#L35)*
+*Defined in [itinerary-item/rtmp.ts:35](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/itinerary-item/rtmp.ts#L35)*
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 • **id**: *string*
 
-*Defined in [itinerary-item/rtmp.ts:34](https://github.com/Extream-SaaS/ex-sdk/blob/e74397e/src/itinerary-item/rtmp.ts#L34)*
+*Defined in [itinerary-item/rtmp.ts:34](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/itinerary-item/rtmp.ts#L34)*
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [itinerary-item/rtmp.ts:33](https://github.com/Extream-SaaS/ex-sdk/blob/e74397e/src/itinerary-item/rtmp.ts#L33)*
+*Defined in [itinerary-item/rtmp.ts:33](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/itinerary-item/rtmp.ts#L33)*
 
 ## Methods
 
@@ -69,6 +69,6 @@ ___
 
 ▸ **get**(): *Promise‹void›*
 
-*Defined in [itinerary-item/rtmp.ts:42](https://github.com/Extream-SaaS/ex-sdk/blob/e74397e/src/itinerary-item/rtmp.ts#L42)*
+*Defined in [itinerary-item/rtmp.ts:42](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/itinerary-item/rtmp.ts#L42)*
 
 **Returns:** *Promise‹void›*

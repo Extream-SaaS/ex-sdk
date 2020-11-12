@@ -28,7 +28,7 @@
 
 \+ **new Admin**(`socket`: Socket): *[Admin](admin.md)*
 
-*Defined in [admin.ts:32](https://github.com/Extream-SaaS/ex-sdk/blob/e74397e/src/admin.ts#L32)*
+*Defined in [admin.ts:32](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/admin.ts#L32)*
 
 Create an instance of the admin sdk
 
@@ -46,7 +46,7 @@ Name | Type |
 
 • **socket**: *Socket*
 
-*Defined in [admin.ts:32](https://github.com/Extream-SaaS/ex-sdk/blob/e74397e/src/admin.ts#L32)*
+*Defined in [admin.ts:32](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/admin.ts#L32)*
 
 ## Methods
 
@@ -54,7 +54,7 @@ Name | Type |
 
 ▸ **getItineraries**(`event`: string): *Promise‹[AdminItineraries](adminitineraries.md)›*
 
-*Defined in [admin.ts:40](https://github.com/Extream-SaaS/ex-sdk/blob/e74397e/src/admin.ts#L40)*
+*Defined in [admin.ts:40](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/admin.ts#L40)*
 
 **Parameters:**
 
@@ -70,7 +70,7 @@ ___
 
 ▸ **getItinerary**(`id`: string): *Promise‹[AdminItinerary](adminitinerary.md)›*
 
-*Defined in [admin.ts:46](https://github.com/Extream-SaaS/ex-sdk/blob/e74397e/src/admin.ts#L46)*
+*Defined in [admin.ts:46](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/admin.ts#L46)*
 
 **Parameters:**
 
@@ -86,7 +86,7 @@ ___
 
 ▸ **sendNotice**(`request`: [SendNoticeRequest](../interfaces/sendnoticerequest.md)): *Promise‹void›*
 
-*Defined in [admin.ts:52](https://github.com/Extream-SaaS/ex-sdk/blob/e74397e/src/admin.ts#L52)*
+*Defined in [admin.ts:52](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/admin.ts#L52)*
 
 **Parameters:**
 
