@@ -66,8 +66,10 @@ export default class ItineraryItem {
         if ('error' in resp) {
           reject(new Error(resp.error))
         } else if (!('status' in resp)) {
-          this.data = { ...resp.payload }
-          resolve()
+          if (resp.payload.id === this.id) {
+            this.data = { ...resp.payload }
+            resolve()
+          }
         }
       }
       this.socket.on(AdminTopic.ItemRead, callback)
