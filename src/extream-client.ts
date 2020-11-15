@@ -27,6 +27,9 @@ export class ExtreamClient {
     this.user = new User(this.options)
   }
 
+  /**
+   * Access admin functionality such as creating itineraries ect.
+   */
   get admin (): Admin {
     if (!this.adminActions) {
       throw new Error('Please connect and authenticate before trying to perform any actions')
@@ -34,6 +37,9 @@ export class ExtreamClient {
     return this.adminActions
   }
 
+  /**
+   * Access user functionality such as join chat rooms, joining polls ect.
+   */
   get consumer (): Consumer {
     if (!this.consumerActions) {
       throw new Error('Please connect and authenticate before trying to perform any actions')
@@ -104,6 +110,11 @@ export class ExtreamClient {
     this.subscriptionManager.addSubscription(topic, cb)
   }
 
+  /**
+   * Cleans up all listeners for this class. Call this when your application instance is being left or destroyed.
+   *
+   * @returns { void }
+   */
   public destroy (): void {
     if (!this.subscriptionManager) {
       throw new Error('No socket connection found. You do not need to destroy a socket that has never been connected.')
