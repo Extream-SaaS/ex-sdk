@@ -38,6 +38,9 @@ export interface NoticeGetRequest {
 export class Notices {
   private subscriptionManager: SubscriptionManager;
   private socket: SocketIOClient.Socket;
+  /**
+   * All of the unread notices for the logged in user
+   */
   public notices: Notice[] = []
 
   constructor (socket: SocketIOClient.Socket) {
@@ -104,6 +107,11 @@ export class Notices {
     })
   }
 
+  /**
+   * Cleans up all listeners for this class. Call this when you no longer need access to this events information to ensure memory leaks are not caused.
+   *
+   * @returns { void }
+   */
   public destroy (): void {
     if (!this.subscriptionManager) {
       throw new Error('No socket connection found. You do not need to destroy a socket that has never been connected.')

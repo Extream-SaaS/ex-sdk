@@ -359,9 +359,9 @@ export class Chat {
   }
 
   /**
-   * Call once the a user leaves the chat to remove all event listener.
+   * Cleans up all listeners for this class. Call this when you no longer need access to this events information to ensure memory leaks are not caused.
    *
-   * If this is not called each instance of this class with leak event listeners.
+   * @returns { void }
    */
   destroy (): void {
     this.subscriptionManager.removeAllSubscriptions()

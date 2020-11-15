@@ -1,4 +1,6 @@
-/* authorization events */
+/**
+ * All of the authorization related websocket events
+ */
 export enum AuthorizationTopic {
   Authorized = 'authorized',
   Authorize = 'authorize',
@@ -7,7 +9,9 @@ export enum AuthorizationTopic {
   Connect = 'connect',
 }
 
-/* admin events */
+/**
+ * All of the admin related websocket events
+ */
 export enum AdminTopic {
   OrganisationCreate = 'admin_organisation_create',
   OrganisationUpdate = 'admin_organisation_update',
@@ -25,7 +29,9 @@ export enum AdminTopic {
   ItemRead = 'admin_item_read',
 }
 
-/* client events */
+/**
+ * All of the client related websocket events
+ */
 export enum ClientTopic {
   RtmpGet = 'client_rtmp_get',
   RtmpActivate = 'client_rtmp_activate',
@@ -35,7 +41,9 @@ export enum ClientTopic {
   NoticeSend = 'client_notice_send',
 }
 
-/* consumer events */
+/**
+ * All of the consumer related websocket events
+ */
 export enum ConsumerTopic {
   ChatGet = 'consumer_chat_get',
   ChatReceive = 'consumer_chat_receive',
@@ -61,10 +69,3 @@ export type Topics = {
   ClientTopic: ClientTopic,
   ConsumerTopic: ConsumerTopic,
 }
-
-// type ValueOf<T> = T[keyof T];
-
-// export type ConsumerTopics = ValueOf<ConsumerTopic>;
-// export type ClientTopics = keyof typeof ClientTopic;
-// export type AdminTopics = keyof typeof AdminTopic;
-// export type AuthorizationTopics = keyof typeof AuthorizationTopic;

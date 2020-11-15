@@ -160,6 +160,11 @@ export class Poll {
     })
   }
 
+  /**
+   * Cleans up all listeners for this class. Call this when you no longer need access to this events information to ensure memory leaks are not caused.
+   *
+   * @returns { void }
+   */
   destroy (): void {
     this.subscriptionManager.removeAllSubscriptions()
   }

@@ -100,8 +100,8 @@ export default class User {
    * Register a new user
    * @param { RegisterUserRequest } params Use information
    */
-  public async registerUser (params: RegisterUserRequest) {
-    const user = await this.performFetch(
+  public async registerUser (params: RegisterUserRequest): ExtreamUser {
+    const user = await this.performFetch<ExtreamUser>(
       `${this.options.auth}/auth/register`,
       {
         method: 'POST',
