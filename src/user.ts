@@ -54,6 +54,9 @@ export interface RegisterUserRequest {
   user: UserFields;
 }
 
+/**
+ * A class to allow login and registration of users.
+ */
 export default class User {
   public headers: Headers
   options: ExtreamOptions

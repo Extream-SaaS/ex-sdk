@@ -33,13 +33,31 @@ export interface QuestionResponse {
   }
 }
 
+/**
+ * Represents a questions related to a specific poll.
+ */
 export class Question {
   private socket: SocketIOClient.Socket
   public id: string
+  /**
+   * List of all answers
+   */
   public answers: AnswerResponse[]
+  /**
+   * Time for the question to show
+   */
   public responses: { [key: string]: number }
+  /**
+   * Text of the question e.g. "What is your name?"
+   */
   public question: string
+  /**
+   * Time for the question to show
+   */
   public timeToLive: number
+  /**
+   * Time question was streamed in
+   */
   public timeAdded: number
 
   constructor (socket: SocketIOClient.Socket, id: string, data: QuestionResponse) {
@@ -59,10 +77,19 @@ export class Question {
     return a.order - b.order
   }
 
+  /**
+   * Set the responses of a question
+   * @param { [key: string]: number } responses The responses for a question
+   */
   setResponses (responses: { [key: string]: number }): void {
     this.responses = responses
   }
 
+  /**
+   * Answer this question
+   * @param {string} answer The id of the answer you wish to give.
+   * @param {string} poll The id of the poll this question is related to
+   */
   answer (answer: string, poll: string): Promise<void> {
     let callback: (resp: InitialResponse | AnswerPollsResponse) => void
     return promiseTimeout(new Promise<void>((resolve, reject) => {

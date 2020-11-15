@@ -47,10 +47,22 @@ export interface PollUpdateRequest {}
 
 export type UpdateItemRequest = PollUpdateRequest | WebRtcUpdateRequest | RmtpUpdateRequest | ChatUpdateRequest
 
+/**
+ * Allows management of itinerary items for admins.
+ */
 export default class ItineraryItem {
   private socket: SocketIOClient.Socket
+  /**
+   * The data relating to this item. Populated after calling get.
+   */
   public data: RmtpItineraryItemPayload | null = null
+  /**
+   * The id of the item
+   */
   public id: string
+  /**
+   * Type of the item e.g. chat, rtmp
+   */
   public type: string
 
   constructor (socket: SocketIOClient.Socket, id: string, type: string) {
@@ -59,6 +71,9 @@ export default class ItineraryItem {
     this.type = type
   }
 
+  /**
+   * Get all information for this itinerary item. This populates the data field.
+   */
   get (): Promise<void> {
     let callback: (resp: InitialResponse | GetRmtpItineraryItemResponse) => void
     return promiseTimeout(new Promise<void>((resolve, reject) => {
@@ -82,6 +97,10 @@ export default class ItineraryItem {
     })
   }
 
+  /**
+   * Update a specific itinerary item. Can parse partial fields to this.
+   * @param update
+   */
   update (update: Partial<UpdateItemRequest>): Promise<void> {
     let callback: (resp: InitialResponse | GetRmtpItineraryItemResponse) => void
     return promiseTimeout(new Promise<void>((resolve, reject) => {

@@ -24,8 +24,17 @@ export type CreateItemResponse = SocketResponse<{
 
 export class AdminItinerary {
   private socket: SocketIOClient.Socket
+  /**
+   * All the information relating to the itinerary. This is populated after calling `get`.
+   */
   public data: ItineraryPayload | null = null
+  /**
+   * The id of this itinerary
+   */
   public id: string
+  /**
+   * A list of all itinerary items related to this itinerary. If an item is added/removed then this updates.
+   */
   public items: ItineraryItem[] = []
 
   constructor (socket: SocketIOClient.Socket, id: string) {
@@ -33,6 +42,10 @@ export class AdminItinerary {
     this.id = id
   }
 
+  /**
+   * Create a new itinerary based on the payload
+   * @param payload
+   */
   create (payload: ItineraryPayload): void {
     const items = payload.items
       ? JSON.parse(payload.items as string)
@@ -43,6 +56,10 @@ export class AdminItinerary {
     }
   }
 
+  /**
+   * Update an itinerary item. Can be a single field or the whole thing.
+   * @param update
+   */
   update (update: Partial<ItineraryPayload>): Promise<void> {
     let callback: (resp: InitialResponse | GetItineraryResponse) => void
     return promiseTimeout(new Promise<void>((resolve, reject) => {
@@ -63,6 +80,9 @@ export class AdminItinerary {
     })
   }
 
+  /**
+   * Get all information for this itinerary item. This populates the data field.
+   */
   get (): Promise<void> {
     let callback: (resp: InitialResponse | GetItineraryResponse) => void
     return promiseTimeout(new Promise<void>((resolve, reject) => {
@@ -83,6 +103,10 @@ export class AdminItinerary {
     })
   }
 
+  /**
+   * Delete an itinerary item from this itinerary
+   * @param {string} id The id of the item to remove
+   */
   deleteItem (id: string): Promise<void> {
     let callback: (resp: InitialResponse | DeleteItineraryItemResponse) => void
     return promiseTimeout(new Promise<void>((resolve, reject) => {
@@ -104,6 +128,10 @@ export class AdminItinerary {
     })
   }
 
+  /**
+   * Create an itinerary item for this itinerary
+   * @param item The information of the item you wish to create
+   */
   createItineraryItem (item: InitialResponse | CreateItemRequest): Promise<void> {
     let callback: (resp: InitialResponse | CreateItemResponse) => void
     return promiseTimeout(new Promise<void>((resolve, reject) => {

@@ -64,6 +64,10 @@ export class Notices {
     this.socket.emit(ConsumerTopic.NoticeReceive, request)
   }
 
+  /**
+   * Get all of the notices that the user hasn't read and setup all the required listeners for new notices streamed in.
+   * @param request
+   */
   get (request: NoticeGetRequest) : Promise<void> {
     let callback: (resp: InitialResponse | GetNoticesResponse) => void
     return promiseTimeout(new Promise<void>((resolve, reject) => {
@@ -83,6 +87,10 @@ export class Notices {
     })
   }
 
+  /**
+   * Mark a specific notice as read
+   * @param {string} id THe id of the notice to mark as read for the logged in user
+   */
   readNotice (id: string): Promise<void> {
     const notice = this.notices.find(({ public_id: noticeId }) => id === noticeId)
     if (!notice) {
