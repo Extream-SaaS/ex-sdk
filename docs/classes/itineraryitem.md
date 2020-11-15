@@ -2,6 +2,8 @@
 
 # Class: ItineraryItem
 
+Allows management of itinerary items for admins.
+
 ## Hierarchy
 
 * **ItineraryItem**
@@ -30,7 +32,7 @@
 
 \+ **new ItineraryItem**(`socket`: Socket, `id`: string, `type`: string): *[ItineraryItem](itineraryitem.md)*
 
-*Defined in [admin/itinerary-item.ts:54](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/admin/itinerary-item.ts#L54)*
+*Defined in [admin/itinerary-item.ts:66](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/admin/itinerary-item.ts#L66)*
 
 **Parameters:**
 
@@ -48,7 +50,9 @@ Name | Type |
 
 • **data**: *[RmtpItineraryItemPayload](../interfaces/rmtpitineraryitempayload.md) | null* = null
 
-*Defined in [admin/itinerary-item.ts:52](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/admin/itinerary-item.ts#L52)*
+*Defined in [admin/itinerary-item.ts:58](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/admin/itinerary-item.ts#L58)*
+
+The data relating to this item. Populated after calling get.
 
 ___
 
@@ -56,9 +60,11 @@ ___
 
 • **id**: *string*
 
-*Defined in [event.ts:25](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/event.ts#L25)*
+*Defined in [event.ts:25](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/event.ts#L25)*
 
-*Defined in [admin/itinerary-item.ts:53](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/admin/itinerary-item.ts#L53)*
+*Defined in [admin/itinerary-item.ts:62](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/admin/itinerary-item.ts#L62)*
+
+The id of the item
 
 ___
 
@@ -66,7 +72,7 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [admin/itinerary-item.ts:51](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/admin/itinerary-item.ts#L51)*
+*Defined in [admin/itinerary-item.ts:54](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/admin/itinerary-item.ts#L54)*
 
 ___
 
@@ -74,9 +80,11 @@ ___
 
 • **type**: *string*
 
-*Defined in [event.ts:24](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/event.ts#L24)*
+*Defined in [event.ts:24](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/event.ts#L24)*
 
-*Defined in [admin/itinerary-item.ts:54](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/admin/itinerary-item.ts#L54)*
+*Defined in [admin/itinerary-item.ts:66](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/admin/itinerary-item.ts#L66)*
+
+Type of the item e.g. chat, rtmp
 
 ## Methods
 
@@ -84,7 +92,9 @@ ___
 
 ▸ **get**(): *Promise‹void›*
 
-*Defined in [admin/itinerary-item.ts:62](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/admin/itinerary-item.ts#L62)*
+*Defined in [admin/itinerary-item.ts:77](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/admin/itinerary-item.ts#L77)*
+
+Get all information for this itinerary item. This populates the data field.
 
 **Returns:** *Promise‹void›*
 
@@ -94,12 +104,14 @@ ___
 
 ▸ **update**(`update`: Partial‹[UpdateItemRequest](../globals.md#updateitemrequest)›): *Promise‹void›*
 
-*Defined in [admin/itinerary-item.ts:85](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/admin/itinerary-item.ts#L85)*
+*Defined in [admin/itinerary-item.ts:104](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/admin/itinerary-item.ts#L104)*
+
+Update a specific itinerary item. Can parse partial fields to this.
 
 **Parameters:**
 
-Name | Type |
------- | ------ |
-`update` | Partial‹[UpdateItemRequest](../globals.md#updateitemrequest)› |
+Name | Type | Description |
+------ | ------ | ------ |
+`update` | Partial‹[UpdateItemRequest](../globals.md#updateitemrequest)› |   |
 
 **Returns:** *Promise‹void›*

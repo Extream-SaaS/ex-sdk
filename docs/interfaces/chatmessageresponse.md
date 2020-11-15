@@ -28,7 +28,7 @@ Chat message response for a message being streamed in
 
 • **from**: *[ExtreamUser](extreamuser.md)*
 
-*Defined in [itinerary-item/chat.ts:11](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/itinerary-item/chat.ts#L11)*
+*Defined in [itinerary-item/chat.ts:11](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/itinerary-item/chat.ts#L11)*
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 • **id**? : *undefined | string*
 
-*Defined in [itinerary-item/chat.ts:10](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/itinerary-item/chat.ts#L10)*
+*Defined in [itinerary-item/chat.ts:10](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/itinerary-item/chat.ts#L10)*
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 • **message**: *string*
 
-*Defined in [itinerary-item/chat.ts:14](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/itinerary-item/chat.ts#L14)*
+*Defined in [itinerary-item/chat.ts:14](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/itinerary-item/chat.ts#L14)*
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 • **parent**: *string*
 
-*Defined in [itinerary-item/chat.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/itinerary-item/chat.ts#L13)*
+*Defined in [itinerary-item/chat.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/itinerary-item/chat.ts#L13)*
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 • **removed**: *boolean*
 
-*Defined in [itinerary-item/chat.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/itinerary-item/chat.ts#L16)*
+*Defined in [itinerary-item/chat.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/itinerary-item/chat.ts#L16)*
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 • **sent**: *Date*
 
-*Defined in [itinerary-item/chat.ts:15](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/itinerary-item/chat.ts#L15)*
+*Defined in [itinerary-item/chat.ts:15](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/itinerary-item/chat.ts#L15)*
 
 ___
 
@@ -76,4 +76,4 @@ ___
 
 • **uuid**: *string*
 
-*Defined in [itinerary-item/chat.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/itinerary-item/chat.ts#L12)*
+*Defined in [itinerary-item/chat.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/itinerary-item/chat.ts#L12)*

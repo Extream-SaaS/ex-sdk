@@ -2,6 +2,8 @@
 
 # Class: Question
 
+Represents a questions related to a specific poll.
+
 ## Hierarchy
 
 * **Question**
@@ -34,7 +36,7 @@
 
 \+ **new Question**(`socket`: Socket, `id`: string, `data`: [QuestionResponse](../interfaces/questionresponse.md)): *[Question](question.md)*
 
-*Defined in [itinerary-item/question.ts:43](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/itinerary-item/question.ts#L43)*
+*Defined in [itinerary-item/question.ts:61](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/itinerary-item/question.ts#L61)*
 
 **Parameters:**
 
@@ -52,7 +54,9 @@ Name | Type |
 
 • **answers**: *[AnswerResponse](../interfaces/answerresponse.md)[]*
 
-*Defined in [itinerary-item/question.ts:39](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/itinerary-item/question.ts#L39)*
+*Defined in [itinerary-item/question.ts:45](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/itinerary-item/question.ts#L45)*
+
+List of all answers
 
 ___
 
@@ -60,7 +64,7 @@ ___
 
 • **id**: *string*
 
-*Defined in [itinerary-item/question.ts:38](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/itinerary-item/question.ts#L38)*
+*Defined in [itinerary-item/question.ts:41](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/itinerary-item/question.ts#L41)*
 
 ___
 
@@ -68,7 +72,9 @@ ___
 
 • **question**: *string*
 
-*Defined in [itinerary-item/question.ts:41](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/itinerary-item/question.ts#L41)*
+*Defined in [itinerary-item/question.ts:53](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/itinerary-item/question.ts#L53)*
+
+Text of the question e.g. "What is your name?"
 
 ___
 
@@ -76,7 +82,9 @@ ___
 
 • **responses**: *object*
 
-*Defined in [itinerary-item/question.ts:40](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/itinerary-item/question.ts#L40)*
+*Defined in [itinerary-item/question.ts:49](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/itinerary-item/question.ts#L49)*
+
+Time for the question to show
 
 #### Type declaration:
 
@@ -88,7 +96,7 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [itinerary-item/question.ts:37](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/itinerary-item/question.ts#L37)*
+*Defined in [itinerary-item/question.ts:40](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/itinerary-item/question.ts#L40)*
 
 ___
 
@@ -96,7 +104,9 @@ ___
 
 • **timeAdded**: *number*
 
-*Defined in [itinerary-item/question.ts:43](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/itinerary-item/question.ts#L43)*
+*Defined in [itinerary-item/question.ts:61](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/itinerary-item/question.ts#L61)*
+
+Time question was streamed in
 
 ___
 
@@ -104,7 +114,9 @@ ___
 
 • **timeToLive**: *number*
 
-*Defined in [itinerary-item/question.ts:42](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/itinerary-item/question.ts#L42)*
+*Defined in [itinerary-item/question.ts:57](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/itinerary-item/question.ts#L57)*
+
+Time for the question to show
 
 ## Methods
 
@@ -112,14 +124,16 @@ ___
 
 ▸ **answer**(`answer`: string, `poll`: string): *Promise‹void›*
 
-*Defined in [itinerary-item/question.ts:72](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/itinerary-item/question.ts#L72)*
+*Defined in [itinerary-item/question.ts:93](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/itinerary-item/question.ts#L93)*
+
+Answer this question
 
 **Parameters:**
 
-Name | Type |
------- | ------ |
-`answer` | string |
-`poll` | string |
+Name | Type | Description |
+------ | ------ | ------ |
+`answer` | string | The id of the answer you wish to give. |
+`poll` | string | The id of the poll this question is related to  |
 
 **Returns:** *Promise‹void›*
 
@@ -129,13 +143,15 @@ ___
 
 ▸ **setResponses**(`responses`: object): *void*
 
-*Defined in [itinerary-item/question.ts:68](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/itinerary-item/question.ts#L68)*
+*Defined in [itinerary-item/question.ts:84](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/itinerary-item/question.ts#L84)*
+
+Set the responses of a question
 
 **Parameters:**
 
-Name | Type |
------- | ------ |
-`responses` | object |
+Name | Type | Description |
+------ | ------ | ------ |
+`responses` | object | The responses for a question  |
 
 **Returns:** *void*
 
@@ -145,7 +161,7 @@ ___
 
 ▸ **sortByOrder**(`a`: [AnswerResponse](../interfaces/answerresponse.md), `b`: [AnswerResponse](../interfaces/answerresponse.md)): *number*
 
-*Defined in [itinerary-item/question.ts:64](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/itinerary-item/question.ts#L64)*
+*Defined in [itinerary-item/question.ts:76](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/itinerary-item/question.ts#L76)*
 
 **Parameters:**
 

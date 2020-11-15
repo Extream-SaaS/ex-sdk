@@ -23,7 +23,7 @@
 
 • **answers**: *object*
 
-*Defined in [itinerary-item/question.ts:26](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/itinerary-item/question.ts#L26)*
+*Defined in [itinerary-item/question.ts:26](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/itinerary-item/question.ts#L26)*
 
 #### Type declaration:
 
@@ -35,7 +35,7 @@ ___
 
 • **id**: *string*
 
-*Defined in [itinerary-item/question.ts:24](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/itinerary-item/question.ts#L24)*
+*Defined in [itinerary-item/question.ts:24](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/itinerary-item/question.ts#L24)*
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 • **order**: *number*
 
-*Defined in [itinerary-item/question.ts:25](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/itinerary-item/question.ts#L25)*
+*Defined in [itinerary-item/question.ts:25](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/itinerary-item/question.ts#L25)*
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 • **question**: *string*
 
-*Defined in [itinerary-item/question.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/itinerary-item/question.ts#L23)*
+*Defined in [itinerary-item/question.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/itinerary-item/question.ts#L23)*
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 • **responses**: *object*
 
-*Defined in [itinerary-item/question.ts:27](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/itinerary-item/question.ts#L27)*
+*Defined in [itinerary-item/question.ts:27](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/itinerary-item/question.ts#L27)*
 
 #### Type declaration:
 
@@ -75,6 +75,6 @@ ___
 
 ###  timeToLive
 
-• **timeToLive**: *number*
+• **timeToLive**: *string*
 
-*Defined in [itinerary-item/question.ts:22](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/itinerary-item/question.ts#L22)*
+*Defined in [itinerary-item/question.ts:22](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/itinerary-item/question.ts#L22)*

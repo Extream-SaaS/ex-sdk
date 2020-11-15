@@ -2,6 +2,8 @@
 
 # Class: Rtmp
 
+An Rtmp video item.
+
 ## Hierarchy
 
 * **Rtmp**
@@ -28,7 +30,7 @@
 
 \+ **new Rtmp**(`socket`: Socket, `id`: string): *[Rtmp](rtmp.md)*
 
-*Defined in [itinerary-item/rtmp.ts:35](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/itinerary-item/rtmp.ts#L35)*
+*Defined in [itinerary-item/rtmp.ts:44](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/itinerary-item/rtmp.ts#L44)*
 
 **Parameters:**
 
@@ -45,7 +47,9 @@ Name | Type |
 
 • **data**: *[ReadRtmpResponsePayload](../interfaces/readrtmpresponsepayload.md) | null* = null
 
-*Defined in [itinerary-item/rtmp.ts:35](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/itinerary-item/rtmp.ts#L35)*
+*Defined in [itinerary-item/rtmp.ts:44](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/itinerary-item/rtmp.ts#L44)*
+
+All of the data relating to this item. Populated after calling the .get message.
 
 ___
 
@@ -53,7 +57,9 @@ ___
 
 • **id**: *string*
 
-*Defined in [itinerary-item/rtmp.ts:34](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/itinerary-item/rtmp.ts#L34)*
+*Defined in [itinerary-item/rtmp.ts:40](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/itinerary-item/rtmp.ts#L40)*
+
+The id of the itinerary item
 
 ___
 
@@ -61,7 +67,7 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [itinerary-item/rtmp.ts:33](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/itinerary-item/rtmp.ts#L33)*
+*Defined in [itinerary-item/rtmp.ts:36](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/itinerary-item/rtmp.ts#L36)*
 
 ## Methods
 
@@ -69,6 +75,8 @@ ___
 
 ▸ **get**(): *Promise‹void›*
 
-*Defined in [itinerary-item/rtmp.ts:42](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/itinerary-item/rtmp.ts#L42)*
+*Defined in [itinerary-item/rtmp.ts:54](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/itinerary-item/rtmp.ts#L54)*
+
+Call this method to populate the data property.
 
 **Returns:** *Promise‹void›*

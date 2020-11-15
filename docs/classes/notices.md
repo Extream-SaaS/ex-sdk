@@ -34,7 +34,7 @@ Notices (also known as voice of god) are a method of sending
 
 \+ **new Notices**(`socket`: Socket): *[Notices](notices.md)*
 
-*Defined in [notices.ts:41](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/notices.ts#L41)*
+*Defined in [notices.ts:44](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/notices.ts#L44)*
 
 **Parameters:**
 
@@ -50,7 +50,9 @@ Name | Type |
 
 • **notices**: *[Notice](../interfaces/notice.md)[]* = []
 
-*Defined in [notices.ts:41](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/notices.ts#L41)*
+*Defined in [notices.ts:44](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/notices.ts#L44)*
+
+All of the unread notices for the logged in user
 
 ___
 
@@ -58,7 +60,7 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [notices.ts:40](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/notices.ts#L40)*
+*Defined in [notices.ts:40](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/notices.ts#L40)*
 
 ___
 
@@ -66,7 +68,7 @@ ___
 
 • **subscriptionManager**: *[SubscriptionManager](subscriptionmanager.md)*
 
-*Defined in [notices.ts:39](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/notices.ts#L39)*
+*Defined in [notices.ts:39](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/notices.ts#L39)*
 
 ## Methods
 
@@ -74,7 +76,9 @@ ___
 
 ▸ **destroy**(): *void*
 
-*Defined in [notices.ts:107](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/notices.ts#L107)*
+*Defined in [notices.ts:123](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/notices.ts#L123)*
+
+Cleans up all listeners for this class. Call this when you no longer need access to this events information to ensure memory leaks are not caused.
 
 **Returns:** *void*
 
@@ -84,13 +88,15 @@ ___
 
 ▸ **get**(`request`: [NoticeGetRequest](../interfaces/noticegetrequest.md)): *Promise‹void›*
 
-*Defined in [notices.ts:64](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/notices.ts#L64)*
+*Defined in [notices.ts:71](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/notices.ts#L71)*
+
+Get all of the notices that the user hasn't read and setup all the required listeners for new notices streamed in.
 
 **Parameters:**
 
-Name | Type |
------- | ------ |
-`request` | [NoticeGetRequest](../interfaces/noticegetrequest.md) |
+Name | Type | Description |
+------ | ------ | ------ |
+`request` | [NoticeGetRequest](../interfaces/noticegetrequest.md) |   |
 
 **Returns:** *Promise‹void›*
 
@@ -100,7 +106,7 @@ ___
 
 ▸ **listenForNotices**(`request`: [NoticeGetRequest](../interfaces/noticegetrequest.md)): *void*
 
-*Defined in [notices.ts:57](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/notices.ts#L57)*
+*Defined in [notices.ts:60](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/notices.ts#L60)*
 
 **Parameters:**
 
@@ -116,13 +122,15 @@ ___
 
 ▸ **readNotice**(`id`: string): *Promise‹void›*
 
-*Defined in [notices.ts:83](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/notices.ts#L83)*
+*Defined in [notices.ts:94](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/notices.ts#L94)*
+
+Mark a specific notice as read
 
 **Parameters:**
 
-Name | Type |
------- | ------ |
-`id` | string |
+Name | Type | Description |
+------ | ------ | ------ |
+`id` | string | THe id of the notice to mark as read for the logged in user  |
 
 **Returns:** *Promise‹void›*
 
@@ -132,7 +140,7 @@ ___
 
 ▸ **sortByDate**(`a`: [Notice](../interfaces/notice.md), `b`: [Notice](../interfaces/notice.md)): *number*
 
-*Defined in [notices.ts:53](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/notices.ts#L53)*
+*Defined in [notices.ts:56](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/notices.ts#L56)*
 
 Sort messages based on date descending
 

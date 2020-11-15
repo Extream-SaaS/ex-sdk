@@ -2,6 +2,8 @@
 
 # Enumeration: ClientTopic
 
+All of the client related websocket events
+
 ## Index
 
 ### Enumeration members
@@ -19,7 +21,7 @@
 
 • **ChatActivate**: = "client_chat_activate"
 
-*Defined in [topic.ts:33](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/topic.ts#L33)*
+*Defined in [topic.ts:39](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/topic.ts#L39)*
 
 ___
 
@@ -27,7 +29,7 @@ ___
 
 • **ChatBan**: = "client_chat_ban"
 
-*Defined in [topic.ts:32](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/topic.ts#L32)*
+*Defined in [topic.ts:38](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/topic.ts#L38)*
 
 ___
 
@@ -35,7 +37,7 @@ ___
 
 • **NoticeSend**: = "client_notice_send"
 
-*Defined in [topic.ts:35](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/topic.ts#L35)*
+*Defined in [topic.ts:41](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/topic.ts#L41)*
 
 ___
 
@@ -43,7 +45,7 @@ ___
 
 • **PollListener**: = "client_poll_listener"
 
-*Defined in [topic.ts:34](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/topic.ts#L34)*
+*Defined in [topic.ts:40](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/topic.ts#L40)*
 
 ___
 
@@ -51,7 +53,7 @@ ___
 
 • **RtmpActivate**: = "client_rtmp_activate"
 
-*Defined in [topic.ts:31](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/topic.ts#L31)*
+*Defined in [topic.ts:37](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/topic.ts#L37)*
 
 ___
 
@@ -59,4 +61,4 @@ ___
 
 • **RtmpGet**: = "client_rtmp_get"
 
-*Defined in [topic.ts:30](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/topic.ts#L30)*
+*Defined in [topic.ts:36](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/topic.ts#L36)*
