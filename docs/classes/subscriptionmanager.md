@@ -33,7 +33,7 @@ Consumers of this class should create their own subscription managers in constru
 
 \+ **new SubscriptionManager**(`socket`: Socket): *[SubscriptionManager](subscriptionmanager.md)*
 
-*Defined in [subscription-manager.ts:9](https://github.com/Extream-SaaS/ex-sdk/blob/bef9da7/src/subscription-manager.ts#L9)*
+*Defined in [subscription-manager.ts:9](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/subscription-manager.ts#L9)*
 
 **Parameters:**
 
@@ -49,7 +49,7 @@ Name | Type |
 
 • **listeners**: *object[]* = []
 
-*Defined in [subscription-manager.ts:9](https://github.com/Extream-SaaS/ex-sdk/blob/bef9da7/src/subscription-manager.ts#L9)*
+*Defined in [subscription-manager.ts:9](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/subscription-manager.ts#L9)*
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [subscription-manager.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/bef9da7/src/subscription-manager.ts#L8)*
+*Defined in [subscription-manager.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/subscription-manager.ts#L8)*
 
 ## Methods
 
@@ -65,7 +65,7 @@ ___
 
 ▸ **addSubscription**(`event`: string, `callback`: function): *void*
 
-*Defined in [subscription-manager.ts:20](https://github.com/Extream-SaaS/ex-sdk/blob/bef9da7/src/subscription-manager.ts#L20)*
+*Defined in [subscription-manager.ts:20](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/subscription-manager.ts#L20)*
 
 List to for an event on the websocket
 
@@ -95,7 +95,7 @@ ___
 
 ▸ **removeAllSubscriptions**(): *void*
 
-*Defined in [subscription-manager.ts:31](https://github.com/Extream-SaaS/ex-sdk/blob/bef9da7/src/subscription-manager.ts#L31)*
+*Defined in [subscription-manager.ts:31](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/subscription-manager.ts#L31)*
 
 Clean up all subscription the manager has setup
 

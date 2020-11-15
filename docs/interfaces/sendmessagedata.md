@@ -19,7 +19,7 @@
 
 • **message**: *string*
 
-*Defined in [itinerary-item/chat.ts:41](https://github.com/Extream-SaaS/ex-sdk/blob/bef9da7/src/itinerary-item/chat.ts#L41)*
+*Defined in [itinerary-item/chat.ts:41](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/itinerary-item/chat.ts#L41)*
 
 The message to send to the chat
 
@@ -29,4 +29,4 @@ ___
 
 • **moderators**? : *string[]*
 
-*Defined in [itinerary-item/chat.ts:42](https://github.com/Extream-SaaS/ex-sdk/blob/bef9da7/src/itinerary-item/chat.ts#L42)*
+*Defined in [itinerary-item/chat.ts:42](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/itinerary-item/chat.ts#L42)*

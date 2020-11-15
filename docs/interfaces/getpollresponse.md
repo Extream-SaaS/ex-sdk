@@ -18,4 +18,4 @@
 
 • **payload**: *[GetPollResponsePayload](getpollresponsepayload.md)*
 
-*Defined in [itinerary-item/poll.ts:19](https://github.com/Extream-SaaS/ex-sdk/blob/bef9da7/src/itinerary-item/poll.ts#L19)*
+*Defined in [itinerary-item/poll.ts:19](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/itinerary-item/poll.ts#L19)*

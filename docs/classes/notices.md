@@ -34,7 +34,7 @@ Notices (also known as voice of god) are a method of sending
 
 \+ **new Notices**(`socket`: Socket): *[Notices](notices.md)*
 
-*Defined in [notices.ts:41](https://github.com/Extream-SaaS/ex-sdk/blob/bef9da7/src/notices.ts#L41)*
+*Defined in [notices.ts:41](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/notices.ts#L41)*
 
 **Parameters:**
 
@@ -50,7 +50,7 @@ Name | Type |
 
 • **notices**: *[Notice](../interfaces/notice.md)[]* = []
 
-*Defined in [notices.ts:41](https://github.com/Extream-SaaS/ex-sdk/blob/bef9da7/src/notices.ts#L41)*
+*Defined in [notices.ts:41](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/notices.ts#L41)*
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [notices.ts:40](https://github.com/Extream-SaaS/ex-sdk/blob/bef9da7/src/notices.ts#L40)*
+*Defined in [notices.ts:40](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/notices.ts#L40)*
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 • **subscriptionManager**: *[SubscriptionManager](subscriptionmanager.md)*
 
-*Defined in [notices.ts:39](https://github.com/Extream-SaaS/ex-sdk/blob/bef9da7/src/notices.ts#L39)*
+*Defined in [notices.ts:39](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/notices.ts#L39)*
 
 ## Methods
 
@@ -74,7 +74,7 @@ ___
 
 ▸ **destroy**(): *void*
 
-*Defined in [notices.ts:107](https://github.com/Extream-SaaS/ex-sdk/blob/bef9da7/src/notices.ts#L107)*
+*Defined in [notices.ts:107](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/notices.ts#L107)*
 
 **Returns:** *void*
 
@@ -84,7 +84,7 @@ ___
 
 ▸ **get**(`request`: [NoticeGetRequest](../interfaces/noticegetrequest.md)): *Promise‹void›*
 
-*Defined in [notices.ts:64](https://github.com/Extream-SaaS/ex-sdk/blob/bef9da7/src/notices.ts#L64)*
+*Defined in [notices.ts:64](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/notices.ts#L64)*
 
 **Parameters:**
 
@@ -100,7 +100,7 @@ ___
 
 ▸ **listenForNotices**(`request`: [NoticeGetRequest](../interfaces/noticegetrequest.md)): *void*
 
-*Defined in [notices.ts:57](https://github.com/Extream-SaaS/ex-sdk/blob/bef9da7/src/notices.ts#L57)*
+*Defined in [notices.ts:57](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/notices.ts#L57)*
 
 **Parameters:**
 
@@ -116,7 +116,7 @@ ___
 
 ▸ **readNotice**(`id`: string): *Promise‹void›*
 
-*Defined in [notices.ts:83](https://github.com/Extream-SaaS/ex-sdk/blob/bef9da7/src/notices.ts#L83)*
+*Defined in [notices.ts:83](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/notices.ts#L83)*
 
 **Parameters:**
 
@@ -132,7 +132,7 @@ ___
 
 ▸ **sortByDate**(`a`: [Notice](../interfaces/notice.md), `b`: [Notice](../interfaces/notice.md)): *number*
 
-*Defined in [notices.ts:53](https://github.com/Extream-SaaS/ex-sdk/blob/bef9da7/src/notices.ts#L53)*
+*Defined in [notices.ts:53](https://github.com/Extream-SaaS/ex-sdk/blob/22f780b/src/notices.ts#L53)*
 
 Sort messages based on date descending
 
