@@ -42,11 +42,20 @@ jobs:
         run: npm test
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # Typedoc will not work if this file is present. Remove it here, regenerate the docs and then put it back.
+      - name: Delete_config
+        id: Delete_config
+        run: rm ./docs/_config.yml
       - name: Generate_docs
         id: Generate_docs
         run: npm run docs
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # Putting the file back see above comment.
+      - name: Add_config
+        id: Add_config
+        run:  |
+          echo "theme: jekyll-theme-cayman" >> ./docs/_config.yml
       - uses: TriPSs/conventional-changelog-action@v1.2.0
         id: Changelog
         with:
