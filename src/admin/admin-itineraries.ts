@@ -6,9 +6,18 @@ import { AdminItinerary } from './admin-itinerary'
 export type CreateItineraryResponse = SocketResponse<any>
 export type GetEventItinerariesResponse = SocketResponse<ItineraryPayload[]>
 
+/**
+ * Manages all of the itineraries for a specific event. Allows you to perform CRUD actions on itineraries for a specific event.
+ */
 export default class AdminItineraries {
   private socket: SocketIOClient.Socket
+  /**
+   * All the itineraries associated to the event this class has been instaitated with.
+   */
   public itineraries: AdminItinerary[] = []
+  /**
+   * The event all these itineraries are related to.
+   */
   public event: string
 
   constructor (socket: SocketIOClient.Socket, event: string) {
@@ -16,6 +25,9 @@ export default class AdminItineraries {
     this.event = event
   }
 
+  /**
+   * Get all the itineraries for an event. Once this method has been called all the itineraries are added to the itinerary property on the array.
+   */
   getAll (): Promise<void> {
     let callback: (resp: InitialResponse | GetEventItinerariesResponse) => void
     return promiseTimeout(new Promise<void>((resolve, reject) => {
@@ -40,6 +52,10 @@ export default class AdminItineraries {
     })
   }
 
+  /**
+   * Create an itinerary for the event this class is associated to
+   * @param {Partial<ItineraryPayload>} itinerary The information about the itinerary
+   */
   createItinerary (itinerary: Partial<ItineraryPayload>): Promise<string> {
     let callback: (resp: InitialResponse | CreateItineraryResponse) => void
     return promiseTimeout(new Promise<string>((resolve, reject) => {
@@ -62,6 +78,10 @@ export default class AdminItineraries {
     })
   }
 
+  /**
+   * Remove an existing itinerary & all its' associated items from this event.
+   * @param id
+   */
   delete (id: string): Promise<void> {
     let callback: (resp: InitialResponse | CreateItineraryResponse) => void
     return promiseTimeout(new Promise<void>((resolve, reject) => {

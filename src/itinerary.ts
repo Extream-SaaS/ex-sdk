@@ -1,7 +1,7 @@
 import { Chat, Rtmp, Poll } from './itinerary-item'
 import { GetItineraryResponse, ItineraryItem, ItineraryPayload } from './event'
 import { ConsumerTopic } from './topic'
-import { InitialResponse, promiseTimeout, TimeStamp } from './utils'
+import { InitialResponse, promiseTimeout } from './utils'
 
 export interface RtcConfiguration {
   operators: string[];
@@ -14,11 +14,27 @@ export enum ItineraryType {
   Poll = 'poll',
 }
 
+/**
+ * Creates a view of a specific itinerary with all of the itinerary items associated with it.
+ * This means you can easily subscribe to chats, videos and polls items that belong to this itinerary.
+ */
 export class Itinerary {
   private socket: SocketIOClient.Socket
+  /**
+   * All the information relating to the itinerary. This is populated after calling `getItinerary`.
+   */
   public payload: ItineraryPayload | null = null
+  /**
+   * All the chat items related to the itinerary
+   */
   public chats: Chat[] = []
+  /**
+   * All the RTMP items related to the itinerary
+   */
   public rtmpFeeds: Rtmp[] = []
+  /**
+   * All the poll items related to the itinerary
+   */
   public polls: Poll[] = []
 
   constructor (socket: SocketIOClient.Socket) {
@@ -40,6 +56,10 @@ export class Itinerary {
     return poll
   }
 
+  /**
+   * Create an instances of all the itinerary items from the payload
+   * @param {ItineraryPayload} payload From getting the information for all itineraries
+   */
   public async createItineraryItem (payload: ItineraryPayload): Promise<void> {
     const items: ItineraryItem[] = JSON.parse(payload.items as string)
     this.payload = {
@@ -54,6 +74,10 @@ export class Itinerary {
     this.polls = pollItems.map(this.createPollItem.bind(this))
   }
 
+  /**
+   * Get all the information for a specific itinerary.
+   * @param {string} id Get all the information for a specific itinerary. This then creates all the itinerary items.
+   */
   public getItinerary (id: string): Promise<void> {
     let callback: (resp: InitialResponse | GetItineraryResponse) => void
     return promiseTimeout(new Promise<void>((resolve, reject) => {
@@ -66,6 +90,7 @@ export class Itinerary {
         }
       }
       this.socket.on(ConsumerTopic.ItineraryGet, callback)
+      // TODO The id should be passed into the constructor.
       this.socket.emit(ConsumerTopic.ItineraryGet, {
         id
       })
