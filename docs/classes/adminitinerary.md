@@ -33,7 +33,7 @@
 
 \+ **new AdminItinerary**(`socket`: Socket, `id`: string): *[AdminItinerary](adminitinerary.md)*
 
-*Defined in [admin/admin-itinerary.ts:29](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/admin/admin-itinerary.ts#L29)*
+*Defined in [admin/admin-itinerary.ts:29](https://github.com/Extream-SaaS/ex-sdk/blob/bb35162/src/admin/admin-itinerary.ts#L29)*
 
 **Parameters:**
 
@@ -50,7 +50,7 @@ Name | Type |
 
 • **data**: *[ItineraryPayload](../interfaces/itinerarypayload.md) | null* = null
 
-*Defined in [admin/admin-itinerary.ts:27](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/admin/admin-itinerary.ts#L27)*
+*Defined in [admin/admin-itinerary.ts:27](https://github.com/Extream-SaaS/ex-sdk/blob/bb35162/src/admin/admin-itinerary.ts#L27)*
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 • **id**: *string*
 
-*Defined in [admin/admin-itinerary.ts:28](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/admin/admin-itinerary.ts#L28)*
+*Defined in [admin/admin-itinerary.ts:28](https://github.com/Extream-SaaS/ex-sdk/blob/bb35162/src/admin/admin-itinerary.ts#L28)*
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 • **items**: *ItineraryItem[]* = []
 
-*Defined in [admin/admin-itinerary.ts:29](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/admin/admin-itinerary.ts#L29)*
+*Defined in [admin/admin-itinerary.ts:29](https://github.com/Extream-SaaS/ex-sdk/blob/bb35162/src/admin/admin-itinerary.ts#L29)*
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [admin/admin-itinerary.ts:26](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/admin/admin-itinerary.ts#L26)*
+*Defined in [admin/admin-itinerary.ts:26](https://github.com/Extream-SaaS/ex-sdk/blob/bb35162/src/admin/admin-itinerary.ts#L26)*
 
 ## Methods
 
@@ -82,7 +82,7 @@ ___
 
 ▸ **create**(`payload`: [ItineraryPayload](../interfaces/itinerarypayload.md)): *void*
 
-*Defined in [admin/admin-itinerary.ts:36](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/admin/admin-itinerary.ts#L36)*
+*Defined in [admin/admin-itinerary.ts:36](https://github.com/Extream-SaaS/ex-sdk/blob/bb35162/src/admin/admin-itinerary.ts#L36)*
 
 **Parameters:**
 
@@ -98,7 +98,7 @@ ___
 
 ▸ **createItineraryItem**(`item`: [InitialResponse](../interfaces/initialresponse.md) | [CreateItemRequest](../globals.md#createitemrequest)): *Promise‹void›*
 
-*Defined in [admin/admin-itinerary.ts:107](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/admin/admin-itinerary.ts#L107)*
+*Defined in [admin/admin-itinerary.ts:107](https://github.com/Extream-SaaS/ex-sdk/blob/bb35162/src/admin/admin-itinerary.ts#L107)*
 
 **Parameters:**
 
@@ -114,7 +114,7 @@ ___
 
 ▸ **deleteItem**(`id`: string): *Promise‹void›*
 
-*Defined in [admin/admin-itinerary.ts:86](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/admin/admin-itinerary.ts#L86)*
+*Defined in [admin/admin-itinerary.ts:86](https://github.com/Extream-SaaS/ex-sdk/blob/bb35162/src/admin/admin-itinerary.ts#L86)*
 
 **Parameters:**
 
@@ -130,7 +130,7 @@ ___
 
 ▸ **get**(): *Promise‹void›*
 
-*Defined in [admin/admin-itinerary.ts:66](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/admin/admin-itinerary.ts#L66)*
+*Defined in [admin/admin-itinerary.ts:66](https://github.com/Extream-SaaS/ex-sdk/blob/bb35162/src/admin/admin-itinerary.ts#L66)*
 
 **Returns:** *Promise‹void›*
 
@@ -140,7 +140,7 @@ ___
 
 ▸ **update**(`update`: Partial‹[ItineraryPayload](../interfaces/itinerarypayload.md)›): *Promise‹void›*
 
-*Defined in [admin/admin-itinerary.ts:46](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/admin/admin-itinerary.ts#L46)*
+*Defined in [admin/admin-itinerary.ts:46](https://github.com/Extream-SaaS/ex-sdk/blob/bb35162/src/admin/admin-itinerary.ts#L46)*
 
 **Parameters:**
 

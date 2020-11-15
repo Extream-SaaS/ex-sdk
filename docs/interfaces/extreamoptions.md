@@ -20,7 +20,7 @@
 
 • **apiKey**: *string*
 
-*Defined in [utils.ts:20](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/utils.ts#L20)*
+*Defined in [utils.ts:20](https://github.com/Extream-SaaS/ex-sdk/blob/bb35162/src/utils.ts#L20)*
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 • **auth**: *string*
 
-*Defined in [utils.ts:18](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/utils.ts#L18)*
+*Defined in [utils.ts:18](https://github.com/Extream-SaaS/ex-sdk/blob/bb35162/src/utils.ts#L18)*
 
 ___
 
@@ -36,4 +36,4 @@ ___
 
 • **gateway**: *string*
 
-*Defined in [utils.ts:19](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/utils.ts#L19)*
+*Defined in [utils.ts:19](https://github.com/Extream-SaaS/ex-sdk/blob/bb35162/src/utils.ts#L19)*

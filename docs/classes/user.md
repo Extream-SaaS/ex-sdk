@@ -31,7 +31,7 @@
 
 \+ **new User**(`options`: [ExtreamOptions](../interfaces/extreamoptions.md)): *[User](user.md)*
 
-*Defined in [user.ts:59](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/user.ts#L59)*
+*Defined in [user.ts:59](https://github.com/Extream-SaaS/ex-sdk/blob/bb35162/src/user.ts#L59)*
 
 **Parameters:**
 
@@ -47,7 +47,7 @@ Name | Type |
 
 • **headers**: *Headers*
 
-*Defined in [user.ts:58](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/user.ts#L58)*
+*Defined in [user.ts:58](https://github.com/Extream-SaaS/ex-sdk/blob/bb35162/src/user.ts#L58)*
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 • **options**: *[ExtreamOptions](../interfaces/extreamoptions.md)*
 
-*Defined in [user.ts:59](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/user.ts#L59)*
+*Defined in [user.ts:59](https://github.com/Extream-SaaS/ex-sdk/blob/bb35162/src/user.ts#L59)*
 
 ## Methods
 
@@ -63,7 +63,7 @@ ___
 
 ▸ **fetchUser**(`username`: string): *Promise‹[ExtreamAuthUser](../interfaces/extreamauthuser.md) | null›*
 
-*Defined in [user.ts:122](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/user.ts#L122)*
+*Defined in [user.ts:122](https://github.com/Extream-SaaS/ex-sdk/blob/bb35162/src/user.ts#L122)*
 
 Try and fetch a user and see weather they exist or not
 
@@ -81,7 +81,7 @@ ___
 
 ▸ **login**(`username`: string, `password`: string, `eventId?`: undefined | string): *Promise‹[AuthenticationResponse](../interfaces/authenticationresponse.md)›*
 
-*Defined in [user.ts:146](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/user.ts#L146)*
+*Defined in [user.ts:146](https://github.com/Extream-SaaS/ex-sdk/blob/bb35162/src/user.ts#L146)*
 
 Given a username and password, will authenticate the user against the ExtreamClient
 
@@ -101,7 +101,7 @@ ___
 
 ▸ **objectToUrlFormData**(`params`: object): *string*
 
-*Defined in [user.ts:73](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/user.ts#L73)*
+*Defined in [user.ts:73](https://github.com/Extream-SaaS/ex-sdk/blob/bb35162/src/user.ts#L73)*
 
 Utility to turn object into url encoded form data
 
@@ -119,7 +119,7 @@ ___
 
 ▸ **performFetch**‹**T**›(`url`: string, `options`: RequestInit | undefined): *Promise‹T›*
 
-*Defined in [user.ts:84](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/user.ts#L84)*
+*Defined in [user.ts:84](https://github.com/Extream-SaaS/ex-sdk/blob/bb35162/src/user.ts#L84)*
 
 Utility to perform a generic fetch request
 
@@ -142,7 +142,7 @@ ___
 
 ▸ **registerUser**(`params`: [RegisterUserRequest](../interfaces/registeruserrequest.md)): *Promise‹unknown›*
 
-*Defined in [user.ts:103](https://github.com/Extream-SaaS/ex-sdk/blob/ca89c6b/src/user.ts#L103)*
+*Defined in [user.ts:103](https://github.com/Extream-SaaS/ex-sdk/blob/bb35162/src/user.ts#L103)*
 
 Register a new user
 
