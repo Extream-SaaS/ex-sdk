@@ -55,22 +55,31 @@ export interface QuestionRequest {
   } []
 }
 
+/**
+ * Represents a poll itinerary item
+ */
 export class Poll {
   private socket: SocketIOClient.Socket;
   private subscriptionManager: SubscriptionManager;
   public id: string;
+  /**
+   * All of the questions that are active on this poll currently
+   */
   public questions: Question[] = []
+  /**
+   * The type of the poll. Currently only immediate supported.
+   */
   public type: PollType | null = null
 
-  /**
-   *
-   */
   constructor (socket: SocketIOClient.Socket, id: string) {
     this.socket = socket
     this.subscriptionManager = new SubscriptionManager(this.socket)
     this.id = id
   }
 
+  /**
+   * Sets up websocket listeners for other peoples responses coming in
+   */
   listenForResponses (): void {
     this.subscriptionManager.addSubscription(ConsumerTopic.PollAnswer, (resp: AnswerPollsResponse) => {
       if ('error' in resp) {
@@ -87,6 +96,9 @@ export class Poll {
     })
   }
 
+  /**
+   * Sets up websocket listeners for new questions being streamed into the poll
+   */
   listenForQuestions (): void {
     this.subscriptionManager.addSubscription(ConsumerTopic.PollQuestion, (resp: PollQuestionResponse) => {
       if (resp.id === this.id) {
@@ -96,10 +108,18 @@ export class Poll {
     })
   }
 
+  /**
+   * Sorts messages by date
+   */
   static sortByOrder (a: QuestionResponse, b: QuestionResponse): number {
     return a.order - b.order
   }
 
+  /**
+   * Anser a question
+   * @param {string} questionId The id o the question to answer
+   * @param {string} answerId The id of the answer to give
+   */
   async answer (questionId: string, answerId: string): Promise<void> {
     const question = this.questions.find(({ id }) => id === questionId)
     if (!question) {
@@ -108,30 +128,33 @@ export class Poll {
     await question.answer(answerId, this.id)
   }
 
-  createQuestion (question: QuestionRequest): Promise<void> {
-    let callback: (resp: InitialResponse | CreateQuestionResponse) => void
-    return promiseTimeout(new Promise<void>((resolve, reject) => {
-      callback = (resp: InitialResponse | CreateQuestionResponse) => {
-        if ('error' in resp) {
-          reject(new Error(resp.error))
-        } else if (!('status' in resp)) {
-          if (resp.id === this.id) {
-            const question = new Question(this.socket, resp.payload.id, resp.payload)
-            this.questions = [question, ...this.questions]
-            resolve()
-          }
-        }
-      }
-      this.socket.on(ConsumerTopic.QuestionCreate, callback)
-      this.socket.emit(ConsumerTopic.QuestionCreate, {
-        id: this.id,
-        ...question
-      })
-    })).finally(() => {
-      this.socket.removeListener(ConsumerTopic.QuestionCreate, callback)
-    })
-  }
+  // createQuestion (question: QuestionRequest): Promise<void> {
+  //   let callback: (resp: InitialResponse | CreateQuestionResponse) => void
+  //   return promiseTimeout(new Promise<void>((resolve, reject) => {
+  //     callback = (resp: InitialResponse | CreateQuestionResponse) => {
+  //       if ('error' in resp) {
+  //         reject(new Error(resp.error))
+  //       } else if (!('status' in resp)) {
+  //         if (resp.id === this.id) {
+  //           const question = new Question(this.socket, resp.payload.id, resp.payload)
+  //           this.questions = [question, ...this.questions]
+  //           resolve()
+  //         }
+  //       }
+  //     }
+  //     this.socket.on(ConsumerTopic.QuestionCreate, callback)
+  //     this.socket.emit(ConsumerTopic.QuestionCreate, {
+  //       id: this.id,
+  //       ...question
+  //     })
+  //   })).finally(() => {
+  //     this.socket.removeListener(ConsumerTopic.QuestionCreate, callback)
+  //   })
+  // }
 
+  /**
+   * Get all information for this poll. Questions will be populated in the questions array.
+   */
   get (): Promise<void> {
     let callback: (resp: InitialResponse | GetPollResponse) => void
     return promiseTimeout(new Promise<void>((resolve, reject) => {

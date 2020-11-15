@@ -100,7 +100,7 @@ export default class User {
    * Register a new user
    * @param { RegisterUserRequest } params Use information
    */
-  public async registerUser (params: RegisterUserRequest): ExtreamUser {
+  public async registerUser (params: RegisterUserRequest): Promise<ExtreamUser> {
     const user = await this.performFetch<ExtreamUser>(
       `${this.options.auth}/auth/register`,
       {
