@@ -30,6 +30,11 @@ export interface NoticeGetRequest {
   read?: boolean,
 }
 
+/**
+ * Notices (also known as voice of god) are a method of sending
+ *
+ *
+ */
 export class Notices {
   private subscriptionManager: SubscriptionManager;
   private socket: SocketIOClient.Socket;
@@ -63,7 +68,7 @@ export class Notices {
         if ('error' in resp) {
           reject(new Error(resp.error))
         } else if (!('status' in resp)) {
-          this.notices = resp.payload.sort(Notices.sortByDate)
+          this.notices = [...resp.payload].sort(Notices.sortByDate)
           this.listenForNotices(request)
           resolve()
         }

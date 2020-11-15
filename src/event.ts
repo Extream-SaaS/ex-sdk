@@ -56,12 +56,19 @@ export class Event {
     this.notices = new Notices(this.socket)
   }
 
+  /**
+   * Get all of the unread notices for this event
+   */
   public getNotices (): Promise<void> {
     return this.notices.get({
       event: this.id
     })
   }
 
+  /**
+   * Creates an instance of the itinerary class based off of the payload information passed in.
+   * @param { ItineraryPayload[] } payload All the itinerary information for a specific event
+   */
   private async getItineraryInformation (payload: ItineraryPayload[]): Promise<void> {
     const itineraryItems = await Promise.all(payload.map(async (item) => {
       const itinerary = new Itinerary(this.socket)
@@ -71,6 +78,10 @@ export class Event {
     this.itinerary = itineraryItems
   }
 
+  /**
+   * Get all of the itinerary items for a specific event. After awaiting this method all the itinerary items are in the itineraries property of this class
+   * @param { Promise<void> } payload All the itinerary information for a specific event
+   */
   public getItineraryItems (): Promise<void> {
     let callback: (resp: InitialResponse | GetEventItineraryResponse) => void
     return promiseTimeout(new Promise<void>((resolve, reject) => {
@@ -90,6 +101,11 @@ export class Event {
     })
   }
 
+  /**
+   * Cleans up all listeners for this class. Call this when you no longer need access to this events information to ensure memory leaks are not caused.
+   *
+   * @returns { void }
+   */
   public destroy (): void {
     if (this.notices.destroy) {
       this.notices.destroy()
