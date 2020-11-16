@@ -19,7 +19,7 @@
 
 • **mode**: *string*
 
-*Defined in [itinerary.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/itinerary.ts#L8)*
+*Defined in [itinerary.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/itinerary.ts#L8)*
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 • **operators**: *string[]*
 
-*Defined in [itinerary.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/itinerary.ts#L7)*
+*Defined in [itinerary.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/itinerary.ts#L7)*

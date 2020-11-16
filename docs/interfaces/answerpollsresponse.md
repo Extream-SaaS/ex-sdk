@@ -19,7 +19,7 @@
 
 • **error**? : *undefined | string*
 
-*Defined in [itinerary-item/question.ts:11](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/itinerary-item/question.ts#L11)*
+*Defined in [itinerary-item/question.ts:11](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/itinerary-item/question.ts#L11)*
 
 ___
 
@@ -27,7 +27,7 @@ ___
 
 • **payload**: *object*
 
-*Defined in [itinerary-item/question.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/itinerary-item/question.ts#L12)*
+*Defined in [itinerary-item/question.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/itinerary-item/question.ts#L12)*
 
 #### Type declaration:
 

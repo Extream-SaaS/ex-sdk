@@ -27,7 +27,7 @@
 
 • **createdAt**: *string*
 
-*Defined in [notices.ts:10](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/notices.ts#L10)*
+*Defined in [notices.ts:10](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/notices.ts#L10)*
 
 ___
 
@@ -35,7 +35,7 @@ ___
 
 • **createdBy**: *string*
 
-*Defined in [notices.ts:11](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/notices.ts#L11)*
+*Defined in [notices.ts:11](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/notices.ts#L11)*
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 • **event**: *string*
 
-*Defined in [notices.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/notices.ts#L12)*
+*Defined in [notices.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/notices.ts#L12)*
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 • **id**: *string*
 
-*Defined in [notices.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/notices.ts#L8)*
+*Defined in [notices.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/notices.ts#L8)*
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 • **itinerary**: *string*
 
-*Defined in [notices.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/notices.ts#L13)*
+*Defined in [notices.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/notices.ts#L13)*
 
 ___
 
@@ -67,7 +67,7 @@ ___
 
 • **message**: *object*
 
-*Defined in [notices.ts:14](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/notices.ts#L14)*
+*Defined in [notices.ts:14](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/notices.ts#L14)*
 
 #### Type declaration:
 
@@ -79,7 +79,7 @@ ___
 
 • **page**: *string*
 
-*Defined in [notices.ts:17](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/notices.ts#L17)*
+*Defined in [notices.ts:17](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/notices.ts#L17)*
 
 ___
 
@@ -87,7 +87,7 @@ ___
 
 • **public_id**: *string*
 
-*Defined in [notices.ts:9](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/notices.ts#L9)*
+*Defined in [notices.ts:9](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/notices.ts#L9)*
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 • **status**: *string*
 
-*Defined in [notices.ts:18](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/notices.ts#L18)*
+*Defined in [notices.ts:18](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/notices.ts#L18)*
 
 ___
 
@@ -103,4 +103,4 @@ ___
 
 • **updatedAt**: *string*
 
-*Defined in [notices.ts:19](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/notices.ts#L19)*
+*Defined in [notices.ts:19](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/notices.ts#L19)*

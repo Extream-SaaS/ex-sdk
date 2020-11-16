@@ -20,7 +20,7 @@ All of the authorization related websocket events
 
 • **Authorize**: = "authorize"
 
-*Defined in [topic.ts:6](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/topic.ts#L6)*
+*Defined in [topic.ts:6](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/topic.ts#L6)*
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 • **Authorized**: = "authorized"
 
-*Defined in [topic.ts:5](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/topic.ts#L5)*
+*Defined in [topic.ts:5](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/topic.ts#L5)*
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 • **Connect**: = "connect"
 
-*Defined in [topic.ts:9](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/topic.ts#L9)*
+*Defined in [topic.ts:9](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/topic.ts#L9)*
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 • **Mfa**: = "mfa"
 
-*Defined in [topic.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/topic.ts#L8)*
+*Defined in [topic.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/topic.ts#L8)*
 
 ___
 
@@ -52,4 +52,4 @@ ___
 
 • **Unauthorized**: = "unauthorized"
 
-*Defined in [topic.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/5d4ea6b/src/topic.ts#L7)*
+*Defined in [topic.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/topic.ts#L7)*
