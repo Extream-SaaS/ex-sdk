@@ -61,6 +61,9 @@ export interface QuestionRequest {
 export class Poll {
   private socket: SocketIOClient.Socket;
   private subscriptionManager: SubscriptionManager;
+  /**
+   * Itinerary item id
+   */
   public id: string;
   /**
    * All of the questions that are active on this poll currently
