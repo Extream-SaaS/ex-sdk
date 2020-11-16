@@ -157,8 +157,8 @@ export class Chat {
 
   /**
    * Sort messages based on date descending
-   * @param a
-   * @param b
+   * @param { Message | ChatMessageResponse } a
+   * @param { Message | ChatMessageResponse } b
    */
   private static sortByDate (a: Message | ChatMessageResponse, b: Message | ChatMessageResponse) {
     return new Date(a.sent).getTime() - new Date(b.sent).getTime()
