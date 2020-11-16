@@ -58,6 +58,7 @@ export enum ConsumerTopic {
   QuestionCreate = 'consumer_question_create',
   RtmpGet = 'consumer_rtmp_get',
   WebrtcRead = 'consumer_webrtc_read',
+  WebrtcStart = 'consumer_webrtc_start',
   NoticeGet = 'consumer_notice_get',
   NoticeReceive = 'consumer_notice_receive',
   NoticeRead = 'consumer_notice_read',
