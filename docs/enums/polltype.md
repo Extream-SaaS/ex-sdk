@@ -15,7 +15,7 @@
 
 • **Immediate**: = "live"
 
-*Defined in [itinerary-item/poll.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/itinerary-item/poll.ts#L8)*
+*Defined in [itinerary-item/poll.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/8b68273/src/itinerary-item/poll.ts#L8)*
 
 ___
 
@@ -23,4 +23,4 @@ ___
 
 • **Timed**: = "timed"
 
-*Defined in [itinerary-item/poll.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/itinerary-item/poll.ts#L7)*
+*Defined in [itinerary-item/poll.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/8b68273/src/itinerary-item/poll.ts#L7)*

@@ -21,7 +21,7 @@
 
 • **event**: *string*
 
-*Defined in [notices.ts:27](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/notices.ts#L27)*
+*Defined in [notices.ts:27](https://github.com/Extream-SaaS/ex-sdk/blob/8b68273/src/notices.ts#L27)*
 
 ___
 
@@ -29,7 +29,7 @@ ___
 
 • **itinerary**? : *undefined | string*
 
-*Defined in [notices.ts:28](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/notices.ts#L28)*
+*Defined in [notices.ts:28](https://github.com/Extream-SaaS/ex-sdk/blob/8b68273/src/notices.ts#L28)*
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 • **page**? : *undefined | string*
 
-*Defined in [notices.ts:29](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/notices.ts#L29)*
+*Defined in [notices.ts:29](https://github.com/Extream-SaaS/ex-sdk/blob/8b68273/src/notices.ts#L29)*
 
 ___
 
@@ -45,4 +45,4 @@ ___
 
 • **read**? : *undefined | false | true*
 
-*Defined in [notices.ts:30](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/notices.ts#L30)*
+*Defined in [notices.ts:30](https://github.com/Extream-SaaS/ex-sdk/blob/8b68273/src/notices.ts#L30)*

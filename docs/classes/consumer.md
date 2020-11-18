@@ -35,7 +35,7 @@ Represents all the actions an event visitor can take. For example joining rooms,
 
 \+ **new Consumer**(`socket`: Socket, `options`: [ExtreamOptions](../interfaces/extreamoptions.md)): *[Consumer](consumer.md)*
 
-*Defined in [consumer.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/consumer.ts#L16)*
+*Defined in [consumer.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/8b68273/src/consumer.ts#L16)*
 
 Create an instance of the admin sdk
 
@@ -54,7 +54,7 @@ Name | Type |
 
 • **dms**: *[Chat](chat.md)[]* = []
 
-*Defined in [consumer.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/consumer.ts#L16)*
+*Defined in [consumer.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/8b68273/src/consumer.ts#L16)*
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 • **options**: *[ExtreamOptions](../interfaces/extreamoptions.md)*
 
-*Defined in [consumer.ts:14](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/consumer.ts#L14)*
+*Defined in [consumer.ts:14](https://github.com/Extream-SaaS/ex-sdk/blob/8b68273/src/consumer.ts#L14)*
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 • **room**: *[Chat](chat.md) | null* = null
 
-*Defined in [consumer.ts:15](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/consumer.ts#L15)*
+*Defined in [consumer.ts:15](https://github.com/Extream-SaaS/ex-sdk/blob/8b68273/src/consumer.ts#L15)*
 
 ___
 
@@ -78,7 +78,7 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [consumer.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/consumer.ts#L13)*
+*Defined in [consumer.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/8b68273/src/consumer.ts#L13)*
 
 ## Methods
 
@@ -86,7 +86,7 @@ ___
 
 ▸ **event**(`id`: string): *Promise‹[Event](event.md)›*
 
-*Defined in [consumer.ts:73](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/consumer.ts#L73)*
+*Defined in [consumer.ts:73](https://github.com/Extream-SaaS/ex-sdk/blob/8b68273/src/consumer.ts#L73)*
 
 Get a specific event. This class that represents everything that is happening at an event, allowing you get get itineraries, send messages ect.
 
@@ -104,7 +104,7 @@ ___
 
 ▸ **join**(`roomId`: string, `instanceId?`: undefined | string): *Promise‹[Chat](chat.md)›*
 
-*Defined in [consumer.ts:42](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/consumer.ts#L42)*
+*Defined in [consumer.ts:42](https://github.com/Extream-SaaS/ex-sdk/blob/8b68273/src/consumer.ts#L42)*
 
 Create a chat room.
 
@@ -123,7 +123,7 @@ ___
 
 ▸ **notices**(`request`: [NoticeGetRequest](../interfaces/noticegetrequest.md)): *Promise‹[Notices](notices.md)›*
 
-*Defined in [consumer.ts:63](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/consumer.ts#L63)*
+*Defined in [consumer.ts:63](https://github.com/Extream-SaaS/ex-sdk/blob/8b68273/src/consumer.ts#L63)*
 
 **Parameters:**
 
@@ -139,7 +139,7 @@ ___
 
 ▸ **onlineUsers**(`request`: any): *Promise‹[OnlineUsers](onlineusers.md)›*
 
-*Defined in [consumer.ts:31](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/consumer.ts#L31)*
+*Defined in [consumer.ts:31](https://github.com/Extream-SaaS/ex-sdk/blob/8b68273/src/consumer.ts#L31)*
 
 Get a list of online users
 
@@ -157,7 +157,7 @@ ___
 
 ▸ **startChat**(`roomId`: string): *Promise‹[Chat](chat.md)›*
 
-*Defined in [consumer.ts:53](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/consumer.ts#L53)*
+*Defined in [consumer.ts:53](https://github.com/Extream-SaaS/ex-sdk/blob/8b68273/src/consumer.ts#L53)*
 
 Start a new direct message chat in a specific room. Can be used for "help" chats.
 

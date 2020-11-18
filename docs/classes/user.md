@@ -33,7 +33,7 @@ A class to allow login and registration of users.
 
 \+ **new User**(`options`: [ExtreamOptions](../interfaces/extreamoptions.md)): *[User](user.md)*
 
-*Defined in [user.ts:62](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/user.ts#L62)*
+*Defined in [user.ts:62](https://github.com/Extream-SaaS/ex-sdk/blob/8b68273/src/user.ts#L62)*
 
 **Parameters:**
 
@@ -49,7 +49,7 @@ Name | Type |
 
 • **headers**: *Headers*
 
-*Defined in [user.ts:61](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/user.ts#L61)*
+*Defined in [user.ts:61](https://github.com/Extream-SaaS/ex-sdk/blob/8b68273/src/user.ts#L61)*
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 • **options**: *[ExtreamOptions](../interfaces/extreamoptions.md)*
 
-*Defined in [user.ts:62](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/user.ts#L62)*
+*Defined in [user.ts:62](https://github.com/Extream-SaaS/ex-sdk/blob/8b68273/src/user.ts#L62)*
 
 ## Methods
 
@@ -65,7 +65,7 @@ ___
 
 ▸ **fetchUser**(`username`: string): *Promise‹[ExtreamAuthUser](../interfaces/extreamauthuser.md) | null›*
 
-*Defined in [user.ts:125](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/user.ts#L125)*
+*Defined in [user.ts:125](https://github.com/Extream-SaaS/ex-sdk/blob/8b68273/src/user.ts#L125)*
 
 Try and fetch a user and see weather they exist or not
 
@@ -83,7 +83,7 @@ ___
 
 ▸ **login**(`username`: string, `password`: string, `eventId?`: undefined | string): *Promise‹[AuthenticationResponse](../interfaces/authenticationresponse.md)›*
 
-*Defined in [user.ts:149](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/user.ts#L149)*
+*Defined in [user.ts:149](https://github.com/Extream-SaaS/ex-sdk/blob/8b68273/src/user.ts#L149)*
 
 Given a username and password, will authenticate the user against the ExtreamClient
 
@@ -103,7 +103,7 @@ ___
 
 ▸ **objectToUrlFormData**(`params`: object): *string*
 
-*Defined in [user.ts:76](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/user.ts#L76)*
+*Defined in [user.ts:76](https://github.com/Extream-SaaS/ex-sdk/blob/8b68273/src/user.ts#L76)*
 
 Utility to turn object into url encoded form data
 
@@ -121,7 +121,7 @@ ___
 
 ▸ **performFetch**‹**T**›(`url`: string, `options`: RequestInit | undefined): *Promise‹T›*
 
-*Defined in [user.ts:87](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/user.ts#L87)*
+*Defined in [user.ts:87](https://github.com/Extream-SaaS/ex-sdk/blob/8b68273/src/user.ts#L87)*
 
 Utility to perform a generic fetch request
 
@@ -144,7 +144,7 @@ ___
 
 ▸ **registerUser**(`params`: [RegisterUserRequest](../interfaces/registeruserrequest.md)): *Promise‹[ExtreamUser](../interfaces/extreamuser.md)›*
 
-*Defined in [user.ts:106](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/user.ts#L106)*
+*Defined in [user.ts:106](https://github.com/Extream-SaaS/ex-sdk/blob/8b68273/src/user.ts#L106)*
 
 Register a new user
 
