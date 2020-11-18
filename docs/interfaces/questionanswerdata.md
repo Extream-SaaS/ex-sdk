@@ -19,7 +19,7 @@
 
 • **answer**: *string*
 
-*Defined in [itinerary-item/poll.ts:33](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/itinerary-item/poll.ts#L33)*
+*Defined in [itinerary-item/poll.ts:33](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/itinerary-item/poll.ts#L33)*
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 • **question**: *string*
 
-*Defined in [itinerary-item/poll.ts:32](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/itinerary-item/poll.ts#L32)*
+*Defined in [itinerary-item/poll.ts:32](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/itinerary-item/poll.ts#L32)*

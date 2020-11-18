@@ -33,7 +33,7 @@
 
 \+ **new AdminItinerary**(`socket`: Socket, `id`: string): *[AdminItinerary](adminitinerary.md)*
 
-*Defined in [admin/admin-itinerary.ts:38](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/admin/admin-itinerary.ts#L38)*
+*Defined in [admin/admin-itinerary.ts:38](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/admin/admin-itinerary.ts#L38)*
 
 **Parameters:**
 
@@ -50,7 +50,7 @@ Name | Type |
 
 • **data**: *[ItineraryPayload](../interfaces/itinerarypayload.md) | null* = null
 
-*Defined in [admin/admin-itinerary.ts:30](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/admin/admin-itinerary.ts#L30)*
+*Defined in [admin/admin-itinerary.ts:30](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/admin/admin-itinerary.ts#L30)*
 
 All the information relating to the itinerary. This is populated after calling `get`.
 
@@ -60,7 +60,7 @@ ___
 
 • **id**: *string*
 
-*Defined in [admin/admin-itinerary.ts:34](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/admin/admin-itinerary.ts#L34)*
+*Defined in [admin/admin-itinerary.ts:34](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/admin/admin-itinerary.ts#L34)*
 
 The id of this itinerary
 
@@ -70,7 +70,7 @@ ___
 
 • **items**: *ItineraryItem[]* = []
 
-*Defined in [admin/admin-itinerary.ts:38](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/admin/admin-itinerary.ts#L38)*
+*Defined in [admin/admin-itinerary.ts:38](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/admin/admin-itinerary.ts#L38)*
 
 A list of all itinerary items related to this itinerary. If an item is added/removed then this updates.
 
@@ -80,7 +80,7 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [admin/admin-itinerary.ts:26](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/admin/admin-itinerary.ts#L26)*
+*Defined in [admin/admin-itinerary.ts:26](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/admin/admin-itinerary.ts#L26)*
 
 ## Methods
 
@@ -88,7 +88,7 @@ ___
 
 ▸ **create**(`payload`: [ItineraryPayload](../interfaces/itinerarypayload.md)): *void*
 
-*Defined in [admin/admin-itinerary.ts:49](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/admin/admin-itinerary.ts#L49)*
+*Defined in [admin/admin-itinerary.ts:49](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/admin/admin-itinerary.ts#L49)*
 
 Create a new itinerary based on the payload
 
@@ -106,7 +106,7 @@ ___
 
 ▸ **createItineraryItem**(`item`: [InitialResponse](../interfaces/initialresponse.md) | [CreateItemRequest](../globals.md#createitemrequest)): *Promise‹void›*
 
-*Defined in [admin/admin-itinerary.ts:135](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/admin/admin-itinerary.ts#L135)*
+*Defined in [admin/admin-itinerary.ts:135](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/admin/admin-itinerary.ts#L135)*
 
 Create an itinerary item for this itinerary
 
@@ -124,7 +124,7 @@ ___
 
 ▸ **deleteItem**(`id`: string): *Promise‹void›*
 
-*Defined in [admin/admin-itinerary.ts:110](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/admin/admin-itinerary.ts#L110)*
+*Defined in [admin/admin-itinerary.ts:110](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/admin/admin-itinerary.ts#L110)*
 
 Delete an itinerary item from this itinerary
 
@@ -142,7 +142,7 @@ ___
 
 ▸ **get**(): *Promise‹void›*
 
-*Defined in [admin/admin-itinerary.ts:86](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/admin/admin-itinerary.ts#L86)*
+*Defined in [admin/admin-itinerary.ts:86](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/admin/admin-itinerary.ts#L86)*
 
 Get all information for this itinerary item. This populates the data field.
 
@@ -154,7 +154,7 @@ ___
 
 ▸ **update**(`update`: Partial‹[ItineraryPayload](../interfaces/itinerarypayload.md)›): *Promise‹void›*
 
-*Defined in [admin/admin-itinerary.ts:63](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/admin/admin-itinerary.ts#L63)*
+*Defined in [admin/admin-itinerary.ts:63](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/admin/admin-itinerary.ts#L63)*
 
 Update an itinerary item. Can be a single field or the whole thing.
 

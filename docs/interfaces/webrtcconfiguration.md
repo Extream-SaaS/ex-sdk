@@ -20,7 +20,7 @@
 
 • **actor**: *string*
 
-*Defined in [itinerary-item/webrtc.ts:6](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/itinerary-item/webrtc.ts#L6)*
+*Defined in [itinerary-item/webrtc.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/itinerary-item/webrtc.ts#L8)*
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 • **broadcast**: *boolean*
 
-*Defined in [itinerary-item/webrtc.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/itinerary-item/webrtc.ts#L7)*
+*Defined in [itinerary-item/webrtc.ts:9](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/itinerary-item/webrtc.ts#L9)*
 
 ___
 
@@ -36,4 +36,4 @@ ___
 
 • **mode**: *string*
 
-*Defined in [itinerary-item/webrtc.ts:5](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/itinerary-item/webrtc.ts#L5)*
+*Defined in [itinerary-item/webrtc.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/itinerary-item/webrtc.ts#L7)*

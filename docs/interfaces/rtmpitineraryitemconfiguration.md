@@ -21,7 +21,7 @@
 
 • **actor**: *string*
 
-*Defined in [admin/itinerary-item.ts:22](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/admin/itinerary-item.ts#L22)*
+*Defined in [admin/itinerary-item.ts:22](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/admin/itinerary-item.ts#L22)*
 
 ___
 
@@ -29,7 +29,7 @@ ___
 
 • **broadcast**? : *undefined | false | true*
 
-*Defined in [admin/itinerary-item.ts:24](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/admin/itinerary-item.ts#L24)*
+*Defined in [admin/itinerary-item.ts:24](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/admin/itinerary-item.ts#L24)*
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 • **crew**? : *undefined | string*
 
-*Defined in [admin/itinerary-item.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/admin/itinerary-item.ts#L23)*
+*Defined in [admin/itinerary-item.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/admin/itinerary-item.ts#L23)*
 
 ___
 
@@ -45,4 +45,4 @@ ___
 
 • **mode**: *string*
 
-*Defined in [admin/itinerary-item.ts:21](https://github.com/Extream-SaaS/ex-sdk/blob/34a42fe/src/admin/itinerary-item.ts#L21)*
+*Defined in [admin/itinerary-item.ts:21](https://github.com/Extream-SaaS/ex-sdk/blob/f6d569e/src/admin/itinerary-item.ts#L21)*
