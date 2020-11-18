@@ -18,6 +18,7 @@ export interface ExtreamOptions {
   auth: string;
   gateway: string;
   apiKey: string;
+  collab: string;
 }
 
 export interface TimeStamp {

@@ -1,5 +1,6 @@
 export * from './itinerary-item'
 export * from './consumer'
+export * from './online-users'
 export * from './event'
 export * from './itinerary'
 export * from './subscription-manager'

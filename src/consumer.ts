@@ -1,6 +1,8 @@
 import { Event } from './event'
 import { Chat } from './itinerary-item'
 import { NoticeGetRequest, Notices } from './notices'
+import OnlineUsers from './online-users';
+import { ExtreamOptions } from './utils'
 
 /**
  * Represents all the actions an event visitor can take. For example joining rooms, starting chats, getting notices ect.
@@ -9,14 +11,27 @@ import { NoticeGetRequest, Notices } from './notices'
  */
 export class Consumer {
   private socket: SocketIOClient.Socket;
+  private options: ExtreamOptions;
   public room: Chat | null = null
   public dms: Chat[] = []
 
   /**
    * Create an instance of the admin sdk
    */
-  constructor (socket: SocketIOClient.Socket) {
+  constructor (socket: SocketIOClient.Socket, options: ExtreamOptions) {
     this.socket = socket
+    this.options = options
+  }
+
+  /**
+   * Get a list of online users
+   *
+   * @param { OnlineUsers } roomId
+   */
+  async onlineUsers (request: any): Promise<OnlineUsers> {
+    const onlineUsers = new OnlineUsers(this.socket)
+    await onlineUsers.get(request)
+    return onlineUsers
   }
 
   /**
@@ -56,7 +71,7 @@ export class Consumer {
    * @param id The id of the event to get
    */
   async event (id: string): Promise<Event> {
-    const event = new Event(this.socket, id)
+    const event = new Event(this.socket, id, this.options)
     await event.getItineraryItems()
     return event
   }

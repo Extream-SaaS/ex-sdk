@@ -62,7 +62,7 @@ export class ExtreamClient {
       })
       this.subscriptionManager = new SubscriptionManager(this.socket)
       this.adminActions = new Admin(this.socket)
-      this.consumerActions = new Consumer(this.socket)
+      this.consumerActions = new Consumer(this.socket, this.options)
       this.socket.emit(AuthorizationTopic.Authorize, { method: 'oauth2', token: accessToken, visibility })
       this.socket.on(AuthorizationTopic.Authorized, (user: ExtreamUser) => {
         resolve(user)

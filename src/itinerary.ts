@@ -1,7 +1,8 @@
 import { Chat, Rtmp, Poll, WebRtc } from './itinerary-item'
 import { GetItineraryResponse, ItineraryItem, ItineraryPayload } from './event'
 import { ConsumerTopic } from './topic'
-import { InitialResponse, promiseTimeout } from './utils'
+import { ExtreamOptions, InitialResponse, promiseTimeout } from './utils'
+import { ExtreamUser } from './user'
 
 export interface RtcConfiguration {
   operators: string[];
@@ -21,6 +22,8 @@ export enum ItineraryType {
  */
 export class Itinerary {
   private socket: SocketIOClient.Socket
+  private options: ExtreamOptions
+
   /**
    * All the information relating to the itinerary. This is populated after calling `getItinerary`.
    */
@@ -42,8 +45,9 @@ export class Itinerary {
    */
   public webRtcItems: WebRtc[] = []
 
-  constructor (socket: SocketIOClient.Socket) {
+  constructor (socket: SocketIOClient.Socket, options: ExtreamOptions) {
     this.socket = socket
+    this.options = options
   }
 
   private createRtmpItem (item: ItineraryItem): Rtmp {
@@ -62,7 +66,7 @@ export class Itinerary {
   }
 
   private createWebRtcItem (item: ItineraryItem): WebRtc {
-    const poll = new WebRtc(this.socket, item.id)
+    const poll = new WebRtc(this.socket, item.id, this.options)
     return poll
   }
 
