@@ -34,6 +34,10 @@ export class WebRtc {
    */
   public instance: string | null = null
   /**
+   * The instance of the call item
+   */
+  public instances: string[] = []
+  /**
    * All of the data relating to this item. Populated after calling the .get message.
    */
   public data: ReadWebRtcResponsePayload | null = null
@@ -62,7 +66,7 @@ export class WebRtc {
     return await resp.json()
   }
 
-  async getToken (userToken: string): Promise<string[]> {
+  async fetchToken (userToken: string): Promise<string[]> {
     const resp = await fetch(
       `${this.options.collab}/sessions/token`,
       {
@@ -81,15 +85,15 @@ export class WebRtc {
 
   public listenForIncomingCalls (userToken: string): void {
     this.subscriptionManager.addSubscription(ConsumerTopic.WebrtcIncoming, async (resp: any) => {
-      // incoming video call
-      if (!resp.data.topic) {
-        this.instance = resp.data.instance
-        const tokens = await this.getToken(userToken)
-        const token = tokens[0]
-        this.token = token
-        this.connected = true
-      }
+      this.instances.push(resp.data.instance)
     })
+  }
+
+  public async getToken (userToken: string): Promise<string> {
+    await this.verifyUser(userToken)
+    const tokens = await this.fetchToken(userToken)
+    const token = tokens[0]
+    return token
   }
 
   /**
@@ -98,9 +102,7 @@ export class WebRtc {
    */
   async startCall (participants: string[], userToken: string): Promise<string> {
     let callback: (resp: any) => void
-    await this.verifyUser(userToken)
-    const tokens = await this.getToken(userToken)
-    const token = tokens[0]
+    const token = await this.getToken(userToken)
     this.token = token
     return promiseTimeout(new Promise<string>((resolve, reject) => {
       this.socket.on(ConsumerTopic.WebrtcStart, (resp: any) => {
