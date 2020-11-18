@@ -1,9 +1,9 @@
-## 0.5.12 (2020-11-18)
+## 0.5.13 (2020-11-18)
 
 
 ### Bug Fixes
 
-* import online users ([8b68273](https://github.com/Extream-SaaS/ex-sdk/commit/8b682738f6fffc8cb77f9d16e3e239631cf3208f))
+* expose get token method ([c40df84](https://github.com/Extream-SaaS/ex-sdk/commit/c40df84544945ae91ac4d2b47d22655bcabbf89a))
 
 
 
