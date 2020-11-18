@@ -1,7 +1,7 @@
 import { Event } from './event'
 import { Chat } from './itinerary-item'
 import { NoticeGetRequest, Notices } from './notices'
-import OnlineUsers from './online-users';
+import { OnlineUsers } from './online-users'
 import { ExtreamOptions } from './utils'
 
 /**

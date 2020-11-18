@@ -3,7 +3,7 @@ import { ConsumerTopic } from './topic'
 import { ExtreamUser } from './user'
 import { promiseTimeout } from './utils'
 
-export default class OnlineUsers {
+export class OnlineUsers {
   private subscriptionManager: SubscriptionManager;
   private socket: SocketIOClient.Socket;
   /**
