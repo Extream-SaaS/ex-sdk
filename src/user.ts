@@ -119,6 +119,26 @@ export default class User {
   }
 
   /**
+   * Complete an invited user
+   * @param { String } params User id
+   * @param { RegisterUserRequest } params User information
+   */
+  public async completeUser (userId: String, params: RegisterUserRequest): Promise<ExtreamUser> {
+    const user = await this.performFetch<ExtreamUser>(
+      `${this.options.auth}/auth/invitee/${userId}/register`,
+      {
+        method: 'POST',
+        headers: this.headers,
+        body: this.objectToUrlFormData({
+          ...params,
+          user: JSON.stringify(params.user)
+        })
+      }
+    )
+    return user
+  }
+
+  /**
    * Try and fetch a user and see weather they exist or not
    * @param {string} username the username to check if it exists or not
    */
