@@ -1,4 +1,5 @@
-import { ExtreamUser, UserFields } from './user'
+import { PersistanceType } from './persistance'
+import { ExtreamUser } from './user'
 
 export interface InitialResponse {
   /**
@@ -15,6 +16,7 @@ export interface InitialResponse {
 
 // Events by organization
 export interface ExtreamOptions {
+  persistance: PersistanceType
   auth: string;
   gateway: string;
   apiKey: string;

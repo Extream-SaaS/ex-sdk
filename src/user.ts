@@ -60,13 +60,10 @@ export interface RegisterUserRequest {
  */
 export default class User {
   public headers: Headers
-  private persistance: IPersistance | null
   public currentUser: ExtreamUser | null = null
   options: ExtreamOptions
 
-  constructor (options: ExtreamOptions, persistance: PersistanceType = PersistanceType.Cookie) {
-    const factory = new PersistanceFactory()
-    this.persistance = factory.get(persistance)
+  constructor (options: ExtreamOptions) {
     this.options = options
     this.headers = new Headers({
       'Content-Type': 'application/x-www-form-urlencoded',
@@ -192,22 +189,6 @@ export default class User {
       }
     )
 
-    if (this.persistance) {
-      this.persistance.setTokens(resp)
-    }
-
     return resp
-  }
-
-  /**
-   * Log the current user out of the application
-   *
-   * @returns { Promise<void> }
-   */
-  public async logout (): Promise<void> {
-    if (this.persistance) {
-      this.persistance.clear()
-    }
-    this.currentUser = null
   }
 }

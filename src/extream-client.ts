@@ -4,9 +4,10 @@ import io from 'socket.io-client'
 
 import { Admin } from './admin'
 import { Consumer } from './consumer'
+import { IPersistance, PersistanceFactory } from './persistance'
 import SubscriptionManager from './subscription-manager'
 import { AuthorizationTopic } from './topic'
-import User, { ExtreamUser } from './user'
+import User, { AuthenticationResponse, ExtreamUser } from './user'
 import { ExtreamOptions, promiseTimeout } from './utils'
 
 /**
@@ -19,10 +20,14 @@ export class ExtreamClient {
   public adminActions: Admin | null = null;
   public consumerActions: Consumer | null = null;
   public user: User;
+  public persistance: IPersistance | null
+  public currentUser: ExtreamUser | null = null
   private options: ExtreamOptions;
   private subscriptionManager: SubscriptionManager | null = null;
 
   constructor (options: ExtreamOptions) {
+    const factory = new PersistanceFactory()
+    this.persistance = factory.get(options.persistance)
     this.options = options
     this.user = new User(this.options)
   }
@@ -67,7 +72,7 @@ export class ExtreamClient {
    * @returns { Promise<ExtreamUser> }
    *
    */
-  connect (accessToken: string, visibility: boolean): Promise<ExtreamUser> {
+  private connect (accessToken: string, visibility: boolean): Promise<ExtreamUser> {
     return promiseTimeout(new Promise<ExtreamUser>((resolve, reject) => {
       this.socket = io(`${this.options.gateway}?x-auth=${accessToken}`, {
         transports: ['websocket']
