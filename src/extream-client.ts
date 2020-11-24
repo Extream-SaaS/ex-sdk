@@ -60,7 +60,30 @@ export class ExtreamClient {
    * @param eventId
    */
   public async authenticate (username: string, password: string, visibility: boolean, eventId?: string): Promise<void> {
-    const { accessToken } = await this.user.login(username, password, eventId)
+    const resp = await this.user.login(username, password, eventId)
+    if (this.persistance) {
+      this.persistance.setTokens(resp)
+    }
+    await this.connect(resp.accessToken, visibility)
+  }
+
+  /**
+   * Log the user in and open a authenticated websocket connection, based on stored access tokens.
+   * If persistence type (default cookies) is set to NONE then this feature will never work.
+   * This feature allows you to restore users to sessions without having to go through the whole login process again.
+   * @param username
+   * @param password
+   * @param visibility
+   * @param eventId
+   */
+  public async silentAuthenticate (visibility: boolean, eventId?: string): Promise<void> {
+    if (!this.persistance) {
+      throw new Error('Cannot silently authenticate without persistence')
+    }
+    const [accessToken] = this.persistance.getTokens()
+    if (!accessToken) {
+      throw new Error('Access token not found in cookie jar.')
+    }
     await this.connect(accessToken, visibility)
   }
 
