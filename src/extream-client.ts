@@ -7,8 +7,12 @@ import { Consumer } from './consumer'
 import { IPersistance, PersistanceFactory } from './persistance'
 import SubscriptionManager from './subscription-manager'
 import { AuthorizationTopic } from './topic'
-import User, { AuthenticationResponse, ExtreamUser } from './user'
+import User, { ExtreamUser } from './user'
 import { ExtreamOptions, promiseTimeout } from './utils'
+
+export interface AuthorizationRequest {
+  visibility: boolean;
+}
 
 /**
  * The Extream websocket and http communication client.
@@ -55,16 +59,14 @@ export class ExtreamClient {
   /**
    * Log the user in and open a authenticated websocket connection
    * @param username
-   * @param password
-   * @param visibility
-   * @param eventId
+   * @param authOptions
    */
-  public async authenticate (username: string, password: string, visibility: boolean, eventId?: string): Promise<void> {
+  public async authenticate (username: string, password: string, authOptions: Partial<AuthorizationRequest> = {}, eventId?: string): Promise<void> {
     const resp = await this.user.login(username, password, eventId)
     if (this.persistance) {
       this.persistance.setTokens(resp)
     }
-    await this.connect(resp.accessToken, visibility)
+    await this.connect(resp.accessToken, authOptions)
   }
 
   /**
@@ -72,11 +74,9 @@ export class ExtreamClient {
    * If persistence type (default cookies) is set to NONE then this feature will never work.
    * This feature allows you to restore users to sessions without having to go through the whole login process again.
    * @param username
-   * @param password
-   * @param visibility
-   * @param eventId
+   * @param authOptions
    */
-  public async silentAuthenticate (visibility: boolean, eventId?: string): Promise<void> {
+  public async silentAuthenticate (authOptions: Partial<AuthorizationRequest> = {}): Promise<void> {
     if (!this.persistance) {
       throw new Error('Cannot silently authenticate without persistence')
     }
@@ -84,18 +84,16 @@ export class ExtreamClient {
     if (!accessToken) {
       throw new Error('Access token not found in cookie jar.')
     }
-    await this.connect(accessToken, visibility)
+    await this.connect(accessToken, authOptions)
   }
 
   /**
    * Create an instance of the websocket and connect to it using the access token provided
    *
    * @param { string } accessToken
-   * @param { boolean } visibility
-   * @returns { Promise<ExtreamUser> }
-   *
+   * @param { Partial<AuthorizationRequest> } authOptions
    */
-  private connect (accessToken: string, visibility: boolean): Promise<ExtreamUser> {
+  private connect (accessToken: string, authOptions: Partial<AuthorizationRequest>): Promise<ExtreamUser> {
     return promiseTimeout(new Promise<ExtreamUser>((resolve, reject) => {
       this.socket = io(`${this.options.gateway}?x-auth=${accessToken}`, {
         transports: ['websocket']
@@ -103,7 +101,7 @@ export class ExtreamClient {
       this.subscriptionManager = new SubscriptionManager(this.socket)
       this.adminActions = new Admin(this.socket)
       this.consumerActions = new Consumer(this.socket, this.options)
-      this.socket.emit(AuthorizationTopic.Authorize, { method: 'oauth2', token: accessToken, visibility })
+      this.socket.emit(AuthorizationTopic.Authorize, { method: 'oauth2', token: accessToken, ...authOptions })
       this.socket.on(AuthorizationTopic.Authorized, (user: ExtreamUser) => {
         this.user.currentUser = user
         resolve(user)
