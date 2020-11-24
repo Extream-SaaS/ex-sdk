@@ -61,7 +61,7 @@ export class ExtreamClient {
    * @param username
    * @param authOptions
    */
-  public async authenticate (username: string, password: string, authOptions: Partial<AuthorizationRequest> = {}, eventId?: string): Promise<void> {
+  public async authenticate (username: string, password: string, authOptions?: Partial<AuthorizationRequest>, eventId?: string): Promise<void> {
     const resp = await this.user.login(username, password, eventId)
     if (this.persistance) {
       this.persistance.setTokens(resp)
@@ -76,7 +76,7 @@ export class ExtreamClient {
    * @param username
    * @param authOptions
    */
-  public async silentAuthenticate (authOptions: Partial<AuthorizationRequest> = {}): Promise<void> {
+  public async silentAuthenticate (authOptions?: Partial<AuthorizationRequest>): Promise<void> {
     if (!this.persistance) {
       throw new Error('Cannot silently authenticate without persistence')
     }
@@ -93,7 +93,7 @@ export class ExtreamClient {
    * @param { string } accessToken
    * @param { Partial<AuthorizationRequest> } authOptions
    */
-  private connect (accessToken: string, authOptions: Partial<AuthorizationRequest>): Promise<ExtreamUser> {
+  private connect (accessToken: string, authOptions: Partial<AuthorizationRequest> = {}): Promise<ExtreamUser> {
     return promiseTimeout(new Promise<ExtreamUser>((resolve, reject) => {
       this.socket = io(`${this.options.gateway}?x-auth=${accessToken}`, {
         transports: ['websocket']
