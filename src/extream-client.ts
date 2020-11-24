@@ -48,6 +48,18 @@ export class ExtreamClient {
   }
 
   /**
+   * Log the user in and open a authenticated websocket connection
+   * @param username
+   * @param password
+   * @param visibility
+   * @param eventId
+   */
+  public async authenticate (username: string, password: string, visibility: boolean, eventId?: string): Promise<void> {
+    const { accessToken } = await this.user.login(username, password, eventId)
+    await this.connect(accessToken, visibility)
+  }
+
+  /**
    * Create an instance of the websocket and connect to it using the access token provided
    *
    * @param { string } accessToken
@@ -65,6 +77,7 @@ export class ExtreamClient {
       this.consumerActions = new Consumer(this.socket, this.options)
       this.socket.emit(AuthorizationTopic.Authorize, { method: 'oauth2', token: accessToken, visibility })
       this.socket.on(AuthorizationTopic.Authorized, (user: ExtreamUser) => {
+        this.user.currentUser = user
         resolve(user)
       })
       this.socket.on(AuthorizationTopic.Unauthorized, (error: Error) => {

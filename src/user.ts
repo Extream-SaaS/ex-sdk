@@ -1,4 +1,4 @@
-import PersistanceFactory, { IPersistance, PersistanceType } from './persistance'
+import { PersistanceFactory, IPersistance, PersistanceType } from './persistance'
 import { ExtreamOptions, promiseTimeout } from './utils'
 
 export interface UserFields {
@@ -61,9 +61,10 @@ export interface RegisterUserRequest {
 export default class User {
   public headers: Headers
   private persistance: IPersistance | null
+  public currentUser: ExtreamUser | null = null
   options: ExtreamOptions
 
-  constructor (options: ExtreamOptions, persistance: PersistanceType) {
+  constructor (options: ExtreamOptions, persistance: PersistanceType = PersistanceType.Cookie) {
     const factory = new PersistanceFactory()
     this.persistance = factory.get(persistance)
     this.options = options
@@ -127,7 +128,7 @@ export default class User {
    * @param { String } params User id
    * @param { RegisterUserRequest } params User information
    */
-  public async completeUser (userId: String, params: RegisterUserRequest): Promise<ExtreamUser> {
+  public async completeUser (userId: string, params: RegisterUserRequest): Promise<ExtreamUser> {
     const user = await this.performFetch<ExtreamUser>(
       `${this.options.auth}/auth/invitee/${userId}/register`,
       {
@@ -196,5 +197,17 @@ export default class User {
     }
 
     return resp
+  }
+
+  /**
+   * Log the current user out of the application
+   *
+   * @returns { Promise<void> }
+   */
+  public async logout (): Promise<void> {
+    if (this.persistance) {
+      this.persistance.clear()
+    }
+    this.currentUser = null
   }
 }

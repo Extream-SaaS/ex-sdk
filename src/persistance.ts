@@ -6,18 +6,18 @@ export const REFRESH_TOKEN_KEY = 'REFRESH_TOKEN_KEY'
 export enum PersistanceType {
   None = 'NONE',
   Cookie = 'COOKIE',
-  // LocalStorage = 'LOCAL_STORAGE'
 }
 
 export interface IPersistance {
   setTokens (loginResponse: AuthenticationResponse): void
-  getTokens (): void
+  getTokens (): [string | undefined, string | undefined]
+  clear (): void
 }
 
 export class CookiePersistance implements IPersistance {
   private setCookie (name: string, value: string, expiry: string) {
     const expires = 'expires=' + new Date(expiry).toUTCString()
-    document.cookie = `${name}=${value};${expires};secure=true;samesite=strict`
+    document.cookie = `${name}=${value}; ${expires};`
   }
 
   private getCookie (name: string): undefined | string {
@@ -45,19 +45,16 @@ export class CookiePersistance implements IPersistance {
     const refreshToken = this.getCookie(REFRESH_TOKEN_KEY)
     return [accessToken, refreshToken]
   }
+
+  clear (): void {
+    const allCookies = document.cookie.split(';')
+    for (const cookie of allCookies) {
+      document.cookie = `${cookie}=;expires=${new Date(0).toUTCString()}"`
+    }
+  }
 }
 
-// class LocalStoragePersistance implements IPersistance {
-//   setTokens (): void {
-//     throw new Error('Method not implemented.')
-//   }
-
-//   getTokens (): void {
-//     throw new Error('Method not implemented.')
-//   }
-// }
-
-export default class PersistanceFactory {
+export class PersistanceFactory {
   private registry: { [key in PersistanceType]: IPersistance | null } = {
     [PersistanceType.None]: null,
     [PersistanceType.Cookie]: new CookiePersistance()
