@@ -8,6 +8,10 @@ ExtreamClient is a JavaScript SDK for interacting with the Extream platform writ
 
 All async requests will be rejected if no response is received from the server in 10 seconds.
 
+# Table of contents
+
+A table of contents with all the classes, interfaces, types and enums is available [here](./globals.md)
+
 ## Usage
 
 ```js

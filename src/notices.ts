@@ -30,9 +30,17 @@ export interface NoticeGetRequest {
   read?: boolean,
 }
 
+/**
+ * Notices (also known as voice of god) are a method of sending
+ *
+ *
+ */
 export class Notices {
   private subscriptionManager: SubscriptionManager;
   private socket: SocketIOClient.Socket;
+  /**
+   * All of the unread notices for the logged in user
+   */
   public notices: Notice[] = []
 
   constructor (socket: SocketIOClient.Socket) {
@@ -56,6 +64,10 @@ export class Notices {
     this.socket.emit(ConsumerTopic.NoticeReceive, request)
   }
 
+  /**
+   * Get all of the notices that the user hasn't read and setup all the required listeners for new notices streamed in.
+   * @param request
+   */
   get (request: NoticeGetRequest) : Promise<void> {
     let callback: (resp: InitialResponse | GetNoticesResponse) => void
     return promiseTimeout(new Promise<void>((resolve, reject) => {
@@ -63,7 +75,7 @@ export class Notices {
         if ('error' in resp) {
           reject(new Error(resp.error))
         } else if (!('status' in resp)) {
-          this.notices = resp.payload.sort(Notices.sortByDate)
+          this.notices = [...resp.payload].sort(Notices.sortByDate)
           this.listenForNotices(request)
           resolve()
         }
@@ -75,6 +87,10 @@ export class Notices {
     })
   }
 
+  /**
+   * Mark a specific notice as read
+   * @param {string} id THe id of the notice to mark as read for the logged in user
+   */
   readNotice (id: string): Promise<void> {
     const notice = this.notices.find(({ public_id: noticeId }) => id === noticeId)
     if (!notice) {
@@ -99,6 +115,11 @@ export class Notices {
     })
   }
 
+  /**
+   * Cleans up all listeners for this class. Call this when you no longer need access to this events information to ensure memory leaks are not caused.
+   *
+   * @returns { void }
+   */
   public destroy (): void {
     if (!this.subscriptionManager) {
       throw new Error('No socket connection found. You do not need to destroy a socket that has never been connected.')

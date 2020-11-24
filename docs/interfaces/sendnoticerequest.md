@@ -21,7 +21,9 @@
 
 • **event**: *string*
 
-*Defined in [admin.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/admin.ts#L23)*
+*Defined in [admin.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/admin.ts#L12)*
+
+The event id to send the message to
 
 ___
 
@@ -29,7 +31,9 @@ ___
 
 • **itinerary**? : *undefined | string*
 
-*Defined in [admin.ts:24](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/admin.ts#L24)*
+*Defined in [admin.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/admin.ts#L16)*
+
+Filter this message to specific itinerary in a specific event
 
 ___
 
@@ -37,7 +41,9 @@ ___
 
 • **message**: *object*
 
-*Defined in [admin.ts:26](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/admin.ts#L26)*
+*Defined in [admin.ts:24](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/admin.ts#L24)*
+
+Message information
 
 #### Type declaration:
 
@@ -49,4 +55,6 @@ ___
 
 • **page**? : *undefined | string*
 
-*Defined in [admin.ts:25](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/admin.ts#L25)*
+*Defined in [admin.ts:20](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/admin.ts#L20)*
+
+Filter this message to specific page in a specific event

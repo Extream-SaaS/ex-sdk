@@ -1,8 +1,8 @@
 /**
  * Manages a list of subscriptions, holding references to the listeners attached to allow classes to clean
- * up all the listeners they setup on creation easily.
+ * up all the listeners they setup easily.
  *
- * Consumers of this class should create their own subscription managers in constructors and expose a destory method
+ * Consumers of this class should create their own subscription managers in constructors and expose a destroy method
  */
 export default class SubscriptionManager {
   private socket: SocketIOClient.Socket

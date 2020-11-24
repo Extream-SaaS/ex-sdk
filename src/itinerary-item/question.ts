@@ -19,7 +19,7 @@ export interface AnswerPollsResponse {
 }
 
 export interface QuestionResponse {
-  timeToLive: number
+  timeToLive: string
   question: string
   id: string
   order: number
@@ -33,31 +33,43 @@ export interface QuestionResponse {
   }
 }
 
+/**
+ * Represents a questions related to a specific poll.
+ */
 export class Question {
   private socket: SocketIOClient.Socket
   public id: string
+  /**
+   * List of all answers
+   */
   public answers: AnswerResponse[]
+  /**
+   * Time for the question to show
+   */
   public responses: { [key: string]: number }
+  /**
+   * Text of the question e.g. "What is your name?"
+   */
   public question: string
+  /**
+   * Time for the question to show
+   */
   public timeToLive: number
+  /**
+   * Time question was streamed in
+   */
   public timeAdded: number
 
   constructor (socket: SocketIOClient.Socket, id: string, data: QuestionResponse) {
     this.socket = socket
     this.id = id
-    // TODO unfuck this
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    this.question = typeof data.question === 'string' ? data.question : data.question.question
+    this.question = data.question
     this.answers = [...Object.values(data.answers)].sort(Question.sortByOrder)
     this.responses = Object.values(data.responses || {}).reduce((acc: { [key: string]: number }, cur) => {
       acc[cur.id] = cur.responses
       return acc
     }, {})
-    // TODO unfuck this
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    this.timeToLive = (typeof data.timeToLive === 'string' ? parseInt(data.timeToLive) : parseInt(data.question.timeToLive)) || 60
+    this.timeToLive = parseInt(data.timeToLive) || 60
     this.timeAdded = Date.now()
   }
 
@@ -65,10 +77,19 @@ export class Question {
     return a.order - b.order
   }
 
+  /**
+   * Set the responses of a question
+   * @param { [key: string]: number } responses The responses for a question
+   */
   setResponses (responses: { [key: string]: number }): void {
     this.responses = responses
   }
 
+  /**
+   * Answer this question
+   * @param {string} answer The id of the answer you wish to give.
+   * @param {string} poll The id of the poll this question is related to
+   */
   answer (answer: string, poll: string): Promise<void> {
     let callback: (resp: InitialResponse | AnswerPollsResponse) => void
     return promiseTimeout(new Promise<void>((resolve, reject) => {

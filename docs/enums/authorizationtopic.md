@@ -2,6 +2,8 @@
 
 # Enumeration: AuthorizationTopic
 
+All of the authorization related websocket events
+
 ## Index
 
 ### Enumeration members
@@ -18,7 +20,7 @@
 
 • **Authorize**: = "authorize"
 
-*Defined in [topic.ts:4](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/topic.ts#L4)*
+*Defined in [topic.ts:6](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/topic.ts#L6)*
 
 ___
 
@@ -26,7 +28,7 @@ ___
 
 • **Authorized**: = "authorized"
 
-*Defined in [topic.ts:3](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/topic.ts#L3)*
+*Defined in [topic.ts:5](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/topic.ts#L5)*
 
 ___
 
@@ -34,7 +36,7 @@ ___
 
 • **Connect**: = "connect"
 
-*Defined in [topic.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/topic.ts#L7)*
+*Defined in [topic.ts:9](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/topic.ts#L9)*
 
 ___
 
@@ -42,7 +44,7 @@ ___
 
 • **Mfa**: = "mfa"
 
-*Defined in [topic.ts:6](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/topic.ts#L6)*
+*Defined in [topic.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/topic.ts#L8)*
 
 ___
 
@@ -50,4 +52,4 @@ ___
 
 • **Unauthorized**: = "unauthorized"
 
-*Defined in [topic.ts:5](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/topic.ts#L5)*
+*Defined in [topic.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/topic.ts#L7)*

@@ -27,7 +27,8 @@ describe('User', () => {
     const user = new User({
       auth: 'auth',
       gateway: 'gateway',
-      apiKey: 'apiKey'
+      apiKey: 'apiKey',
+      collab: 'collab'
     })
 
     fetchMock.mockOnce(JSON.stringify(mockUser), { status: 200 })
@@ -40,7 +41,8 @@ describe('User', () => {
     const user = new User({
       auth: 'auth',
       gateway: 'gateway',
-      apiKey: 'apiKey'
+      apiKey: 'apiKey',
+      collab: 'collab'
     })
 
     fetchMock.mockOnce(JSON.stringify({}), { status: 404 })
@@ -53,7 +55,8 @@ describe('User', () => {
     const user = new User({
       auth: 'auth',
       gateway: 'gateway',
-      apiKey: 'apiKey'
+      apiKey: 'apiKey',
+      collab: 'collab'
     })
 
     fetchMock.mockOnce(JSON.stringify({}), { status: 500 })
@@ -70,7 +73,8 @@ describe('User', () => {
     const user = new User({
       auth: 'www.url.com',
       gateway: 'gateway',
-      apiKey: 'apiKey'
+      apiKey: 'apiKey',
+      collab: 'collab'
     })
 
     fetchMock.mockOnce(async (resp: Request) => {
@@ -88,7 +92,8 @@ describe('User', () => {
     const user = new User({
       auth: 'www.url.com',
       gateway: 'gateway',
-      apiKey: 'apiKey'
+      apiKey: 'apiKey',
+      collab: 'collab'
     })
 
     fetchMock.mockOnce(async (resp: Request) => {

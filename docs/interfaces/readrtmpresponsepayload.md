@@ -34,7 +34,7 @@
 
 • **addedAt**: *[TimeStamp](timestamp.md)*
 
-*Defined in [itinerary-item/rtmp.ts:26](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/itinerary-item/rtmp.ts#L26)*
+*Defined in [itinerary-item/rtmp.ts:26](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/itinerary-item/rtmp.ts#L26)*
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 • **addedBy**: *string*
 
-*Defined in [itinerary-item/rtmp.ts:22](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/itinerary-item/rtmp.ts#L22)*
+*Defined in [itinerary-item/rtmp.ts:22](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/itinerary-item/rtmp.ts#L22)*
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 • **broadcast**: *boolean*
 
-*Defined in [itinerary-item/rtmp.ts:27](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/itinerary-item/rtmp.ts#L27)*
+*Defined in [itinerary-item/rtmp.ts:27](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/itinerary-item/rtmp.ts#L27)*
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 • **configuration**: *[RtmpConfiguration](rtmpconfiguration.md)*
 
-*Defined in [itinerary-item/rtmp.ts:25](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/itinerary-item/rtmp.ts#L25)*
+*Defined in [itinerary-item/rtmp.ts:25](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/itinerary-item/rtmp.ts#L25)*
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 • **end_date**: *[TimeStamp](timestamp.md)*
 
-*Defined in [itinerary-item/rtmp.ts:20](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/itinerary-item/rtmp.ts#L20)*
+*Defined in [itinerary-item/rtmp.ts:20](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/itinerary-item/rtmp.ts#L20)*
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 • **id**: *string*
 
-*Defined in [itinerary-item/rtmp.ts:11](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/itinerary-item/rtmp.ts#L11)*
+*Defined in [itinerary-item/rtmp.ts:11](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/itinerary-item/rtmp.ts#L11)*
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 • **itinerary**: *string*
 
-*Defined in [itinerary-item/rtmp.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/itinerary-item/rtmp.ts#L12)*
+*Defined in [itinerary-item/rtmp.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/itinerary-item/rtmp.ts#L12)*
 
 ___
 
@@ -90,7 +90,7 @@ ___
 
 • **start_date**: *[TimeStamp](timestamp.md)*
 
-*Defined in [itinerary-item/rtmp.ts:19](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/itinerary-item/rtmp.ts#L19)*
+*Defined in [itinerary-item/rtmp.ts:19](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/itinerary-item/rtmp.ts#L19)*
 
 ___
 
@@ -98,7 +98,7 @@ ___
 
 • **status**: *string*
 
-*Defined in [itinerary-item/rtmp.ts:17](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/itinerary-item/rtmp.ts#L17)*
+*Defined in [itinerary-item/rtmp.ts:17](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/itinerary-item/rtmp.ts#L17)*
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 • **streamUrl**: *string*
 
-*Defined in [itinerary-item/rtmp.ts:15](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/itinerary-item/rtmp.ts#L15)*
+*Defined in [itinerary-item/rtmp.ts:15](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/itinerary-item/rtmp.ts#L15)*
 
 ___
 
@@ -114,7 +114,7 @@ ___
 
 • **streamkey**: *string*
 
-*Defined in [itinerary-item/rtmp.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/itinerary-item/rtmp.ts#L13)*
+*Defined in [itinerary-item/rtmp.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/itinerary-item/rtmp.ts#L13)*
 
 ___
 
@@ -122,7 +122,7 @@ ___
 
 • **title**: *string*
 
-*Defined in [itinerary-item/rtmp.ts:14](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/itinerary-item/rtmp.ts#L14)*
+*Defined in [itinerary-item/rtmp.ts:14](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/itinerary-item/rtmp.ts#L14)*
 
 ___
 
@@ -130,7 +130,7 @@ ___
 
 • **type**: *string*
 
-*Defined in [itinerary-item/rtmp.ts:18](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/itinerary-item/rtmp.ts#L18)*
+*Defined in [itinerary-item/rtmp.ts:18](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/itinerary-item/rtmp.ts#L18)*
 
 ___
 
@@ -138,7 +138,7 @@ ___
 
 • **updatedAt**: *[TimeStamp](timestamp.md)*
 
-*Defined in [itinerary-item/rtmp.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/itinerary-item/rtmp.ts#L16)*
+*Defined in [itinerary-item/rtmp.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/itinerary-item/rtmp.ts#L16)*
 
 ___
 
@@ -146,7 +146,7 @@ ___
 
 • **updatedBy**: *string*
 
-*Defined in [itinerary-item/rtmp.ts:21](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/itinerary-item/rtmp.ts#L21)*
+*Defined in [itinerary-item/rtmp.ts:21](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/itinerary-item/rtmp.ts#L21)*
 
 ___
 
@@ -154,7 +154,7 @@ ___
 
 • **url**: *string*
 
-*Defined in [itinerary-item/rtmp.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/itinerary-item/rtmp.ts#L23)*
+*Defined in [itinerary-item/rtmp.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/itinerary-item/rtmp.ts#L23)*
 
 ___
 
@@ -162,4 +162,4 @@ ___
 
 • **watcherUrl**: *string*
 
-*Defined in [itinerary-item/rtmp.ts:24](https://github.com/Extream-SaaS/ex-sdk/blob/c4dac15/src/itinerary-item/rtmp.ts#L24)*
+*Defined in [itinerary-item/rtmp.ts:24](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/itinerary-item/rtmp.ts#L24)*

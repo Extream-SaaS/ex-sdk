@@ -29,9 +29,18 @@ export interface ReadRtmpResponsePayload {
 
 export type ReadRtmpResponse = SocketResponse<ReadRtmpResponsePayload>
 
+/**
+ * An Rtmp video item.
+ */
 export class Rtmp {
   private socket: SocketIOClient.Socket
+  /**
+   * The id of the itinerary item
+   */
   public id: string
+  /**
+   * All of the data relating to this item. Populated after calling the .get message.
+   */
   public data: ReadRtmpResponsePayload | null = null
 
   constructor (socket: SocketIOClient.Socket, id: string) {
@@ -39,6 +48,9 @@ export class Rtmp {
     this.id = id
   }
 
+  /**
+   * Call this method to populate the data property.
+   */
   get (): Promise<void> {
     let callback: (itemData: ReadRtmpResponse) => void
     return promiseTimeout(new Promise<void>((resolve, reject) => {

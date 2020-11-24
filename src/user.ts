@@ -55,6 +55,9 @@ export interface RegisterUserRequest {
   user: UserFields;
 }
 
+/**
+ * A class to allow login and registration of users.
+ */
 export default class User {
   public headers: Headers
   private persistance: IPersistance | null
@@ -104,9 +107,29 @@ export default class User {
    * Register a new user
    * @param { RegisterUserRequest } params Use information
    */
-  public async registerUser (params: RegisterUserRequest) {
-    const user = await this.performFetch(
+  public async registerUser (params: RegisterUserRequest): Promise<ExtreamUser> {
+    const user = await this.performFetch<ExtreamUser>(
       `${this.options.auth}/auth/register`,
+      {
+        method: 'POST',
+        headers: this.headers,
+        body: this.objectToUrlFormData({
+          ...params,
+          user: JSON.stringify(params.user)
+        })
+      }
+    )
+    return user
+  }
+
+  /**
+   * Complete an invited user
+   * @param { String } params User id
+   * @param { RegisterUserRequest } params User information
+   */
+  public async completeUser (userId: String, params: RegisterUserRequest): Promise<ExtreamUser> {
+    const user = await this.performFetch<ExtreamUser>(
+      `${this.options.auth}/auth/invitee/${userId}/register`,
       {
         method: 'POST',
         headers: this.headers,

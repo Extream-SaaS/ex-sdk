@@ -1,4 +1,6 @@
-/* authorization events */
+/**
+ * All of the authorization related websocket events
+ */
 export enum AuthorizationTopic {
   Authorized = 'authorized',
   Authorize = 'authorize',
@@ -7,7 +9,9 @@ export enum AuthorizationTopic {
   Connect = 'connect',
 }
 
-/* admin events */
+/**
+ * All of the admin related websocket events
+ */
 export enum AdminTopic {
   OrganisationCreate = 'admin_organisation_create',
   OrganisationUpdate = 'admin_organisation_update',
@@ -20,11 +24,14 @@ export enum AdminTopic {
   ItineraryRead = 'admin_itinerary_read',
   ItineraryRemove = 'admin_itinerary_delete',
   ItemCreate = 'admin_item_create',
+  ItemDelete = 'admin_item_delete',
   ItemUpdate = 'admin_item_update',
   ItemRead = 'admin_item_read',
 }
 
-/* client events */
+/**
+ * All of the client related websocket events
+ */
 export enum ClientTopic {
   RtmpGet = 'client_rtmp_get',
   RtmpActivate = 'client_rtmp_activate',
@@ -34,7 +41,9 @@ export enum ClientTopic {
   NoticeSend = 'client_notice_send',
 }
 
-/* consumer events */
+/**
+ * All of the consumer related websocket events
+ */
 export enum ConsumerTopic {
   ChatGet = 'consumer_chat_get',
   ChatReceive = 'consumer_chat_receive',
@@ -43,12 +52,17 @@ export enum ConsumerTopic {
   ChatStart = 'consumer_chat_start',
   EventGet = 'consumer_event_get',
   ItineraryGet = 'consumer_itinerary_get',
+  OnlineLeave = 'consumer_online_leave',
+  OnlineJoin = 'consumer_online_join',
+  OnlineUsers = 'consumer_online_users',
   PollAnswer = 'consumer_poll_answer',
   PollGet = 'consumer_poll_get',
   PollQuestion = 'consumer_poll_question',
   QuestionCreate = 'consumer_question_create',
   RtmpGet = 'consumer_rtmp_get',
   WebrtcRead = 'consumer_webrtc_read',
+  WebrtcStart = 'consumer_webrtc_start',
+  WebrtcIncoming = 'consumer_webrtc_incoming',
   NoticeGet = 'consumer_notice_get',
   NoticeReceive = 'consumer_notice_receive',
   NoticeRead = 'consumer_notice_read',
@@ -60,10 +74,3 @@ export type Topics = {
   ClientTopic: ClientTopic,
   ConsumerTopic: ConsumerTopic,
 }
-
-// type ValueOf<T> = T[keyof T];
-
-// export type ConsumerTopics = ValueOf<ConsumerTopic>;
-// export type ClientTopics = keyof typeof ClientTopic;
-// export type AdminTopics = keyof typeof AdminTopic;
-// export type AuthorizationTopics = keyof typeof AuthorizationTopic;

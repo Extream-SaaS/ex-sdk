@@ -30,6 +30,8 @@ export interface ReplyMessageData {
   message: string;
   private: boolean;
   parent: string;
+  requester?: ExtreamUser;
+  moderators?: string[];
 }
 
 export interface SendMessageData {
@@ -37,6 +39,7 @@ export interface SendMessageData {
    * The message to send to the chat
    */
   message: string;
+  moderators?: string[];
 }
 
 export type MessageData = ReplyMessageData | SendMessageData
@@ -86,6 +89,7 @@ export interface BanMessageData {
    * The uuid of the message to be banned
    */
   uuid: string;
+  instance?: string;
   parent?: string;
 }
 
@@ -153,8 +157,8 @@ export class Chat {
 
   /**
    * Sort messages based on date descending
-   * @param a
-   * @param b
+   * @param { Message | ChatMessageResponse } a
+   * @param { Message | ChatMessageResponse } b
    */
   private static sortByDate (a: Message | ChatMessageResponse, b: Message | ChatMessageResponse) {
     return new Date(a.sent).getTime() - new Date(b.sent).getTime()
@@ -355,9 +359,9 @@ export class Chat {
   }
 
   /**
-   * Call once the a user leaves the chat to remove all event listener.
+   * Cleans up all listeners for this class. Call this when you no longer need access to this events information to ensure memory leaks are not caused.
    *
-   * If this is not called each instance of this class with leak event listeners.
+   * @returns { void }
    */
   destroy (): void {
     this.subscriptionManager.removeAllSubscriptions()
