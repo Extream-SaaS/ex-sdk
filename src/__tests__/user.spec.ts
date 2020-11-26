@@ -1,6 +1,7 @@
 import User, { UserType } from '../user'
 
 import fetchMock from 'jest-fetch-mock'
+import { PersistanceType } from '../persistance'
 
 const mockUser = {
   email: 'foo@bar.com',
@@ -28,7 +29,8 @@ describe('User', () => {
       auth: 'auth',
       gateway: 'gateway',
       apiKey: 'apiKey',
-      collab: 'collab'
+      collab: 'collab',
+      persistance: PersistanceType.None
     })
 
     fetchMock.mockOnce(JSON.stringify(mockUser), { status: 200 })
@@ -42,7 +44,8 @@ describe('User', () => {
       auth: 'auth',
       gateway: 'gateway',
       apiKey: 'apiKey',
-      collab: 'collab'
+      collab: 'collab',
+      persistance: PersistanceType.None
     })
 
     fetchMock.mockOnce(JSON.stringify({}), { status: 404 })
@@ -56,7 +59,8 @@ describe('User', () => {
       auth: 'auth',
       gateway: 'gateway',
       apiKey: 'apiKey',
-      collab: 'collab'
+      collab: 'collab',
+      persistance: PersistanceType.None
     })
 
     fetchMock.mockOnce(JSON.stringify({}), { status: 500 })
@@ -74,7 +78,8 @@ describe('User', () => {
       auth: 'www.url.com',
       gateway: 'gateway',
       apiKey: 'apiKey',
-      collab: 'collab'
+      collab: 'collab',
+      persistance: PersistanceType.None
     })
 
     fetchMock.mockOnce(async (resp: Request) => {
@@ -93,7 +98,8 @@ describe('User', () => {
       auth: 'www.url.com',
       gateway: 'gateway',
       apiKey: 'apiKey',
-      collab: 'collab'
+      collab: 'collab',
+      persistance: PersistanceType.None
     })
 
     fetchMock.mockOnce(async (resp: Request) => {
