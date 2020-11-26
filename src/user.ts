@@ -1,3 +1,4 @@
+import { PersistanceFactory, IPersistance, PersistanceType } from './persistance'
 import { ExtreamOptions, promiseTimeout } from './utils'
 
 export interface UserFields {
@@ -123,7 +124,7 @@ export default class User {
    * @param { String } params User id
    * @param { RegisterUserRequest } params User information
    */
-  public async completeUser (userId: String, params: RegisterUserRequest): Promise<ExtreamUser> {
+  public async completeUser (userId: string, params: RegisterUserRequest): Promise<ExtreamUser> {
     const user = await this.performFetch<ExtreamUser>(
       `${this.options.auth}/auth/invitee/${userId}/register`,
       {

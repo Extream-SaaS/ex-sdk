@@ -83,7 +83,7 @@ export class WebRtc {
     return resp.json()
   }
 
-  public listenForIncomingCalls (userToken: string): void {
+  public listenForIncomingCalls (): void {
     this.subscriptionManager.addSubscription(ConsumerTopic.WebrtcIncoming, async (resp: any) => {
       this.instances.push(resp.data.instance)
     })
