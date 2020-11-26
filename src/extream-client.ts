@@ -61,7 +61,7 @@ export class ExtreamClient {
    * @param username
    * @param authOptions
    */
-  public async authenticate (username: string, password: string, authOptions?: Partial<AuthorizationRequest>, eventId?: string): Promise<void> {
+  public async authenticate (username: string, password: string, eventId?: string, authOptions?: Partial<AuthorizationRequest>): Promise<void> {
     const resp = await this.user.login(username, password, eventId)
     if (this.persistance) {
       this.persistance.setTokens(resp)
@@ -103,7 +103,7 @@ export class ExtreamClient {
       this.consumerActions = new Consumer(this.socket, this.options)
       this.socket.emit(AuthorizationTopic.Authorize, { method: 'oauth2', token: accessToken, ...authOptions })
       this.socket.on(AuthorizationTopic.Authorized, (user: ExtreamUser) => {
-        this.user.currentUser = user
+        this.currentUser = user
         resolve(user)
       })
       this.socket.on(AuthorizationTopic.Unauthorized, (error: Error) => {

@@ -60,7 +60,6 @@ export interface RegisterUserRequest {
  */
 export default class User {
   public headers: Headers
-  public currentUser: ExtreamUser | null = null
   options: ExtreamOptions
 
   constructor (options: ExtreamOptions) {
