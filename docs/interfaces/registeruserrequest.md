@@ -22,7 +22,7 @@
 
 • **email**? : *undefined | string*
 
-*Defined in [user.ts:51](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/user.ts#L51)*
+*Defined in [user.ts:52](https://github.com/Extream-SaaS/ex-sdk/blob/3fde2c4/src/user.ts#L52)*
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 • **password**: *string*
 
-*Defined in [user.ts:52](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/user.ts#L52)*
+*Defined in [user.ts:53](https://github.com/Extream-SaaS/ex-sdk/blob/3fde2c4/src/user.ts#L53)*
 
 ___
 
@@ -38,7 +38,7 @@ ___
 
 • **user**: *[UserFields](userfields.md)*
 
-*Defined in [user.ts:54](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/user.ts#L54)*
+*Defined in [user.ts:55](https://github.com/Extream-SaaS/ex-sdk/blob/3fde2c4/src/user.ts#L55)*
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 • **user_type**: *[UserType](../enums/usertype.md)*
 
-*Defined in [user.ts:53](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/user.ts#L53)*
+*Defined in [user.ts:54](https://github.com/Extream-SaaS/ex-sdk/blob/3fde2c4/src/user.ts#L54)*
 
 ___
 
@@ -54,4 +54,4 @@ ___
 
 • **username**? : *undefined | string*
 
-*Defined in [user.ts:50](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/user.ts#L50)*
+*Defined in [user.ts:51](https://github.com/Extream-SaaS/ex-sdk/blob/3fde2c4/src/user.ts#L51)*

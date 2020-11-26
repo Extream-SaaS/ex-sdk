@@ -20,7 +20,9 @@ Only one of these should ever be created per application instance and shared acr
 
 * [adminActions](extreamclient.md#adminactions)
 * [consumerActions](extreamclient.md#consumeractions)
+* [currentUser](extreamclient.md#currentuser)
 * [options](extreamclient.md#private-options)
+* [persistance](extreamclient.md#persistance)
 * [socket](extreamclient.md#socket)
 * [subscriptionManager](extreamclient.md#private-subscriptionmanager)
 * [user](extreamclient.md#user)
@@ -32,10 +34,12 @@ Only one of these should ever be created per application instance and shared acr
 
 ### Methods
 
-* [connect](extreamclient.md#connect)
+* [authenticate](extreamclient.md#authenticate)
+* [connect](extreamclient.md#private-connect)
 * [destroy](extreamclient.md#destroy)
 * [emit](extreamclient.md#emit)
 * [on](extreamclient.md#on)
+* [silentAuthenticate](extreamclient.md#silentauthenticate)
 
 ## Constructors
 
@@ -43,7 +47,7 @@ Only one of these should ever be created per application instance and shared acr
 
 \+ **new ExtreamClient**(`options`: [ExtreamOptions](../interfaces/extreamoptions.md)): *[ExtreamClient](extreamclient.md)*
 
-*Defined in [extream-client.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/extream-client.ts#L23)*
+*Defined in [extream-client.ts:30](https://github.com/Extream-SaaS/ex-sdk/blob/3fde2c4/src/extream-client.ts#L30)*
 
 **Parameters:**
 
@@ -59,7 +63,7 @@ Name | Type |
 
 • **adminActions**: *[Admin](admin.md) | null* = null
 
-*Defined in [extream-client.ts:19](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/extream-client.ts#L19)*
+*Defined in [extream-client.ts:24](https://github.com/Extream-SaaS/ex-sdk/blob/3fde2c4/src/extream-client.ts#L24)*
 
 ___
 
@@ -67,7 +71,15 @@ ___
 
 • **consumerActions**: *[Consumer](consumer.md) | null* = null
 
-*Defined in [extream-client.ts:20](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/extream-client.ts#L20)*
+*Defined in [extream-client.ts:25](https://github.com/Extream-SaaS/ex-sdk/blob/3fde2c4/src/extream-client.ts#L25)*
+
+___
+
+###  currentUser
+
+• **currentUser**: *[ExtreamUser](../interfaces/extreamuser.md) | null* = null
+
+*Defined in [extream-client.ts:28](https://github.com/Extream-SaaS/ex-sdk/blob/3fde2c4/src/extream-client.ts#L28)*
 
 ___
 
@@ -75,7 +87,15 @@ ___
 
 • **options**: *[ExtreamOptions](../interfaces/extreamoptions.md)*
 
-*Defined in [extream-client.ts:22](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/extream-client.ts#L22)*
+*Defined in [extream-client.ts:29](https://github.com/Extream-SaaS/ex-sdk/blob/3fde2c4/src/extream-client.ts#L29)*
+
+___
+
+###  persistance
+
+• **persistance**: *[IPersistance](../interfaces/ipersistance.md) | null*
+
+*Defined in [extream-client.ts:27](https://github.com/Extream-SaaS/ex-sdk/blob/3fde2c4/src/extream-client.ts#L27)*
 
 ___
 
@@ -83,7 +103,7 @@ ___
 
 • **socket**: *Socket | null* = null
 
-*Defined in [extream-client.ts:18](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/extream-client.ts#L18)*
+*Defined in [extream-client.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/3fde2c4/src/extream-client.ts#L23)*
 
 ___
 
@@ -91,7 +111,7 @@ ___
 
 • **subscriptionManager**: *[SubscriptionManager](subscriptionmanager.md) | null* = null
 
-*Defined in [extream-client.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/extream-client.ts#L23)*
+*Defined in [extream-client.ts:30](https://github.com/Extream-SaaS/ex-sdk/blob/3fde2c4/src/extream-client.ts#L30)*
 
 ___
 
@@ -99,7 +119,7 @@ ___
 
 • **user**: *[User](user.md)*
 
-*Defined in [extream-client.ts:21](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/extream-client.ts#L21)*
+*Defined in [extream-client.ts:26](https://github.com/Extream-SaaS/ex-sdk/blob/3fde2c4/src/extream-client.ts#L26)*
 
 ## Accessors
 
@@ -107,7 +127,7 @@ ___
 
 • **get admin**(): *[Admin](admin.md)*
 
-*Defined in [extream-client.ts:33](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/extream-client.ts#L33)*
+*Defined in [extream-client.ts:42](https://github.com/Extream-SaaS/ex-sdk/blob/3fde2c4/src/extream-client.ts#L42)*
 
 Access admin functionality such as creating itineraries ect.
 
@@ -119,7 +139,7 @@ ___
 
 • **get consumer**(): *[Consumer](consumer.md)*
 
-*Defined in [extream-client.ts:43](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/extream-client.ts#L43)*
+*Defined in [extream-client.ts:52](https://github.com/Extream-SaaS/ex-sdk/blob/3fde2c4/src/extream-client.ts#L52)*
 
 Access user functionality such as join chat rooms, joining polls ect.
 
@@ -127,20 +147,41 @@ Access user functionality such as join chat rooms, joining polls ect.
 
 ## Methods
 
-###  connect
+###  authenticate
 
-▸ **connect**(`accessToken`: string, `visibility`: boolean): *Promise‹[ExtreamUser](../interfaces/extreamuser.md)›*
+▸ **authenticate**(`username`: string, `password`: string, `eventId?`: undefined | string, `authOptions?`: Partial‹[AuthorizationRequest](../interfaces/authorizationrequest.md)›): *Promise‹void›*
 
-*Defined in [extream-client.ts:58](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/extream-client.ts#L58)*
+*Defined in [extream-client.ts:64](https://github.com/Extream-SaaS/ex-sdk/blob/3fde2c4/src/extream-client.ts#L64)*
+
+Log the user in and open a authenticated websocket connection
+
+**Parameters:**
+
+Name | Type | Description |
+------ | ------ | ------ |
+`username` | string | - |
+`password` | string | - |
+`eventId?` | undefined &#124; string | - |
+`authOptions?` | Partial‹[AuthorizationRequest](../interfaces/authorizationrequest.md)› |   |
+
+**Returns:** *Promise‹void›*
+
+___
+
+### `Private` connect
+
+▸ **connect**(`accessToken`: string, `authOptions`: Partial‹[AuthorizationRequest](../interfaces/authorizationrequest.md)›): *Promise‹[ExtreamUser](../interfaces/extreamuser.md)›*
+
+*Defined in [extream-client.ts:96](https://github.com/Extream-SaaS/ex-sdk/blob/3fde2c4/src/extream-client.ts#L96)*
 
 Create an instance of the websocket and connect to it using the access token provided
 
 **Parameters:**
 
-Name | Type |
------- | ------ |
-`accessToken` | string |
-`visibility` | boolean |
+Name | Type | Default | Description |
+------ | ------ | ------ | ------ |
+`accessToken` | string | - | - |
+`authOptions` | Partial‹[AuthorizationRequest](../interfaces/authorizationrequest.md)› | {} |   |
 
 **Returns:** *Promise‹[ExtreamUser](../interfaces/extreamuser.md)›*
 
@@ -150,7 +191,7 @@ ___
 
 ▸ **destroy**(): *void*
 
-*Defined in [extream-client.ts:118](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/extream-client.ts#L118)*
+*Defined in [extream-client.ts:157](https://github.com/Extream-SaaS/ex-sdk/blob/3fde2c4/src/extream-client.ts#L157)*
 
 Cleans up all listeners for this class. Call this when your application instance is being left or destroyed.
 
@@ -162,7 +203,7 @@ ___
 
 ▸ **emit**(`topic`: string, `payload`: any): *void*
 
-*Defined in [extream-client.ts:89](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/extream-client.ts#L89)*
+*Defined in [extream-client.ts:128](https://github.com/Extream-SaaS/ex-sdk/blob/3fde2c4/src/extream-client.ts#L128)*
 
 Returns the emit method from the websocket instance
 
@@ -183,7 +224,7 @@ ___
 
 ▸ **on**(`topic`: string, `cb`: function): *void*
 
-*Defined in [extream-client.ts:106](https://github.com/Extream-SaaS/ex-sdk/blob/8500e87/src/extream-client.ts#L106)*
+*Defined in [extream-client.ts:145](https://github.com/Extream-SaaS/ex-sdk/blob/3fde2c4/src/extream-client.ts#L145)*
 
 Returns the on method from the websocket instance
 
@@ -204,3 +245,23 @@ Name | Type |
 `response` | any |
 
 **Returns:** *void*
+
+___
+
+###  silentAuthenticate
+
+▸ **silentAuthenticate**(`authOptions?`: Partial‹[AuthorizationRequest](../interfaces/authorizationrequest.md)›): *Promise‹void›*
+
+*Defined in [extream-client.ts:79](https://github.com/Extream-SaaS/ex-sdk/blob/3fde2c4/src/extream-client.ts#L79)*
+
+Log the user in and open a authenticated websocket connection, based on stored access tokens.
+If persistence type (default cookies) is set to NONE then this feature will never work.
+This feature allows you to restore users to sessions without having to go through the whole login process again.
+
+**Parameters:**
+
+Name | Type | Description |
+------ | ------ | ------ |
+`authOptions?` | Partial‹[AuthorizationRequest](../interfaces/authorizationrequest.md)› |   |
+
+**Returns:** *Promise‹void›*
