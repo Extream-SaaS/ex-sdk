@@ -91,6 +91,15 @@ export class ExtreamClient {
   }
 
   /**
+   * Log the current user out of the app
+   */
+  public logout (): void {
+    this.persistance?.clear()
+    this.currentUser = null
+    this.accessToken = undefined
+  }
+
+  /**
    * Create an instance of the websocket and connect to it using the access token provided
    *
    * @param { string } accessToken
