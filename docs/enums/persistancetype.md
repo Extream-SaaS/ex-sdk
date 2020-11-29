@@ -15,7 +15,7 @@
 
 • **Cookie**: = "COOKIE"
 
-*Defined in [persistance.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/3fde2c4/src/persistance.ts#L8)*
+*Defined in [persistance.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/775f75c/src/persistance.ts#L8)*
 
 ___
 
@@ -23,4 +23,4 @@ ___
 
 • **None**: = "NONE"
 
-*Defined in [persistance.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/3fde2c4/src/persistance.ts#L7)*
+*Defined in [persistance.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/775f75c/src/persistance.ts#L7)*

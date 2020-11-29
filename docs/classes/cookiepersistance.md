@@ -28,7 +28,7 @@
 
 *Implementation of [IPersistance](../interfaces/ipersistance.md)*
 
-*Defined in [persistance.ts:49](https://github.com/Extream-SaaS/ex-sdk/blob/3fde2c4/src/persistance.ts#L49)*
+*Defined in [persistance.ts:49](https://github.com/Extream-SaaS/ex-sdk/blob/775f75c/src/persistance.ts#L49)*
 
 **Returns:** *void*
 
@@ -38,7 +38,7 @@ ___
 
 ▸ **getCookie**(`name`: string): *undefined | string*
 
-*Defined in [persistance.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/3fde2c4/src/persistance.ts#L23)*
+*Defined in [persistance.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/775f75c/src/persistance.ts#L23)*
 
 **Parameters:**
 
@@ -56,7 +56,7 @@ ___
 
 *Implementation of [IPersistance](../interfaces/ipersistance.md)*
 
-*Defined in [persistance.ts:43](https://github.com/Extream-SaaS/ex-sdk/blob/3fde2c4/src/persistance.ts#L43)*
+*Defined in [persistance.ts:43](https://github.com/Extream-SaaS/ex-sdk/blob/775f75c/src/persistance.ts#L43)*
 
 **Returns:** *[string | undefined, string | undefined]*
 
@@ -66,7 +66,7 @@ ___
 
 ▸ **setCookie**(`name`: string, `value`: string, `expiry`: string): *void*
 
-*Defined in [persistance.ts:18](https://github.com/Extream-SaaS/ex-sdk/blob/3fde2c4/src/persistance.ts#L18)*
+*Defined in [persistance.ts:18](https://github.com/Extream-SaaS/ex-sdk/blob/775f75c/src/persistance.ts#L18)*
 
 **Parameters:**
 
@@ -86,7 +86,7 @@ ___
 
 *Implementation of [IPersistance](../interfaces/ipersistance.md)*
 
-*Defined in [persistance.ts:38](https://github.com/Extream-SaaS/ex-sdk/blob/3fde2c4/src/persistance.ts#L38)*
+*Defined in [persistance.ts:38](https://github.com/Extream-SaaS/ex-sdk/blob/775f75c/src/persistance.ts#L38)*
 
 **Parameters:**
 

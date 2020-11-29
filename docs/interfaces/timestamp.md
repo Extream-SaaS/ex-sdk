@@ -19,7 +19,7 @@
 
 • **_nanoseconds**: *number*
 
-*Defined in [utils.ts:28](https://github.com/Extream-SaaS/ex-sdk/blob/3fde2c4/src/utils.ts#L28)*
+*Defined in [utils.ts:28](https://github.com/Extream-SaaS/ex-sdk/blob/775f75c/src/utils.ts#L28)*
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 • **_seconds**: *number*
 
-*Defined in [utils.ts:27](https://github.com/Extream-SaaS/ex-sdk/blob/3fde2c4/src/utils.ts#L27)*
+*Defined in [utils.ts:27](https://github.com/Extream-SaaS/ex-sdk/blob/775f75c/src/utils.ts#L27)*
