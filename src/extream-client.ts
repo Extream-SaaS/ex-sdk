@@ -24,6 +24,7 @@ export class ExtreamClient {
   public adminActions: Admin | null = null;
   public consumerActions: Consumer | null = null;
   public user: User;
+  public accessToken: string | undefined;
   public persistance: IPersistance | null
   public currentUser: ExtreamUser | null = null
   private options: ExtreamOptions;
@@ -63,6 +64,7 @@ export class ExtreamClient {
    */
   public async authenticate (username: string, password: string, eventId?: string, authOptions?: Partial<AuthorizationRequest>): Promise<void> {
     const resp = await this.user.login(username, password, eventId)
+    this.accessToken = resp.accessToken
     if (this.persistance) {
       this.persistance.setTokens(resp)
     }
@@ -81,6 +83,7 @@ export class ExtreamClient {
       throw new Error('Cannot silently authenticate without persistence')
     }
     const [accessToken] = this.persistance.getTokens()
+    this.accessToken = accessToken
     if (!accessToken) {
       throw new Error('Access token not found in cookie jar.')
     }
