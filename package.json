@@ -15,7 +15,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/jest": "^26.0.14",
+    "@types/jest": "^26.0.20",
     "@types/sinon": "^9.0.5",
     "@types/socket.io-client": "^1.4.33",
     "@types/whatwg-fetch": "0.0.33",
