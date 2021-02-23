@@ -23,6 +23,7 @@ export interface QuestionResponse {
   question: string
   id: string
   order: number
+  time?: string
   answers: { [id: string]: AnswerResponse }
   responses: {
     [id: string]: {
@@ -60,6 +61,11 @@ export class Question {
    */
   public timeAdded: number
 
+  /**
+   * Time to display the question if pre-recorded
+   */
+  public time: Date | undefined
+
   constructor (socket: SocketIOClient.Socket, id: string, data: QuestionResponse) {
     this.socket = socket
     this.id = id
@@ -71,6 +77,9 @@ export class Question {
     }, {})
     this.timeToLive = parseInt(data.timeToLive) || 60
     this.timeAdded = Date.now()
+    if (data.time) {
+      this.time = new Date(data.time)
+    }
   }
 
   static sortByOrder (a: AnswerResponse, b: AnswerResponse): number {

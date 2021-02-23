@@ -76,7 +76,7 @@ export default class User {
    */
   private objectToUrlFormData (params: {[ key: string ]: any }): string {
     return Object.entries(params)
-      .map(([key, value]) => `${key}=${value}`)
+      .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
       .join('&')
   }
 
