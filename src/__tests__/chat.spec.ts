@@ -35,6 +35,7 @@ const payload = {
   configuration: {
     threads: true,
     moderation: 'post-moderate',
+    moderators: ['c4930666-2b78-473c-ad60-f0f8023ee554'],
     private: true
   },
   end_date: {

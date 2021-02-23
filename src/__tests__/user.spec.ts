@@ -107,7 +107,7 @@ describe('User', () => {
 
       expect(resp.url).toBe('www.url.com/auth/register')
       expect(resp.headers.get('Content-type')).toBe('application/x-www-form-urlencoded')
-      expect(body).toBe('username=username&email=email&password=password&user_type=actor&user={"firstName":"asd"}')
+      expect(body).toBe('username=username&email=email&password=password&user_type=actor&user=%7B%7D&firstName=first&lastName=last')
       return JSON.stringify({})
     })
 
@@ -116,9 +116,9 @@ describe('User', () => {
       email: 'email',
       password: 'password',
       user_type: UserType.Actor,
-      user: {
-        firstName: 'asd'
-      }
+      user: {},
+      firstName: 'first',
+      lastName: 'last'
     })
   })
 })

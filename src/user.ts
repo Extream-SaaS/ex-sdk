@@ -21,6 +21,8 @@ export interface ExtreamUser {
   fields: UserFields;
   username: string;
   user_type: string;
+  firstName?: string;
+  lastName?: string;
 }
 
 // Authentication types
@@ -53,6 +55,8 @@ export interface RegisterUserRequest {
   password: string;
   user_type: UserType;
   user: UserFields;
+  firstName?: string;
+  lastName?: string;
 }
 
 /**
