@@ -146,6 +146,16 @@ export class Chat {
   public instance: string | undefined;
 
   /**
+   * The array of moderator IDs
+   */
+  public moderators: string[] = [];
+
+  /**
+   * The moderation mode
+   */
+  public moderation: string | undefined;
+
+  /**
    * Create an instance of a chat
    */
   constructor (socket: SocketIOClient.Socket, roomId: string, instance?: string) {
@@ -319,6 +329,9 @@ export class Chat {
             .sort(Chat.sortByDate)
 
           this.messages = messageArray
+          // Get the moderators and add
+          this.moderators = resp.payload.configuration.moderators
+          this.moderation = resp.payload.configuration.moderation
           resolve()
         }
       })
