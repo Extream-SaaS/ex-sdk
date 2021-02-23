@@ -15,6 +15,7 @@
 * [order](questionresponse.md#order)
 * [question](questionresponse.md#question)
 * [responses](questionresponse.md#responses)
+* [time](questionresponse.md#optional-time)
 * [timeToLive](questionresponse.md#timetolive)
 
 ## Properties
@@ -23,7 +24,7 @@
 
 • **answers**: *object*
 
-*Defined in [itinerary-item/question.ts:26](https://github.com/Extream-SaaS/ex-sdk/blob/775f75c/src/itinerary-item/question.ts#L26)*
+*Defined in [itinerary-item/question.ts:27](https://github.com/Extream-SaaS/ex-sdk/blob/540d571/src/itinerary-item/question.ts#L27)*
 
 #### Type declaration:
 
@@ -35,7 +36,7 @@ ___
 
 • **id**: *string*
 
-*Defined in [itinerary-item/question.ts:24](https://github.com/Extream-SaaS/ex-sdk/blob/775f75c/src/itinerary-item/question.ts#L24)*
+*Defined in [itinerary-item/question.ts:24](https://github.com/Extream-SaaS/ex-sdk/blob/540d571/src/itinerary-item/question.ts#L24)*
 
 ___
 
@@ -43,7 +44,7 @@ ___
 
 • **order**: *number*
 
-*Defined in [itinerary-item/question.ts:25](https://github.com/Extream-SaaS/ex-sdk/blob/775f75c/src/itinerary-item/question.ts#L25)*
+*Defined in [itinerary-item/question.ts:25](https://github.com/Extream-SaaS/ex-sdk/blob/540d571/src/itinerary-item/question.ts#L25)*
 
 ___
 
@@ -51,7 +52,7 @@ ___
 
 • **question**: *string*
 
-*Defined in [itinerary-item/question.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/775f75c/src/itinerary-item/question.ts#L23)*
+*Defined in [itinerary-item/question.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/540d571/src/itinerary-item/question.ts#L23)*
 
 ___
 
@@ -59,7 +60,7 @@ ___
 
 • **responses**: *object*
 
-*Defined in [itinerary-item/question.ts:27](https://github.com/Extream-SaaS/ex-sdk/blob/775f75c/src/itinerary-item/question.ts#L27)*
+*Defined in [itinerary-item/question.ts:28](https://github.com/Extream-SaaS/ex-sdk/blob/540d571/src/itinerary-item/question.ts#L28)*
 
 #### Type declaration:
 
@@ -73,8 +74,16 @@ ___
 
 ___
 
+### `Optional` time
+
+• **time**? : *undefined | string*
+
+*Defined in [itinerary-item/question.ts:26](https://github.com/Extream-SaaS/ex-sdk/blob/540d571/src/itinerary-item/question.ts#L26)*
+
+___
+
 ###  timeToLive
 
 • **timeToLive**: *string*
 
-*Defined in [itinerary-item/question.ts:22](https://github.com/Extream-SaaS/ex-sdk/blob/775f75c/src/itinerary-item/question.ts#L22)*
+*Defined in [itinerary-item/question.ts:22](https://github.com/Extream-SaaS/ex-sdk/blob/540d571/src/itinerary-item/question.ts#L22)*
