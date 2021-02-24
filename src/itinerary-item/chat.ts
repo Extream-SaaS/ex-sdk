@@ -251,7 +251,6 @@ export class Chat {
       if (resp.id === this.roomId) {
         if (resp.parent) {
           const message = this.findMessage(resp.parent)
-          message.removed = false
           message.children = [
             ...message.children,
             {
@@ -259,6 +258,7 @@ export class Chat {
               removed: false
             }
           ]
+          this.messages = [...this.messages]
         } else {
           this.messages = [...this.messages, {
             ...resp,
