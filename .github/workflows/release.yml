@@ -33,10 +33,10 @@ jobs:
         id: Build
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - run: npm audit --audit-level=moderate
-        id: Audit
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # - run: npm audit --audit-level=moderate
+      #   id: Audit
+      #   env:
+      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Test
         id: Test
         run: npm test
