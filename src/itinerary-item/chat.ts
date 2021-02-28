@@ -82,6 +82,13 @@ export interface GetChatPayload {
   end_date: string;
 }
 
+export interface ChatConfig {
+  moderation: string
+  moderators: Array<string>
+  private: boolean
+  threads: boolean
+}
+
 export type GetChatResponse = SocketResponse<GetChatPayload>
 
 export interface BanMessageData {
@@ -151,9 +158,9 @@ export class Chat {
   public moderators: string[] = [];
 
   /**
-   * The moderation mode
+   * All of this chats' specific configuration properties
    */
-  public moderation: string | undefined;
+  public configuration: ChatConfig | null = null
 
   /**
    * Create an instance of a chat
@@ -330,8 +337,7 @@ export class Chat {
 
           this.messages = messageArray
           // Get the moderators and add
-          this.moderators = resp.payload.configuration.moderators
-          this.moderation = resp.payload.configuration.moderation
+          this.configuration = resp.payload.configuration
           resolve()
         }
       })
