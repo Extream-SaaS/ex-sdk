@@ -26,7 +26,7 @@
 
 • **addedAt**: *[TimeStamp](timestamp.md)*
 
-*Defined in [admin/itinerary-item.ts:10](https://github.com/Extream-SaaS/ex-sdk/blob/ff4c1d0/src/admin/itinerary-item.ts#L10)*
+*Defined in [admin/itinerary-item.ts:10](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/admin/itinerary-item.ts#L10)*
 
 ___
 
@@ -34,7 +34,7 @@ ___
 
 • **addedBy**: *string*
 
-*Defined in [admin/itinerary-item.ts:11](https://github.com/Extream-SaaS/ex-sdk/blob/ff4c1d0/src/admin/itinerary-item.ts#L11)*
+*Defined in [admin/itinerary-item.ts:11](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/admin/itinerary-item.ts#L11)*
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 • **end_date**: *string*
 
-*Defined in [admin/itinerary-item.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/ff4c1d0/src/admin/itinerary-item.ts#L16)*
+*Defined in [admin/itinerary-item.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/admin/itinerary-item.ts#L16)*
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 • **id**: *string*
 
-*Defined in [admin/itinerary-item.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/ff4c1d0/src/admin/itinerary-item.ts#L12)*
+*Defined in [admin/itinerary-item.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/admin/itinerary-item.ts#L12)*
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 • **start_date**: *string*
 
-*Defined in [admin/itinerary-item.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/ff4c1d0/src/admin/itinerary-item.ts#L13)*
+*Defined in [admin/itinerary-item.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/admin/itinerary-item.ts#L13)*
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 • **updatedAt**: *[TimeStamp](timestamp.md)*
 
-*Defined in [admin/itinerary-item.ts:15](https://github.com/Extream-SaaS/ex-sdk/blob/ff4c1d0/src/admin/itinerary-item.ts#L15)*
+*Defined in [admin/itinerary-item.ts:15](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/admin/itinerary-item.ts#L15)*
 
 ___
 
@@ -74,4 +74,4 @@ ___
 
 • **updatedBy**: *string*
 
-*Defined in [admin/itinerary-item.ts:14](https://github.com/Extream-SaaS/ex-sdk/blob/ff4c1d0/src/admin/itinerary-item.ts#L14)*
+*Defined in [admin/itinerary-item.ts:14](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/admin/itinerary-item.ts#L14)*

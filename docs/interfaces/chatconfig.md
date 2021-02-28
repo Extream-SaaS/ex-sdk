@@ -1,0 +1,48 @@
+[@sublime-productions/extream-sdk](../README.md) › [Globals](../globals.md) › [ChatConfig](chatconfig.md)
+
+# Interface: ChatConfig
+
+## Hierarchy
+
+* **ChatConfig**
+
+## Index
+
+### Properties
+
+* [moderation](chatconfig.md#moderation)
+* [moderators](chatconfig.md#moderators)
+* [private](chatconfig.md#private)
+* [threads](chatconfig.md#threads)
+
+## Properties
+
+###  moderation
+
+• **moderation**: *string*
+
+*Defined in [itinerary-item/chat.ts:86](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/itinerary-item/chat.ts#L86)*
+
+___
+
+###  moderators
+
+• **moderators**: *Array‹string›*
+
+*Defined in [itinerary-item/chat.ts:87](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/itinerary-item/chat.ts#L87)*
+
+___
+
+###  private
+
+• **private**: *boolean*
+
+*Defined in [itinerary-item/chat.ts:88](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/itinerary-item/chat.ts#L88)*
+
+___
+
+###  threads
+
+• **threads**: *boolean*
+
+*Defined in [itinerary-item/chat.ts:89](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/itinerary-item/chat.ts#L89)*
