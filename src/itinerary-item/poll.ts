@@ -8,11 +8,13 @@ export enum PollType {
   Immediate = 'live'
 }
 
+export interface PollConfiguration {
+  type?: string
+}
+
 export interface GetPollResponsePayload {
   questions: QuestionResponse[]
-  configuration: {
-    mode: PollType
-  }
+  configuration: PollConfiguration
 }
 
 export interface GetPollResponse {
@@ -72,7 +74,7 @@ export class Poll {
   /**
    * The type of the poll. Currently only immediate supported.
    */
-  public type: PollType | null = null
+  public configuration: PollConfiguration | null = null
 
   constructor (socket: SocketIOClient.Socket, id: string) {
     this.socket = socket
@@ -112,10 +114,17 @@ export class Poll {
   }
 
   /**
-   * Sorts messages by date
+   * Sorts answers by order
    */
   static sortByOrder (a: QuestionResponse, b: QuestionResponse): number {
     return a.order - b.order
+  }
+
+  /**
+   * Sorts questions by date
+   */
+  static sortByTime (a: Question, b: Question): number {
+    return new Date(b.time || Date.now()).getTime() - new Date(a.time || Date.now()).getTime()
   }
 
   /**
@@ -165,11 +174,11 @@ export class Poll {
         if ('error' in resp) {
           reject(new Error(resp.error))
         } else if (!('status' in resp)) {
-          this.type = resp.payload.configuration.mode
-          if (this.type !== PollType.Immediate) {
+          this.configuration = resp.payload.configuration
+          if (this.configuration.type !== PollType.Immediate) {
             const responseQuestions = [...Object.values(resp.payload.questions)].sort(Poll.sortByOrder)
             const questions = responseQuestions.map((q) => new Question(this.socket, q.id, q))
-            this.questions = questions
+            this.questions = questions.sort(Poll.sortByTime)
           } else {
             this.listenForQuestions()
           }
