@@ -16,11 +16,11 @@ Represents a poll itinerary item
 
 ### Properties
 
+* [configuration](poll.md#configuration)
 * [id](poll.md#id)
 * [questions](poll.md#questions)
 * [socket](poll.md#private-socket)
 * [subscriptionManager](poll.md#private-subscriptionmanager)
-* [type](poll.md#type)
 
 ### Methods
 
@@ -30,6 +30,7 @@ Represents a poll itinerary item
 * [listenForQuestions](poll.md#listenforquestions)
 * [listenForResponses](poll.md#listenforresponses)
 * [sortByOrder](poll.md#static-sortbyorder)
+* [sortByTime](poll.md#static-sortbytime)
 
 ## Constructors
 
@@ -37,7 +38,7 @@ Represents a poll itinerary item
 
 \+ **new Poll**(`socket`: Socket, `id`: string): *[Poll](poll.md)*
 
-*Defined in [itinerary-item/poll.ts:75](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/itinerary-item/poll.ts#L75)*
+*Defined in [itinerary-item/poll.ts:77](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/itinerary-item/poll.ts#L77)*
 
 **Parameters:**
 
@@ -50,11 +51,21 @@ Name | Type |
 
 ## Properties
 
+###  configuration
+
+• **configuration**: *[PollConfiguration](../interfaces/pollconfiguration.md) | null* = null
+
+*Defined in [itinerary-item/poll.ts:77](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/itinerary-item/poll.ts#L77)*
+
+The type of the poll. Currently only immediate supported.
+
+___
+
 ###  id
 
 • **id**: *string*
 
-*Defined in [itinerary-item/poll.ts:67](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/itinerary-item/poll.ts#L67)*
+*Defined in [itinerary-item/poll.ts:69](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/itinerary-item/poll.ts#L69)*
 
 Itinerary item id
 
@@ -64,7 +75,7 @@ ___
 
 • **questions**: *[Question](question.md)[]* = []
 
-*Defined in [itinerary-item/poll.ts:71](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/itinerary-item/poll.ts#L71)*
+*Defined in [itinerary-item/poll.ts:73](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/itinerary-item/poll.ts#L73)*
 
 All of the questions that are active on this poll currently
 
@@ -74,7 +85,7 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [itinerary-item/poll.ts:62](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/itinerary-item/poll.ts#L62)*
+*Defined in [itinerary-item/poll.ts:64](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/itinerary-item/poll.ts#L64)*
 
 ___
 
@@ -82,17 +93,7 @@ ___
 
 • **subscriptionManager**: *[SubscriptionManager](subscriptionmanager.md)*
 
-*Defined in [itinerary-item/poll.ts:63](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/itinerary-item/poll.ts#L63)*
-
-___
-
-###  type
-
-• **type**: *[PollType](../enums/polltype.md) | null* = null
-
-*Defined in [itinerary-item/poll.ts:75](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/itinerary-item/poll.ts#L75)*
-
-The type of the poll. Currently only immediate supported.
+*Defined in [itinerary-item/poll.ts:65](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/itinerary-item/poll.ts#L65)*
 
 ## Methods
 
@@ -100,7 +101,7 @@ The type of the poll. Currently only immediate supported.
 
 ▸ **answer**(`questionId`: string, `answerId`: string): *Promise‹void›*
 
-*Defined in [itinerary-item/poll.ts:126](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/itinerary-item/poll.ts#L126)*
+*Defined in [itinerary-item/poll.ts:135](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/itinerary-item/poll.ts#L135)*
 
 Anser a question
 
@@ -119,7 +120,7 @@ ___
 
 ▸ **destroy**(): *void*
 
-*Defined in [itinerary-item/poll.ts:194](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/itinerary-item/poll.ts#L194)*
+*Defined in [itinerary-item/poll.ts:203](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/itinerary-item/poll.ts#L203)*
 
 Cleans up all listeners for this class. Call this when you no longer need access to this events information to ensure memory leaks are not caused.
 
@@ -131,7 +132,7 @@ ___
 
 ▸ **get**(): *Promise‹void›*
 
-*Defined in [itinerary-item/poll.ts:161](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/itinerary-item/poll.ts#L161)*
+*Defined in [itinerary-item/poll.ts:170](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/itinerary-item/poll.ts#L170)*
 
 Get all information for this poll. Questions will be populated in the questions array.
 
@@ -143,7 +144,7 @@ ___
 
 ▸ **listenForQuestions**(): *void*
 
-*Defined in [itinerary-item/poll.ts:105](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/itinerary-item/poll.ts#L105)*
+*Defined in [itinerary-item/poll.ts:107](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/itinerary-item/poll.ts#L107)*
 
 Sets up websocket listeners for new questions being streamed into the poll
 
@@ -155,7 +156,7 @@ ___
 
 ▸ **listenForResponses**(): *void*
 
-*Defined in [itinerary-item/poll.ts:86](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/itinerary-item/poll.ts#L86)*
+*Defined in [itinerary-item/poll.ts:88](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/itinerary-item/poll.ts#L88)*
 
 Sets up websocket listeners for other peoples responses coming in
 
@@ -167,9 +168,9 @@ ___
 
 ▸ **sortByOrder**(`a`: [QuestionResponse](../interfaces/questionresponse.md), `b`: [QuestionResponse](../interfaces/questionresponse.md)): *number*
 
-*Defined in [itinerary-item/poll.ts:117](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/itinerary-item/poll.ts#L117)*
+*Defined in [itinerary-item/poll.ts:119](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/itinerary-item/poll.ts#L119)*
 
-Sorts messages by date
+Sorts answers by order
 
 **Parameters:**
 
@@ -177,5 +178,24 @@ Name | Type |
 ------ | ------ |
 `a` | [QuestionResponse](../interfaces/questionresponse.md) |
 `b` | [QuestionResponse](../interfaces/questionresponse.md) |
+
+**Returns:** *number*
+
+___
+
+### `Static` sortByTime
+
+▸ **sortByTime**(`a`: [Question](question.md), `b`: [Question](question.md)): *number*
+
+*Defined in [itinerary-item/poll.ts:126](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/itinerary-item/poll.ts#L126)*
+
+Sorts questions by date
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | [Question](question.md) |
+`b` | [Question](question.md) |
 
 **Returns:** *number*

@@ -37,7 +37,7 @@ Represents a questions related to a specific poll.
 
 \+ **new Question**(`socket`: Socket, `id`: string, `data`: [QuestionResponse](../interfaces/questionresponse.md)): *[Question](question.md)*
 
-*Defined in [itinerary-item/question.ts:67](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/itinerary-item/question.ts#L67)*
+*Defined in [itinerary-item/question.ts:67](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/itinerary-item/question.ts#L67)*
 
 **Parameters:**
 
@@ -55,7 +55,7 @@ Name | Type |
 
 • **answers**: *[AnswerResponse](../interfaces/answerresponse.md)[]*
 
-*Defined in [itinerary-item/question.ts:46](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/itinerary-item/question.ts#L46)*
+*Defined in [itinerary-item/question.ts:46](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/itinerary-item/question.ts#L46)*
 
 List of all answers
 
@@ -65,7 +65,7 @@ ___
 
 • **id**: *string*
 
-*Defined in [itinerary-item/question.ts:42](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/itinerary-item/question.ts#L42)*
+*Defined in [itinerary-item/question.ts:42](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/itinerary-item/question.ts#L42)*
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 • **question**: *string*
 
-*Defined in [itinerary-item/question.ts:54](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/itinerary-item/question.ts#L54)*
+*Defined in [itinerary-item/question.ts:54](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/itinerary-item/question.ts#L54)*
 
 Text of the question e.g. "What is your name?"
 
@@ -83,7 +83,7 @@ ___
 
 • **responses**: *object*
 
-*Defined in [itinerary-item/question.ts:50](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/itinerary-item/question.ts#L50)*
+*Defined in [itinerary-item/question.ts:50](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/itinerary-item/question.ts#L50)*
 
 Time for the question to show
 
@@ -97,7 +97,7 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [itinerary-item/question.ts:41](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/itinerary-item/question.ts#L41)*
+*Defined in [itinerary-item/question.ts:41](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/itinerary-item/question.ts#L41)*
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 • **time**: *Date | undefined*
 
-*Defined in [itinerary-item/question.ts:67](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/itinerary-item/question.ts#L67)*
+*Defined in [itinerary-item/question.ts:67](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/itinerary-item/question.ts#L67)*
 
 Time to display the question if pre-recorded
 
@@ -115,7 +115,7 @@ ___
 
 • **timeAdded**: *number*
 
-*Defined in [itinerary-item/question.ts:62](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/itinerary-item/question.ts#L62)*
+*Defined in [itinerary-item/question.ts:62](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/itinerary-item/question.ts#L62)*
 
 Time question was streamed in
 
@@ -125,7 +125,7 @@ ___
 
 • **timeToLive**: *number*
 
-*Defined in [itinerary-item/question.ts:58](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/itinerary-item/question.ts#L58)*
+*Defined in [itinerary-item/question.ts:58](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/itinerary-item/question.ts#L58)*
 
 Time for the question to show
 
@@ -135,7 +135,7 @@ Time for the question to show
 
 ▸ **answer**(`answer`: string, `poll`: string): *Promise‹void›*
 
-*Defined in [itinerary-item/question.ts:102](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/itinerary-item/question.ts#L102)*
+*Defined in [itinerary-item/question.ts:102](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/itinerary-item/question.ts#L102)*
 
 Answer this question
 
@@ -154,7 +154,7 @@ ___
 
 ▸ **setResponses**(`responses`: object): *void*
 
-*Defined in [itinerary-item/question.ts:93](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/itinerary-item/question.ts#L93)*
+*Defined in [itinerary-item/question.ts:93](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/itinerary-item/question.ts#L93)*
 
 Set the responses of a question
 
@@ -172,7 +172,7 @@ ___
 
 ▸ **sortByOrder**(`a`: [AnswerResponse](../interfaces/answerresponse.md), `b`: [AnswerResponse](../interfaces/answerresponse.md)): *number*
 
-*Defined in [itinerary-item/question.ts:85](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/itinerary-item/question.ts#L85)*
+*Defined in [itinerary-item/question.ts:85](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/itinerary-item/question.ts#L85)*
 
 **Parameters:**
 

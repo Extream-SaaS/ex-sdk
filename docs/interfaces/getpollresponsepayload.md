@@ -17,13 +17,9 @@
 
 ###  configuration
 
-• **configuration**: *object*
+• **configuration**: *[PollConfiguration](pollconfiguration.md)*
 
-*Defined in [itinerary-item/poll.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/itinerary-item/poll.ts#L13)*
-
-#### Type declaration:
-
-* **mode**: *[PollType](../enums/polltype.md)*
+*Defined in [itinerary-item/poll.ts:17](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/itinerary-item/poll.ts#L17)*
 
 ___
 
@@ -31,4 +27,4 @@ ___
 
 • **questions**: *[QuestionResponse](questionresponse.md)[]*
 
-*Defined in [itinerary-item/poll.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/itinerary-item/poll.ts#L12)*
+*Defined in [itinerary-item/poll.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/itinerary-item/poll.ts#L16)*

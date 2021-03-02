@@ -22,7 +22,7 @@
 
 • **apiKey**: *string*
 
-*Defined in [utils.ts:22](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/utils.ts#L22)*
+*Defined in [utils.ts:22](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/utils.ts#L22)*
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 • **auth**: *string*
 
-*Defined in [utils.ts:20](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/utils.ts#L20)*
+*Defined in [utils.ts:20](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/utils.ts#L20)*
 
 ___
 
@@ -38,7 +38,7 @@ ___
 
 • **collab**: *string*
 
-*Defined in [utils.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/utils.ts#L23)*
+*Defined in [utils.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/utils.ts#L23)*
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 • **gateway**: *string*
 
-*Defined in [utils.ts:21](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/utils.ts#L21)*
+*Defined in [utils.ts:21](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/utils.ts#L21)*
 
 ___
 
@@ -54,4 +54,4 @@ ___
 
 • **persistance**: *[PersistanceType](../enums/persistancetype.md)*
 
-*Defined in [utils.ts:19](https://github.com/Extream-SaaS/ex-sdk/blob/ccff5d7/src/utils.ts#L19)*
+*Defined in [utils.ts:19](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/utils.ts#L19)*
