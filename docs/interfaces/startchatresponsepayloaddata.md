@@ -21,7 +21,7 @@
 
 • **from**: *[ExtreamUser](extreamuser.md)*
 
-*Defined in [itinerary-item/chat.ts:121](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/itinerary-item/chat.ts#L121)*
+*Defined in [itinerary-item/chat.ts:121](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary-item/chat.ts#L121)*
 
 ___
 
@@ -29,7 +29,7 @@ ___
 
 • **instance**: *string*
 
-*Defined in [itinerary-item/chat.ts:122](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/itinerary-item/chat.ts#L122)*
+*Defined in [itinerary-item/chat.ts:122](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary-item/chat.ts#L122)*
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 • **operators**: *string[]*
 
-*Defined in [itinerary-item/chat.ts:123](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/itinerary-item/chat.ts#L123)*
+*Defined in [itinerary-item/chat.ts:123](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary-item/chat.ts#L123)*
 
 ___
 
@@ -45,4 +45,4 @@ ___
 
 • **sent**: *Date*
 
-*Defined in [itinerary-item/chat.ts:120](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/itinerary-item/chat.ts#L120)*
+*Defined in [itinerary-item/chat.ts:120](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary-item/chat.ts#L120)*

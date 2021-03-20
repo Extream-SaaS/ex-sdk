@@ -19,7 +19,7 @@
 
 • **data**: *object*
 
-*Defined in [itinerary-item/poll.ts:45](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/itinerary-item/poll.ts#L45)*
+*Defined in [itinerary-item/poll.ts:45](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary-item/poll.ts#L45)*
 
 #### Type declaration:
 
@@ -33,4 +33,4 @@ ___
 
 • **id**: *string*
 
-*Defined in [itinerary-item/poll.ts:44](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/itinerary-item/poll.ts#L44)*
+*Defined in [itinerary-item/poll.ts:44](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary-item/poll.ts#L44)*

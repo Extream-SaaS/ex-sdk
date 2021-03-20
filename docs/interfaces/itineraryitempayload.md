@@ -19,7 +19,7 @@
 
 • **id**: *string*
 
-*Defined in [admin/itinerary-item.ts:5](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/admin/itinerary-item.ts#L5)*
+*Defined in [admin/itinerary-item.ts:5](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/admin/itinerary-item.ts#L5)*
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 • **type**: *string*
 
-*Defined in [admin/itinerary-item.ts:6](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/admin/itinerary-item.ts#L6)*
+*Defined in [admin/itinerary-item.ts:6](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/admin/itinerary-item.ts#L6)*

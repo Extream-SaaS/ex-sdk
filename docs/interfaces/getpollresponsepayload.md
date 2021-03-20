@@ -19,7 +19,7 @@
 
 • **configuration**: *[PollConfiguration](pollconfiguration.md)*
 
-*Defined in [itinerary-item/poll.ts:17](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/itinerary-item/poll.ts#L17)*
+*Defined in [itinerary-item/poll.ts:17](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary-item/poll.ts#L17)*
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 • **questions**: *[QuestionResponse](questionresponse.md)[]*
 
-*Defined in [itinerary-item/poll.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/itinerary-item/poll.ts#L16)*
+*Defined in [itinerary-item/poll.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary-item/poll.ts#L16)*

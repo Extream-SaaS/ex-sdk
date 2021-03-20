@@ -1,9 +1,9 @@
-# 0.11.0 (2021-03-20)
+## 0.11.1 (2021-03-20)
 
 
-### Features
+### Bug Fixes
 
-* sort questions sdk side ([600cbb0](https://github.com/Extream-SaaS/ex-sdk/commit/600cbb0fc095e2a0a65f61c15c7f46e4e197a229))
+* sort order incorrect ([1c866e4](https://github.com/Extream-SaaS/ex-sdk/commit/1c866e409eab03385cce48c74bc8b93769518368))
 
 
 

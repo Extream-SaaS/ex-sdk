@@ -20,7 +20,7 @@
 
 • **answers**: *object[]*
 
-*Defined in [itinerary-item/poll.ts:54](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/itinerary-item/poll.ts#L54)*
+*Defined in [itinerary-item/poll.ts:54](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary-item/poll.ts#L54)*
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 • **order**: *number*
 
-*Defined in [itinerary-item/poll.ts:53](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/itinerary-item/poll.ts#L53)*
+*Defined in [itinerary-item/poll.ts:53](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary-item/poll.ts#L53)*
 
 ___
 
@@ -36,4 +36,4 @@ ___
 
 • **question**: *string*
 
-*Defined in [itinerary-item/poll.ts:52](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/itinerary-item/poll.ts#L52)*
+*Defined in [itinerary-item/poll.ts:52](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary-item/poll.ts#L52)*
