@@ -1,8 +1,8 @@
 import { Consumer } from '../consumer'
 import { ExtreamClient } from '../extream-client'
 import * as exSdk from '../index'
-import { Itinerary, ItineraryType } from '../itinerary'
-import { Chat, Poll, PollType, Rtmp } from '../itinerary-item'
+import { Itinerary } from '../itinerary'
+import { Chat, ItineraryType, Poll, PollType, Rtmp } from '../itinerary-item'
 import { AuthorizationTopic, AdminTopic, ClientTopic, ConsumerTopic } from '../topic'
 import { UserType } from '../user'
 
