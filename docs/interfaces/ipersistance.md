@@ -24,7 +24,7 @@
 
 ▸ **clear**(): *void*
 
-*Defined in [persistance.ts:14](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/persistance.ts#L14)*
+*Defined in [persistance.ts:14](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/persistance.ts#L14)*
 
 **Returns:** *void*
 
@@ -34,7 +34,7 @@ ___
 
 ▸ **getTokens**(): *[string | undefined, string | undefined]*
 
-*Defined in [persistance.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/persistance.ts#L13)*
+*Defined in [persistance.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/persistance.ts#L13)*
 
 **Returns:** *[string | undefined, string | undefined]*
 
@@ -44,7 +44,7 @@ ___
 
 ▸ **setTokens**(`loginResponse`: [AuthenticationResponse](authenticationresponse.md)): *void*
 
-*Defined in [persistance.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/persistance.ts#L12)*
+*Defined in [persistance.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/persistance.ts#L12)*
 
 **Parameters:**
 

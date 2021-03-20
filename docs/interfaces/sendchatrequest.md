@@ -24,7 +24,7 @@
 
 • **data**: *T*
 
-*Defined in [itinerary-item/chat.ts:56](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/itinerary-item/chat.ts#L56)*
+*Defined in [itinerary-item/chat.ts:56](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/itinerary-item/chat.ts#L56)*
 
 The message data
 
@@ -34,7 +34,7 @@ ___
 
 • **id**: *string*
 
-*Defined in [itinerary-item/chat.ts:51](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/itinerary-item/chat.ts#L51)*
+*Defined in [itinerary-item/chat.ts:51](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/itinerary-item/chat.ts#L51)*
 
 The id of the room that to send the chat message to
 
@@ -44,4 +44,4 @@ ___
 
 • **instance**? : *undefined | string*
 
-*Defined in [itinerary-item/chat.ts:52](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/itinerary-item/chat.ts#L52)*
+*Defined in [itinerary-item/chat.ts:52](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/itinerary-item/chat.ts#L52)*

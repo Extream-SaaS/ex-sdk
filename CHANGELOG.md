@@ -1,9 +1,9 @@
-# 0.9.0 (2021-03-02)
+# 0.10.0 (2021-03-20)
 
 
 ### Features
 
-* sort questions by date, populate config properly ([4323002](https://github.com/Extream-SaaS/ex-sdk/commit/4323002326b47571c681f08663f1c20aeac8ebbb))
+* ensure answers are sorted in a poll ([194f895](https://github.com/Extream-SaaS/ex-sdk/commit/194f895f85055e5e6ae2f7ac9a355218205d0e51))
 
 
 

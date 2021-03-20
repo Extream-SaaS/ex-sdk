@@ -28,7 +28,7 @@
 
 • **action**: *string*
 
-*Defined in [utils.ts:34](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/utils.ts#L34)*
+*Defined in [utils.ts:34](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/utils.ts#L34)*
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 • **command**: *string*
 
-*Defined in [utils.ts:35](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/utils.ts#L35)*
+*Defined in [utils.ts:35](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/utils.ts#L35)*
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 • **domain**: *string*
 
-*Defined in [utils.ts:33](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/utils.ts#L33)*
+*Defined in [utils.ts:33](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/utils.ts#L33)*
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 • **error**? : *undefined | string*
 
-*Defined in [utils.ts:32](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/utils.ts#L32)*
+*Defined in [utils.ts:32](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/utils.ts#L32)*
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 • **payload**: *T*
 
-*Defined in [utils.ts:36](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/utils.ts#L36)*
+*Defined in [utils.ts:36](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/utils.ts#L36)*
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 • **socketId**: *string*
 
-*Defined in [utils.ts:38](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/utils.ts#L38)*
+*Defined in [utils.ts:38](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/utils.ts#L38)*
 
 ___
 
@@ -76,4 +76,4 @@ ___
 
 • **user**: *[ExtreamUser](extreamuser.md)*
 
-*Defined in [utils.ts:37](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/utils.ts#L37)*
+*Defined in [utils.ts:37](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/utils.ts#L37)*

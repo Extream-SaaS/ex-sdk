@@ -22,7 +22,7 @@
 
 • **accessToken**: *string*
 
-*Defined in [user.ts:37](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/user.ts#L37)*
+*Defined in [user.ts:37](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/user.ts#L37)*
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 • **accessTokenExpiresAt**: *string*
 
-*Defined in [user.ts:38](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/user.ts#L38)*
+*Defined in [user.ts:38](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/user.ts#L38)*
 
 ___
 
@@ -38,7 +38,7 @@ ___
 
 • **id**: *string*
 
-*Defined in [user.ts:39](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/user.ts#L39)*
+*Defined in [user.ts:39](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/user.ts#L39)*
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 • **refreshToken**: *string*
 
-*Defined in [user.ts:40](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/user.ts#L40)*
+*Defined in [user.ts:40](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/user.ts#L40)*
 
 ___
 
@@ -54,4 +54,4 @@ ___
 
 • **refreshTokenExpiresAt**: *string*
 
-*Defined in [user.ts:41](https://github.com/Extream-SaaS/ex-sdk/blob/4323002/src/user.ts#L41)*
+*Defined in [user.ts:41](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/user.ts#L41)*
