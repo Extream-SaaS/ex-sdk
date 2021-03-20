@@ -124,7 +124,7 @@ export class Poll {
    * Sorts questions by date
    */
   static sortByTime (a: Question, b: Question): number {
-    return new Date(b.time || Date.now()).getTime() - new Date(a.time || Date.now()).getTime()
+    return new Date(a.time || Date.now()).getTime() - new Date(b.time || Date.now()).getTime()
   }
 
   /**
