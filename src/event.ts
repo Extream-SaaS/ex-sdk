@@ -1,7 +1,8 @@
 import { Itinerary } from './itinerary'
+import { ItineraryType } from './itinerary-item/utils'
 import { Notices } from './notices'
 import { ConsumerTopic } from './topic'
-import { ExtreamOptions, InitialResponse, promiseTimeout, SocketResponse } from './utils'
+import { InitialResponse, promiseTimeout, SocketResponse } from './utils'
 
 export interface EventsPayload {
   id: number;
@@ -21,7 +22,7 @@ export interface EventsPayload {
 export type EventsByOrganizationResponse = SocketResponse<EventsPayload[]>
 
 export interface ItineraryItem {
-  type: string;
+  type: ItineraryType;
   id: string;
 }
 

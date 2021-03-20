@@ -2,17 +2,12 @@ import { Chat, Rtmp, Poll, WebRtc } from './itinerary-item'
 import { GetItineraryResponse, ItineraryItem, ItineraryPayload } from './event'
 import { ConsumerTopic } from './topic'
 import { InitialResponse, promiseTimeout } from './utils'
+import { ItineraryItemFactory } from './itinerary-item/item-factory'
+import { ItineraryType } from './itinerary-item/utils'
 
 export interface RtcConfiguration {
   operators: string[];
   mode: string;
-}
-
-export enum ItineraryType {
-  Rtmp = 'rtmp',
-  WebRtc = 'webrtc',
-  Chat = 'chats',
-  Poll = 'poll',
 }
 
 /**
@@ -22,27 +17,20 @@ export enum ItineraryType {
 export class Itinerary {
   private socket: SocketIOClient.Socket
 
+  /**
+   * The id of the current itinerary item
+   */
   public id: string | null = null
   /**
    * All the information relating to the itinerary. This is populated after calling `getItinerary`.
    */
   public payload: ItineraryPayload | null = null
   /**
-   * All the chat items related to the itinerary
-   */
-  public chats: Chat[] = []
-  /**
-   * All the RTMP items related to the itinerary
-   */
-  public rtmpFeeds: Rtmp[] = []
-  /**
-   * All the poll items related to the itinerary
-   */
-  public polls: Poll[] = []
-  /**
    * All the web rtc items related to the itinerary
    */
   public webRtcItems: WebRtc[] = []
+
+  public items: (Chat | Poll | Rtmp | WebRtc)[] = []
 
   constructor (socket: SocketIOClient.Socket, id: string /* options: ExtreamOptions */) {
     this.socket = socket
@@ -50,25 +38,17 @@ export class Itinerary {
     // this.options = options
   }
 
-  private createRtmpItem (item: ItineraryItem): Rtmp {
-    const rtc = new Rtmp(this.socket, item.id)
-    return rtc
+  get rtmpItems (): Rtmp[] {
+    return this.items.filter(i => i.type === ItineraryType.Rtmp) as Rtmp[]
   }
 
-  private createChatItem (item: ItineraryItem): Chat {
-    const chat = new Chat(this.socket, item.id)
-    return chat
+  get chatItems (): Chat[] {
+    return this.items.filter(i => i.type === ItineraryType.Chat) as Chat[]
   }
 
-  private createPollItem (item: ItineraryItem): Poll {
-    const poll = new Poll(this.socket, item.id)
-    return poll
+  get pollItems (): Poll[] {
+    return this.items.filter(i => i.type === ItineraryType.Poll) as Poll[]
   }
-
-  // private createWebRtcItem (item: ItineraryItem): WebRtc {
-  //   const poll = new WebRtc(this.socket, item.id, this.options)
-  //   return poll
-  // }
 
   /**
    * Create an instances of all the itinerary items from the payload
@@ -80,15 +60,7 @@ export class Itinerary {
       ...payload,
       items
     }
-    // Needs factory this is gnarly
-    const rtmpItems = items.filter(i => i.type && i.type === ItineraryType.Rtmp)
-    const chatItems = items.filter(i => i.type && i.type === ItineraryType.Chat)
-    const pollItems = items.filter(i => i.type && i.type === ItineraryType.Poll)
-    // const webRtcItem = items.filter(i => i.type && i.type === ItineraryType.WebRtc)
-    this.rtmpFeeds = rtmpItems.map(this.createRtmpItem.bind(this))
-    this.chats = chatItems.map(this.createChatItem.bind(this))
-    this.polls = pollItems.map(this.createPollItem.bind(this))
-    // this.webRtcItems = webRtcItem.map(this.createWebRtcItem.bind(this))
+    this.items = items.map((i: ItineraryItem) => ItineraryItemFactory.getItem(this.socket, i))
   }
 
   /**

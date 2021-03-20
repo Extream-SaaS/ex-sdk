@@ -2,6 +2,7 @@ import { ConsumerTopic, ClientTopic } from '../topic'
 import { ExtreamUser } from '../user'
 import SubscriptionManager from '../subscription-manager'
 import { InitialResponse, promiseTimeout, SocketResponse, TimeStamp } from '../utils'
+import { ItineraryType } from './utils'
 
 /**
  * Chat message response for a message being streamed in
@@ -161,6 +162,8 @@ export class Chat {
    * All of this chats' specific configuration properties
    */
   public configuration: ChatConfig | null = null
+
+  public type = ItineraryType.Chat
 
   /**
    * Create an instance of a chat

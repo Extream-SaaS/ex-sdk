@@ -1,7 +1,9 @@
+
 import SubscriptionManager from '../subscription-manager'
 import { ConsumerTopic } from '../topic'
 import { ExtreamUser } from '../user'
 import { ExtreamOptions, InitialResponse, promiseTimeout, SocketResponse } from '../utils'
+import { ItineraryType } from './utils'
 
 export interface WebRtcConfiguration {
   mode: string;
@@ -49,6 +51,7 @@ export class WebRtc {
    * The web rtc token
    */
   public token: string | null = null
+  public type = ItineraryType.WebRtc
 
   constructor (socket: SocketIOClient.Socket, id: string, options: ExtreamOptions) {
     this.socket = socket

@@ -1,5 +1,6 @@
 import { ConsumerTopic } from '../topic'
 import { promiseTimeout, SocketResponse, TimeStamp } from '../utils'
+import { ItineraryType } from './utils'
 
 export interface RtmpConfiguration {
   mode: string;
@@ -42,6 +43,7 @@ export class Rtmp {
    * All of the data relating to this item. Populated after calling the .get message.
    */
   public data: ReadRtmpResponsePayload | null = null
+  public type = ItineraryType.Rtmp
 
   constructor (socket: SocketIOClient.Socket, id: string) {
     this.socket = socket

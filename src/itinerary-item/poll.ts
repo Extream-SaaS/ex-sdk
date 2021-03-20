@@ -2,6 +2,7 @@ import SubscriptionManager from '../subscription-manager'
 import { ConsumerTopic } from '../topic'
 import { InitialResponse, promiseTimeout } from '../utils'
 import { AnswerPollsResponse, Question, QuestionResponse } from './question'
+import { ItineraryType } from './utils'
 
 export enum PollType {
   Timed = 'timed',
@@ -75,6 +76,7 @@ export class Poll {
    * The type of the poll. Currently only immediate supported.
    */
   public configuration: PollConfiguration | null = null
+  public type = ItineraryType.Poll
 
   constructor (socket: SocketIOClient.Socket, id: string) {
     this.socket = socket
