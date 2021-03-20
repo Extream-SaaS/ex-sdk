@@ -140,30 +140,6 @@ export class Poll {
     await question.answer(answerId, this.id)
   }
 
-  // createQuestion (question: QuestionRequest): Promise<void> {
-  //   let callback: (resp: InitialResponse | CreateQuestionResponse) => void
-  //   return promiseTimeout(new Promise<void>((resolve, reject) => {
-  //     callback = (resp: InitialResponse | CreateQuestionResponse) => {
-  //       if ('error' in resp) {
-  //         reject(new Error(resp.error))
-  //       } else if (!('status' in resp)) {
-  //         if (resp.id === this.id) {
-  //           const question = new Question(this.socket, resp.payload.id, resp.payload)
-  //           this.questions = [question, ...this.questions]
-  //           resolve()
-  //         }
-  //       }
-  //     }
-  //     this.socket.on(ConsumerTopic.QuestionCreate, callback)
-  //     this.socket.emit(ConsumerTopic.QuestionCreate, {
-  //       id: this.id,
-  //       ...question
-  //     })
-  //   })).finally(() => {
-  //     this.socket.removeListener(ConsumerTopic.QuestionCreate, callback)
-  //   })
-  // }
-
   /**
    * Get all information for this poll. Questions will be populated in the questions array.
    */

@@ -46,17 +46,17 @@ export type GetItineraryResponse = SocketResponse<ItineraryPayload>
 
 export class Event {
   private socket: SocketIOClient.Socket
-  private options: ExtreamOptions
+  // private options: ExtreamOptions
 
   public itinerary: Itinerary[] = []
   public id: string
   public notices: Notices
 
-  constructor (socket: SocketIOClient.Socket, id: string, options: ExtreamOptions) {
+  constructor (socket: SocketIOClient.Socket, id: string /* options: ExtreamOptions */) {
     this.socket = socket
     this.id = id
     this.notices = new Notices(this.socket)
-    this.options = options
+    // this.options = options
   }
 
   /**
@@ -74,7 +74,7 @@ export class Event {
    */
   private async getItineraryInformation (payload: ItineraryPayload[]): Promise<void> {
     const itineraryItems = await Promise.all(payload.map(async (item) => {
-      const itinerary = new Itinerary(this.socket, this.options)
+      const itinerary = new Itinerary(this.socket, item.id)
       await itinerary.createItineraryItem(item)
       return itinerary
     }))

@@ -1,8 +1,7 @@
 import { Chat, Rtmp, Poll, WebRtc } from './itinerary-item'
 import { GetItineraryResponse, ItineraryItem, ItineraryPayload } from './event'
 import { ConsumerTopic } from './topic'
-import { ExtreamOptions, InitialResponse, promiseTimeout } from './utils'
-import { ExtreamUser } from './user'
+import { InitialResponse, promiseTimeout } from './utils'
 
 export interface RtcConfiguration {
   operators: string[];
@@ -22,8 +21,8 @@ export enum ItineraryType {
  */
 export class Itinerary {
   private socket: SocketIOClient.Socket
-  private options: ExtreamOptions
 
+  public id: string | null = null
   /**
    * All the information relating to the itinerary. This is populated after calling `getItinerary`.
    */
@@ -45,9 +44,10 @@ export class Itinerary {
    */
   public webRtcItems: WebRtc[] = []
 
-  constructor (socket: SocketIOClient.Socket, options: ExtreamOptions) {
+  constructor (socket: SocketIOClient.Socket, id: string /* options: ExtreamOptions */) {
     this.socket = socket
-    this.options = options
+    this.id = id
+    // this.options = options
   }
 
   private createRtmpItem (item: ItineraryItem): Rtmp {
@@ -65,10 +65,10 @@ export class Itinerary {
     return poll
   }
 
-  private createWebRtcItem (item: ItineraryItem): WebRtc {
-    const poll = new WebRtc(this.socket, item.id, this.options)
-    return poll
-  }
+  // private createWebRtcItem (item: ItineraryItem): WebRtc {
+  //   const poll = new WebRtc(this.socket, item.id, this.options)
+  //   return poll
+  // }
 
   /**
    * Create an instances of all the itinerary items from the payload
@@ -87,14 +87,14 @@ export class Itinerary {
     this.rtmpFeeds = rtmpItems.map(this.createRtmpItem.bind(this))
     this.chats = chatItems.map(this.createChatItem.bind(this))
     this.polls = pollItems.map(this.createPollItem.bind(this))
-    this.webRtcItems = webRtcItem.map(this.createWebRtcItem.bind(this))
+    // this.webRtcItems = webRtcItem.map(this.createWebRtcItem.bind(this))
   }
 
   /**
    * Get all the information for a specific itinerary.
    * @param {string} id Get all the information for a specific itinerary. This then creates all the itinerary items.
    */
-  public getItinerary (id: string): Promise<void> {
+  public getItinerary (): Promise<void> {
     let callback: (resp: InitialResponse | GetItineraryResponse) => void
     return promiseTimeout(new Promise<void>((resolve, reject) => {
       callback = (resp: InitialResponse | GetItineraryResponse) => {
@@ -106,9 +106,8 @@ export class Itinerary {
         }
       }
       this.socket.on(ConsumerTopic.ItineraryGet, callback)
-      // TODO The id should be passed into the constructor.
       this.socket.emit(ConsumerTopic.ItineraryGet, {
-        id
+        id: this.id
       })
     })).finally(() => {
       this.socket.removeListener(ConsumerTopic.ItineraryGet, callback)
