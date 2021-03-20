@@ -108,7 +108,7 @@ export class Poll {
     this.subscriptionManager.addSubscription(ConsumerTopic.PollQuestion, (resp: PollQuestionResponse) => {
       if (resp.id === this.id) {
         const question = new Question(this.socket, resp.data.id, resp.data)
-        this.questions = [question, ...this.questions]
+        this.questions = [question, ...this.questions].sort(Poll.sortByTime)
       }
     })
   }
