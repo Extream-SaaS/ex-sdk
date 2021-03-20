@@ -47,7 +47,7 @@ export class Question {
   /**
    * Time for the question to show
    */
-  public responses: { [key: string]: number }
+  public responses: {id: string, count: number}[] = []
   /**
    * Text of the question e.g. "What is your name?"
    */
@@ -71,10 +71,10 @@ export class Question {
     this.id = id
     this.question = data.question
     this.answers = [...Object.values(data.answers)].sort(Question.sortByOrder)
-    this.responses = Object.values(data.responses || {}).reduce((acc: { [key: string]: number }, cur) => {
+    this.setResponses(Object.values(data.responses || {}).reduce((acc: { [key: string]: number }, cur) => {
       acc[cur.id] = cur.responses
       return acc
-    }, {})
+    }, {}))
     this.timeToLive = parseInt(data.timeToLive) || 60
     this.timeAdded = Date.now()
     if (data.time) {
@@ -86,12 +86,22 @@ export class Question {
     return a.order - b.order
   }
 
+  sortResponses (a: [string, number], b: [string, number]): number {
+    const answerA = this.answers.find((ans) => ans.id === a[0])
+    const answerB = this.answers.find((ans) => ans.id === b[0])
+    if (!answerA || !answerB) {
+      throw new Error('Could not find answer we have a response for')
+    }
+    return answerA.order - answerB.order
+  }
+
   /**
    * Set the responses of a question
    * @param { [key: string]: number } responses The responses for a question
    */
   setResponses (responses: { [key: string]: number }): void {
-    this.responses = responses
+    const sortedResponses = Object.entries(responses).sort(this.sortResponses.bind(this))
+    this.responses = sortedResponses.map(([id, count]) => ({ id, count }))
   }
 
   /**
@@ -107,7 +117,7 @@ export class Question {
           reject(new Error(resp.error))
         } else if (!('status' in resp) && resp.payload) {
           if (resp.payload.data.id === this.id) {
-            this.responses = { ...resp.payload.data.responses }
+            this.setResponses(resp.payload.data.responses)
             resolve()
           }
         }
