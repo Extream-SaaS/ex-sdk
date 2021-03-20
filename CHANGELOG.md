@@ -1,9 +1,9 @@
-# 0.10.0 (2021-03-20)
+# 0.11.0 (2021-03-20)
 
 
 ### Features
 
-* ensure answers are sorted in a poll ([194f895](https://github.com/Extream-SaaS/ex-sdk/commit/194f895f85055e5e6ae2f7ac9a355218205d0e51))
+* sort questions sdk side ([600cbb0](https://github.com/Extream-SaaS/ex-sdk/commit/600cbb0fc095e2a0a65f61c15c7f46e4e197a229))
 
 
 

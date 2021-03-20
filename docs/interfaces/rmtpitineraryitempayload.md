@@ -35,7 +35,7 @@
 
 *Inherited from [EntityResponse](entityresponse.md).[addedAt](entityresponse.md#addedat)*
 
-*Defined in [admin/itinerary-item.ts:10](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/admin/itinerary-item.ts#L10)*
+*Defined in [admin/itinerary-item.ts:10](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/admin/itinerary-item.ts#L10)*
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 *Inherited from [EntityResponse](entityresponse.md).[addedBy](entityresponse.md#addedby)*
 
-*Defined in [admin/itinerary-item.ts:11](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/admin/itinerary-item.ts#L11)*
+*Defined in [admin/itinerary-item.ts:11](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/admin/itinerary-item.ts#L11)*
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 • **broadcast**: *boolean*
 
-*Defined in [admin/itinerary-item.ts:28](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/admin/itinerary-item.ts#L28)*
+*Defined in [admin/itinerary-item.ts:28](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/admin/itinerary-item.ts#L28)*
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 • **configuration**: *[RtmpItineraryItemConfiguration](rtmpitineraryitemconfiguration.md)*
 
-*Defined in [admin/itinerary-item.ts:34](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/admin/itinerary-item.ts#L34)*
+*Defined in [admin/itinerary-item.ts:34](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/admin/itinerary-item.ts#L34)*
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 *Inherited from [EntityResponse](entityresponse.md).[end_date](entityresponse.md#end_date)*
 
-*Defined in [admin/itinerary-item.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/admin/itinerary-item.ts#L16)*
+*Defined in [admin/itinerary-item.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/admin/itinerary-item.ts#L16)*
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 *Inherited from [EntityResponse](entityresponse.md).[id](entityresponse.md#id)*
 
-*Defined in [admin/itinerary-item.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/admin/itinerary-item.ts#L12)*
+*Defined in [admin/itinerary-item.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/admin/itinerary-item.ts#L12)*
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 • **itinerary**: *string*
 
-*Defined in [admin/itinerary-item.ts:29](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/admin/itinerary-item.ts#L29)*
+*Defined in [admin/itinerary-item.ts:29](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/admin/itinerary-item.ts#L29)*
 
 ___
 
@@ -99,7 +99,7 @@ ___
 
 *Inherited from [EntityResponse](entityresponse.md).[start_date](entityresponse.md#start_date)*
 
-*Defined in [admin/itinerary-item.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/admin/itinerary-item.ts#L13)*
+*Defined in [admin/itinerary-item.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/admin/itinerary-item.ts#L13)*
 
 ___
 
@@ -107,7 +107,7 @@ ___
 
 • **status**: *string*
 
-*Defined in [admin/itinerary-item.ts:30](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/admin/itinerary-item.ts#L30)*
+*Defined in [admin/itinerary-item.ts:30](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/admin/itinerary-item.ts#L30)*
 
 ___
 
@@ -115,7 +115,7 @@ ___
 
 • **stream**: *string*
 
-*Defined in [admin/itinerary-item.ts:31](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/admin/itinerary-item.ts#L31)*
+*Defined in [admin/itinerary-item.ts:31](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/admin/itinerary-item.ts#L31)*
 
 ___
 
@@ -123,7 +123,7 @@ ___
 
 • **title**: *string*
 
-*Defined in [admin/itinerary-item.ts:32](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/admin/itinerary-item.ts#L32)*
+*Defined in [admin/itinerary-item.ts:32](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/admin/itinerary-item.ts#L32)*
 
 ___
 
@@ -131,7 +131,7 @@ ___
 
 • **type**: *string*
 
-*Defined in [admin/itinerary-item.ts:33](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/admin/itinerary-item.ts#L33)*
+*Defined in [admin/itinerary-item.ts:33](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/admin/itinerary-item.ts#L33)*
 
 ___
 
@@ -141,7 +141,7 @@ ___
 
 *Inherited from [EntityResponse](entityresponse.md).[updatedAt](entityresponse.md#updatedat)*
 
-*Defined in [admin/itinerary-item.ts:15](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/admin/itinerary-item.ts#L15)*
+*Defined in [admin/itinerary-item.ts:15](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/admin/itinerary-item.ts#L15)*
 
 ___
 
@@ -151,4 +151,4 @@ ___
 
 *Inherited from [EntityResponse](entityresponse.md).[updatedBy](entityresponse.md#updatedby)*
 
-*Defined in [admin/itinerary-item.ts:14](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/admin/itinerary-item.ts#L14)*
+*Defined in [admin/itinerary-item.ts:14](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/admin/itinerary-item.ts#L14)*

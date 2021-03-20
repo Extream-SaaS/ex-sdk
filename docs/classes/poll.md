@@ -38,7 +38,7 @@ Represents a poll itinerary item
 
 \+ **new Poll**(`socket`: Socket, `id`: string): *[Poll](poll.md)*
 
-*Defined in [itinerary-item/poll.ts:77](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/itinerary-item/poll.ts#L77)*
+*Defined in [itinerary-item/poll.ts:77](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/itinerary-item/poll.ts#L77)*
 
 **Parameters:**
 
@@ -55,7 +55,7 @@ Name | Type |
 
 • **configuration**: *[PollConfiguration](../interfaces/pollconfiguration.md) | null* = null
 
-*Defined in [itinerary-item/poll.ts:77](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/itinerary-item/poll.ts#L77)*
+*Defined in [itinerary-item/poll.ts:77](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/itinerary-item/poll.ts#L77)*
 
 The type of the poll. Currently only immediate supported.
 
@@ -65,7 +65,7 @@ ___
 
 • **id**: *string*
 
-*Defined in [itinerary-item/poll.ts:69](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/itinerary-item/poll.ts#L69)*
+*Defined in [itinerary-item/poll.ts:69](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/itinerary-item/poll.ts#L69)*
 
 Itinerary item id
 
@@ -75,7 +75,7 @@ ___
 
 • **questions**: *[Question](question.md)[]* = []
 
-*Defined in [itinerary-item/poll.ts:73](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/itinerary-item/poll.ts#L73)*
+*Defined in [itinerary-item/poll.ts:73](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/itinerary-item/poll.ts#L73)*
 
 All of the questions that are active on this poll currently
 
@@ -85,7 +85,7 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [itinerary-item/poll.ts:64](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/itinerary-item/poll.ts#L64)*
+*Defined in [itinerary-item/poll.ts:64](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/itinerary-item/poll.ts#L64)*
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 • **subscriptionManager**: *[SubscriptionManager](subscriptionmanager.md)*
 
-*Defined in [itinerary-item/poll.ts:65](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/itinerary-item/poll.ts#L65)*
+*Defined in [itinerary-item/poll.ts:65](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/itinerary-item/poll.ts#L65)*
 
 ## Methods
 
@@ -101,7 +101,7 @@ ___
 
 ▸ **answer**(`questionId`: string, `answerId`: string): *Promise‹void›*
 
-*Defined in [itinerary-item/poll.ts:135](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/itinerary-item/poll.ts#L135)*
+*Defined in [itinerary-item/poll.ts:135](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/itinerary-item/poll.ts#L135)*
 
 Anser a question
 
@@ -120,7 +120,7 @@ ___
 
 ▸ **destroy**(): *void*
 
-*Defined in [itinerary-item/poll.ts:203](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/itinerary-item/poll.ts#L203)*
+*Defined in [itinerary-item/poll.ts:203](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/itinerary-item/poll.ts#L203)*
 
 Cleans up all listeners for this class. Call this when you no longer need access to this events information to ensure memory leaks are not caused.
 
@@ -132,7 +132,7 @@ ___
 
 ▸ **get**(): *Promise‹void›*
 
-*Defined in [itinerary-item/poll.ts:170](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/itinerary-item/poll.ts#L170)*
+*Defined in [itinerary-item/poll.ts:170](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/itinerary-item/poll.ts#L170)*
 
 Get all information for this poll. Questions will be populated in the questions array.
 
@@ -144,7 +144,7 @@ ___
 
 ▸ **listenForQuestions**(): *void*
 
-*Defined in [itinerary-item/poll.ts:107](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/itinerary-item/poll.ts#L107)*
+*Defined in [itinerary-item/poll.ts:107](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/itinerary-item/poll.ts#L107)*
 
 Sets up websocket listeners for new questions being streamed into the poll
 
@@ -156,7 +156,7 @@ ___
 
 ▸ **listenForResponses**(): *void*
 
-*Defined in [itinerary-item/poll.ts:88](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/itinerary-item/poll.ts#L88)*
+*Defined in [itinerary-item/poll.ts:88](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/itinerary-item/poll.ts#L88)*
 
 Sets up websocket listeners for other peoples responses coming in
 
@@ -168,7 +168,7 @@ ___
 
 ▸ **sortByOrder**(`a`: [QuestionResponse](../interfaces/questionresponse.md), `b`: [QuestionResponse](../interfaces/questionresponse.md)): *number*
 
-*Defined in [itinerary-item/poll.ts:119](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/itinerary-item/poll.ts#L119)*
+*Defined in [itinerary-item/poll.ts:119](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/itinerary-item/poll.ts#L119)*
 
 Sorts answers by order
 
@@ -187,7 +187,7 @@ ___
 
 ▸ **sortByTime**(`a`: [Question](question.md), `b`: [Question](question.md)): *number*
 
-*Defined in [itinerary-item/poll.ts:126](https://github.com/Extream-SaaS/ex-sdk/blob/194f895/src/itinerary-item/poll.ts#L126)*
+*Defined in [itinerary-item/poll.ts:126](https://github.com/Extream-SaaS/ex-sdk/blob/600cbb0/src/itinerary-item/poll.ts#L126)*
 
 Sorts questions by date
 
