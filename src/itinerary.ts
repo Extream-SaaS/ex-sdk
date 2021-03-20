@@ -80,10 +80,11 @@ export class Itinerary {
       ...payload,
       items
     }
+    // Needs factory this is gnarly
     const rtmpItems = items.filter(i => i.type && i.type === ItineraryType.Rtmp)
     const chatItems = items.filter(i => i.type && i.type === ItineraryType.Chat)
     const pollItems = items.filter(i => i.type && i.type === ItineraryType.Poll)
-    const webRtcItem = items.filter(i => i.type && i.type === ItineraryType.WebRtc)
+    // const webRtcItem = items.filter(i => i.type && i.type === ItineraryType.WebRtc)
     this.rtmpFeeds = rtmpItems.map(this.createRtmpItem.bind(this))
     this.chats = chatItems.map(this.createChatItem.bind(this))
     this.polls = pollItems.map(this.createPollItem.bind(this))
