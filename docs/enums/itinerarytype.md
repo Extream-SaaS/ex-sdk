@@ -17,7 +17,7 @@
 
 • **Chat**: = "chat"
 
-*Defined in [itinerary-item/utils.ts:4](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/utils.ts#L4)*
+*Defined in [itinerary-item/utils.ts:4](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/utils.ts#L4)*
 
 ___
 
@@ -25,7 +25,7 @@ ___
 
 • **Poll**: = "poll"
 
-*Defined in [itinerary-item/utils.ts:5](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/utils.ts#L5)*
+*Defined in [itinerary-item/utils.ts:5](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/utils.ts#L5)*
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 • **Rtmp**: = "rtmp"
 
-*Defined in [itinerary-item/utils.ts:2](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/utils.ts#L2)*
+*Defined in [itinerary-item/utils.ts:2](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/utils.ts#L2)*
 
 ___
 
@@ -41,4 +41,4 @@ ___
 
 • **WebRtc**: = "webrtc"
 
-*Defined in [itinerary-item/utils.ts:3](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/utils.ts#L3)*
+*Defined in [itinerary-item/utils.ts:3](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/utils.ts#L3)*

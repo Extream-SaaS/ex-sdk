@@ -20,7 +20,7 @@
 
 • **configuration**: *[WebRtcConfiguration](webrtcconfiguration.md)*
 
-*Defined in [itinerary-item/webrtc.ts:18](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/webrtc.ts#L18)*
+*Defined in [itinerary-item/webrtc.ts:18](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/webrtc.ts#L18)*
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 • **id**: *string*
 
-*Defined in [itinerary-item/webrtc.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/webrtc.ts#L16)*
+*Defined in [itinerary-item/webrtc.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/webrtc.ts#L16)*
 
 ___
 
@@ -36,4 +36,4 @@ ___
 
 • **itinerary**: *string*
 
-*Defined in [itinerary-item/webrtc.ts:17](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/webrtc.ts#L17)*
+*Defined in [itinerary-item/webrtc.ts:17](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/webrtc.ts#L17)*

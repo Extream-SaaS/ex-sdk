@@ -43,7 +43,7 @@ An Rtmp video item.
 
 \+ **new WebRtc**(`socket`: Socket, `id`: string, `options`: [ExtreamOptions](../interfaces/extreamoptions.md)): *[WebRtc](webrtc.md)*
 
-*Defined in [itinerary-item/webrtc.ts:54](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/webrtc.ts#L54)*
+*Defined in [itinerary-item/webrtc.ts:54](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/webrtc.ts#L54)*
 
 **Parameters:**
 
@@ -61,7 +61,7 @@ Name | Type |
 
 • **connected**: *boolean* = false
 
-*Defined in [itinerary-item/webrtc.ts:49](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/webrtc.ts#L49)*
+*Defined in [itinerary-item/webrtc.ts:49](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/webrtc.ts#L49)*
 
 Weather the current call is connected or not
 
@@ -71,7 +71,7 @@ ___
 
 • **data**: *[ReadWebRtcResponsePayload](../interfaces/readwebrtcresponsepayload.md) | null* = null
 
-*Defined in [itinerary-item/webrtc.ts:45](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/webrtc.ts#L45)*
+*Defined in [itinerary-item/webrtc.ts:45](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/webrtc.ts#L45)*
 
 All of the data relating to this item. Populated after calling the .get message.
 
@@ -81,7 +81,7 @@ ___
 
 • **id**: *string*
 
-*Defined in [itinerary-item/webrtc.ts:33](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/webrtc.ts#L33)*
+*Defined in [itinerary-item/webrtc.ts:33](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/webrtc.ts#L33)*
 
 The id of the itinerary item
 
@@ -91,7 +91,7 @@ ___
 
 • **instance**: *string | null* = null
 
-*Defined in [itinerary-item/webrtc.ts:37](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/webrtc.ts#L37)*
+*Defined in [itinerary-item/webrtc.ts:37](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/webrtc.ts#L37)*
 
 The instance of the call item
 
@@ -101,7 +101,7 @@ ___
 
 • **instances**: *string[]* = []
 
-*Defined in [itinerary-item/webrtc.ts:41](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/webrtc.ts#L41)*
+*Defined in [itinerary-item/webrtc.ts:41](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/webrtc.ts#L41)*
 
 The instance of the call item
 
@@ -111,7 +111,7 @@ ___
 
 • **options**: *[ExtreamOptions](../interfaces/extreamoptions.md)*
 
-*Defined in [itinerary-item/webrtc.ts:28](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/webrtc.ts#L28)*
+*Defined in [itinerary-item/webrtc.ts:28](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/webrtc.ts#L28)*
 
 ___
 
@@ -119,7 +119,7 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [itinerary-item/webrtc.ts:27](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/webrtc.ts#L27)*
+*Defined in [itinerary-item/webrtc.ts:27](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/webrtc.ts#L27)*
 
 ___
 
@@ -127,7 +127,7 @@ ___
 
 • **subscriptionManager**: *[SubscriptionManager](subscriptionmanager.md)*
 
-*Defined in [itinerary-item/webrtc.ts:29](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/webrtc.ts#L29)*
+*Defined in [itinerary-item/webrtc.ts:29](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/webrtc.ts#L29)*
 
 ___
 
@@ -135,7 +135,7 @@ ___
 
 • **token**: *string | null* = null
 
-*Defined in [itinerary-item/webrtc.ts:53](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/webrtc.ts#L53)*
+*Defined in [itinerary-item/webrtc.ts:53](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/webrtc.ts#L53)*
 
 The web rtc token
 
@@ -145,7 +145,7 @@ ___
 
 • **type**: *[ItineraryType](../enums/itinerarytype.md)* = ItineraryType.WebRtc
 
-*Defined in [itinerary-item/webrtc.ts:54](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/webrtc.ts#L54)*
+*Defined in [itinerary-item/webrtc.ts:54](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/webrtc.ts#L54)*
 
 ## Methods
 
@@ -153,7 +153,7 @@ ___
 
 ▸ **destroy**(): *void*
 
-*Defined in [itinerary-item/webrtc.ts:158](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/webrtc.ts#L158)*
+*Defined in [itinerary-item/webrtc.ts:158](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/webrtc.ts#L158)*
 
 **Returns:** *void*
 
@@ -163,7 +163,7 @@ ___
 
 ▸ **fetchToken**(`userToken`: string): *Promise‹string[]›*
 
-*Defined in [itinerary-item/webrtc.ts:72](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/webrtc.ts#L72)*
+*Defined in [itinerary-item/webrtc.ts:72](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/webrtc.ts#L72)*
 
 **Parameters:**
 
@@ -179,7 +179,7 @@ ___
 
 ▸ **get**(): *Promise‹void›*
 
-*Defined in [itinerary-item/webrtc.ts:136](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/webrtc.ts#L136)*
+*Defined in [itinerary-item/webrtc.ts:136](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/webrtc.ts#L136)*
 
 Call this method to populate the data property.
 
@@ -191,7 +191,7 @@ ___
 
 ▸ **getToken**(`userToken`: string): *Promise‹string›*
 
-*Defined in [itinerary-item/webrtc.ts:95](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/webrtc.ts#L95)*
+*Defined in [itinerary-item/webrtc.ts:95](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/webrtc.ts#L95)*
 
 **Parameters:**
 
@@ -207,7 +207,7 @@ ___
 
 ▸ **listenForIncomingCalls**(): *void*
 
-*Defined in [itinerary-item/webrtc.ts:89](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/webrtc.ts#L89)*
+*Defined in [itinerary-item/webrtc.ts:89](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/webrtc.ts#L89)*
 
 **Returns:** *void*
 
@@ -217,7 +217,7 @@ ___
 
 ▸ **startCall**(`participants`: string[], `userToken`: string): *Promise‹string›*
 
-*Defined in [itinerary-item/webrtc.ts:106](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/webrtc.ts#L106)*
+*Defined in [itinerary-item/webrtc.ts:106](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/webrtc.ts#L106)*
 
 Start a call with a set of people
 
@@ -236,7 +236,7 @@ ___
 
 ▸ **verifyUser**(`userToken`: string): *Promise‹[ExtreamUser](../interfaces/extreamuser.md)›*
 
-*Defined in [itinerary-item/webrtc.ts:63](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/webrtc.ts#L63)*
+*Defined in [itinerary-item/webrtc.ts:63](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/webrtc.ts#L63)*
 
 **Parameters:**
 

@@ -32,7 +32,7 @@
 
 \+ **new Event**(`socket`: Socket, `id`: string): *[Event](event.md)*
 
-*Defined in [event.ts:54](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/event.ts#L54)*
+*Defined in [event.ts:54](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/event.ts#L54)*
 
 **Parameters:**
 
@@ -49,7 +49,7 @@ Name | Type |
 
 • **id**: *string*
 
-*Defined in [event.ts:53](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/event.ts#L53)*
+*Defined in [event.ts:53](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/event.ts#L53)*
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 • **itinerary**: *[Itinerary](itinerary.md)[]* = []
 
-*Defined in [event.ts:52](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/event.ts#L52)*
+*Defined in [event.ts:52](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/event.ts#L52)*
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 • **notices**: *[Notices](notices.md)*
 
-*Defined in [event.ts:54](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/event.ts#L54)*
+*Defined in [event.ts:54](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/event.ts#L54)*
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [event.ts:49](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/event.ts#L49)*
+*Defined in [event.ts:49](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/event.ts#L49)*
 
 ## Methods
 
@@ -81,7 +81,7 @@ ___
 
 ▸ **destroy**(): *void*
 
-*Defined in [event.ts:113](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/event.ts#L113)*
+*Defined in [event.ts:113](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/event.ts#L113)*
 
 Cleans up all listeners for this class. Call this when you no longer need access to this events information to ensure memory leaks are not caused.
 
@@ -93,7 +93,7 @@ ___
 
 ▸ **getItineraryInformation**(`payload`: [ItineraryPayload](../interfaces/itinerarypayload.md)[]): *Promise‹void›*
 
-*Defined in [event.ts:76](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/event.ts#L76)*
+*Defined in [event.ts:76](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/event.ts#L76)*
 
 Creates an instance of the itinerary class based off of the payload information passed in.
 
@@ -111,7 +111,7 @@ ___
 
 ▸ **getItineraryItems**(): *Promise‹void›*
 
-*Defined in [event.ts:89](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/event.ts#L89)*
+*Defined in [event.ts:89](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/event.ts#L89)*
 
 Get all of the itinerary items for a specific event. After awaiting this method all the itinerary items are in the itineraries property of this class
 
@@ -123,7 +123,7 @@ ___
 
 ▸ **getNotices**(): *Promise‹void›*
 
-*Defined in [event.ts:66](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/event.ts#L66)*
+*Defined in [event.ts:66](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/event.ts#L66)*
 
 Get all of the unread notices for this event
 

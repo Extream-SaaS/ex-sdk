@@ -18,7 +18,7 @@
 
 • **Actor**: = "actor"
 
-*Defined in [user.ts:45](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/user.ts#L45)*
+*Defined in [user.ts:45](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/user.ts#L45)*
 
 ___
 
@@ -26,7 +26,7 @@ ___
 
 • **Admin**: = "admin"
 
-*Defined in [user.ts:46](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/user.ts#L46)*
+*Defined in [user.ts:46](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/user.ts#L46)*
 
 ___
 
@@ -34,7 +34,7 @@ ___
 
 • **Audience**: = "audience"
 
-*Defined in [user.ts:47](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/user.ts#L47)*
+*Defined in [user.ts:47](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/user.ts#L47)*
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 • **Chief**: = "chief"
 
-*Defined in [user.ts:49](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/user.ts#L49)*
+*Defined in [user.ts:49](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/user.ts#L49)*
 
 ___
 
@@ -50,4 +50,4 @@ ___
 
 • **Crew**: = "crew"
 
-*Defined in [user.ts:48](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/user.ts#L48)*
+*Defined in [user.ts:48](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/user.ts#L48)*
