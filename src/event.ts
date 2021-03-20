@@ -75,7 +75,7 @@ export class Event {
    */
   private async getItineraryInformation (payload: ItineraryPayload[]): Promise<void> {
     const itineraryItems = await Promise.all(payload.map(async (item) => {
-      const itinerary = new Itinerary(this.socket, item.id)
+      const itinerary = new Itinerary(this.socket, item.public_id)
       await itinerary.createItineraryItem(item)
       return itinerary
     }))

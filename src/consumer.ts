@@ -5,8 +5,6 @@ import { ExtreamOptions } from './utils'
 
 /**
  * Represents all the actions an event visitor can take. For example joining rooms, starting chats, getting notices ect.
- *
- *
  */
 export class Consumer {
   private socket: SocketIOClient.Socket;

@@ -4,6 +4,7 @@ import { ConsumerTopic } from './topic'
 import { InitialResponse, promiseTimeout } from './utils'
 import { ItineraryItemFactory } from './itinerary-item/item-factory'
 import { ItineraryType } from './itinerary-item/utils'
+import SubscriptionManager from './subscription-manager'
 
 export interface RtcConfiguration {
   operators: string[];
@@ -16,6 +17,7 @@ export interface RtcConfiguration {
  */
 export class Itinerary {
   private socket: SocketIOClient.Socket
+  private subscriptionManager: SubscriptionManager
 
   /**
    * The id of the current itinerary item
@@ -31,6 +33,7 @@ export class Itinerary {
   constructor (socket: SocketIOClient.Socket, id: string /* options: ExtreamOptions */) {
     this.socket = socket
     this.id = id
+    this.subscriptionManager = new SubscriptionManager(this.socket)
     // this.options = options
   }
 
@@ -51,6 +54,7 @@ export class Itinerary {
    * @param {ItineraryPayload} payload From getting the information for all itineraries
    */
   public async createItineraryItem (payload: ItineraryPayload): Promise<void> {
+    this.setupUpdateListeners()
     const items: ItineraryItem[] = payload.items ? JSON.parse(payload.items as string) : []
     this.payload = {
       ...payload,
@@ -59,27 +63,25 @@ export class Itinerary {
     this.items = items.map((i: ItineraryItem) => ItineraryItemFactory.getItem(this.socket, i))
   }
 
-  /**
-   * Get all the information for a specific itinerary.
-   * @param {string} id Get all the information for a specific itinerary. This then creates all the itinerary items.
-   */
-  public getItinerary (): Promise<void> {
-    let callback: (resp: InitialResponse | GetItineraryResponse) => void
-    return promiseTimeout(new Promise<void>((resolve, reject) => {
-      callback = (resp: InitialResponse | GetItineraryResponse) => {
-        if ('error' in resp) {
-          reject(new Error(resp.error))
-        } else if (!('status' in resp)) {
-          this.createItineraryItem(resp.payload)
-          resolve()
+  private async setupUpdateListeners () {
+    this.subscriptionManager.addSubscription(ConsumerTopic.ItineraryUpdate, (payload: any) => {
+      if (this.id === payload.public_id) {
+        const items: ItineraryItem[] = payload.items ? JSON.parse(payload.items as string) : []
+        this.payload = {
+          ...payload,
+          items
         }
+        this.items = items.map((i: ItineraryItem) => ItineraryItemFactory.getItem(this.socket, i))
       }
-      this.socket.on(ConsumerTopic.ItineraryGet, callback)
-      this.socket.emit(ConsumerTopic.ItineraryGet, {
-        id: this.id
-      })
-    })).finally(() => {
-      this.socket.removeListener(ConsumerTopic.ItineraryGet, callback)
     })
+  }
+
+  /**
+   * Cleans up all listeners for this class. Call this when you no longer need access to this events information to ensure memory leaks are not caused.
+   *
+   * @returns { void }
+   */
+  destroy (): void {
+    this.subscriptionManager.removeAllSubscriptions()
   }
 }

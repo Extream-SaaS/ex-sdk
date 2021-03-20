@@ -52,6 +52,7 @@ export enum ConsumerTopic {
   ChatStart = 'consumer_chat_start',
   EventGet = 'consumer_event_get',
   ItineraryGet = 'consumer_itinerary_get',
+  ItineraryUpdate = 'consumer_itinerary_update',
   OnlineLeave = 'consumer_online_leave',
   OnlineJoin = 'consumer_online_join',
   OnlineUsers = 'consumer_online_users',
