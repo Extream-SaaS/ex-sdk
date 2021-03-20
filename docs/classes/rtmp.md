@@ -19,6 +19,7 @@ An Rtmp video item.
 * [data](rtmp.md#data)
 * [id](rtmp.md#id)
 * [socket](rtmp.md#private-socket)
+* [type](rtmp.md#type)
 
 ### Methods
 
@@ -30,7 +31,7 @@ An Rtmp video item.
 
 \+ **new Rtmp**(`socket`: Socket, `id`: string): *[Rtmp](rtmp.md)*
 
-*Defined in [itinerary-item/rtmp.ts:44](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary-item/rtmp.ts#L44)*
+*Defined in [itinerary-item/rtmp.ts:46](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/rtmp.ts#L46)*
 
 **Parameters:**
 
@@ -47,7 +48,7 @@ Name | Type |
 
 • **data**: *[ReadRtmpResponsePayload](../interfaces/readrtmpresponsepayload.md) | null* = null
 
-*Defined in [itinerary-item/rtmp.ts:44](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary-item/rtmp.ts#L44)*
+*Defined in [itinerary-item/rtmp.ts:45](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/rtmp.ts#L45)*
 
 All of the data relating to this item. Populated after calling the .get message.
 
@@ -57,7 +58,7 @@ ___
 
 • **id**: *string*
 
-*Defined in [itinerary-item/rtmp.ts:40](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary-item/rtmp.ts#L40)*
+*Defined in [itinerary-item/rtmp.ts:41](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/rtmp.ts#L41)*
 
 The id of the itinerary item
 
@@ -67,7 +68,15 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [itinerary-item/rtmp.ts:36](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary-item/rtmp.ts#L36)*
+*Defined in [itinerary-item/rtmp.ts:37](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/rtmp.ts#L37)*
+
+___
+
+###  type
+
+• **type**: *[ItineraryType](../enums/itinerarytype.md)* = ItineraryType.Rtmp
+
+*Defined in [itinerary-item/rtmp.ts:46](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/rtmp.ts#L46)*
 
 ## Methods
 
@@ -75,7 +84,7 @@ ___
 
 ▸ **get**(): *Promise‹void›*
 
-*Defined in [itinerary-item/rtmp.ts:54](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary-item/rtmp.ts#L54)*
+*Defined in [itinerary-item/rtmp.ts:56](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/rtmp.ts#L56)*
 
 Call this method to populate the data property.
 

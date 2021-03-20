@@ -18,4 +18,4 @@
 
 • **type**? : *undefined | string*
 
-*Defined in [itinerary-item/poll.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary-item/poll.ts#L12)*
+*Defined in [itinerary-item/poll.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/poll.ts#L13)*

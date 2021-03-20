@@ -21,7 +21,7 @@
 
 • **moderation**: *string*
 
-*Defined in [itinerary-item/chat.ts:86](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary-item/chat.ts#L86)*
+*Defined in [itinerary-item/chat.ts:87](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/chat.ts#L87)*
 
 ___
 
@@ -29,7 +29,7 @@ ___
 
 • **moderators**: *Array‹string›*
 
-*Defined in [itinerary-item/chat.ts:87](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary-item/chat.ts#L87)*
+*Defined in [itinerary-item/chat.ts:88](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/chat.ts#L88)*
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 • **private**: *boolean*
 
-*Defined in [itinerary-item/chat.ts:88](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary-item/chat.ts#L88)*
+*Defined in [itinerary-item/chat.ts:89](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/chat.ts#L89)*
 
 ___
 
@@ -45,4 +45,4 @@ ___
 
 • **threads**: *boolean*
 
-*Defined in [itinerary-item/chat.ts:89](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary-item/chat.ts#L89)*
+*Defined in [itinerary-item/chat.ts:90](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary-item/chat.ts#L90)*

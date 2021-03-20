@@ -17,57 +17,56 @@ This means you can easily subscribe to chats, videos and polls items that belong
 
 ### Properties
 
-* [chats](itinerary.md#chats)
-* [options](itinerary.md#private-options)
+* [id](itinerary.md#id)
+* [items](itinerary.md#items)
 * [payload](itinerary.md#payload)
-* [polls](itinerary.md#polls)
-* [rtmpFeeds](itinerary.md#rtmpfeeds)
 * [socket](itinerary.md#private-socket)
-* [webRtcItems](itinerary.md#webrtcitems)
+
+### Accessors
+
+* [chatItems](itinerary.md#chatitems)
+* [pollItems](itinerary.md#pollitems)
+* [rtmpItems](itinerary.md#rtmpitems)
 
 ### Methods
 
-* [createChatItem](itinerary.md#private-createchatitem)
 * [createItineraryItem](itinerary.md#createitineraryitem)
-* [createPollItem](itinerary.md#private-createpollitem)
-* [createRtmpItem](itinerary.md#private-creatertmpitem)
-* [createWebRtcItem](itinerary.md#private-createwebrtcitem)
 * [getItinerary](itinerary.md#getitinerary)
 
 ## Constructors
 
 ###  constructor
 
-\+ **new Itinerary**(`socket`: Socket, `options`: [ExtreamOptions](../interfaces/extreamoptions.md)): *[Itinerary](itinerary.md)*
+\+ **new Itinerary**(`socket`: Socket, `id`: string): *[Itinerary](itinerary.md)*
 
-*Defined in [itinerary.ts:46](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary.ts#L46)*
+*Defined in [itinerary.ts:29](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary.ts#L29)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
 `socket` | Socket |
-`options` | [ExtreamOptions](../interfaces/extreamoptions.md) |
+`id` | string |
 
 **Returns:** *[Itinerary](itinerary.md)*
 
 ## Properties
 
-###  chats
+###  id
 
-• **chats**: *[Chat](chat.md)[]* = []
+• **id**: *string | null* = null
 
-*Defined in [itinerary.ts:34](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary.ts#L34)*
+*Defined in [itinerary.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary.ts#L23)*
 
-All the chat items related to the itinerary
+The id of the current itinerary item
 
 ___
 
-### `Private` options
+###  items
 
-• **options**: *[ExtreamOptions](../interfaces/extreamoptions.md)*
+• **items**: *([Chat](chat.md) | [Poll](poll.md) | [Rtmp](rtmp.md) | [WebRtc](webrtc.md))[]* = []
 
-*Defined in [itinerary.ts:25](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary.ts#L25)*
+*Defined in [itinerary.ts:29](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary.ts#L29)*
 
 ___
 
@@ -75,29 +74,9 @@ ___
 
 • **payload**: *[ItineraryPayload](../interfaces/itinerarypayload.md) | null* = null
 
-*Defined in [itinerary.ts:30](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary.ts#L30)*
+*Defined in [itinerary.ts:27](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary.ts#L27)*
 
 All the information relating to the itinerary. This is populated after calling `getItinerary`.
-
-___
-
-###  polls
-
-• **polls**: *[Poll](poll.md)[]* = []
-
-*Defined in [itinerary.ts:42](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary.ts#L42)*
-
-All the poll items related to the itinerary
-
-___
-
-###  rtmpFeeds
-
-• **rtmpFeeds**: *[Rtmp](rtmp.md)[]* = []
-
-*Defined in [itinerary.ts:38](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary.ts#L38)*
-
-All the RTMP items related to the itinerary
 
 ___
 
@@ -105,41 +84,45 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [itinerary.ts:24](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary.ts#L24)*
+*Defined in [itinerary.ts:18](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary.ts#L18)*
+
+## Accessors
+
+###  chatItems
+
+• **get chatItems**(): *[Chat](chat.md)[]*
+
+*Defined in [itinerary.ts:41](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary.ts#L41)*
+
+**Returns:** *[Chat](chat.md)[]*
 
 ___
 
-###  webRtcItems
+###  pollItems
 
-• **webRtcItems**: *[WebRtc](webrtc.md)[]* = []
+• **get pollItems**(): *[Poll](poll.md)[]*
 
-*Defined in [itinerary.ts:46](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary.ts#L46)*
+*Defined in [itinerary.ts:45](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary.ts#L45)*
 
-All the web rtc items related to the itinerary
+**Returns:** *[Poll](poll.md)[]*
+
+___
+
+###  rtmpItems
+
+• **get rtmpItems**(): *[Rtmp](rtmp.md)[]*
+
+*Defined in [itinerary.ts:37](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary.ts#L37)*
+
+**Returns:** *[Rtmp](rtmp.md)[]*
 
 ## Methods
-
-### `Private` createChatItem
-
-▸ **createChatItem**(`item`: [ItineraryItem](itineraryitem.md)): *[Chat](chat.md)*
-
-*Defined in [itinerary.ts:58](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary.ts#L58)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`item` | [ItineraryItem](itineraryitem.md) |
-
-**Returns:** *[Chat](chat.md)*
-
-___
 
 ###  createItineraryItem
 
 ▸ **createItineraryItem**(`payload`: [ItineraryPayload](../interfaces/itinerarypayload.md)): *Promise‹void›*
 
-*Defined in [itinerary.ts:77](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary.ts#L77)*
+*Defined in [itinerary.ts:53](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary.ts#L53)*
 
 Create an instances of all the itinerary items from the payload
 
@@ -153,66 +136,12 @@ Name | Type | Description |
 
 ___
 
-### `Private` createPollItem
-
-▸ **createPollItem**(`item`: [ItineraryItem](itineraryitem.md)): *[Poll](poll.md)*
-
-*Defined in [itinerary.ts:63](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary.ts#L63)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`item` | [ItineraryItem](itineraryitem.md) |
-
-**Returns:** *[Poll](poll.md)*
-
-___
-
-### `Private` createRtmpItem
-
-▸ **createRtmpItem**(`item`: [ItineraryItem](itineraryitem.md)): *[Rtmp](rtmp.md)*
-
-*Defined in [itinerary.ts:53](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary.ts#L53)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`item` | [ItineraryItem](itineraryitem.md) |
-
-**Returns:** *[Rtmp](rtmp.md)*
-
-___
-
-### `Private` createWebRtcItem
-
-▸ **createWebRtcItem**(`item`: [ItineraryItem](itineraryitem.md)): *[WebRtc](webrtc.md)*
-
-*Defined in [itinerary.ts:68](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary.ts#L68)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`item` | [ItineraryItem](itineraryitem.md) |
-
-**Returns:** *[WebRtc](webrtc.md)*
-
-___
-
 ###  getItinerary
 
-▸ **getItinerary**(`id`: string): *Promise‹void›*
+▸ **getItinerary**(): *Promise‹void›*
 
-*Defined in [itinerary.ts:97](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/itinerary.ts#L97)*
+*Defined in [itinerary.ts:66](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/itinerary.ts#L66)*
 
 Get all the information for a specific itinerary.
-
-**Parameters:**
-
-Name | Type | Description |
------- | ------ | ------ |
-`id` | string | Get all the information for a specific itinerary. This then creates all the itinerary items.  |
 
 **Returns:** *Promise‹void›*

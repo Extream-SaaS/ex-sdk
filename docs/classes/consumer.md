@@ -16,7 +16,6 @@ Represents all the actions an event visitor can take. For example joining rooms,
 
 ### Properties
 
-* [dms](consumer.md#dms)
 * [options](consumer.md#private-options)
 * [room](consumer.md#room)
 * [socket](consumer.md#private-socket)
@@ -25,7 +24,6 @@ Represents all the actions an event visitor can take. For example joining rooms,
 
 * [event](consumer.md#event)
 * [join](consumer.md#join)
-* [notices](consumer.md#notices)
 * [onlineUsers](consumer.md#onlineusers)
 * [startChat](consumer.md#startchat)
 
@@ -35,7 +33,7 @@ Represents all the actions an event visitor can take. For example joining rooms,
 
 \+ **new Consumer**(`socket`: Socket, `options`: [ExtreamOptions](../interfaces/extreamoptions.md)): *[Consumer](consumer.md)*
 
-*Defined in [consumer.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/consumer.ts#L16)*
+*Defined in [consumer.ts:14](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/consumer.ts#L14)*
 
 Create an instance of the admin sdk
 
@@ -50,19 +48,11 @@ Name | Type |
 
 ## Properties
 
-###  dms
-
-• **dms**: *[Chat](chat.md)[]* = []
-
-*Defined in [consumer.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/consumer.ts#L16)*
-
-___
-
 ### `Private` options
 
 • **options**: *[ExtreamOptions](../interfaces/extreamoptions.md)*
 
-*Defined in [consumer.ts:14](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/consumer.ts#L14)*
+*Defined in [consumer.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/consumer.ts#L13)*
 
 ___
 
@@ -70,7 +60,7 @@ ___
 
 • **room**: *[Chat](chat.md) | null* = null
 
-*Defined in [consumer.ts:15](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/consumer.ts#L15)*
+*Defined in [consumer.ts:14](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/consumer.ts#L14)*
 
 ___
 
@@ -78,7 +68,7 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [consumer.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/consumer.ts#L13)*
+*Defined in [consumer.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/consumer.ts#L12)*
 
 ## Methods
 
@@ -86,7 +76,7 @@ ___
 
 ▸ **event**(`id`: string): *Promise‹[Event](event.md)›*
 
-*Defined in [consumer.ts:73](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/consumer.ts#L73)*
+*Defined in [consumer.ts:61](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/consumer.ts#L61)*
 
 Get a specific event. This class that represents everything that is happening at an event, allowing you get get itineraries, send messages ect.
 
@@ -104,7 +94,7 @@ ___
 
 ▸ **join**(`roomId`: string, `instanceId?`: undefined | string): *Promise‹[Chat](chat.md)›*
 
-*Defined in [consumer.ts:42](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/consumer.ts#L42)*
+*Defined in [consumer.ts:40](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/consumer.ts#L40)*
 
 Create a chat room.
 
@@ -119,27 +109,11 @@ Name | Type | Description |
 
 ___
 
-###  notices
-
-▸ **notices**(`request`: [NoticeGetRequest](../interfaces/noticegetrequest.md)): *Promise‹[Notices](notices.md)›*
-
-*Defined in [consumer.ts:63](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/consumer.ts#L63)*
-
-**Parameters:**
-
-Name | Type | Description |
------- | ------ | ------ |
-`request` | [NoticeGetRequest](../interfaces/noticegetrequest.md) | The event, itineraray, page or read filters to get notices  |
-
-**Returns:** *Promise‹[Notices](notices.md)›*
-
-___
-
 ###  onlineUsers
 
 ▸ **onlineUsers**(`request`: any): *Promise‹[OnlineUsers](onlineusers.md)›*
 
-*Defined in [consumer.ts:31](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/consumer.ts#L31)*
+*Defined in [consumer.ts:29](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/consumer.ts#L29)*
 
 Get a list of online users
 
@@ -157,7 +131,7 @@ ___
 
 ▸ **startChat**(`roomId`: string): *Promise‹[Chat](chat.md)›*
 
-*Defined in [consumer.ts:53](https://github.com/Extream-SaaS/ex-sdk/blob/1c866e4/src/consumer.ts#L53)*
+*Defined in [consumer.ts:51](https://github.com/Extream-SaaS/ex-sdk/blob/849839b/src/consumer.ts#L51)*
 
 Start a new direct message chat in a specific room. Can be used for "help" chats.
 
