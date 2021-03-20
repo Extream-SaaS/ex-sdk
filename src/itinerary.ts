@@ -25,10 +25,6 @@ export class Itinerary {
    * All the information relating to the itinerary. This is populated after calling `getItinerary`.
    */
   public payload: ItineraryPayload | null = null
-  /**
-   * All the web rtc items related to the itinerary
-   */
-  public webRtcItems: WebRtc[] = []
 
   public items: (Chat | Poll | Rtmp | WebRtc)[] = []
 
