@@ -1,3 +1,4 @@
+// TODO this is now out of date
 
 import SubscriptionManager from '../subscription-manager'
 import { ConsumerTopic } from '../topic'

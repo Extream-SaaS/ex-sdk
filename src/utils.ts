@@ -38,6 +38,14 @@ export interface SocketResponse<T> {
   socketId: string;
 }
 
+export interface IEntity {
+  get (request?: any): Promise<void> | void
+}
+
+export interface IDestroyable {
+  destroy(): void
+}
+
 export const promiseTimeout = <T>(promise: Promise<T>): Promise<T> => new Promise((resolve, reject) => {
   setTimeout(() => {
     reject(new Error('Response not received within timeout'))

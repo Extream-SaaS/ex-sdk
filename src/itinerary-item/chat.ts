@@ -1,7 +1,7 @@
 import { ConsumerTopic, ClientTopic } from '../topic'
 import { ExtreamUser } from '../user'
 import SubscriptionManager from '../subscription-manager'
-import { InitialResponse, promiseTimeout, SocketResponse, TimeStamp } from '../utils'
+import { IDestroyable, IEntity, InitialResponse, promiseTimeout, SocketResponse, TimeStamp } from '../utils'
 import { ItineraryType } from './utils'
 
 /**
@@ -137,7 +137,7 @@ export type StartChatResponse = SocketResponse<StartChatResponsePayload>
  * After creating an instance either call `join` if you know which room you want to join (and instance if applicable)
  * or call `start` in order to create a chat instance.
  */
-export class Chat {
+export class Chat implements IEntity, IDestroyable {
   private socket: SocketIOClient.Socket;
   private subscriptionManager: SubscriptionManager
   /**
@@ -191,7 +191,7 @@ export class Chat {
    *
    * @param { BanMessageRequest } message The messah
    */
-  removeMessage (message: BanMessageData): void {
+  public removeMessage (message: BanMessageData): void {
     this.socket.emit(ClientTopic.ChatBan, {
       id: this.roomId,
       data: message
@@ -235,7 +235,7 @@ export class Chat {
    *
    * @param { SendMessageData } message
    */
-  sendMessage (message: SendMessageData): Promise<void> {
+  public sendMessage (message: SendMessageData): Promise<void> {
     return this.emitMessage(message)
   }
 
@@ -244,7 +244,7 @@ export class Chat {
    *
    * @param { ReplyMessageData } message
    */
-  replyToMessage (message: ReplyMessageData): Promise<void> {
+  public replyToMessage (message: ReplyMessageData): Promise<void> {
     return this.emitMessage(message)
   }
 
@@ -301,7 +301,7 @@ export class Chat {
    * are sent/blocked.
    *
    */
-  join (): Promise<void> {
+  public get (): Promise<void> {
     return promiseTimeout(new Promise((resolve, reject) => {
       this.setupChatListeners()
       this.subscriptionManager.addSubscription(ConsumerTopic.ChatGet, (resp: InitialResponse | GetChatResponse) => {
@@ -353,11 +353,15 @@ export class Chat {
     }))
   }
 
+  public join (): Promise<void> {
+    return this.get()
+  }
+
   /**
    * Start a new dm in the chat room. Once started all the messages property will be dynamically updated as messages
    * are sent/blocked.
    */
-  start (): Promise<void> {
+  public start (): Promise<void> {
     this.setupChatListeners()
     let callback: (resp: StartChatResponse | InitialResponse) => void
     return promiseTimeout(new Promise<void>((resolve, reject) => {
@@ -385,7 +389,7 @@ export class Chat {
    *
    * @returns { void }
    */
-  destroy (): void {
+  public destroy (): void {
     this.subscriptionManager.removeAllSubscriptions()
   }
 }

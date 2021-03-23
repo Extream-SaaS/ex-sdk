@@ -1,5 +1,5 @@
 import { ConsumerTopic } from '../topic'
-import { promiseTimeout, SocketResponse, TimeStamp } from '../utils'
+import { IEntity, promiseTimeout, SocketResponse, TimeStamp } from '../utils'
 import { ItineraryType } from './utils'
 
 export interface RtmpConfiguration {
@@ -33,7 +33,7 @@ export type ReadRtmpResponse = SocketResponse<ReadRtmpResponsePayload>
 /**
  * An Rtmp video item.
  */
-export class Rtmp {
+export class Rtmp implements IEntity {
   private socket: SocketIOClient.Socket
   /**
    * The id of the itinerary item
@@ -42,7 +42,7 @@ export class Rtmp {
   /**
    * All of the data relating to this item. Populated after calling the .get message.
    */
-  public data: ReadRtmpResponsePayload | null = null
+  public payload: ReadRtmpResponsePayload | null = null
   public type = ItineraryType.Rtmp
 
   constructor (socket: SocketIOClient.Socket, id: string) {
@@ -53,14 +53,14 @@ export class Rtmp {
   /**
    * Call this method to populate the data property.
    */
-  get (): Promise<void> {
+  public get (): Promise<void> {
     let callback: (itemData: ReadRtmpResponse) => void
     return promiseTimeout(new Promise<void>((resolve, reject) => {
       callback = (itemData: ReadRtmpResponse) => {
         if (itemData.error) {
           reject(new Error(itemData.error))
         } else if (itemData.payload && itemData.payload.id === this.id) {
-          this.data = itemData.payload
+          this.payload = itemData.payload
           resolve()
         }
       }

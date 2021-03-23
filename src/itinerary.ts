@@ -1,9 +1,10 @@
-import { Chat, Rtmp, Poll, WebRtc } from './itinerary-item'
+import { Chat, Rtmp, Poll } from './itinerary-item'
 import { ItineraryItem, ItineraryPayload } from './event'
 import { ConsumerTopic } from './topic'
 import { ItineraryItemFactory, ItinerarySubItem } from './itinerary-item/item-factory'
 import { ItineraryType } from './itinerary-item/utils'
 import SubscriptionManager from './subscription-manager'
+import { IDestroyable, IEntity } from './utils'
 
 export interface RtcConfiguration {
   operators: string[];
@@ -14,7 +15,7 @@ export interface RtcConfiguration {
  * Creates a view of a specific itinerary with all of the itinerary items associated with it.
  * This means you can easily subscribe to chats, videos and polls items that belong to this itinerary.
  */
-export class Itinerary {
+export class Itinerary implements IEntity, IDestroyable {
   private socket: SocketIOClient.Socket
   private subscriptionManager: SubscriptionManager
 
@@ -62,7 +63,6 @@ export class Itinerary {
    * @param {ItineraryPayload} payload From getting the information for all itineraries
    */
   public async createItineraryItem (payload: ItineraryPayload): Promise<void> {
-    this.setupUpdateListeners()
     const items: ItineraryItem[] = payload.items ? JSON.parse(payload.items as string) : []
     this.payload = {
       ...payload,
@@ -82,6 +82,10 @@ export class Itinerary {
         this.items = items.map((i: ItineraryItem) => ItineraryItemFactory.getItem(this.socket, i))
       }
     })
+  }
+
+  public get (): void {
+    this.setupUpdateListeners()
   }
 
   /**

@@ -1,6 +1,6 @@
 import SubscriptionManager from './subscription-manager'
 import { ConsumerTopic } from './topic'
-import { InitialResponse, promiseTimeout } from './utils'
+import { IDestroyable, IEntity, InitialResponse, promiseTimeout } from './utils'
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ReadNoticesResponse {}
@@ -35,17 +35,21 @@ export interface NoticeGetRequest {
  *
  *
  */
-export class Notices {
+export class Notices implements IEntity, IDestroyable {
   private subscriptionManager: SubscriptionManager;
   private socket: SocketIOClient.Socket;
   /**
    * All of the unread notices for the logged in user
    */
-  public notices: Notice[] = []
+  public payload: Notice[] = []
 
   constructor (socket: SocketIOClient.Socket) {
     this.socket = socket
     this.subscriptionManager = new SubscriptionManager(this.socket)
+  }
+
+  get notices (): Notice[] {
+    return this.payload
   }
 
   /**
@@ -59,7 +63,7 @@ export class Notices {
 
   private listenForNotices (request: NoticeGetRequest): void {
     this.subscriptionManager.addSubscription(ConsumerTopic.NoticeReceive, (resp: Notice) => {
-      this.notices = [...this.notices, resp]
+      this.payload = [...this.payload, resp]
     })
     this.socket.emit(ConsumerTopic.NoticeReceive, request)
   }
@@ -75,7 +79,7 @@ export class Notices {
         if ('error' in resp) {
           reject(new Error(resp.error))
         } else if (!('status' in resp)) {
-          this.notices = [...resp.payload].sort(Notices.sortByDate)
+          this.payload = [...resp.payload].sort(Notices.sortByDate)
           this.listenForNotices(request)
           resolve()
         }
@@ -92,11 +96,11 @@ export class Notices {
    * @param {string} id THe id of the notice to mark as read for the logged in user
    */
   readNotice (id: string): Promise<void> {
-    const notice = this.notices.find(({ public_id: noticeId }) => id === noticeId)
+    const notice = this.payload.find(({ public_id: noticeId }) => id === noticeId)
     if (!notice) {
       throw new Error(`Could not find notice with id ${id}`)
     }
-    this.notices = this.notices.filter(({ public_id: noticeId }) => id !== noticeId)
+    this.payload = this.payload.filter(({ public_id: noticeId }) => id !== noticeId)
     let callback: (resp: InitialResponse | ReadNoticesResponse) => void
     return promiseTimeout(new Promise<void>((resolve, reject) => {
       callback = (resp: InitialResponse | ReadNoticesResponse) => {

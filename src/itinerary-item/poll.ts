@@ -1,6 +1,6 @@
 import SubscriptionManager from '../subscription-manager'
 import { ConsumerTopic } from '../topic'
-import { InitialResponse, promiseTimeout } from '../utils'
+import { IDestroyable, IEntity, InitialResponse, promiseTimeout } from '../utils'
 import { AnswerPollsResponse, Question, QuestionResponse } from './question'
 import { ItineraryType } from './utils'
 
@@ -61,7 +61,7 @@ export interface QuestionRequest {
 /**
  * Represents a poll itinerary item
  */
-export class Poll {
+export class Poll implements IEntity, IDestroyable {
   private socket: SocketIOClient.Socket;
   private subscriptionManager: SubscriptionManager;
   /**
@@ -77,6 +77,7 @@ export class Poll {
    */
   public configuration: PollConfiguration | null = null
   public type = ItineraryType.Poll
+  public payload: GetPollResponsePayload | null = null
 
   constructor (socket: SocketIOClient.Socket, id: string) {
     this.socket = socket
@@ -152,6 +153,7 @@ export class Poll {
         if ('error' in resp) {
           reject(new Error(resp.error))
         } else if (!('status' in resp)) {
+          this.payload = resp.payload
           this.configuration = resp.payload.configuration
           if (this.configuration.type !== PollType.Immediate) {
             const responseQuestions = [...Object.values(resp.payload.questions)].sort(Poll.sortByOrder)

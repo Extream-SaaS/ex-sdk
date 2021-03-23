@@ -86,7 +86,7 @@ export class Question {
     return a.order - b.order
   }
 
-  sortResponses (a: [string, number], b: [string, number]): number {
+  private sortResponses (a: [string, number], b: [string, number]): number {
     const answerA = this.answers.find((ans) => ans.id === a[0])
     const answerB = this.answers.find((ans) => ans.id === b[0])
     if (!answerA || !answerB) {
@@ -99,7 +99,7 @@ export class Question {
    * Set the responses of a question
    * @param { [key: string]: number } responses The responses for a question
    */
-  setResponses (responses: { [key: string]: number }): void {
+  public setResponses (responses: { [key: string]: number }): void {
     const sortedResponses = Object.entries(responses).sort(this.sortResponses.bind(this))
     this.responses = sortedResponses.map(([id, count]) => ({ id, count }))
   }
@@ -109,7 +109,7 @@ export class Question {
    * @param {string} answer The id of the answer you wish to give.
    * @param {string} poll The id of the poll this question is related to
    */
-  answer (answer: string, poll: string): Promise<void> {
+  public answer (answer: string, poll: string): Promise<void> {
     let callback: (resp: InitialResponse | AnswerPollsResponse) => void
     return promiseTimeout(new Promise<void>((resolve, reject) => {
       callback = (resp: InitialResponse | AnswerPollsResponse) => {
