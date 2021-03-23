@@ -1,4 +1,4 @@
-import { SubscriptionManager } from '../utils'
+import { SubscriptionManager } from '../utils/subscription-manager'
 import sinon from 'sinon'
 
 describe('Subscription manager', () => {

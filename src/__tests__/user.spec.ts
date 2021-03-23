@@ -1,4 +1,5 @@
-import { User, UserType, PersistenceType } from '../user'
+import { User, UserType } from '../user/user'
+import { PersistenceType } from '../user/persistence'
 
 import fetchMock from 'jest-fetch-mock'
 

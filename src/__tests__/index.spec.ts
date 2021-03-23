@@ -2,7 +2,7 @@ import { Consumer, Itinerary, Chat, ItineraryType, Poll, PollType, Rtmp } from '
 import { ExtreamClient } from '../extream-client'
 import * as exSdk from '../index'
 import { AuthorizationTopic, AdminTopic, ClientTopic, ConsumerTopic } from '../topic'
-import { UserType } from '../user'
+import { UserType } from '../user/user'
 
 describe('Index', () => {
   it('exports extream client as default', () => {
