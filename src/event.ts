@@ -61,7 +61,7 @@ export class Event {
     // this.options = options
   }
 
-  get itineraryTree () : any {
+  get itineraryTree () : Itinerary[] {
     return Event.getChildren(this.itinerary, null)
   }
 
