@@ -20,7 +20,7 @@
 
 • **id**: *string*
 
-*Defined in [itinerary-item/question.ts:5](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/question.ts#L5)*
+*Defined in [consumer/itinerary-item/question.ts:5](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/question.ts#L5)*
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 • **order**: *number*
 
-*Defined in [itinerary-item/question.ts:6](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/question.ts#L6)*
+*Defined in [consumer/itinerary-item/question.ts:6](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/question.ts#L6)*
 
 ___
 
@@ -36,4 +36,4 @@ ___
 
 • **text**: *string*
 
-*Defined in [itinerary-item/question.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/question.ts#L7)*
+*Defined in [consumer/itinerary-item/question.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/question.ts#L7)*

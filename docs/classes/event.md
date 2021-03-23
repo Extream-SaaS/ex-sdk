@@ -19,12 +19,17 @@
 * [notices](event.md#notices)
 * [socket](event.md#private-socket)
 
+### Accessors
+
+* [itineraryTree](event.md#itinerarytree)
+
 ### Methods
 
 * [destroy](event.md#destroy)
 * [getItineraryInformation](event.md#private-getitineraryinformation)
 * [getItineraryItems](event.md#getitineraryitems)
 * [getNotices](event.md#getnotices)
+* [getChildren](event.md#static-private-getchildren)
 
 ## Constructors
 
@@ -32,7 +37,7 @@
 
 \+ **new Event**(`socket`: Socket, `id`: string): *[Event](event.md)*
 
-*Defined in [event.ts:54](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/event.ts#L54)*
+*Defined in [consumer/event.ts:55](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/event.ts#L55)*
 
 **Parameters:**
 
@@ -49,7 +54,7 @@ Name | Type |
 
 • **id**: *string*
 
-*Defined in [event.ts:53](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/event.ts#L53)*
+*Defined in [consumer/event.ts:54](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/event.ts#L54)*
 
 ___
 
@@ -57,7 +62,7 @@ ___
 
 • **itinerary**: *[Itinerary](itinerary.md)[]* = []
 
-*Defined in [event.ts:52](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/event.ts#L52)*
+*Defined in [consumer/event.ts:53](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/event.ts#L53)*
 
 ___
 
@@ -65,7 +70,7 @@ ___
 
 • **notices**: *[Notices](notices.md)*
 
-*Defined in [event.ts:54](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/event.ts#L54)*
+*Defined in [consumer/event.ts:55](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/event.ts#L55)*
 
 ___
 
@@ -73,7 +78,17 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [event.ts:49](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/event.ts#L49)*
+*Defined in [consumer/event.ts:50](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/event.ts#L50)*
+
+## Accessors
+
+###  itineraryTree
+
+• **get itineraryTree**(): *[Itinerary](itinerary.md)[]*
+
+*Defined in [consumer/event.ts:64](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/event.ts#L64)*
+
+**Returns:** *[Itinerary](itinerary.md)[]*
 
 ## Methods
 
@@ -81,7 +96,7 @@ ___
 
 ▸ **destroy**(): *void*
 
-*Defined in [event.ts:113](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/event.ts#L113)*
+*Defined in [consumer/event.ts:126](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/event.ts#L126)*
 
 Cleans up all listeners for this class. Call this when you no longer need access to this events information to ensure memory leaks are not caused.
 
@@ -93,7 +108,7 @@ ___
 
 ▸ **getItineraryInformation**(`payload`: [ItineraryPayload](../interfaces/itinerarypayload.md)[]): *Promise‹void›*
 
-*Defined in [event.ts:76](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/event.ts#L76)*
+*Defined in [consumer/event.ts:89](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/event.ts#L89)*
 
 Creates an instance of the itinerary class based off of the payload information passed in.
 
@@ -111,7 +126,7 @@ ___
 
 ▸ **getItineraryItems**(): *Promise‹void›*
 
-*Defined in [event.ts:89](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/event.ts#L89)*
+*Defined in [consumer/event.ts:102](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/event.ts#L102)*
 
 Get all of the itinerary items for a specific event. After awaiting this method all the itinerary items are in the itineraries property of this class
 
@@ -123,8 +138,25 @@ ___
 
 ▸ **getNotices**(): *Promise‹void›*
 
-*Defined in [event.ts:66](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/event.ts#L66)*
+*Defined in [consumer/event.ts:79](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/event.ts#L79)*
 
 Get all of the unread notices for this event
 
 **Returns:** *Promise‹void›*
+
+___
+
+### `Static` `Private` getChildren
+
+▸ **getChildren**(`items`: [Itinerary](itinerary.md)[], `parentId`: string | null): *[Itinerary](itinerary.md)[]*
+
+*Defined in [consumer/event.ts:68](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/event.ts#L68)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`items` | [Itinerary](itinerary.md)[] |
+`parentId` | string &#124; null |
+
+**Returns:** *[Itinerary](itinerary.md)[]*

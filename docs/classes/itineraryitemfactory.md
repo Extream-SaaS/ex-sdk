@@ -16,9 +16,9 @@
 
 ### `Static` getItem
 
-▸ **getItem**(`socket`: Socket, `itineraryItem`: [ItineraryItem](itineraryitem.md), `data?`: any): *[Chat](chat.md) | [Poll](poll.md) | [Rtmp](rtmp.md) | [WebRtc](webrtc.md)*
+▸ **getItem**(`socket`: Socket, `itineraryItem`: [ItineraryItem](itineraryitem.md), `data?`: any): *[ItinerarySubItem](../globals.md#itinerarysubitem)*
 
-*Defined in [itinerary-item/item-factory.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/item-factory.ts#L16)*
+*Defined in [consumer/itinerary-item/item-factory.ts:20](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/item-factory.ts#L20)*
 
 **Parameters:**
 
@@ -28,4 +28,4 @@ Name | Type |
 `itineraryItem` | [ItineraryItem](itineraryitem.md) |
 `data?` | any |
 
-**Returns:** *[Chat](chat.md) | [Poll](poll.md) | [Rtmp](rtmp.md) | [WebRtc](webrtc.md)*
+**Returns:** *[ItinerarySubItem](../globals.md#itinerarysubitem)*

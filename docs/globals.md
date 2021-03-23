@@ -11,7 +11,7 @@
 * [ClientTopic](enums/clienttopic.md)
 * [ConsumerTopic](enums/consumertopic.md)
 * [ItineraryType](enums/itinerarytype.md)
-* [PersistanceType](enums/persistancetype.md)
+* [PersistenceType](enums/persistencetype.md)
 * [PollType](enums/polltype.md)
 * [UserType](enums/usertype.md)
 
@@ -22,7 +22,7 @@
 * [AdminItinerary](classes/adminitinerary.md)
 * [Chat](classes/chat.md)
 * [Consumer](classes/consumer.md)
-* [CookiePersistance](classes/cookiepersistance.md)
+* [CookiePersistence](classes/cookiepersistence.md)
 * [Event](classes/event.md)
 * [ExtreamClient](classes/extreamclient.md)
 * [Itinerary](classes/itinerary.md)
@@ -30,7 +30,7 @@
 * [ItineraryItemFactory](classes/itineraryitemfactory.md)
 * [Notices](classes/notices.md)
 * [OnlineUsers](classes/onlineusers.md)
-* [PersistanceFactory](classes/persistancefactory.md)
+* [PersistenceFactory](classes/persistencefactory.md)
 * [Poll](classes/poll.md)
 * [Question](classes/question.md)
 * [Rtmp](classes/rtmp.md)
@@ -64,7 +64,9 @@
 * [GetNoticesResponse](interfaces/getnoticesresponse.md)
 * [GetPollResponse](interfaces/getpollresponse.md)
 * [GetPollResponsePayload](interfaces/getpollresponsepayload.md)
-* [IPersistance](interfaces/ipersistance.md)
+* [IDestroyable](interfaces/idestroyable.md)
+* [IEntity](interfaces/ientity.md)
+* [IPersistence](interfaces/ipersistence.md)
 * [InitialResponse](interfaces/initialresponse.md)
 * [ItineraryItemPayload](interfaces/itineraryitempayload.md)
 * [ItineraryPayload](interfaces/itinerarypayload.md)
@@ -117,6 +119,7 @@
 * [GetEventItineraryResponse](globals.md#geteventitineraryresponse)
 * [GetItineraryResponse](globals.md#getitineraryresponse)
 * [GetRmtpItineraryItemResponse](globals.md#getrmtpitineraryitemresponse)
+* [ItinerarySubItem](globals.md#itinerarysubitem)
 * [MessageData](globals.md#messagedata)
 * [ReadRtmpResponse](globals.md#readrtmpresponse)
 * [ReadWebRtcResponse](globals.md#readwebrtcresponse)
@@ -144,7 +147,7 @@
 
 Ƭ **CreateItemRequest**: *[PollCreateRequest](interfaces/pollcreaterequest.md) | [WebRtcCreateRequest](interfaces/webrtccreaterequest.md) | [RmtpCreateRequest](interfaces/rmtpcreaterequest.md) | [ChatCreateRequest](interfaces/chatcreaterequest.md)*
 
-*Defined in [admin/admin-itinerary.ts:18](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/admin/admin-itinerary.ts#L18)*
+*Defined in [admin/admin-itinerary.ts:18](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/admin/admin-itinerary.ts#L18)*
 
 ___
 
@@ -152,7 +155,7 @@ ___
 
 Ƭ **CreateItemResponse**: *[SocketResponse](interfaces/socketresponse.md)‹object›*
 
-*Defined in [admin/admin-itinerary.ts:20](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/admin/admin-itinerary.ts#L20)*
+*Defined in [admin/admin-itinerary.ts:20](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/admin/admin-itinerary.ts#L20)*
 
 ___
 
@@ -160,7 +163,7 @@ ___
 
 Ƭ **CreateItineraryResponse**: *[SocketResponse](interfaces/socketresponse.md)‹any›*
 
-*Defined in [admin/admin-itineraries.ts:6](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/admin/admin-itineraries.ts#L6)*
+*Defined in [admin/admin-itineraries.ts:6](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/admin/admin-itineraries.ts#L6)*
 
 ___
 
@@ -168,7 +171,7 @@ ___
 
 Ƭ **EventsByOrganizationResponse**: *[SocketResponse](interfaces/socketresponse.md)‹[EventsPayload](interfaces/eventspayload.md)[]›*
 
-*Defined in [event.ts:22](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/event.ts#L22)*
+*Defined in [consumer/event.ts:22](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/event.ts#L22)*
 
 ___
 
@@ -176,7 +179,7 @@ ___
 
 Ƭ **GetChatResponse**: *[SocketResponse](interfaces/socketresponse.md)‹[GetChatPayload](interfaces/getchatpayload.md)›*
 
-*Defined in [itinerary-item/chat.ts:93](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/chat.ts#L93)*
+*Defined in [consumer/itinerary-item/chat.ts:93](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/chat.ts#L93)*
 
 ___
 
@@ -184,7 +187,7 @@ ___
 
 Ƭ **GetEventItinerariesResponse**: *[SocketResponse](interfaces/socketresponse.md)‹[ItineraryPayload](interfaces/itinerarypayload.md)[]›*
 
-*Defined in [admin/admin-itineraries.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/admin/admin-itineraries.ts#L7)*
+*Defined in [admin/admin-itineraries.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/admin/admin-itineraries.ts#L7)*
 
 ___
 
@@ -192,7 +195,7 @@ ___
 
 Ƭ **GetEventItineraryResponse**: *[SocketResponse](interfaces/socketresponse.md)‹[ItineraryPayload](interfaces/itinerarypayload.md)[]›*
 
-*Defined in [event.ts:44](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/event.ts#L44)*
+*Defined in [consumer/event.ts:45](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/event.ts#L45)*
 
 ___
 
@@ -200,7 +203,7 @@ ___
 
 Ƭ **GetItineraryResponse**: *[SocketResponse](interfaces/socketresponse.md)‹[ItineraryPayload](interfaces/itinerarypayload.md)›*
 
-*Defined in [event.ts:46](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/event.ts#L46)*
+*Defined in [consumer/event.ts:47](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/event.ts#L47)*
 
 ___
 
@@ -208,7 +211,15 @@ ___
 
 Ƭ **GetRmtpItineraryItemResponse**: *[SocketResponse](interfaces/socketresponse.md)‹[RmtpItineraryItemPayload](interfaces/rmtpitineraryitempayload.md)›*
 
-*Defined in [admin/itinerary-item.ts:37](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/admin/itinerary-item.ts#L37)*
+*Defined in [admin/itinerary-item.ts:37](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/admin/itinerary-item.ts#L37)*
+
+___
+
+###  ItinerarySubItem
+
+Ƭ **ItinerarySubItem**: *[Chat](classes/chat.md) | [Poll](classes/poll.md) | [Rtmp](classes/rtmp.md) | [WebRtc](classes/webrtc.md) | [Itinerary](classes/itinerary.md)*
+
+*Defined in [consumer/itinerary-item/item-factory.ts:17](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/item-factory.ts#L17)*
 
 ___
 
@@ -216,7 +227,7 @@ ___
 
 Ƭ **MessageData**: *[ReplyMessageData](interfaces/replymessagedata.md) | [SendMessageData](interfaces/sendmessagedata.md)*
 
-*Defined in [itinerary-item/chat.ts:46](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/chat.ts#L46)*
+*Defined in [consumer/itinerary-item/chat.ts:46](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/chat.ts#L46)*
 
 ___
 
@@ -224,7 +235,7 @@ ___
 
 Ƭ **ReadRtmpResponse**: *[SocketResponse](interfaces/socketresponse.md)‹[ReadRtmpResponsePayload](interfaces/readrtmpresponsepayload.md)›*
 
-*Defined in [itinerary-item/rtmp.ts:31](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/rtmp.ts#L31)*
+*Defined in [consumer/itinerary-item/rtmp.ts:31](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/rtmp.ts#L31)*
 
 ___
 
@@ -232,7 +243,7 @@ ___
 
 Ƭ **ReadWebRtcResponse**: *[SocketResponse](interfaces/socketresponse.md)‹[ReadWebRtcResponsePayload](interfaces/readwebrtcresponsepayload.md)›*
 
-*Defined in [itinerary-item/webrtc.ts:21](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/webrtc.ts#L21)*
+*Defined in [consumer/itinerary-item/webrtc.ts:22](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/webrtc.ts#L22)*
 
 ___
 
@@ -240,7 +251,7 @@ ___
 
 Ƭ **SendChatMessageResponse**: *[SocketResponse](interfaces/socketresponse.md)‹[SendChatMessagePayload](interfaces/sendchatmessagepayload.md)›*
 
-*Defined in [itinerary-item/chat.ts:25](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/chat.ts#L25)*
+*Defined in [consumer/itinerary-item/chat.ts:25](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/chat.ts#L25)*
 
 ___
 
@@ -248,7 +259,7 @@ ___
 
 Ƭ **StartChatResponse**: *[SocketResponse](interfaces/socketresponse.md)‹[StartChatResponsePayload](interfaces/startchatresponsepayload.md)›*
 
-*Defined in [itinerary-item/chat.ts:132](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/chat.ts#L132)*
+*Defined in [consumer/itinerary-item/chat.ts:132](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/chat.ts#L132)*
 
 ___
 
@@ -256,7 +267,7 @@ ___
 
 Ƭ **Topics**: *object*
 
-*Defined in [topic.ts:72](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/topic.ts#L72)*
+*Defined in [topic.ts:72](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/topic.ts#L72)*
 
 #### Type declaration:
 
@@ -274,7 +285,7 @@ ___
 
 Ƭ **UpdateItemRequest**: *[PollUpdateRequest](interfaces/pollupdaterequest.md) | [WebRtcUpdateRequest](interfaces/webrtcupdaterequest.md) | [RmtpUpdateRequest](interfaces/rmtpupdaterequest.md) | [ChatUpdateRequest](interfaces/chatupdaterequest.md)*
 
-*Defined in [admin/itinerary-item.ts:48](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/admin/itinerary-item.ts#L48)*
+*Defined in [admin/itinerary-item.ts:48](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/admin/itinerary-item.ts#L48)*
 
 ## Variables
 
@@ -282,7 +293,7 @@ ___
 
 • **ACCESS_TOKEN_KEY**: *"ACCESS_TOKEN_KEY"* = "ACCESS_TOKEN_KEY"
 
-*Defined in [persistance.ts:3](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/persistance.ts#L3)*
+*Defined in [user/persistence.ts:3](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/user/persistence.ts#L3)*
 
 ___
 
@@ -290,7 +301,7 @@ ___
 
 • **REFRESH_TOKEN_KEY**: *"REFRESH_TOKEN_KEY"* = "REFRESH_TOKEN_KEY"
 
-*Defined in [persistance.ts:4](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/persistance.ts#L4)*
+*Defined in [user/persistence.ts:4](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/user/persistence.ts#L4)*
 
 ## Functions
 
@@ -298,7 +309,7 @@ ___
 
 ▸ **promiseTimeout**‹**T**›(`promise`: Promise‹T›): *Promise‹T›*
 
-*Defined in [utils.ts:41](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/utils.ts#L41)*
+*Defined in [utils/utils.ts:49](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/utils/utils.ts#L49)*
 
 **Type parameters:**
 
@@ -318,28 +329,34 @@ Name | Type |
 
 ### ▪ **registry**: *object*
 
-*Defined in [itinerary-item/item-factory.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/item-factory.ts#L8)*
+*Defined in [consumer/itinerary-item/item-factory.ts:9](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/item-factory.ts#L9)*
 
 ###  [ItineraryType.Chat]
 
 • **[ItineraryType.Chat]**: *[Chat](classes/chat.md)* = Chat
 
-*Defined in [itinerary-item/item-factory.ts:9](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/item-factory.ts#L9)*
+*Defined in [consumer/itinerary-item/item-factory.ts:10](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/item-factory.ts#L10)*
+
+###  [ItineraryType.Itinerary]
+
+• **[ItineraryType.Itinerary]**: *[Itinerary](classes/itinerary.md)* = Itinerary
+
+*Defined in [consumer/itinerary-item/item-factory.ts:14](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/item-factory.ts#L14)*
 
 ###  [ItineraryType.Poll]
 
 • **[ItineraryType.Poll]**: *[Poll](classes/poll.md)* = Poll
 
-*Defined in [itinerary-item/item-factory.ts:10](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/item-factory.ts#L10)*
+*Defined in [consumer/itinerary-item/item-factory.ts:11](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/item-factory.ts#L11)*
 
 ###  [ItineraryType.Rtmp]
 
 • **[ItineraryType.Rtmp]**: *[Rtmp](classes/rtmp.md)* = Rtmp
 
-*Defined in [itinerary-item/item-factory.ts:11](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/item-factory.ts#L11)*
+*Defined in [consumer/itinerary-item/item-factory.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/item-factory.ts#L12)*
 
 ###  [ItineraryType.WebRtc]
 
 • **[ItineraryType.WebRtc]**: *[WebRtc](classes/webrtc.md)* = WebRtc
 
-*Defined in [itinerary-item/item-factory.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/item-factory.ts#L12)*
+*Defined in [consumer/itinerary-item/item-factory.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/item-factory.ts#L13)*

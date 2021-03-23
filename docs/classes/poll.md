@@ -8,6 +8,11 @@ Represents a poll itinerary item
 
 * **Poll**
 
+## Implements
+
+* [IEntity](../interfaces/ientity.md)
+* [IDestroyable](../interfaces/idestroyable.md)
+
 ## Index
 
 ### Constructors
@@ -18,6 +23,7 @@ Represents a poll itinerary item
 
 * [configuration](poll.md#configuration)
 * [id](poll.md#id)
+* [payload](poll.md#payload)
 * [questions](poll.md#questions)
 * [socket](poll.md#private-socket)
 * [subscriptionManager](poll.md#private-subscriptionmanager)
@@ -39,7 +45,7 @@ Represents a poll itinerary item
 
 \+ **new Poll**(`socket`: Socket, `id`: string): *[Poll](poll.md)*
 
-*Defined in [itinerary-item/poll.ts:79](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/poll.ts#L79)*
+*Defined in [consumer/itinerary-item/poll.ts:80](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/poll.ts#L80)*
 
 **Parameters:**
 
@@ -56,7 +62,7 @@ Name | Type |
 
 • **configuration**: *[PollConfiguration](../interfaces/pollconfiguration.md) | null* = null
 
-*Defined in [itinerary-item/poll.ts:78](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/poll.ts#L78)*
+*Defined in [consumer/itinerary-item/poll.ts:78](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/poll.ts#L78)*
 
 The type of the poll. Currently only immediate supported.
 
@@ -66,9 +72,17 @@ ___
 
 • **id**: *string*
 
-*Defined in [itinerary-item/poll.ts:70](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/poll.ts#L70)*
+*Defined in [consumer/itinerary-item/poll.ts:70](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/poll.ts#L70)*
 
 Itinerary item id
+
+___
+
+###  payload
+
+• **payload**: *[GetPollResponsePayload](../interfaces/getpollresponsepayload.md) | null* = null
+
+*Defined in [consumer/itinerary-item/poll.ts:80](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/poll.ts#L80)*
 
 ___
 
@@ -76,7 +90,7 @@ ___
 
 • **questions**: *[Question](question.md)[]* = []
 
-*Defined in [itinerary-item/poll.ts:74](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/poll.ts#L74)*
+*Defined in [consumer/itinerary-item/poll.ts:74](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/poll.ts#L74)*
 
 All of the questions that are active on this poll currently
 
@@ -86,7 +100,7 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [itinerary-item/poll.ts:65](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/poll.ts#L65)*
+*Defined in [consumer/itinerary-item/poll.ts:65](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/poll.ts#L65)*
 
 ___
 
@@ -94,7 +108,7 @@ ___
 
 • **subscriptionManager**: *[SubscriptionManager](subscriptionmanager.md)*
 
-*Defined in [itinerary-item/poll.ts:66](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/poll.ts#L66)*
+*Defined in [consumer/itinerary-item/poll.ts:66](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/poll.ts#L66)*
 
 ___
 
@@ -102,7 +116,7 @@ ___
 
 • **type**: *[ItineraryType](../enums/itinerarytype.md)* = ItineraryType.Poll
 
-*Defined in [itinerary-item/poll.ts:79](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/poll.ts#L79)*
+*Defined in [consumer/itinerary-item/poll.ts:79](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/poll.ts#L79)*
 
 ## Methods
 
@@ -110,7 +124,7 @@ ___
 
 ▸ **answer**(`questionId`: string, `answerId`: string): *Promise‹void›*
 
-*Defined in [itinerary-item/poll.ts:137](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/poll.ts#L137)*
+*Defined in [consumer/itinerary-item/poll.ts:138](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/poll.ts#L138)*
 
 Anser a question
 
@@ -129,7 +143,9 @@ ___
 
 ▸ **destroy**(): *void*
 
-*Defined in [itinerary-item/poll.ts:181](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/poll.ts#L181)*
+*Implementation of [IDestroyable](../interfaces/idestroyable.md)*
+
+*Defined in [consumer/itinerary-item/poll.ts:183](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/poll.ts#L183)*
 
 Cleans up all listeners for this class. Call this when you no longer need access to this events information to ensure memory leaks are not caused.
 
@@ -141,7 +157,7 @@ ___
 
 ▸ **get**(): *Promise‹void›*
 
-*Defined in [itinerary-item/poll.ts:148](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/poll.ts#L148)*
+*Defined in [consumer/itinerary-item/poll.ts:149](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/poll.ts#L149)*
 
 Get all information for this poll. Questions will be populated in the questions array.
 
@@ -153,7 +169,7 @@ ___
 
 ▸ **listenForQuestions**(): *void*
 
-*Defined in [itinerary-item/poll.ts:109](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/poll.ts#L109)*
+*Defined in [consumer/itinerary-item/poll.ts:110](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/poll.ts#L110)*
 
 Sets up websocket listeners for new questions being streamed into the poll
 
@@ -165,7 +181,7 @@ ___
 
 ▸ **listenForResponses**(): *void*
 
-*Defined in [itinerary-item/poll.ts:90](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/poll.ts#L90)*
+*Defined in [consumer/itinerary-item/poll.ts:91](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/poll.ts#L91)*
 
 Sets up websocket listeners for other peoples responses coming in
 
@@ -177,7 +193,7 @@ ___
 
 ▸ **sortByOrder**(`a`: [QuestionResponse](../interfaces/questionresponse.md), `b`: [QuestionResponse](../interfaces/questionresponse.md)): *number*
 
-*Defined in [itinerary-item/poll.ts:121](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/poll.ts#L121)*
+*Defined in [consumer/itinerary-item/poll.ts:122](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/poll.ts#L122)*
 
 Sorts answers by order
 
@@ -196,7 +212,7 @@ ___
 
 ▸ **sortByTime**(`a`: [Question](question.md), `b`: [Question](question.md)): *number*
 
-*Defined in [itinerary-item/poll.ts:128](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary-item/poll.ts#L128)*
+*Defined in [consumer/itinerary-item/poll.ts:129](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/poll.ts#L129)*
 
 Sorts questions by date
 

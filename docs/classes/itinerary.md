@@ -9,6 +9,11 @@ This means you can easily subscribe to chats, videos and polls items that belong
 
 * **Itinerary**
 
+## Implements
+
+* [IEntity](../interfaces/ientity.md)
+* [IDestroyable](../interfaces/idestroyable.md)
+
 ## Index
 
 ### Constructors
@@ -21,11 +26,15 @@ This means you can easily subscribe to chats, videos and polls items that belong
 * [items](itinerary.md#items)
 * [payload](itinerary.md#payload)
 * [socket](itinerary.md#private-socket)
+* [subItems](itinerary.md#subitems)
 * [subscriptionManager](itinerary.md#private-subscriptionmanager)
+* [type](itinerary.md#type)
 
 ### Accessors
 
 * [chatItems](itinerary.md#chatitems)
+* [children](itinerary.md#children)
+* [itineraryItems](itinerary.md#itineraryitems)
 * [pollItems](itinerary.md#pollitems)
 * [rtmpItems](itinerary.md#rtmpitems)
 
@@ -33,6 +42,7 @@ This means you can easily subscribe to chats, videos and polls items that belong
 
 * [createItineraryItem](itinerary.md#createitineraryitem)
 * [destroy](itinerary.md#destroy)
+* [get](itinerary.md#get)
 * [setupUpdateListeners](itinerary.md#private-setupupdatelisteners)
 
 ## Constructors
@@ -41,7 +51,7 @@ This means you can easily subscribe to chats, videos and polls items that belong
 
 \+ **new Itinerary**(`socket`: Socket, `id`: string): *[Itinerary](itinerary.md)*
 
-*Defined in [itinerary.ts:31](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary.ts#L31)*
+*Defined in [consumer/itinerary.ts:32](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary.ts#L32)*
 
 **Parameters:**
 
@@ -58,7 +68,7 @@ Name | Type |
 
 • **id**: *string | null* = null
 
-*Defined in [itinerary.ts:25](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary.ts#L25)*
+*Defined in [consumer/itinerary.ts:25](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary.ts#L25)*
 
 The id of the current itinerary item
 
@@ -66,9 +76,9 @@ ___
 
 ###  items
 
-• **items**: *([Chat](chat.md) | [Poll](poll.md) | [Rtmp](rtmp.md) | [WebRtc](webrtc.md))[]* = []
+• **items**: *[ItinerarySubItem](../globals.md#itinerarysubitem)[]* = []
 
-*Defined in [itinerary.ts:31](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary.ts#L31)*
+*Defined in [consumer/itinerary.ts:31](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary.ts#L31)*
 
 ___
 
@@ -76,7 +86,7 @@ ___
 
 • **payload**: *[ItineraryPayload](../interfaces/itinerarypayload.md) | null* = null
 
-*Defined in [itinerary.ts:29](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary.ts#L29)*
+*Defined in [consumer/itinerary.ts:29](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary.ts#L29)*
 
 All the information relating to the itinerary. This is populated after calling `getItinerary`.
 
@@ -86,7 +96,15 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [itinerary.ts:19](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary.ts#L19)*
+*Defined in [consumer/itinerary.ts:19](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary.ts#L19)*
+
+___
+
+###  subItems
+
+• **subItems**: *[Itinerary](itinerary.md)[]* = []
+
+*Defined in [consumer/itinerary.ts:32](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary.ts#L32)*
 
 ___
 
@@ -94,7 +112,15 @@ ___
 
 • **subscriptionManager**: *[SubscriptionManager](subscriptionmanager.md)*
 
-*Defined in [itinerary.ts:20](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary.ts#L20)*
+*Defined in [consumer/itinerary.ts:20](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary.ts#L20)*
+
+___
+
+###  type
+
+• **type**: *[ItineraryType](../enums/itinerarytype.md)* = ItineraryType.Itinerary
+
+*Defined in [consumer/itinerary.ts:30](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary.ts#L30)*
 
 ## Accessors
 
@@ -102,9 +128,29 @@ ___
 
 • **get chatItems**(): *[Chat](chat.md)[]*
 
-*Defined in [itinerary.ts:44](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary.ts#L44)*
+*Defined in [consumer/itinerary.ts:49](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary.ts#L49)*
 
 **Returns:** *[Chat](chat.md)[]*
+
+___
+
+###  children
+
+• **get children**(): *[ItinerarySubItem](../globals.md#itinerarysubitem)[]*
+
+*Defined in [consumer/itinerary.ts:41](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary.ts#L41)*
+
+**Returns:** *[ItinerarySubItem](../globals.md#itinerarysubitem)[]*
+
+___
+
+###  itineraryItems
+
+• **get itineraryItems**(): *[Itinerary](itinerary.md)[]*
+
+*Defined in [consumer/itinerary.ts:57](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary.ts#L57)*
+
+**Returns:** *[Itinerary](itinerary.md)[]*
 
 ___
 
@@ -112,7 +158,7 @@ ___
 
 • **get pollItems**(): *[Poll](poll.md)[]*
 
-*Defined in [itinerary.ts:48](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary.ts#L48)*
+*Defined in [consumer/itinerary.ts:53](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary.ts#L53)*
 
 **Returns:** *[Poll](poll.md)[]*
 
@@ -122,7 +168,7 @@ ___
 
 • **get rtmpItems**(): *[Rtmp](rtmp.md)[]*
 
-*Defined in [itinerary.ts:40](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary.ts#L40)*
+*Defined in [consumer/itinerary.ts:45](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary.ts#L45)*
 
 **Returns:** *[Rtmp](rtmp.md)[]*
 
@@ -132,7 +178,7 @@ ___
 
 ▸ **createItineraryItem**(`payload`: [ItineraryPayload](../interfaces/itinerarypayload.md)): *Promise‹void›*
 
-*Defined in [itinerary.ts:56](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary.ts#L56)*
+*Defined in [consumer/itinerary.ts:65](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary.ts#L65)*
 
 Create an instances of all the itinerary items from the payload
 
@@ -150,9 +196,21 @@ ___
 
 ▸ **destroy**(): *void*
 
-*Defined in [itinerary.ts:84](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary.ts#L84)*
+*Implementation of [IDestroyable](../interfaces/idestroyable.md)*
+
+*Defined in [consumer/itinerary.ts:96](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary.ts#L96)*
 
 Cleans up all listeners for this class. Call this when you no longer need access to this events information to ensure memory leaks are not caused.
+
+**Returns:** *void*
+
+___
+
+###  get
+
+▸ **get**(): *void*
+
+*Defined in [consumer/itinerary.ts:87](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary.ts#L87)*
 
 **Returns:** *void*
 
@@ -162,6 +220,6 @@ ___
 
 ▸ **setupUpdateListeners**(): *Promise‹void›*
 
-*Defined in [itinerary.ts:66](https://github.com/Extream-SaaS/ex-sdk/blob/be861a6/src/itinerary.ts#L66)*
+*Defined in [consumer/itinerary.ts:74](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary.ts#L74)*
 
 **Returns:** *Promise‹void›*
