@@ -1,5 +1,5 @@
 import { AdminTopic } from '../topic'
-import { InitialResponse, promiseTimeout, SocketResponse, TimeStamp } from '../utils'
+import { InitialResponse, promiseTimeout, SocketResponse, TimeStamp } from '../utils/utils'
 
 export interface ItineraryItemPayload {
   id: string;

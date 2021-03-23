@@ -1,14 +1,11 @@
-import SubscriptionManager from './subscription-manager'
-import { ConsumerTopic } from './topic'
+import { SubscriptionManager } from '../utils'
+import { ConsumerTopic } from '../topic'
 import { ExtreamUser } from './user'
-import { promiseTimeout } from './utils'
+import { promiseTimeout } from '../utils/utils'
 
 export class OnlineUsers {
   private subscriptionManager: SubscriptionManager;
   private socket: SocketIOClient.Socket;
-  /**
-   * All of the unread notices for the logged in user
-   */
   public users: ExtreamUser[] = []
 
   constructor (socket: SocketIOClient.Socket) {

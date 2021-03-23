@@ -4,7 +4,7 @@
  *
  * Consumers of this class should create their own subscription managers in constructors and expose a destroy method
  */
-export default class SubscriptionManager {
+export class SubscriptionManager {
   private socket: SocketIOClient.Socket
   private listeners: { key: string, listener: (...args: any[]) => void }[] = []
 

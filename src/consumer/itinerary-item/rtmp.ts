@@ -1,5 +1,5 @@
-import { ConsumerTopic } from '../topic'
-import { IEntity, promiseTimeout, SocketResponse, TimeStamp } from '../utils'
+import { ConsumerTopic } from '../../topic'
+import { IEntity, promiseTimeout, SocketResponse, TimeStamp } from '../../utils/utils'
 import { ItineraryType } from './utils'
 
 export interface RtmpConfiguration {

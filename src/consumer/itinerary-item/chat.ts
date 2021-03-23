@@ -1,7 +1,7 @@
-import { ConsumerTopic, ClientTopic } from '../topic'
-import { ExtreamUser } from '../user'
-import SubscriptionManager from '../subscription-manager'
-import { IDestroyable, IEntity, InitialResponse, promiseTimeout, SocketResponse, TimeStamp } from '../utils'
+import { ConsumerTopic, ClientTopic } from '../../topic'
+import { ExtreamUser } from '../../user/user'
+import { SubscriptionManager } from '../../utils'
+import { IDestroyable, IEntity, InitialResponse, promiseTimeout, SocketResponse, TimeStamp } from '../../utils/utils'
 import { ItineraryType } from './utils'
 
 /**

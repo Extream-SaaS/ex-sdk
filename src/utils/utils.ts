@@ -1,5 +1,5 @@
-import { PersistenceType } from './persistence'
-import { ExtreamUser } from './user'
+import { PersistenceType } from '../user/persistence'
+import { ExtreamUser } from '../user/user'
 
 export interface InitialResponse {
   /**

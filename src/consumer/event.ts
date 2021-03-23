@@ -1,8 +1,8 @@
 import { Itinerary } from './itinerary'
 import { ItineraryType } from './itinerary-item/utils'
 import { Notices } from './notices'
-import { ConsumerTopic } from './topic'
-import { InitialResponse, promiseTimeout, SocketResponse } from './utils'
+import { ConsumerTopic } from '../topic'
+import { InitialResponse, promiseTimeout, SocketResponse } from '../utils/utils'
 
 export interface EventsPayload {
   id: number;

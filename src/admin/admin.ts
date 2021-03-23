@@ -1,7 +1,7 @@
-import AdminItineraries from './admin/admin-itineraries'
-import { AdminItinerary } from './admin/admin-itinerary'
-import { ClientTopic } from './topic'
-import { InitialResponse, promiseTimeout } from './utils'
+import AdminItineraries from './admin-itineraries'
+import { AdminItinerary } from './admin-itinerary'
+import { ClientTopic } from '../topic'
+import { InitialResponse, promiseTimeout } from '../utils/utils'
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface SendNoticeResponse {}

@@ -1,4 +1,4 @@
-import { ExtreamOptions, promiseTimeout } from './utils'
+import { ExtreamOptions, promiseTimeout } from '../utils/utils'
 
 export interface UserFields {
   firstName?: string;
@@ -61,7 +61,7 @@ export interface RegisterUserRequest {
 /**
  * A class to allow login and registration of users.
  */
-export default class User {
+export class User {
   public headers: Headers
   options: ExtreamOptions
 

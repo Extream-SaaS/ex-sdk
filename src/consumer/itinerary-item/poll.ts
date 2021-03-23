@@ -1,6 +1,6 @@
-import SubscriptionManager from '../subscription-manager'
-import { ConsumerTopic } from '../topic'
-import { IDestroyable, IEntity, InitialResponse, promiseTimeout } from '../utils'
+import { SubscriptionManager } from '../../utils'
+import { ConsumerTopic } from '../../topic'
+import { IDestroyable, IEntity, InitialResponse, promiseTimeout } from '../../utils/utils'
 import { AnswerPollsResponse, Question, QuestionResponse } from './question'
 import { ItineraryType } from './utils'
 

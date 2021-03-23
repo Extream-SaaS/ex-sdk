@@ -1,9 +1,9 @@
 // TODO this is now out of date
 
-import SubscriptionManager from '../subscription-manager'
-import { ConsumerTopic } from '../topic'
-import { ExtreamUser } from '../user'
-import { ExtreamOptions, InitialResponse, promiseTimeout, SocketResponse } from '../utils'
+import { SubscriptionManager } from '../../utils'
+import { ConsumerTopic } from '../../topic'
+import { ExtreamUser } from '../../user/user'
+import { ExtreamOptions, InitialResponse, promiseTimeout, SocketResponse } from '../../utils/utils'
 import { ItineraryType } from './utils'
 
 export interface WebRtcConfiguration {

@@ -1,6 +1,6 @@
-import { ItineraryPayload } from '../event'
+import { ItineraryPayload } from '../consumer/event'
 import { AdminTopic, ConsumerTopic } from '../topic'
-import { InitialResponse, promiseTimeout, SocketResponse } from '../utils'
+import { InitialResponse, promiseTimeout, SocketResponse } from '../utils/utils'
 import { AdminItinerary } from './admin-itinerary'
 
 export type CreateItineraryResponse = SocketResponse<any>

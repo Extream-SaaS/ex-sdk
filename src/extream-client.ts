@@ -2,13 +2,13 @@ import 'isomorphic-fetch'
 
 import io from 'socket.io-client'
 
-import { Admin } from './admin'
-import { Consumer } from './consumer'
-import { IPersistence, PersistenceFactory } from './persistence'
-import SubscriptionManager from './subscription-manager'
+import { Admin } from './admin/admin'
+import { Consumer } from './consumer/consumer'
+import { IPersistence, PersistenceFactory } from './user/persistence'
+import { SubscriptionManager } from './utils'
 import { AuthorizationTopic } from './topic'
-import User, { ExtreamUser } from './user'
-import { ExtreamOptions, promiseTimeout } from './utils'
+import { User, ExtreamUser } from './user/user'
+import { ExtreamOptions, promiseTimeout } from './utils/utils'
 
 export interface AuthorizationRequest {
   visibility: boolean;

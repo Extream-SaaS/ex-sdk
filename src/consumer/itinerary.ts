@@ -1,10 +1,10 @@
 import { Chat, Rtmp, Poll } from './itinerary-item'
 import { ItineraryItem, ItineraryPayload } from './event'
-import { ConsumerTopic } from './topic'
+import { ConsumerTopic } from '../topic'
 import { ItineraryItemFactory, ItinerarySubItem } from './itinerary-item/item-factory'
 import { ItineraryType } from './itinerary-item/utils'
-import SubscriptionManager from './subscription-manager'
-import { IDestroyable, IEntity } from './utils'
+import { SubscriptionManager } from '../utils'
+import { IDestroyable, IEntity } from '../utils/utils'
 
 export interface RtcConfiguration {
   operators: string[];

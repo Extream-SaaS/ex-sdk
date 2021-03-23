@@ -1,7 +1,7 @@
 import { Event } from './event'
 import { Chat } from './itinerary-item'
-import { OnlineUsers } from './online-users'
-import { ExtreamOptions } from './utils'
+import { OnlineUsers } from '../user/online-users'
+import { ExtreamOptions } from '../utils/utils'
 
 /**
  * Represents all the actions an event visitor can take. For example joining rooms, starting chats, getting notices ect.

@@ -1,7 +1,6 @@
-import User, { UserType } from '../user'
+import { User, UserType, PersistenceType } from '../user'
 
 import fetchMock from 'jest-fetch-mock'
-import { PersistenceType } from '../persistence'
 
 const mockUser = {
   email: 'foo@bar.com',

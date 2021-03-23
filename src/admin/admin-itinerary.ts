@@ -1,6 +1,6 @@
-import { GetItineraryResponse, ItineraryPayload } from '../event'
+import { GetItineraryResponse, ItineraryPayload } from '../consumer/event'
 import { AdminTopic, ConsumerTopic } from '../topic'
-import { InitialResponse, promiseTimeout, SocketResponse } from '../utils'
+import { InitialResponse, promiseTimeout, SocketResponse } from '../utils/utils'
 import ItineraryItem, { ItineraryItemPayload } from './itinerary-item'
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface

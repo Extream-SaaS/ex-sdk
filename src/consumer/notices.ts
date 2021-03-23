@@ -1,6 +1,6 @@
-import SubscriptionManager from './subscription-manager'
-import { ConsumerTopic } from './topic'
-import { IDestroyable, IEntity, InitialResponse, promiseTimeout } from './utils'
+import { SubscriptionManager } from '../utils'
+import { ConsumerTopic } from '../topic'
+import { IDestroyable, IEntity, InitialResponse, promiseTimeout } from '../utils/utils'
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ReadNoticesResponse {}

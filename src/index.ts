@@ -1,11 +1,4 @@
-export * from './itinerary-item'
 export * from './consumer'
-export * from './online-users'
-export * from './event'
-export * from './itinerary'
-export * from './persistence'
-export * from './subscription-manager'
-export * from './topic'
 export * from './user'
 export * from './utils'
 
