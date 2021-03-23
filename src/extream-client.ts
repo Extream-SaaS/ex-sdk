@@ -4,7 +4,7 @@ import io from 'socket.io-client'
 
 import { Admin } from './admin'
 import { Consumer } from './consumer'
-import { IPersistance, PersistanceFactory } from './persistance'
+import { IPersistence, PersistenceFactory } from './persistence'
 import SubscriptionManager from './subscription-manager'
 import { AuthorizationTopic } from './topic'
 import User, { ExtreamUser } from './user'
@@ -25,14 +25,14 @@ export class ExtreamClient {
   public consumerActions: Consumer | null = null;
   public user: User;
   public accessToken: string | undefined;
-  public persistance: IPersistance | null
+  public persistence: IPersistence | null
   public currentUser: ExtreamUser | null = null
   private options: ExtreamOptions;
   private subscriptionManager: SubscriptionManager | null = null;
 
   constructor (options: ExtreamOptions) {
-    const factory = new PersistanceFactory()
-    this.persistance = factory.get(options.persistance)
+    const factory = new PersistenceFactory()
+    this.persistence = factory.get(options.persistence)
     this.options = options
     this.user = new User(this.options)
   }
@@ -65,8 +65,8 @@ export class ExtreamClient {
   public async authenticate (username: string, password: string, eventId?: string, authOptions?: Partial<AuthorizationRequest>): Promise<void> {
     const resp = await this.user.login(username, password, eventId)
     this.accessToken = resp.accessToken
-    if (this.persistance) {
-      this.persistance.setTokens(resp)
+    if (this.persistence) {
+      this.persistence.setTokens(resp)
     }
     await this.connect(resp.accessToken, authOptions)
   }
@@ -79,10 +79,10 @@ export class ExtreamClient {
    * @param authOptions
    */
   public async silentAuthenticate (authOptions?: Partial<AuthorizationRequest>): Promise<void> {
-    if (!this.persistance) {
+    if (!this.persistence) {
       throw new Error('Cannot silently authenticate without persistence')
     }
-    const [accessToken] = this.persistance.getTokens()
+    const [accessToken] = this.persistence.getTokens()
     this.accessToken = accessToken
     if (!accessToken) {
       throw new Error('Access token not found in cookie jar.')
@@ -94,7 +94,7 @@ export class ExtreamClient {
    * Log the current user out of the app
    */
   public logout (): void {
-    this.persistance?.clear()
+    this.persistence?.clear()
     this.currentUser = null
     this.accessToken = undefined
   }

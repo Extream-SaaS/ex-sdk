@@ -1,4 +1,3 @@
-import { PersistanceFactory, IPersistance, PersistanceType } from './persistance'
 import { ExtreamOptions, promiseTimeout } from './utils'
 
 export interface UserFields {

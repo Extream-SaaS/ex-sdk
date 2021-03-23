@@ -3,18 +3,18 @@ import { AuthenticationResponse } from './user'
 export const ACCESS_TOKEN_KEY = 'ACCESS_TOKEN_KEY'
 export const REFRESH_TOKEN_KEY = 'REFRESH_TOKEN_KEY'
 
-export enum PersistanceType {
+export enum PersistenceType {
   None = 'NONE',
   Cookie = 'COOKIE',
 }
 
-export interface IPersistance {
+export interface IPersistence {
   setTokens (loginResponse: AuthenticationResponse): void
   getTokens (): [string | undefined, string | undefined]
   clear (): void
 }
 
-export class CookiePersistance implements IPersistance {
+export class CookiePersistence implements IPersistence {
   private setCookie (name: string, value: string, expiry: string) {
     const expires = 'expires=' + new Date(expiry).toUTCString()
     document.cookie = `${name}=${value}; ${expires};`
@@ -54,13 +54,13 @@ export class CookiePersistance implements IPersistance {
   }
 }
 
-export class PersistanceFactory {
-  private registry: { [key in PersistanceType]: IPersistance | null } = {
-    [PersistanceType.None]: null,
-    [PersistanceType.Cookie]: new CookiePersistance()
+export class PersistenceFactory {
+  private registry: { [key in PersistenceType]: IPersistence | null } = {
+    [PersistenceType.None]: null,
+    [PersistenceType.Cookie]: new CookiePersistence()
   }
 
-  get (type: PersistanceType): IPersistance | null {
+  get (type: PersistenceType): IPersistence | null {
     return this.registry[type]
   }
 }
