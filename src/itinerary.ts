@@ -1,7 +1,6 @@
 import { Chat, Rtmp, Poll, WebRtc } from './itinerary-item'
-import { GetItineraryResponse, ItineraryItem, ItineraryPayload } from './event'
+import { ItineraryItem, ItineraryPayload } from './event'
 import { ConsumerTopic } from './topic'
-import { InitialResponse, promiseTimeout } from './utils'
 import { ItineraryItemFactory } from './itinerary-item/item-factory'
 import { ItineraryType } from './itinerary-item/utils'
 import SubscriptionManager from './subscription-manager'

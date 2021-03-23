@@ -44,7 +44,7 @@ export class OnlineUsers {
         resp.payload.users
         ) {
           const onlineUsers = Object.entries(resp.payload.users)
-            .map(([id, value]: [string, any]) => {
+            .map(([, value]: [string, any]) => {
               const user =
               typeof value.fields === 'string'
                 ? {

@@ -18,7 +18,8 @@ module.exports = {
   ],
   rules: {
     camelcase: 'off',
-    'prefer-promise-reject-errors': 'error'
+    'prefer-promise-reject-errors': 'error',
+    '@typescript-eslint/no-unused-vars': 'error'
   },
   overrides: [{
     files: ['*.spec.ts'],
