@@ -3,4 +3,5 @@ export enum ItineraryType {
   WebRtc = 'webrtc',
   Chat = 'chat',
   Poll = 'poll',
+  Itinerary = 'itinerary'
 }

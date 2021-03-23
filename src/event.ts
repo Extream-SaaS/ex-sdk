@@ -37,6 +37,7 @@ export interface ItineraryPayload {
   createdBy: string;
   createdAt: Date;
   updatedAt: Date;
+  parent: string | null;
   landing_page?: string;
   event?: string;
 }
@@ -58,6 +59,18 @@ export class Event {
     this.id = id
     this.notices = new Notices(this.socket)
     // this.options = options
+  }
+
+  get itineraryTree () : any {
+    return Event.getChildren(this.itinerary, null)
+  }
+
+  private static getChildren (items: Itinerary[], parentId: string | null): Itinerary[] {
+    const childItems = items.filter(i => i.payload?.parent === parentId)
+    childItems.forEach(item => {
+      item.subItems = Event.getChildren(items, item.id)
+    })
+    return childItems
   }
 
   /**

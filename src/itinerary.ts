@@ -1,7 +1,7 @@
 import { Chat, Rtmp, Poll, WebRtc } from './itinerary-item'
 import { ItineraryItem, ItineraryPayload } from './event'
 import { ConsumerTopic } from './topic'
-import { ItineraryItemFactory } from './itinerary-item/item-factory'
+import { ItineraryItemFactory, ItinerarySubItem } from './itinerary-item/item-factory'
 import { ItineraryType } from './itinerary-item/utils'
 import SubscriptionManager from './subscription-manager'
 
@@ -26,14 +26,19 @@ export class Itinerary {
    * All the information relating to the itinerary. This is populated after calling `getItinerary`.
    */
   public payload: ItineraryPayload | null = null
-
-  public items: (Chat | Poll | Rtmp | WebRtc)[] = []
+  public type = ItineraryType.Itinerary
+  public items: ItinerarySubItem[] = []
+  public subItems: Itinerary[] = []
 
   constructor (socket: SocketIOClient.Socket, id: string /* options: ExtreamOptions */) {
     this.socket = socket
     this.id = id
     this.subscriptionManager = new SubscriptionManager(this.socket)
     // this.options = options
+  }
+
+  get children (): ItinerarySubItem[] {
+    return [...this.items, ...this.subItems]
   }
 
   get rtmpItems (): Rtmp[] {
@@ -46,6 +51,10 @@ export class Itinerary {
 
   get pollItems (): Poll[] {
     return this.items.filter(i => i.type === ItineraryType.Poll) as Poll[]
+  }
+
+  get itineraryItems (): Itinerary[] {
+    return this.items.filter(i => i.type === ItineraryType.Itinerary) as Itinerary[]
   }
 
   /**
