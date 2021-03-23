@@ -1,6 +1,6 @@
 import { ConsumerTopic, ClientTopic } from '../../topic'
 import { ExtreamUser } from '../../user/user'
-import { SubscriptionManager } from '../../utils'
+import { SubscriptionManager } from '../../utils/subscription-manager'
 import { IDestroyable, IEntity, InitialResponse, promiseTimeout, SocketResponse, TimeStamp } from '../../utils/utils'
 import { ItineraryType } from './utils'
 

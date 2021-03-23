@@ -3,7 +3,7 @@ import { ItineraryItem, ItineraryPayload } from './event'
 import { ConsumerTopic } from '../topic'
 import { ItineraryItemFactory, ItinerarySubItem } from './itinerary-item/item-factory'
 import { ItineraryType } from './itinerary-item/utils'
-import { SubscriptionManager } from '../utils'
+import { SubscriptionManager } from '../utils/subscription-manager'
 import { IDestroyable, IEntity } from '../utils/utils'
 
 export interface RtcConfiguration {

@@ -1,4 +1,4 @@
-import { SubscriptionManager } from '../utils'
+import { SubscriptionManager } from '../utils/subscription-manager'
 import { ConsumerTopic } from '../topic'
 import { ExtreamUser } from './user'
 import { promiseTimeout } from '../utils/utils'

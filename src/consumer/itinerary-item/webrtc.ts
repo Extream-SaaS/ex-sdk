@@ -1,6 +1,6 @@
 // TODO this is now out of date
 
-import { SubscriptionManager } from '../../utils'
+import { SubscriptionManager } from '../../utils/subscription-manager'
 import { ConsumerTopic } from '../../topic'
 import { ExtreamUser } from '../../user/user'
 import { ExtreamOptions, InitialResponse, promiseTimeout, SocketResponse } from '../../utils/utils'

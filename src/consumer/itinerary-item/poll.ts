@@ -1,4 +1,4 @@
-import { SubscriptionManager } from '../../utils'
+import { SubscriptionManager } from '../../utils/subscription-manager'
 import { ConsumerTopic } from '../../topic'
 import { IDestroyable, IEntity, InitialResponse, promiseTimeout } from '../../utils/utils'
 import { AnswerPollsResponse, Question, QuestionResponse } from './question'
