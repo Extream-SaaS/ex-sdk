@@ -1,5 +1,3 @@
-import 'isomorphic-fetch'
-
 import io from 'socket.io-client'
 
 import { Admin } from './admin/admin'
