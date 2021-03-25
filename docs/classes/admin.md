@@ -30,7 +30,7 @@ The admin class can be used to manage the itineraries, polls and notices for a s
 
 \+ **new Admin**(`socket`: Socket): *[Admin](admin.md)*
 
-*Defined in [admin/admin.ts:36](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/admin/admin.ts#L36)*
+*Defined in [admin/admin.ts:36](https://github.com/Extream-SaaS/ex-sdk/blob/991f539/src/admin/admin.ts#L36)*
 
 Create an instance of the admin sdk
 
@@ -48,7 +48,7 @@ Name | Type |
 
 • **socket**: *Socket*
 
-*Defined in [admin/admin.ts:36](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/admin/admin.ts#L36)*
+*Defined in [admin/admin.ts:36](https://github.com/Extream-SaaS/ex-sdk/blob/991f539/src/admin/admin.ts#L36)*
 
 ## Methods
 
@@ -56,7 +56,7 @@ Name | Type |
 
 ▸ **getItineraries**(`event`: string): *Promise‹[AdminItineraries](adminitineraries.md)›*
 
-*Defined in [admin/admin.ts:50](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/admin/admin.ts#L50)*
+*Defined in [admin/admin.ts:50](https://github.com/Extream-SaaS/ex-sdk/blob/991f539/src/admin/admin.ts#L50)*
 
 The Id of the event to get all the itineraries for
 
@@ -74,7 +74,7 @@ ___
 
 ▸ **getItinerary**(`id`: string): *Promise‹[AdminItinerary](adminitinerary.md)›*
 
-*Defined in [admin/admin.ts:62](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/admin/admin.ts#L62)*
+*Defined in [admin/admin.ts:62](https://github.com/Extream-SaaS/ex-sdk/blob/991f539/src/admin/admin.ts#L62)*
 
 The Id of the itinerary to get
 
@@ -92,7 +92,7 @@ ___
 
 ▸ **sendNotice**(`request`: [SendNoticeRequest](../interfaces/sendnoticerequest.md)): *Promise‹void›*
 
-*Defined in [admin/admin.ts:74](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/admin/admin.ts#L74)*
+*Defined in [admin/admin.ts:74](https://github.com/Extream-SaaS/ex-sdk/blob/991f539/src/admin/admin.ts#L74)*
 
 Send a notice (or voice of god message) to everyone at the event
 

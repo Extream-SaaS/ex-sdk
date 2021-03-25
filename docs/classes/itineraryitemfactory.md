@@ -18,7 +18,7 @@
 
 ▸ **getItem**(`socket`: Socket, `itineraryItem`: [ItineraryItem](itineraryitem.md), `data?`: any): *[ItinerarySubItem](../globals.md#itinerarysubitem)*
 
-*Defined in [consumer/itinerary-item/item-factory.ts:20](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/item-factory.ts#L20)*
+*Defined in [consumer/itinerary-item/item-factory.ts:20](https://github.com/Extream-SaaS/ex-sdk/blob/991f539/src/consumer/itinerary-item/item-factory.ts#L20)*
 
 **Parameters:**
 

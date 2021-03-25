@@ -22,7 +22,7 @@
 
 • **apiKey**: *string*
 
-*Defined in [utils/utils.ts:22](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/utils/utils.ts#L22)*
+*Defined in [utils/utils.ts:22](https://github.com/Extream-SaaS/ex-sdk/blob/991f539/src/utils/utils.ts#L22)*
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 • **auth**: *string*
 
-*Defined in [utils/utils.ts:20](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/utils/utils.ts#L20)*
+*Defined in [utils/utils.ts:20](https://github.com/Extream-SaaS/ex-sdk/blob/991f539/src/utils/utils.ts#L20)*
 
 ___
 
@@ -38,7 +38,7 @@ ___
 
 • **collab**: *string*
 
-*Defined in [utils/utils.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/utils/utils.ts#L23)*
+*Defined in [utils/utils.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/991f539/src/utils/utils.ts#L23)*
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 • **gateway**: *string*
 
-*Defined in [utils/utils.ts:21](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/utils/utils.ts#L21)*
+*Defined in [utils/utils.ts:21](https://github.com/Extream-SaaS/ex-sdk/blob/991f539/src/utils/utils.ts#L21)*
 
 ___
 
@@ -54,4 +54,4 @@ ___
 
 • **persistence**: *[PersistenceType](../enums/persistencetype.md)*
 
-*Defined in [utils/utils.ts:19](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/utils/utils.ts#L19)*
+*Defined in [utils/utils.ts:19](https://github.com/Extream-SaaS/ex-sdk/blob/991f539/src/utils/utils.ts#L19)*

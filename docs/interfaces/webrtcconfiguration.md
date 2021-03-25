@@ -20,7 +20,7 @@
 
 • **actor**: *string*
 
-*Defined in [consumer/itinerary-item/webrtc.ts:11](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/webrtc.ts#L11)*
+*Defined in [consumer/itinerary-item/webrtc.ts:11](https://github.com/Extream-SaaS/ex-sdk/blob/991f539/src/consumer/itinerary-item/webrtc.ts#L11)*
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 • **broadcast**: *boolean*
 
-*Defined in [consumer/itinerary-item/webrtc.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/webrtc.ts#L12)*
+*Defined in [consumer/itinerary-item/webrtc.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/991f539/src/consumer/itinerary-item/webrtc.ts#L12)*
 
 ___
 
@@ -36,4 +36,4 @@ ___
 
 • **mode**: *string*
 
-*Defined in [consumer/itinerary-item/webrtc.ts:10](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/itinerary-item/webrtc.ts#L10)*
+*Defined in [consumer/itinerary-item/webrtc.ts:10](https://github.com/Extream-SaaS/ex-sdk/blob/991f539/src/consumer/itinerary-item/webrtc.ts#L10)*

@@ -18,4 +18,4 @@
 
 • **payload**: *[Notice](notice.md)[]*
 
-*Defined in [consumer/notices.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/2aed8a2/src/consumer/notices.ts#L23)*
+*Defined in [consumer/notices.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/991f539/src/consumer/notices.ts#L23)*
