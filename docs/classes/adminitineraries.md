@@ -32,7 +32,7 @@ Manages all of the itineraries for a specific event. Allows you to perform CRUD 
 
 \+ **new AdminItineraries**(`socket`: Socket, `event`: string): *[AdminItineraries](adminitineraries.md)*
 
-*Defined in [admin/admin-itineraries.ts:21](https://github.com/Extream-SaaS/ex-sdk/blob/ed34b16/src/admin/admin-itineraries.ts#L21)*
+*Defined in [admin/admin-itineraries.ts:21](https://github.com/Extream-SaaS/ex-sdk/blob/dd0fa1a/src/admin/admin-itineraries.ts#L21)*
 
 **Parameters:**
 
@@ -49,7 +49,7 @@ Name | Type |
 
 • **event**: *string*
 
-*Defined in [admin/admin-itineraries.ts:21](https://github.com/Extream-SaaS/ex-sdk/blob/ed34b16/src/admin/admin-itineraries.ts#L21)*
+*Defined in [admin/admin-itineraries.ts:21](https://github.com/Extream-SaaS/ex-sdk/blob/dd0fa1a/src/admin/admin-itineraries.ts#L21)*
 
 The event all these itineraries are related to.
 
@@ -59,7 +59,7 @@ ___
 
 • **itineraries**: *[AdminItinerary](adminitinerary.md)[]* = []
 
-*Defined in [admin/admin-itineraries.ts:17](https://github.com/Extream-SaaS/ex-sdk/blob/ed34b16/src/admin/admin-itineraries.ts#L17)*
+*Defined in [admin/admin-itineraries.ts:17](https://github.com/Extream-SaaS/ex-sdk/blob/dd0fa1a/src/admin/admin-itineraries.ts#L17)*
 
 All the itineraries associated to the event this class has been instaitated with.
 
@@ -69,7 +69,7 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [admin/admin-itineraries.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/ed34b16/src/admin/admin-itineraries.ts#L13)*
+*Defined in [admin/admin-itineraries.ts:13](https://github.com/Extream-SaaS/ex-sdk/blob/dd0fa1a/src/admin/admin-itineraries.ts#L13)*
 
 ## Methods
 
@@ -77,7 +77,7 @@ ___
 
 ▸ **createItinerary**(`itinerary`: Partial‹[ItineraryPayload](../interfaces/itinerarypayload.md)›): *Promise‹string›*
 
-*Defined in [admin/admin-itineraries.ts:59](https://github.com/Extream-SaaS/ex-sdk/blob/ed34b16/src/admin/admin-itineraries.ts#L59)*
+*Defined in [admin/admin-itineraries.ts:59](https://github.com/Extream-SaaS/ex-sdk/blob/dd0fa1a/src/admin/admin-itineraries.ts#L59)*
 
 Create an itinerary for the event this class is associated to
 
@@ -95,7 +95,7 @@ ___
 
 ▸ **delete**(`id`: string): *Promise‹void›*
 
-*Defined in [admin/admin-itineraries.ts:85](https://github.com/Extream-SaaS/ex-sdk/blob/ed34b16/src/admin/admin-itineraries.ts#L85)*
+*Defined in [admin/admin-itineraries.ts:85](https://github.com/Extream-SaaS/ex-sdk/blob/dd0fa1a/src/admin/admin-itineraries.ts#L85)*
 
 Remove an existing itinerary & all its' associated items from this event.
 
@@ -113,7 +113,7 @@ ___
 
 ▸ **getAll**(): *Promise‹void›*
 
-*Defined in [admin/admin-itineraries.ts:31](https://github.com/Extream-SaaS/ex-sdk/blob/ed34b16/src/admin/admin-itineraries.ts#L31)*
+*Defined in [admin/admin-itineraries.ts:31](https://github.com/Extream-SaaS/ex-sdk/blob/dd0fa1a/src/admin/admin-itineraries.ts#L31)*
 
 Get all the itineraries for an event. Once this method has been called all the itineraries are added to the itinerary property on the array.
 
