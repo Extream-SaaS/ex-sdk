@@ -25,11 +25,11 @@ jobs:
           echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ~/.npmrc
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - run: yarn install --frozen-lockfile
+      - run: npm ci
         id: Install
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - run: yarn build
+      - run: npm run build
         id: Build
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -39,7 +39,7 @@ jobs:
       #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Test
         id: Test
-        run: yarn test
+        run: npm test
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       # Typedoc will not work if this file is present. Remove it here, regenerate the docs and then put it back.
@@ -48,7 +48,7 @@ jobs:
         run: rm ./docs/_config.yml
       - name: Generate_docs
         id: Generate_docs
-        run: yarn docs
+        run: npm run docs
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       # Putting the file back see above comment.
@@ -68,7 +68,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Publish
         id: Publish
-        run: yarn publish
+        run: npm publish
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - uses: act10ns/slack@v1
