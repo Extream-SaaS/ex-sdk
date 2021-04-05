@@ -15,7 +15,7 @@
 
 • **Cookie**: = "COOKIE"
 
-*Defined in [user/persistence.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/dd0fa1a/src/user/persistence.ts#L8)*
+*Defined in [user/persistence.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/83ee764/src/user/persistence.ts#L8)*
 
 ___
 
@@ -23,4 +23,4 @@ ___
 
 • **None**: = "NONE"
 
-*Defined in [user/persistence.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/dd0fa1a/src/user/persistence.ts#L7)*
+*Defined in [user/persistence.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/83ee764/src/user/persistence.ts#L7)*

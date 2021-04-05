@@ -18,4 +18,4 @@
 
 • **visibility**: *boolean*
 
-*Defined in [extream-client.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/dd0fa1a/src/extream-client.ts#L12)*
+*Defined in [extream-client.ts:12](https://github.com/Extream-SaaS/ex-sdk/blob/83ee764/src/extream-client.ts#L12)*

@@ -18,4 +18,4 @@
 
 • **payload**: *any*
 
-*Defined in [consumer/itinerary-item/poll.ts:31](https://github.com/Extream-SaaS/ex-sdk/blob/dd0fa1a/src/consumer/itinerary-item/poll.ts#L31)*
+*Defined in [consumer/itinerary-item/poll.ts:31](https://github.com/Extream-SaaS/ex-sdk/blob/83ee764/src/consumer/itinerary-item/poll.ts#L31)*
