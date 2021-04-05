@@ -9,4 +9,6 @@ export * from './topic'
 export * from './user/user'
 export * from './utils/utils'
 
-export { ExtreamClient as default } from './extream-client'
+export {
+  ExtreamClient as default
+} from './extream-client'
