@@ -62,15 +62,15 @@ export interface RegisterUserRequest {
  * A class to allow login and registration of users.
  */
 export class User {
-  public headers: Headers
+  public headers: {[key: string]: string}
   options: ExtreamOptions
 
   constructor (options: ExtreamOptions) {
     this.options = options
-    this.headers = new Headers({
+    this.headers = {
       'Content-Type': 'application/x-www-form-urlencoded',
       Authorization: `Basic ${this.options.apiKey}`
-    })
+    } as {[key: string]: string}
   }
 
   /**
