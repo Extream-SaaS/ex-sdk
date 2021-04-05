@@ -20,7 +20,7 @@
 
 • **actor**: *string*
 
-*Defined in [consumer/itinerary-item/rtmp.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/991f539/src/consumer/itinerary-item/rtmp.ts#L7)*
+*Defined in [consumer/itinerary-item/rtmp.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/ed34b16/src/consumer/itinerary-item/rtmp.ts#L7)*
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 • **broadcast**: *boolean*
 
-*Defined in [consumer/itinerary-item/rtmp.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/991f539/src/consumer/itinerary-item/rtmp.ts#L8)*
+*Defined in [consumer/itinerary-item/rtmp.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/ed34b16/src/consumer/itinerary-item/rtmp.ts#L8)*
 
 ___
 
@@ -36,4 +36,4 @@ ___
 
 • **mode**: *string*
 
-*Defined in [consumer/itinerary-item/rtmp.ts:6](https://github.com/Extream-SaaS/ex-sdk/blob/991f539/src/consumer/itinerary-item/rtmp.ts#L6)*
+*Defined in [consumer/itinerary-item/rtmp.ts:6](https://github.com/Extream-SaaS/ex-sdk/blob/ed34b16/src/consumer/itinerary-item/rtmp.ts#L6)*

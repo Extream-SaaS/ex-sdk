@@ -26,7 +26,7 @@
 
 ▸ **get**(`request?`: any): *Promise‹void› | void*
 
-*Defined in [utils/utils.ts:42](https://github.com/Extream-SaaS/ex-sdk/blob/991f539/src/utils/utils.ts#L42)*
+*Defined in [utils/utils.ts:42](https://github.com/Extream-SaaS/ex-sdk/blob/ed34b16/src/utils/utils.ts#L42)*
 
 **Parameters:**
 

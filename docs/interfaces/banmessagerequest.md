@@ -19,7 +19,7 @@
 
 • **data**: *[BanMessageData](banmessagedata.md)*
 
-*Defined in [consumer/itinerary-item/chat.ts:109](https://github.com/Extream-SaaS/ex-sdk/blob/991f539/src/consumer/itinerary-item/chat.ts#L109)*
+*Defined in [consumer/itinerary-item/chat.ts:109](https://github.com/Extream-SaaS/ex-sdk/blob/ed34b16/src/consumer/itinerary-item/chat.ts#L109)*
 
 ___
 
@@ -27,6 +27,6 @@ ___
 
 • **id**: *string*
 
-*Defined in [consumer/itinerary-item/chat.ts:108](https://github.com/Extream-SaaS/ex-sdk/blob/991f539/src/consumer/itinerary-item/chat.ts#L108)*
+*Defined in [consumer/itinerary-item/chat.ts:108](https://github.com/Extream-SaaS/ex-sdk/blob/ed34b16/src/consumer/itinerary-item/chat.ts#L108)*
 
 The id of the room that the message is contained within

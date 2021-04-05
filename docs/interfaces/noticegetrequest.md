@@ -21,7 +21,7 @@
 
 • **event**: *string*
 
-*Defined in [consumer/notices.ts:27](https://github.com/Extream-SaaS/ex-sdk/blob/991f539/src/consumer/notices.ts#L27)*
+*Defined in [consumer/notices.ts:27](https://github.com/Extream-SaaS/ex-sdk/blob/ed34b16/src/consumer/notices.ts#L27)*
 
 ___
 
@@ -29,7 +29,7 @@ ___
 
 • **itinerary**? : *undefined | string*
 
-*Defined in [consumer/notices.ts:28](https://github.com/Extream-SaaS/ex-sdk/blob/991f539/src/consumer/notices.ts#L28)*
+*Defined in [consumer/notices.ts:28](https://github.com/Extream-SaaS/ex-sdk/blob/ed34b16/src/consumer/notices.ts#L28)*
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 • **page**? : *undefined | string*
 
-*Defined in [consumer/notices.ts:29](https://github.com/Extream-SaaS/ex-sdk/blob/991f539/src/consumer/notices.ts#L29)*
+*Defined in [consumer/notices.ts:29](https://github.com/Extream-SaaS/ex-sdk/blob/ed34b16/src/consumer/notices.ts#L29)*
 
 ___
 
@@ -45,4 +45,4 @@ ___
 
 • **read**? : *undefined | false | true*
 
-*Defined in [consumer/notices.ts:30](https://github.com/Extream-SaaS/ex-sdk/blob/991f539/src/consumer/notices.ts#L30)*
+*Defined in [consumer/notices.ts:30](https://github.com/Extream-SaaS/ex-sdk/blob/ed34b16/src/consumer/notices.ts#L30)*
