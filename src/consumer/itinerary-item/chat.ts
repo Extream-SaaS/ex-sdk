@@ -1,4 +1,4 @@
-import { ConsumerTopic, ClientTopic } from '../../topic'
+import { AuthorizationTopic, ConsumerTopic, ClientTopic } from '../../topic'
 import { ExtreamUser } from '../../user/user'
 import { SubscriptionManager } from '../../utils/subscription-manager'
 import { IDestroyable, IEntity, InitialResponse, promiseTimeout, SocketResponse, TimeStamp } from '../../utils/utils'
@@ -304,7 +304,8 @@ export class Chat implements IEntity, IDestroyable {
   public get (): Promise<void> {
     return promiseTimeout(new Promise((resolve, reject) => {
       this.setupChatListeners()
-      this.subscriptionManager.addSubscription(ConsumerTopic.ChatGet, (resp: InitialResponse | GetChatResponse) => {
+      let correlationId = `${Date.now()}-${ConsumerTopic.ChatGet}-${this.roomId}`
+      this.subscriptionManager.addSubscription(correlationId, (resp: InitialResponse | GetChatResponse) => {
         if ('error' in resp) {
           reject(new Error(resp.error))
         } else if (!('status' in resp) && resp.payload.id === this.roomId) {
@@ -341,11 +342,22 @@ export class Chat implements IEntity, IDestroyable {
           this.messages = messageArray
           // Get the moderators and add
           this.configuration = resp.payload.configuration
+          this.subscriptionManager.removeSubscription(correlationId)
           resolve()
         }
       })
+      this.socket.on(AuthorizationTopic.Reconnect, () => {
+        this.socket.emit(ConsumerTopic.ChatGet, {
+          id: this.roomId,
+          correlationId,
+          data: {
+            instance: this.instance
+          }
+        })
+      })
       this.socket.emit(ConsumerTopic.ChatGet, {
         id: this.roomId,
+        correlationId,
         data: {
           instance: this.instance
         }

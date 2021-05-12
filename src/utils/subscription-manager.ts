@@ -26,6 +26,24 @@ export class SubscriptionManager {
   }
 
   /**
+   * Remove an event subscription
+   * @param {string} event event name
+   */
+  removeSubscription (event: string): void {
+    const toRemove: number[] = [];
+    this.listeners.map(({ key }, ind) => {
+      if (key === event) {
+        toRemove.push(ind);
+      }
+    });
+    toRemove.forEach((ind: number) => {
+      const { key, listener } = this.listeners[ind];
+      this.socket.removeEventListener(key, listener);
+      this.listeners.splice(ind, 1);
+    });
+  }
+
+  /**
    * Clean up all subscription the manager has setup
    */
   removeAllSubscriptions (): void {
