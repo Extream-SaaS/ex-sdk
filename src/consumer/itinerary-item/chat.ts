@@ -301,11 +301,13 @@ export class Chat implements IEntity, IDestroyable {
    * are sent/blocked.
    *
    */
-  public get (): Promise<void> {
-    return promiseTimeout(new Promise((resolve, reject) => {
+  public get (time: number): Promise<void> {
+    let callback: (resp: InitialResponse | GetChatResponse) => void
+    let correlationId = `${time}-${ConsumerTopic.ChatGet}-${this.roomId}`
+    let isReconnecting = false
+    return promiseTimeout(new Promise<void>((resolve, reject) => {
       this.setupChatListeners()
-      let correlationId = `${Date.now()}-${ConsumerTopic.ChatGet}-${this.roomId}`
-      this.subscriptionManager.addSubscription(correlationId, (resp: InitialResponse | GetChatResponse) => {
+      callback = (resp: InitialResponse | GetChatResponse) => {
         if ('error' in resp) {
           reject(new Error(resp.error))
         } else if (!('status' in resp) && resp.payload.id === this.roomId) {
@@ -342,11 +344,16 @@ export class Chat implements IEntity, IDestroyable {
           this.messages = messageArray
           // Get the moderators and add
           this.configuration = resp.payload.configuration
-          this.subscriptionManager.removeSubscription(correlationId)
+          if (isReconnecting) {
+            this.socket.removeListener(correlationId, callback)
+          }
           resolve()
         }
-      })
-      this.socket.on(AuthorizationTopic.Reconnect, () => {
+      }
+      this.socket.on(correlationId, callback)
+      this.subscriptionManager.addSubscription(AuthorizationTopic.Reconnect, () => {
+        isReconnecting = true
+        correlationId = `${Date.now()}-${ConsumerTopic.ChatGet}-${this.roomId}`
         this.socket.emit(ConsumerTopic.ChatGet, {
           id: this.roomId,
           correlationId,
@@ -362,11 +369,13 @@ export class Chat implements IEntity, IDestroyable {
           instance: this.instance
         }
       })
-    }))
+    })).finally(() => {
+      this.socket.removeListener(correlationId, callback)
+    })
   }
 
-  public join (): Promise<void> {
-    return this.get()
+  public join (time: number = Date.now()): Promise<void> {
+    return this.get(time)
   }
 
   /**

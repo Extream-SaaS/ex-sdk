@@ -5,6 +5,9 @@ import MockedSocket from 'socket.io-mock'
 import { ClientTopic, ConsumerTopic } from '../topic'
 import sinon from 'sinon'
 
+const mockNow = Date.now()
+const correlationId = `${mockNow}-${ConsumerTopic.ChatGet}-roomId`
+
 const initialResponse = {
   messageId: '1529023143077761',
   status: 202,
@@ -86,9 +89,9 @@ describe('Chat class', () => {
   })
 
   test('it sets the messages when chat get is responded', async () => {
-    const joinPromise = chat.join()
-    socket.socketClient.emit(ConsumerTopic.ChatGet, initialResponse)
-    socket.socketClient.emit(ConsumerTopic.ChatGet, chatResponse)
+    const joinPromise = chat.join(mockNow)
+    socket.socketClient.emit(correlationId, initialResponse)
+    socket.socketClient.emit(correlationId, chatResponse)
     await joinPromise
 
     expect(chat.messages).toStrictEqual([
@@ -139,9 +142,9 @@ describe('Chat class', () => {
         messages
       }
     }
-    const joinPromise = chat.join()
-    socket.socketClient.emit(ConsumerTopic.ChatGet, initialResponse)
-    socket.socketClient.emit(ConsumerTopic.ChatGet, response)
+    const joinPromise = chat.join(mockNow)
+    socket.socketClient.emit(correlationId, initialResponse)
+    socket.socketClient.emit(correlationId, response)
     await joinPromise
 
     expect(chat.messages).toStrictEqual([
@@ -238,9 +241,9 @@ describe('Chat class', () => {
         messages
       }
     }
-    const joinPromise = chat.join()
-    socket.socketClient.emit(ConsumerTopic.ChatGet, initialResponse)
-    socket.socketClient.emit(ConsumerTopic.ChatGet, response)
+    const joinPromise = chat.join(mockNow)
+    socket.socketClient.emit(correlationId, initialResponse)
+    socket.socketClient.emit(correlationId, response)
     await joinPromise
 
     expect(chat.messages[0].uuid).toBe('id3')
@@ -249,9 +252,9 @@ describe('Chat class', () => {
   })
 
   test('adds a message if streamed in', async () => {
-    const joinPromise = chat.join()
-    socket.socketClient.emit(ConsumerTopic.ChatGet, initialResponse)
-    socket.socketClient.emit(ConsumerTopic.ChatGet, chatResponse)
+    const joinPromise = chat.join(mockNow)
+    socket.socketClient.emit(correlationId, initialResponse)
+    socket.socketClient.emit(correlationId, chatResponse)
     await joinPromise
     socket.socketClient.emit(ConsumerTopic.ChatReceive, {
       from: mockUser,
@@ -293,9 +296,9 @@ describe('Chat class', () => {
   })
 
   test('adds a child message if streamed in', async () => {
-    const joinPromise = chat.join()
-    socket.socketClient.emit(ConsumerTopic.ChatGet, initialResponse)
-    socket.socketClient.emit(ConsumerTopic.ChatGet, chatResponse)
+    const joinPromise = chat.join(mockNow)
+    socket.socketClient.emit(correlationId, initialResponse)
+    socket.socketClient.emit(correlationId, chatResponse)
     await joinPromise
     socket.socketClient.emit(ConsumerTopic.ChatReceive, {
       from: mockUser,
@@ -339,9 +342,9 @@ describe('Chat class', () => {
   })
 
   test('removes a message if streamed in', async () => {
-    const joinPromise = chat.join()
-    socket.socketClient.emit(ConsumerTopic.ChatGet, initialResponse)
-    socket.socketClient.emit(ConsumerTopic.ChatGet, chatResponse)
+    const joinPromise = chat.join(mockNow)
+    socket.socketClient.emit(correlationId, initialResponse)
+    socket.socketClient.emit(correlationId, chatResponse)
     await joinPromise
     socket.socketClient.emit(ConsumerTopic.ChatRemove, {
       id: 'roomId',
@@ -380,9 +383,9 @@ describe('Chat class', () => {
         messages
       }
     }
-    const joinPromise = chat.join()
-    socket.socketClient.emit(ConsumerTopic.ChatGet, initialResponse)
-    socket.socketClient.emit(ConsumerTopic.ChatGet, response)
+    const joinPromise = chat.join(mockNow)
+    socket.socketClient.emit(correlationId, initialResponse)
+    socket.socketClient.emit(correlationId, response)
     await joinPromise
     socket.socketClient.emit(ConsumerTopic.ChatRemove, {
       id: 'roomId',
@@ -422,16 +425,16 @@ describe('Chat class', () => {
   })
 
   test('does not resolve if the get message is not the same as the room id', async () => {
-    const joinPromise = chat.join()
-    socket.socketClient.emit(ConsumerTopic.ChatGet, initialResponse)
-    socket.socketClient.emit(ConsumerTopic.ChatGet, {
+    const joinPromise = chat.join(mockNow)
+    socket.socketClient.emit(correlationId, initialResponse)
+    socket.socketClient.emit(correlationId, {
       ...chatResponse,
       payload: {
         ...payload,
         id: 'not the right room id'
       }
     })
-    socket.socketClient.emit(ConsumerTopic.ChatGet, {
+    socket.socketClient.emit(correlationId, {
       ...chatResponse,
       payload: {
         ...payload,
@@ -444,9 +447,9 @@ describe('Chat class', () => {
   })
 
   test('does not add the message if the room id is different', async () => {
-    const joinPromise = chat.join()
-    socket.socketClient.emit(ConsumerTopic.ChatGet, initialResponse)
-    socket.socketClient.emit(ConsumerTopic.ChatGet, chatResponse)
+    const joinPromise = chat.join(mockNow)
+    socket.socketClient.emit(correlationId, initialResponse)
+    socket.socketClient.emit(correlationId, chatResponse)
     await joinPromise
     socket.socketClient.emit(ConsumerTopic.ChatReceive, {
       from: mockUser,
@@ -473,9 +476,9 @@ describe('Chat class', () => {
   })
 
   test('does not remove the message if the room id is different', async () => {
-    const joinPromise = chat.join()
-    socket.socketClient.emit(ConsumerTopic.ChatGet, initialResponse)
-    socket.socketClient.emit(ConsumerTopic.ChatGet, chatResponse)
+    const joinPromise = chat.join(mockNow)
+    socket.socketClient.emit(correlationId, initialResponse)
+    socket.socketClient.emit(correlationId, chatResponse)
     await joinPromise
     socket.socketClient.emit(ConsumerTopic.ChatRemove, {
       id: 'wrong room id',
@@ -499,9 +502,9 @@ describe('Chat class', () => {
   })
 
   test('allows users to send a message', async () => {
-    const joinPromise = chat.join()
-    socket.socketClient.emit(ConsumerTopic.ChatGet, initialResponse)
-    socket.socketClient.emit(ConsumerTopic.ChatGet, {
+    const joinPromise = chat.join(mockNow)
+    socket.socketClient.emit(correlationId, initialResponse)
+    socket.socketClient.emit(correlationId, {
       ...chatResponse,
       payload: {
         ...payload,
@@ -529,9 +532,9 @@ describe('Chat class', () => {
   })
 
   test('throws error if message could not be sent', async () => {
-    const joinPromise = chat.join()
-    socket.socketClient.emit(ConsumerTopic.ChatGet, initialResponse)
-    socket.socketClient.emit(ConsumerTopic.ChatGet, {
+    const joinPromise = chat.join(mockNow)
+    socket.socketClient.emit(correlationId, initialResponse)
+    socket.socketClient.emit(correlationId, {
       ...chatResponse,
       payload: {
         ...payload,
@@ -554,9 +557,9 @@ describe('Chat class', () => {
   })
 
   it('allows users to reply to a message', async () => {
-    const joinPromise = chat.join()
-    socket.socketClient.emit(ConsumerTopic.ChatGet, initialResponse)
-    socket.socketClient.emit(ConsumerTopic.ChatGet, chatResponse)
+    const joinPromise = chat.join(mockNow)
+    socket.socketClient.emit(correlationId, initialResponse)
+    socket.socketClient.emit(correlationId, chatResponse)
     await joinPromise
     const promise = chat.replyToMessage({
       message: 'abc',
@@ -582,8 +585,8 @@ describe('Chat class', () => {
   })
 
   it('throws error if chat could not be joined', async () => {
-    const joinPromise = chat.join()
-    socket.socketClient.emit(ConsumerTopic.ChatGet, { error: 'Wut' })
+    const joinPromise = chat.join(mockNow)
+    socket.socketClient.emit(correlationId, { error: 'Wut' })
     try {
       await joinPromise
     } catch (e) {
@@ -592,9 +595,9 @@ describe('Chat class', () => {
   })
 
   it('allows users to remove a message', async () => {
-    const joinPromise = chat.join()
-    socket.socketClient.emit(ConsumerTopic.ChatGet, initialResponse)
-    socket.socketClient.emit(ConsumerTopic.ChatGet, chatResponse)
+    const joinPromise = chat.join(mockNow)
+    socket.socketClient.emit(correlationId, initialResponse)
+    socket.socketClient.emit(correlationId, chatResponse)
     await joinPromise
     chat.removeMessage({
       uuid: 'id1'
