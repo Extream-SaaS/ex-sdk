@@ -7,6 +7,7 @@ export enum AuthorizationTopic {
   Unauthorized = 'unauthorized',
   Mfa = 'mfa',
   Connect = 'connect',
+  Reconnect = 'reconnect',
 }
 
 /**

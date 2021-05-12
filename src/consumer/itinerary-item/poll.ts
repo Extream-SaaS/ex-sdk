@@ -1,5 +1,5 @@
 import { SubscriptionManager } from '../../utils/subscription-manager'
-import { ConsumerTopic } from '../../topic'
+import { AuthorizationTopic, ConsumerTopic } from '../../topic'
 import { IDestroyable, IEntity, InitialResponse, promiseTimeout } from '../../utils/utils'
 import { AnswerPollsResponse, Question, QuestionResponse } from './question'
 import { ItineraryType } from './utils'
@@ -148,6 +148,7 @@ export class Poll implements IEntity, IDestroyable {
    */
   get (): Promise<void> {
     let callback: (resp: InitialResponse | GetPollResponse) => void
+    let correlationId = `${Date.now()}-${ConsumerTopic.PollGet}-${this.id}`
     return promiseTimeout(new Promise<void>((resolve, reject) => {
       callback = (resp: InitialResponse | GetPollResponse) => {
         if ('error' in resp) {
@@ -163,15 +164,24 @@ export class Poll implements IEntity, IDestroyable {
             this.listenForQuestions()
           }
           this.listenForResponses()
+          this.socket.removeListener(correlationId, callback)
           resolve()
         }
       }
-      this.socket.on(ConsumerTopic.PollGet, callback)
+      this.socket.on(correlationId, callback)
+      this.socket.on(AuthorizationTopic.Reconnect, () => {
+        correlationId = `${Date.now()}-${ConsumerTopic.PollGet}-${this.id}`
+        this.socket.on(correlationId, callback)
+        this.socket.emit(ConsumerTopic.PollGet, {
+          id: this.id,
+          correlationId,
+        })
+      })
       this.socket.emit(ConsumerTopic.PollGet, {
         id: this.id
       })
     })).finally(() => {
-      this.socket.removeListener(ConsumerTopic.PollGet, callback)
+      this.socket.removeListener(correlationId, callback)
     })
   }
 
