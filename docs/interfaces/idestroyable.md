@@ -25,6 +25,6 @@
 
 ▸ **destroy**(): *void*
 
-*Defined in [utils/utils.ts:46](https://github.com/Extream-SaaS/ex-sdk/blob/83ee764/src/utils/utils.ts#L46)*
+*Defined in [utils/utils.ts:46](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/utils/utils.ts#L46)*
 
 **Returns:** *void*

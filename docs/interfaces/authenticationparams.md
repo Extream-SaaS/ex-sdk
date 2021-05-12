@@ -21,7 +21,7 @@
 
 • **eventId**? : *undefined | string*
 
-*Defined in [user/user.ts:31](https://github.com/Extream-SaaS/ex-sdk/blob/83ee764/src/user/user.ts#L31)*
+*Defined in [user/user.ts:31](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/user/user.ts#L31)*
 
 ___
 
@@ -29,7 +29,7 @@ ___
 
 • **grant_type**: *string*
 
-*Defined in [user/user.ts:32](https://github.com/Extream-SaaS/ex-sdk/blob/83ee764/src/user/user.ts#L32)*
+*Defined in [user/user.ts:32](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/user/user.ts#L32)*
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 • **password**: *string*
 
-*Defined in [user/user.ts:30](https://github.com/Extream-SaaS/ex-sdk/blob/83ee764/src/user/user.ts#L30)*
+*Defined in [user/user.ts:30](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/user/user.ts#L30)*
 
 ___
 
@@ -45,4 +45,4 @@ ___
 
 • **username**: *string*
 
-*Defined in [user/user.ts:29](https://github.com/Extream-SaaS/ex-sdk/blob/83ee764/src/user/user.ts#L29)*
+*Defined in [user/user.ts:29](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/user/user.ts#L29)*

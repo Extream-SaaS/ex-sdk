@@ -43,7 +43,7 @@ Notices (also known as voice of god) are a method of sending
 
 \+ **new Notices**(`socket`: Socket): *[Notices](notices.md)*
 
-*Defined in [consumer/notices.ts:44](https://github.com/Extream-SaaS/ex-sdk/blob/83ee764/src/consumer/notices.ts#L44)*
+*Defined in [consumer/notices.ts:44](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/consumer/notices.ts#L44)*
 
 **Parameters:**
 
@@ -59,7 +59,7 @@ Name | Type |
 
 • **payload**: *[Notice](../interfaces/notice.md)[]* = []
 
-*Defined in [consumer/notices.ts:44](https://github.com/Extream-SaaS/ex-sdk/blob/83ee764/src/consumer/notices.ts#L44)*
+*Defined in [consumer/notices.ts:44](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/consumer/notices.ts#L44)*
 
 All of the unread notices for the logged in user
 
@@ -69,7 +69,7 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [consumer/notices.ts:40](https://github.com/Extream-SaaS/ex-sdk/blob/83ee764/src/consumer/notices.ts#L40)*
+*Defined in [consumer/notices.ts:40](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/consumer/notices.ts#L40)*
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 • **subscriptionManager**: *[SubscriptionManager](subscriptionmanager.md)*
 
-*Defined in [consumer/notices.ts:39](https://github.com/Extream-SaaS/ex-sdk/blob/83ee764/src/consumer/notices.ts#L39)*
+*Defined in [consumer/notices.ts:39](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/consumer/notices.ts#L39)*
 
 ## Accessors
 
@@ -85,7 +85,7 @@ ___
 
 • **get notices**(): *[Notice](../interfaces/notice.md)[]*
 
-*Defined in [consumer/notices.ts:51](https://github.com/Extream-SaaS/ex-sdk/blob/83ee764/src/consumer/notices.ts#L51)*
+*Defined in [consumer/notices.ts:51](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/consumer/notices.ts#L51)*
 
 **Returns:** *[Notice](../interfaces/notice.md)[]*
 
@@ -97,7 +97,7 @@ ___
 
 *Implementation of [IDestroyable](../interfaces/idestroyable.md)*
 
-*Defined in [consumer/notices.ts:127](https://github.com/Extream-SaaS/ex-sdk/blob/83ee764/src/consumer/notices.ts#L127)*
+*Defined in [consumer/notices.ts:127](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/consumer/notices.ts#L127)*
 
 Cleans up all listeners for this class. Call this when you no longer need access to this events information to ensure memory leaks are not caused.
 
@@ -109,7 +109,7 @@ ___
 
 ▸ **get**(`request`: [NoticeGetRequest](../interfaces/noticegetrequest.md)): *Promise‹void›*
 
-*Defined in [consumer/notices.ts:75](https://github.com/Extream-SaaS/ex-sdk/blob/83ee764/src/consumer/notices.ts#L75)*
+*Defined in [consumer/notices.ts:75](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/consumer/notices.ts#L75)*
 
 Get all of the notices that the user hasn't read and setup all the required listeners for new notices streamed in.
 
@@ -127,7 +127,7 @@ ___
 
 ▸ **listenForNotices**(`request`: [NoticeGetRequest](../interfaces/noticegetrequest.md)): *void*
 
-*Defined in [consumer/notices.ts:64](https://github.com/Extream-SaaS/ex-sdk/blob/83ee764/src/consumer/notices.ts#L64)*
+*Defined in [consumer/notices.ts:64](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/consumer/notices.ts#L64)*
 
 **Parameters:**
 
@@ -143,7 +143,7 @@ ___
 
 ▸ **readNotice**(`id`: string): *Promise‹void›*
 
-*Defined in [consumer/notices.ts:98](https://github.com/Extream-SaaS/ex-sdk/blob/83ee764/src/consumer/notices.ts#L98)*
+*Defined in [consumer/notices.ts:98](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/consumer/notices.ts#L98)*
 
 Mark a specific notice as read
 
@@ -161,7 +161,7 @@ ___
 
 ▸ **sortByDate**(`a`: [Notice](../interfaces/notice.md), `b`: [Notice](../interfaces/notice.md)): *number*
 
-*Defined in [consumer/notices.ts:60](https://github.com/Extream-SaaS/ex-sdk/blob/83ee764/src/consumer/notices.ts#L60)*
+*Defined in [consumer/notices.ts:60](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/consumer/notices.ts#L60)*
 
 Sort messages based on date descending
 
