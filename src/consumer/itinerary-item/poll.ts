@@ -148,8 +148,8 @@ export class Poll implements IEntity, IDestroyable {
    */
   get (): Promise<void> {
     let callback: (resp: InitialResponse | GetPollResponse) => void
-    let correlationId: string = `${Date.now()}-${ConsumerTopic.PollGet}-${this.id}`
-    let isReconnecting: boolean = false
+    let correlationId = `${Date.now()}-${ConsumerTopic.PollGet}-${this.id}`
+    let isReconnecting = false
     return promiseTimeout(new Promise<void>((resolve, reject) => {
       callback = (resp: InitialResponse | GetPollResponse) => {
         if ('error' in resp) {
@@ -172,13 +172,13 @@ export class Poll implements IEntity, IDestroyable {
         }
       }
       this.socket.on(correlationId, callback)
-      this.socket.on(AuthorizationTopic.Reconnect, () => {
+      this.subscriptionManager.addSubscription(AuthorizationTopic.Reconnect, () => {
         isReconnecting = true
         correlationId = `${Date.now()}-${ConsumerTopic.PollGet}-${this.id}`
         this.socket.on(correlationId, callback)
         this.socket.emit(ConsumerTopic.PollGet, {
           id: this.id,
-          correlationId,
+          correlationId
         })
       })
       this.socket.emit(ConsumerTopic.PollGet, {
