@@ -30,16 +30,17 @@ export class SubscriptionManager {
    * @param {string} event event name
    */
   removeSubscription (event: string): void {
-    const ind: number = this.listeners.findIndex(({ key }) => {
-      return key === event
+    const toRemove: number[] = [];
+    this.listeners.map(({ key }, ind) => {
+      if (key === event) {
+        toRemove.push(ind);
+      }
     });
-    if (ind !== -1) {
-      this.socket.removeEventListener(
-        this.listeners[ind].key,
-        this.listeners[ind].listener
-      );
+    toRemove.forEach((ind: number) => {
+      const { key, listener } = this.listeners[ind];
+      this.socket.removeEventListener(key, listener);
       this.listeners.splice(ind, 1);
-    }
+    });
   }
 
   /**
