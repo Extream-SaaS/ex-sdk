@@ -182,7 +182,8 @@ export class Poll implements IEntity, IDestroyable {
         })
       })
       this.socket.emit(ConsumerTopic.PollGet, {
-        id: this.id
+        id: this.id,
+        correlationId
       })
     })).finally(() => {
       this.socket.removeListener(correlationId, callback)
