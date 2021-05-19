@@ -29,7 +29,7 @@
 
 \+ **new OnlineUsers**(`socket`: Socket): *[OnlineUsers](onlineusers.md)*
 
-*Defined in [user/online-users.ts:9](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/user/online-users.ts#L9)*
+*Defined in [user/online-users.ts:9](https://github.com/Extream-SaaS/ex-sdk/blob/fa826ae/src/user/online-users.ts#L9)*
 
 **Parameters:**
 
@@ -45,7 +45,7 @@ Name | Type |
 
 • **socket**: *Socket*
 
-*Defined in [user/online-users.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/user/online-users.ts#L8)*
+*Defined in [user/online-users.ts:8](https://github.com/Extream-SaaS/ex-sdk/blob/fa826ae/src/user/online-users.ts#L8)*
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 • **subscriptionManager**: *[SubscriptionManager](subscriptionmanager.md)*
 
-*Defined in [user/online-users.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/user/online-users.ts#L7)*
+*Defined in [user/online-users.ts:7](https://github.com/Extream-SaaS/ex-sdk/blob/fa826ae/src/user/online-users.ts#L7)*
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 • **users**: *[ExtreamUser](../interfaces/extreamuser.md)[]* = []
 
-*Defined in [user/online-users.ts:9](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/user/online-users.ts#L9)*
+*Defined in [user/online-users.ts:9](https://github.com/Extream-SaaS/ex-sdk/blob/fa826ae/src/user/online-users.ts#L9)*
 
 ## Methods
 
@@ -69,7 +69,7 @@ ___
 
 ▸ **destroy**(): *void*
 
-*Defined in [user/online-users.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/user/online-users.ts#L16)*
+*Defined in [user/online-users.ts:16](https://github.com/Extream-SaaS/ex-sdk/blob/fa826ae/src/user/online-users.ts#L16)*
 
 **Returns:** *void*
 
@@ -79,7 +79,7 @@ ___
 
 ▸ **get**(`request`: any): *Promise‹void›*
 
-*Defined in [user/online-users.ts:20](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/user/online-users.ts#L20)*
+*Defined in [user/online-users.ts:20](https://github.com/Extream-SaaS/ex-sdk/blob/fa826ae/src/user/online-users.ts#L20)*
 
 **Parameters:**
 

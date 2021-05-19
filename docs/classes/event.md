@@ -37,7 +37,7 @@
 
 \+ **new Event**(`socket`: Socket, `id`: string): *[Event](event.md)*
 
-*Defined in [consumer/event.ts:55](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/consumer/event.ts#L55)*
+*Defined in [consumer/event.ts:55](https://github.com/Extream-SaaS/ex-sdk/blob/fa826ae/src/consumer/event.ts#L55)*
 
 **Parameters:**
 
@@ -54,7 +54,7 @@ Name | Type |
 
 • **id**: *string*
 
-*Defined in [consumer/event.ts:54](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/consumer/event.ts#L54)*
+*Defined in [consumer/event.ts:54](https://github.com/Extream-SaaS/ex-sdk/blob/fa826ae/src/consumer/event.ts#L54)*
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 • **itinerary**: *[Itinerary](itinerary.md)[]* = []
 
-*Defined in [consumer/event.ts:53](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/consumer/event.ts#L53)*
+*Defined in [consumer/event.ts:53](https://github.com/Extream-SaaS/ex-sdk/blob/fa826ae/src/consumer/event.ts#L53)*
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 • **notices**: *[Notices](notices.md)*
 
-*Defined in [consumer/event.ts:55](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/consumer/event.ts#L55)*
+*Defined in [consumer/event.ts:55](https://github.com/Extream-SaaS/ex-sdk/blob/fa826ae/src/consumer/event.ts#L55)*
 
 ___
 
@@ -78,7 +78,7 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [consumer/event.ts:50](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/consumer/event.ts#L50)*
+*Defined in [consumer/event.ts:50](https://github.com/Extream-SaaS/ex-sdk/blob/fa826ae/src/consumer/event.ts#L50)*
 
 ## Accessors
 
@@ -86,7 +86,7 @@ ___
 
 • **get itineraryTree**(): *[Itinerary](itinerary.md)[]*
 
-*Defined in [consumer/event.ts:64](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/consumer/event.ts#L64)*
+*Defined in [consumer/event.ts:64](https://github.com/Extream-SaaS/ex-sdk/blob/fa826ae/src/consumer/event.ts#L64)*
 
 **Returns:** *[Itinerary](itinerary.md)[]*
 
@@ -96,7 +96,7 @@ ___
 
 ▸ **destroy**(): *void*
 
-*Defined in [consumer/event.ts:126](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/consumer/event.ts#L126)*
+*Defined in [consumer/event.ts:126](https://github.com/Extream-SaaS/ex-sdk/blob/fa826ae/src/consumer/event.ts#L126)*
 
 Cleans up all listeners for this class. Call this when you no longer need access to this events information to ensure memory leaks are not caused.
 
@@ -108,7 +108,7 @@ ___
 
 ▸ **getItineraryInformation**(`payload`: [ItineraryPayload](../interfaces/itinerarypayload.md)[]): *Promise‹void›*
 
-*Defined in [consumer/event.ts:89](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/consumer/event.ts#L89)*
+*Defined in [consumer/event.ts:89](https://github.com/Extream-SaaS/ex-sdk/blob/fa826ae/src/consumer/event.ts#L89)*
 
 Creates an instance of the itinerary class based off of the payload information passed in.
 
@@ -126,7 +126,7 @@ ___
 
 ▸ **getItineraryItems**(): *Promise‹void›*
 
-*Defined in [consumer/event.ts:102](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/consumer/event.ts#L102)*
+*Defined in [consumer/event.ts:102](https://github.com/Extream-SaaS/ex-sdk/blob/fa826ae/src/consumer/event.ts#L102)*
 
 Get all of the itinerary items for a specific event. After awaiting this method all the itinerary items are in the itineraries property of this class
 
@@ -138,7 +138,7 @@ ___
 
 ▸ **getNotices**(): *Promise‹void›*
 
-*Defined in [consumer/event.ts:79](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/consumer/event.ts#L79)*
+*Defined in [consumer/event.ts:79](https://github.com/Extream-SaaS/ex-sdk/blob/fa826ae/src/consumer/event.ts#L79)*
 
 Get all of the unread notices for this event
 
@@ -150,7 +150,7 @@ ___
 
 ▸ **getChildren**(`items`: [Itinerary](itinerary.md)[], `parentId`: string | null): *[Itinerary](itinerary.md)[]*
 
-*Defined in [consumer/event.ts:68](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/consumer/event.ts#L68)*
+*Defined in [consumer/event.ts:68](https://github.com/Extream-SaaS/ex-sdk/blob/fa826ae/src/consumer/event.ts#L68)*
 
 **Parameters:**
 

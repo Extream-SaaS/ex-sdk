@@ -28,7 +28,7 @@
 
 *Implementation of [IPersistence](../interfaces/ipersistence.md)*
 
-*Defined in [user/persistence.ts:49](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/user/persistence.ts#L49)*
+*Defined in [user/persistence.ts:49](https://github.com/Extream-SaaS/ex-sdk/blob/fa826ae/src/user/persistence.ts#L49)*
 
 **Returns:** *void*
 
@@ -38,7 +38,7 @@ ___
 
 ▸ **getCookie**(`name`: string): *undefined | string*
 
-*Defined in [user/persistence.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/user/persistence.ts#L23)*
+*Defined in [user/persistence.ts:23](https://github.com/Extream-SaaS/ex-sdk/blob/fa826ae/src/user/persistence.ts#L23)*
 
 **Parameters:**
 
@@ -56,7 +56,7 @@ ___
 
 *Implementation of [IPersistence](../interfaces/ipersistence.md)*
 
-*Defined in [user/persistence.ts:43](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/user/persistence.ts#L43)*
+*Defined in [user/persistence.ts:43](https://github.com/Extream-SaaS/ex-sdk/blob/fa826ae/src/user/persistence.ts#L43)*
 
 **Returns:** *[string | undefined, string | undefined]*
 
@@ -66,7 +66,7 @@ ___
 
 ▸ **setCookie**(`name`: string, `value`: string, `expiry`: string): *void*
 
-*Defined in [user/persistence.ts:18](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/user/persistence.ts#L18)*
+*Defined in [user/persistence.ts:18](https://github.com/Extream-SaaS/ex-sdk/blob/fa826ae/src/user/persistence.ts#L18)*
 
 **Parameters:**
 
@@ -86,7 +86,7 @@ ___
 
 *Implementation of [IPersistence](../interfaces/ipersistence.md)*
 
-*Defined in [user/persistence.ts:38](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/user/persistence.ts#L38)*
+*Defined in [user/persistence.ts:38](https://github.com/Extream-SaaS/ex-sdk/blob/fa826ae/src/user/persistence.ts#L38)*
 
 **Parameters:**
 

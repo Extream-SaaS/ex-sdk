@@ -22,7 +22,7 @@
 
 ▸ **get**(`type`: [PersistenceType](../enums/persistencetype.md)): *[IPersistence](../interfaces/ipersistence.md) | null*
 
-*Defined in [user/persistence.ts:63](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/user/persistence.ts#L63)*
+*Defined in [user/persistence.ts:63](https://github.com/Extream-SaaS/ex-sdk/blob/fa826ae/src/user/persistence.ts#L63)*
 
 **Parameters:**
 
@@ -38,16 +38,16 @@ Name | Type |
 
 ### ▪ **registry**: *object*
 
-*Defined in [user/persistence.ts:58](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/user/persistence.ts#L58)*
+*Defined in [user/persistence.ts:58](https://github.com/Extream-SaaS/ex-sdk/blob/fa826ae/src/user/persistence.ts#L58)*
 
 ###  [PersistenceType.Cookie]
 
 • **[PersistenceType.Cookie]**: *[CookiePersistence](cookiepersistence.md)‹›* = new CookiePersistence()
 
-*Defined in [user/persistence.ts:60](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/user/persistence.ts#L60)*
+*Defined in [user/persistence.ts:60](https://github.com/Extream-SaaS/ex-sdk/blob/fa826ae/src/user/persistence.ts#L60)*
 
 ###  [PersistenceType.None]
 
 • **[PersistenceType.None]**: *null* = null
 
-*Defined in [user/persistence.ts:59](https://github.com/Extream-SaaS/ex-sdk/blob/936e0b7/src/user/persistence.ts#L59)*
+*Defined in [user/persistence.ts:59](https://github.com/Extream-SaaS/ex-sdk/blob/fa826ae/src/user/persistence.ts#L59)*
